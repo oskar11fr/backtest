@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from backtest_engine.utils import BacktestEngine
+from engine.utils import BacktestEngine
 
 def f(x):
     return x/np.sqrt(1+x**2)
