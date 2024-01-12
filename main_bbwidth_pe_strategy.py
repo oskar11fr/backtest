@@ -3,7 +3,7 @@ import numpy as np
 
 from pprint import pprint
 from datetime import datetime
-from backtest_engine.utils import save_pickle,load_pickle
+from engine.utils import save_pickle,load_pickle
 
 import asyncio
 import warnings
@@ -11,8 +11,8 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
 def get_from_db(countries,fx_map,start,end):
-    from backtest_engine.database.borsdata.borsdata_price_database_script import priceDataBase
-    from backtest_engine.database.borsdata.borsdata_kpi_database_script import kpiDataBase
+    from engine.database.borsdata.borsdata_price_database_script import priceDataBase
+    from engine.database.borsdata.borsdata_kpi_database_script import kpiDataBase
 
     from backtest_engine.utils import merge_kpi_price,concat_kpi_price
     
@@ -72,7 +72,7 @@ start = '2013-01-01'
 end = '2023-12-01'
 
 tickers, dfs = get_ticker_dfs(countries=countries,fx_map=fx_map,start=start,end=end)
-from backtest_engine.strategies.bbwidth_strat import BBwidthStrat
+from engine.strategies.bbwidth_strat import BBwidthStrat
 
 async def main():
     period_start = datetime(2013,1,1)
