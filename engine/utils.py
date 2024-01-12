@@ -13,7 +13,7 @@ import asyncio
 from functools import wraps
 from collections import defaultdict
 
-import backtest_engine.quant_stats as quant_stats
+import engine.quant_stats as quant_stats
 import matplotlib.pyplot as plt
 plt.style.use("seaborn-dark-palette")
 
