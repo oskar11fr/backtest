@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from backtest_engine.utils import BacktestEngine
+from engine.utils import BacktestEngine
 
 class BBwidthStrat(BacktestEngine):
 
