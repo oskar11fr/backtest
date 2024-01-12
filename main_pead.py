@@ -1,6 +1,6 @@
-from backtest_engine.database.borsdata.borsdata_api import BorsdataAPI
-from backtest_engine.database.borsdata.constants import API_KEY
-from backtest_engine.utils import load_pickle,save_pickle
+from engine.database.borsdata.borsdata_api import BorsdataAPI
+from engine.database.borsdata.constants import API_KEY
+from engine.utils import load_pickle,save_pickle
 
 
 import pandas as pd
