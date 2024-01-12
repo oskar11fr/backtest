@@ -3,15 +3,15 @@ import numpy as np
 
 from pprint import pprint
 from datetime import datetime
-from backtest_engine.utils import save_pickle
+from engine.utils import save_pickle
 
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning) 
 
 
 def get_from_db(countries,fx_map,start,end):
-    from backtest_engine.database.borsdata.borsdata_price_database_script import priceDataBase
-    from backtest_engine.database.borsdata.borsdata_kpi_database_script import kpiDataBase
+    from engine.database.borsdata.borsdata_price_database_script import priceDataBase
+    from engine.database.borsdata.borsdata_kpi_database_script import kpiDataBase
 
     from backtest_engine.utils import merge_kpi_price,concat_kpi_price
     
@@ -51,7 +51,7 @@ def get_from_db(countries,fx_map,start,end):
         
                                                    
 def get_ticker_dfs(countries,fx_map,start,end):
-    from backtest_engine.utils import load_pickle,save_pickle
+    from engine.utils import load_pickle,save_pickle
     try:
         tickers, dfs = load_pickle("/Users/oskarfransson/vs_code/trading/backtest_engine/strategies/dataset_syst_yield.obj")
     except Exception as err:
@@ -73,7 +73,7 @@ start = '2010-01-01'
 end = '2023-12-01'
 
 tickers, dfs = get_ticker_dfs(countries=countries,fx_map=fx_map,start=start,end=end)
-from backtest_engine.strategies.systematic_yield_strategy import SystYieldAlpha
+from engine.strategies.systematic_yield_strategy import SystYieldAlpha
 
 period_start = datetime(2010,1,1)
 period_end = datetime(2023,12,1)
