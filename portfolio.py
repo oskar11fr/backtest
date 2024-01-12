@@ -1,5 +1,5 @@
-from backtest_engine.utils import load_pickle
-from backtest_engine.performance import performance_measures
+from engine.utils import load_pickle
+from engine.performance import performance_measures
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
