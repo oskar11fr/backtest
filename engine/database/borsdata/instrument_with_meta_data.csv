@@ -1,0 +1,1890 @@
+,name,ins_id,ticker,isin,instrument_type,market,country,sector,branch
+0,AAK,2,AAK,SE0011337708,Aktie,Large Cap,Sverige,Dagligvaror,Livsmedel
+1,ABB,3,ABB,CH0012221716,Aktie,Large Cap,Sverige,Industri,Industrimaskiner
+2,Active Biotech,6,ACTI,SE0001137985,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+3,Addnode,7,ANOD B,SE0017885767,Aktie,Large Cap,Sverige,Informationsteknik,IT-Konsulter
+4,Addtech,8,ADDT B,SE0014781795,Aktie,Large Cap,Sverige,Industri,Industrikomponenter
+5,Alfa Laval,10,ALFA,SE0000695876,Aktie,Large Cap,Sverige,Industri,Industrikomponenter
+6,Anoto,13,ANOT,SE0010415281,Aktie,Small Cap,Sverige,Informationsteknik,Elektronisk Utrustning
+7,Arise Windpower,14,ARISE,SE0002095604,Aktie,Mid Cap,Sverige,Kraftförsörjning,Vindkraft
+8,Assa Abloy,17,ASSA B,SE0007100581,Aktie,Large Cap,Sverige,Industri,Byggmaterial
+9,AstraZeneca,18,AZN,GB0009895292,Aktie,Large Cap,Sverige,Hälsovård,Läkemedel
+10,Atlas Copco A,19,ATCO A,SE0017486889,Aktie,Large Cap,Sverige,Industri,Industrimaskiner
+11,Atrium Ljungberg,20,ATRLJ B,SE0000191827,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+12,Autoliv,21,ALIV SDB,SE0000382335,Aktie,Large Cap,Sverige,Sällanköpsvaror,Bil & Motor
+13,Avanza Bank,22,AZA,SE0012454072,Aktie,Large Cap,Sverige,Finans & Fastighet,Nischbanker
+14,Axfood,24,AXFO,SE0006993770,Aktie,Large Cap,Sverige,Dagligvaror,Livsmedelsbutiker
+15,Bergman & Beving,26,BERG B,SE0000101362,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+16,BE Group,27,BEGR,SE0008321921,Aktie,Small Cap,Sverige,Industri,Industrikomponenter
+17,Beijer Ref,28,BEIJ B,SE0015949748,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+18,Beijer Alma,29,BEIA B,SE0011090547,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+19,Ependion,30,EPEN,SE0000671711,Aktie,Mid Cap,Sverige,Informationsteknik,Datorer & Hårdvara
+20,Betsson,32,BETS B,SE0020845014,Aktie,Large Cap,Sverige,Sällanköpsvaror,Betting & Casino
+21,Bilia,33,BILI A,SE0009921588,Aktie,Large Cap,Sverige,Sällanköpsvaror,Bil & Motor
+22,Billerud,34,BILL,SE0000862997,Aktie,Large Cap,Sverige,Material,Skogsbolag
+23,BioGaia,35,BIOG B,SE0017769995,Aktie,Mid Cap,Sverige,Dagligvaror,Hälsoprodukter
+24,Bioinvent,36,BINV,SE0015244520,Aktie,Mid Cap,Sverige,Hälsovård,Biotech
+25,Biotage,37,BIOT,SE0000454746,Aktie,Large Cap,Sverige,Hälsovård,Medicinsk Utrustning
+26,Björn Borg,38,BORG,SE0020050805,Aktie,Small Cap,Sverige,Sällanköpsvaror,Kläder & Skor
+27,Boliden,40,BOL,SE0020050417,Aktie,Large Cap,Sverige,Material,Gruv - Industrimetaller
+28,Bong Ljungdahl,41,BONG,SE0000396061,Aktie,Small Cap,Sverige,Material,Förpackning
+29,Brinova Fastigheter,42,BRIN B,SE0008347652,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+30,BTS Group,43,BTS B,SE0000805426,Aktie,Mid Cap,Sverige,Industri,Affärskonsulter
+31,Bure Equity,44,BURE,SE0000195810,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+32,Byggmax,45,BMAX,SE0003303627,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Detaljhandel
+33,Castellum,46,CAST,SE0000379190,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+34,Catena,47,CATE,SE0001664707,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+35,Nelly Group,48,NELLY,SE0015245535,Aktie,Small Cap,Sverige,Sällanköpsvaror,Kläder & Skor
+36,CellaVision,49,CEVI,SE0000683484,Aktie,Mid Cap,Sverige,Hälsovård,Medicinsk Utrustning
+37,Clas Ohlson,51,CLAS B,SE0000584948,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Detaljhandel
+38,Cloetta,52,CLA B,SE0002626861,Aktie,Mid Cap,Sverige,Dagligvaror,Livsmedel
+39,Concordia Maritime,54,CCOR B,SE0000102824,Aktie,Small Cap,Sverige,Energi,Olja & Gas - Transport
+40,Concejo B,56,CNCJO B,SE0000236382,Aktie,Small Cap,Sverige,Informationsteknik,Säkerhet & Bevakning
+41,Corem Property A,57,CORE A,SE0010714279,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+42,CTT Systems,58,CTT,SE0000418923,Aktie,Mid Cap,Sverige,Industri,Installation & VVS
+43,Diamyd Medical,62,DMYD B,SE0005162880,Aktie,First North,Sverige,Hälsovård,Biotech
+44,Diös Fastigheter,63,DIOS,SE0001634262,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+45,Doro,64,DORO,SE0000215493,Aktie,Small Cap,Sverige,Sällanköpsvaror,Hemelektronik
+46,Duni,65,DUNI,SE0000616716,Aktie,Mid Cap,Sverige,Dagligvaror,Hygienprodukter
+47,Duroc,66,DURC B,SE0000331266,Aktie,Small Cap,Sverige,Industri,Industrikomponenter
+48,Eastnine,67,EAST,SE0002158568,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+49,Elanders,68,ELAN B,SE0000119299,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Media & Publicering
+50,Elon,69,ELON,SE0001572520,Aktie,Small Cap,Sverige,Sällanköpsvaror,Hemelektronik
+51,Electrolux B,70,ELUX B,SE0016589188,Aktie,Large Cap,Sverige,Sällanköpsvaror,Hemelektronik
+52,Elekta,71,EKTA B,SE0000163628,Aktie,Large Cap,Sverige,Hälsovård,Medicinsk Utrustning
+53,Enea,73,ENEA,SE0009697220,Aktie,Mid Cap,Sverige,Informationsteknik,IT-Konsulter
+54,Eniro,74,ENRO,SE0011256312,Aktie,Small Cap,Sverige,Sällanköpsvaror,Marknadsföring
+55,Ericsson B,77,ERIC B,SE0000108656,Aktie,Large Cap,Sverige,Informationsteknik,Kommunikation
+56,eWork,79,EWRK,SE0002402701,Aktie,Mid Cap,Sverige,Informationsteknik,IT-Konsulter
+57,Fabege,80,FABG,SE0011166974,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+58,Fagerhult,81,FAG,SE0010048884,Aktie,Mid Cap,Sverige,Industri,Bygginredning
+59,Fastpartner A,82,FPAR A,SE0013512506,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+60,Fast Balder,83,BALD B,SE0017832488,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+61,Fenix Outdoor,85,FOI B,CH0242214887,Aktie,Large Cap,Sverige,Sällanköpsvaror,Kläder & Skor
+62,Fingerprint Cards,86,FING B,SE0008374250,Aktie,Small Cap,Sverige,Informationsteknik,Biometri
+63,Formpipe Software,87,FPIP,SE0001338039,Aktie,Small Cap,Sverige,Informationsteknik,Affärs- & IT-System
+64,Getinge,88,GETI B,SE0000202624,Aktie,Large Cap,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+65,Havsfrun Investment,94,HAV B,SE0000312043,Aktie,Small Cap,Sverige,Finans & Fastighet,Investmentbolag
+66,Heba,95,HEBA B,SE0017911480,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+67,Hennes & Mauritz,97,HM B,SE0000106270,Aktie,Large Cap,Sverige,Sällanköpsvaror,Kläder & Skor
+68,Hexagon,98,HEXA B,SE0015961909,Aktie,Large Cap,Sverige,Industri,Mätning & Analys
+69,Hexpol,99,HPOL B,SE0007074281,Aktie,Large Cap,Sverige,Material,Kemikalier
+70,HMS Networks,101,HMS,SE0009997018,Aktie,Large Cap,Sverige,Informationsteknik,Kommunikation
+71,Holmen B,102,HOLM B,SE0011090018,Aktie,Large Cap,Sverige,Material,Skogsbolag
+72,Hufvudstaden A,103,HUFV A,SE0000170375,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+73,Husqvarna B,104,HUSQ B,SE0001662230,Aktie,Large Cap,Sverige,Sällanköpsvaror,Hemelektronik
+74,I.A.R Systems,106,IAR B,SE0005851706,Aktie,Mid Cap,Sverige,Informationsteknik,Affärs- & IT-System
+75,Image Systems,108,IS,SE0006421871,Aktie,Small Cap,Sverige,Informationsteknik,Affärs- & IT-System
+76,Industrivärden C,109,INDU C,SE0000107203,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+77,Indutrade,110,INDT,SE0001515552,Aktie,Large Cap,Sverige,Industri,Industrikomponenter
+78,Rolling Optics,111,RO,SE0010520155,Aktie,First North,Sverige,Industri,Affärskonsulter
+79,Intrum,112,INTRUM,SE0000936478,Aktie,Large Cap,Sverige,Finans & Fastighet,Kredit & Finansiering
+80,Investor B,113,INVE B,SE0015811963,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+81,ITAB Shop Concept,114,ITAB,SE0015962097,Aktie,Mid Cap,Sverige,Industri,Bygginredning
+82,JM,116,JM,SE0000806994,Aktie,Large Cap,Sverige,Industri,Bostadsbyggnation
+83,Kabe,117,KABE B,SE0000107724,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Bil & Motor
+84,Kinnevik B,120,KINV B,SE0015810247,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+85,KnowIT,122,KNOW,SE0000421273,Aktie,Mid Cap,Sverige,Informationsteknik,IT-Konsulter
+86,Lagercrantz,124,LAGR B,SE0014990966,Aktie,Large Cap,Sverige,Industri,Elektroniska komponenter
+87,Lammhults Design,125,LAMM B,SE0000386138,Aktie,Small Cap,Sverige,Industri,Bygginredning
+88,Latour,126,LATO B,SE0010100958,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+89,Lindab,127,LIAB,SE0001852419,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+90,Loomis,129,LOOMIS,SE0014504817,Aktie,Large Cap,Sverige,Industri,Säkerhet
+91,Lundbergföretagen,130,LUND B,SE0000108847,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+92,Lundin Mining,131,LUMI,CA5503721063,Aktie,Large Cap,Sverige,Material,Gruv - Prospekt & Drift
+93,Orrön Energy,132,ORRON,SE0000825820,Aktie,Mid Cap,Sverige,Kraftförsörjning,Förnybarenergi
+94,Malmbergs Elektriska,134,MEAB B,SE0000507659,Aktie,Small Cap,Sverige,Industri,Elektroniska komponenter
+95,Medivir,136,MVIR,SE0020181014,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+96,MEKO,137,MEKO,SE0002110064,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Bil & Motor
+97,Mycronic,140,MYCR,SE0000375115,Aktie,Large Cap,Sverige,Informationsteknik,Elektronik & Tillverkning
+98,Midsona B,141,MSON B,SE0000565228,Aktie,Small Cap,Sverige,Dagligvaror,Hälsoprodukter
+99,HAKI Safety B,142,HAKI B,SE0000122673,Aktie,Small Cap,Sverige,Finans & Fastighet,Investmentbolag
+100,Millicom,143,TIGO SDB,SE0001174970,Aktie,Large Cap,Sverige,Telekommunikation,Bredband & Telefoni
+101,Stockwik Förvaltning,144,STWK,SE0012257970,Aktie,Small Cap,Sverige,Finans & Fastighet,Investmentbolag
+102,mySafety,147,SAFETY B,SE0010769182,Aktie,Small Cap,Sverige,Informationsteknik,IT-Konsulter
+103,Modern Times Group B,148,MTG B,SE0018012494,Aktie,Large Cap,Sverige,Sällanköpsvaror,Media & Publicering
+104,NAXS,150,NAXS,SE0001965369,Aktie,Small Cap,Sverige,Finans & Fastighet,Investmentbolag
+105,NCC B,151,NCC B,SE0000117970,Aktie,Large Cap,Sverige,Industri,Byggnation & Infrastruktur
+106,Nederman,152,NMAN,SE0011204510,Aktie,Mid Cap,Sverige,Industri,Installation & VVS
+107,Net Insight,154,NETI B,SE0000366098,Aktie,Mid Cap,Sverige,Informationsteknik,Kommunikation
+108,New Wave,155,NEWA B,SE0020356970,Aktie,Large Cap,Sverige,Sällanköpsvaror,Kläder & Skor
+109,NIBE Industrier,156,NIBE B,SE0015988019,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+110,Nobia,157,NOBI,SE0000949331,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Möbler & Inredning
+111,Nolato,158,NOLA B,SE0015962477,Aktie,Large Cap,Sverige,Material,Kemikalier
+112,Nordea Bank,159,NDA SE,FI4000297767,Aktie,Large Cap,Sverige,Finans & Fastighet,Banker
+113,Nordnet,161,SAVE,SE0015192067,Aktie,Large Cap,Sverige,Finans & Fastighet,Nischbanker
+114,NOTE,162,NOTE,SE0001161654,Aktie,Mid Cap,Sverige,Informationsteknik,Elektronik & Tillverkning
+115,Strax,163,STRAX,SE0012040459,Aktie,Small Cap,Sverige,Sällanköpsvaror,Fritid & Sport
+116,Novotek,164,NTEK B,SE0000567752,Aktie,Small Cap,Sverige,Informationsteknik,Affärs- & IT-System
+117,Vivesto,166,VIVE,SE0000722365,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+118,Logistea A,167,LOGI A,SE0017131329,Stocks2,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+119,OEM International,168,OEM B,SE0017766843,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+120,Orexo,170,ORX,SE0000736415,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+121,Ortivus B,172,ORTI B,SE0000123085,Aktie,Small Cap,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+122,Peab,175,PEAB B,SE0000106205,Aktie,Large Cap,Sverige,Industri,Byggnation & Infrastruktur
+123,PION Group,177,PION B,SE0000567539,Aktie,Small Cap,Sverige,Industri,Bemanning
+124,Precise Biometrics,178,PREC,SE0018013849,Aktie,Small Cap,Sverige,Informationsteknik,Biometri
+125,Prevas,179,PREV B,SE0000356008,Aktie,Small Cap,Sverige,Informationsteknik,IT-Konsulter
+126,Pricer,180,PRIC B,SE0000233934,Aktie,Mid Cap,Sverige,Informationsteknik,Elektronisk Utrustning
+127,Proact IT,181,PACT,SE0015961222,Aktie,Mid Cap,Sverige,Informationsteknik,IT-Konsulter
+128,Probi,182,PROB,SE0001280355,Aktie,Mid Cap,Sverige,Dagligvaror,Livsmedel
+129,ProfilGruppen,184,PROF B,SE0000393860,Aktie,Small Cap,Sverige,Industri,Industrikomponenter
+130,Ratos B,185,RATO B,SE0000111940,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+131,RaySearch Laboratories,186,RAY B,SE0000135485,Aktie,Mid Cap,Sverige,Hälsovård,Medicinsk Utrustning
+132,Rejlers,188,REJL B,SE0000123671,Aktie,Mid Cap,Sverige,Industri,Affärskonsulter
+133,Coala-life,189,COALA,SE0017083983,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+134,Rottneros,191,RROS,SE0000112252,Aktie,Mid Cap,Sverige,Material,Skogsbolag
+135,Saab,193,SAAB B,SE0000112385,Aktie,Large Cap,Sverige,Industri,Militär & Försvar
+136,Sagax A,194,SAGA A,SE0004635878,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+137,Sandvik,195,SAND,SE0000667891,Aktie,Large Cap,Sverige,Industri,Industrimaskiner
+138,SAS,196,SAS,SE0003366871,Aktie,Small Cap,Sverige,Industri,Flygtransport
+139,SCA B,197,SCA B,SE0000112724,Aktie,Large Cap,Sverige,Material,Skogsbolag
+140,SEB A,199,SEB A,SE0000148884,Aktie,Large Cap,Sverige,Finans & Fastighet,Banker
+141,Sectra,200,SECT B,SE0020539310,Aktie,Large Cap,Sverige,Hälsovård,Medicinsk Utrustning
+142,Securitas,201,SECU B,SE0000163594,Aktie,Large Cap,Sverige,Industri,Säkerhet
+143,Sensys Gatso,203,SGG,SE0020356244,Aktie,Small Cap,Sverige,Informationsteknik,Säkerhet & Bevakning
+144,Handelsbanken A,204,SHB A,SE0007100599,Aktie,Large Cap,Sverige,Finans & Fastighet,Banker
+145,SinterCast,206,SINT,SE0000950982,Aktie,Small Cap,Sverige,Industri,Industrikomponenter
+146,Skanska,207,SKA B,SE0000113250,Aktie,Large Cap,Sverige,Industri,Byggnation & Infrastruktur
+147,SKF B,208,SKF B,SE0000108227,Aktie,Large Cap,Sverige,Industri,Industrikomponenter
+148,SkiStar,209,SKIS B,SE0012141687,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Resor & Nöjen
+149,Softronic,210,SOF B,SE0000323305,Aktie,Small Cap,Sverige,Informationsteknik,IT-Konsulter
+150,SSAB A,211,SSAB A,SE0000171100,Stocks2,Large Cap,Sverige,Material,Gruv - Industrimetaller
+151,Stora Enso R,212,STE R,FI0009007611,Aktie,Large Cap,Sverige,Material,Skogsbolag
+152,Studsvik,213,SVIK,SE0000653230,Aktie,Small Cap,Sverige,Industri,Energi & Återvinning
+153,Svedbergs,214,SVED B,SE0000407991,Aktie,Small Cap,Sverige,Sällanköpsvaror,Möbler & Inredning
+154,Svolder B,215,SVOL B,SE0017161458,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+155,Sweco B,216,SWEC B,SE0014960373,Aktie,Large Cap,Sverige,Industri,Affärskonsulter
+156,Swedbank,217,SWED A,SE0000242455,Aktie,Large Cap,Sverige,Finans & Fastighet,Banker
+157,Swedish Orphan Biovitrum,219,SOBI,SE0000872095,Aktie,Large Cap,Sverige,Hälsovård,Läkemedel
+158,Systemair,221,SYSR,SE0016609499,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+159,Tele2 B,222,TEL2 B,SE0005190238,Aktie,Large Cap,Sverige,Telekommunikation,Bredband & Telefoni
+160,Telia Company,223,TELIA,SE0000667925,Aktie,Large Cap,Sverige,Telekommunikation,Bredband & Telefoni
+161,TietoEVRY,224,TIETOS,FI0009000277,Aktie,Large Cap,Sverige,Informationsteknik,IT-Konsulter
+162,Traction,225,TRAC B,SE0000391716,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+163,TradeDoubler,226,TRAD,SE0001552357,Aktie,Small Cap,Sverige,Sällanköpsvaror,Marknadsföring
+164,Viking Supply,227,VSSAB B,SE0010820613,Aktie,First North,Sverige,Industri,Sjöfart & Rederi
+165,Trelleborg,229,TREL B,SE0000114837,Aktie,Large Cap,Sverige,Material,Kemikalier
+166,Kindred,231,KIND SDB,SE0007871645,Aktie,Large Cap,Sverige,Sällanköpsvaror,Betting & Casino
+167,VBG Group,233,VBG B,SE0000115107,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+168,Rizzo Group,234,RIZZO B,SE0016276109,Aktie,Small Cap,Sverige,Sällanköpsvaror,Accessoarer
+169,Vitrolife,235,VITR,SE0011205202,Aktie,Large Cap,Sverige,Hälsovård,Medicinsk Utrustning
+170,Volvo B,236,VOLV B,SE0000115446,Aktie,Large Cap,Sverige,Industri,Industrimaskiner
+171,VNV Global,237,VNV,SE0014428835,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+172,Wallenstam,238,WALL B,SE0017780133,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+173,Wihlborgs Fastigheter,239,WIHL,SE0018012635,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+174,XANO Industri,240,XANO B,SE0018014151,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+175,AFRY,241,AFRY,SE0005999836,Aktie,Large Cap,Sverige,Industri,Affärskonsulter
+176,Öresund,242,ORES,SE0008321608,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+177,Karolinska Development,243,KDEV,SE0002190926,Aktie,Small Cap,Sverige,Finans & Fastighet,Investmentbolag
+178,Boule Diagnostics,244,BOUL,SE0011231158,Aktie,Small Cap,Sverige,Hälsovård,Medicinsk Utrustning
+179,Dedicare,245,DEDI,SE0003909282,Aktie,Small Cap,Sverige,Industri,Bemanning
+180,Moberg Pharma,246,MOB,SE0020353928,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+181,Concentric,247,COIC,SE0003950864,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+182,Cavotec,248,CCC,CH0136071542,Aktie,Mid Cap,Sverige,Industri,Industrimaskiner
+183,Nokia,249,NOKIA SEK,FI0009000681,Aktie,Large Cap,Sverige,Informationsteknik,Kommunikation
+184,Micro Systemation,251,MSAB B,SE0000526626,Aktie,Small Cap,Sverige,Informationsteknik,Elektronisk Utrustning
+185,Vitec Software,252,VIT B,SE0007871363,Aktie,Large Cap,Sverige,Informationsteknik,Affärs- & IT-System
+186,Bulten,254,BULTEN,SE0003849223,Aktie,Small Cap,Sverige,Industri,Industrikomponenter
+187,Moment Group,255,MOMENT,SE0020388932,Aktie,Small Cap,Sverige,Sällanköpsvaror,Resor & Nöjen
+188,ADDvise Group A,257,ADDV A,SE0001306119,Stocks2,First North,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+189,Africa Oil,258,AOI,CA00829Q1019,Aktie,Mid Cap,Sverige,Energi,Olja & Gas - Exploatering
+190,Arctic Minerals,262,ARCT,SE0000697948,Aktie,First North,Sverige,Material,Gruv - Guld & Silver
+191,Avensia,263,AVEN,SE0000671745,Aktie,First North,Sverige,Informationsteknik,Betalning & E-handel
+192,Avtech,264,AVT B,SE0004270445,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+193,Bredband2,268,BRE2,SE0000648669,Aktie,First North,Sverige,Telekommunikation,Bredband & Telefoni
+194,C-RAD,270,CRAD B,SE0002016352,Aktie,Small Cap,Sverige,Hälsovård,Medicinsk Utrustning
+195,Catella B,274,CAT B,SE0000188518,Aktie,Mid Cap,Sverige,Finans & Fastighet,Kapitalförvaltning
+196,Auriant Mining,275,AUR,SE0001337213,Aktie,First North,Sverige,Material,Gruv - Guld & Silver
+197,Nordic LEVEL,277,LEVEL,SE0012313302,Aktie,First North,Sverige,Industri,Säkerhet
+198,Creades,278,CRED A,SE0015661236,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+199,DistIT,282,DIST,SE0003883800,Aktie,First North,Sverige,Informationsteknik,Datorer & Hårdvara
+200,Diadrom,283,DIAH,SE0001606906,Aktie,First North,Sverige,Informationsteknik,IT-Konsulter
+201,Dignitana,285,DIGN,SE0002108001,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+202,Drillcon,287,DRIL,SE0001770702,Aktie,First North,Sverige,Material,Gruv - Service
+203,Ellen,288,ELN,SE0014730347,Aktie,First North,Sverige,Hälsovård,Biotech
+204,Kakel Max,289,KAKEL,SE0009921075,Aktie,First North,Sverige,Industri,Byggmaterial
+205,Eolus Vind,291,EOLU B,SE0007075056,Aktie,Mid Cap,Sverige,Kraftförsörjning,Vindkraft
+206,Episurf Medical,293,EPIS B,SE0003491562,Aktie,Small Cap,Sverige,Hälsovård,Medicinsk Utrustning
+207,Firefly,295,FIRE,SE0000395428,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+208,Arcario,296,ARCA,SE0007614722,Aktie,First North,Sverige,Informationsteknik,Betalning & E-handel
+209,Generic Sweden,297,GENI,SE0001790791,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+210,Genovis,298,GENO,SE0002485979,Aktie,First North,Sverige,Hälsovård,Biotech
+211,Binero Group,299,BINERO,SE0005249570,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+212,Götenehus Group,300,GHUS B,SE0001799636,Aktie,First North,Sverige,Industri,Bostadsbyggnation
+213,Hansa Biopharma,301,HNSA,SE0002148817,Aktie,Mid Cap,Sverige,Hälsovård,Biotech
+214,Stendörren Fastigheter,302,STEF B,SE0006543344,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+215,Hifab,303,HIFA B,SE0000483943,Aktie,First North,Sverige,Industri,Affärskonsulter
+216,Impact Coatings,304,IMPC,SE0001279142,Aktie,First North,Sverige,Industri,Industrimaskiner
+217,Invisio,306,IVSO,SE0001200015,Aktie,Mid Cap,Sverige,Informationsteknik,Kommunikation
+218,Northbaze,308,NBZ,SE0003204908,Aktie,First North,Sverige,Informationsteknik,Elektronisk Utrustning
+219,JLT Mobile,309,JLT,SE0000725624,Aktie,First North,Sverige,Informationsteknik,Datorer & Hårdvara
+220,Kancera,310,KAN,SE0015658570,Aktie,First North,Sverige,Hälsovård,Biotech
+221,Copperstone,312,COPP,SE0021148160,Aktie,Mid Cap,Sverige,Material,Gruv - Prospekt & Drift
+222,Kopy Goldfields,313,KOPY,SE0002245548,Aktie,First North,Sverige,Material,Gruv - Guld & Silver
+223,Lucara Diamond,316,LUC,CA54928Q1081,Aktie,Mid Cap,Sverige,Material,Gruv - Ädelstenar
+224,Mackmyra,317,MACK B,SE0000731747,Aktie,First North,Sverige,Dagligvaror,Bryggeri
+225,MedCap,318,MCAP,SE0009160872,Aktie,Mid Cap,Sverige,Hälsovård,Läkemedel
+226,Misen Energy,321,MISE,SE0001486952,Aktie,First North,Sverige,Energi,Olja & Gas - Exploatering
+227,NetJobs,322,NJOB,SE0001790346,Aktie,First North,Sverige,Industri,Bemanning
+228,New Nordic Healthbrands,323,NNH,SE0001838038,Aktie,First North,Sverige,Dagligvaror,Hälsoprodukter
+229,Nischer,324,NIS,SE0000308298,Aktie,NGM,Sverige,Finans & Fastighet,Fastighetsbolag
+230,Online Brands Nordic,325,OBAB,SE0017133838,Aktie,First North,Sverige,Sällanköpsvaror,Accessoarer
+231,Saxlund,331,SAXG,SE0008966014,Aktie,First North,Sverige,Industri,Energi & Återvinning
+232,Egetis Therapeutics,332,EGTX,SE0003815604,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+233,Precio Fishbone,333,PRCO B,SE0000141137,Aktie,First North,Sverige,Informationsteknik,IT-Konsulter
+234,Precomp Solutions,334,PCOM B,SE0006091724,Aktie,First North,Sverige,Industri,Industrikomponenter
+235,ScandBook,339,SBOK,SE0003175660,Aktie,First North,Sverige,Sällanköpsvaror,Media & Publicering
+236,ShaMaran,342,SNM,CA8193201024,Aktie,First North,Sverige,Energi,Olja & Gas - Exploatering
+237,Ogunsen,343,OGUN B,SE0008406151,Aktie,First North,Sverige,Industri,Bemanning
+238,Skåne-möllan,344,SKMO,SE0017885338,Aktie,First North,Sverige,Dagligvaror,Livsmedel
+239,Stille,347,STIL,SE0000998650,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+240,TagMaster,348,TAGM B,SE0015950399,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+241,Tethys Oil,349,TETY,SE0020180917,Aktie,Mid Cap,Sverige,Energi,Olja & Gas - Exploatering
+242,Unlimited Travel Group,352,UTG,SE0001834821,Aktie,First North,Sverige,Sällanköpsvaror,Resor & Nöjen
+243,Nordic Flanges,354,NFGAB,SE0001994658,Aktie,First North,Sverige,Industri,Industrikomponenter
+244,Vestum,355,VESTUM,SE0017134125,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+245,Westpay,356,WPAY,SE0002169292,Aktie,First North,Sverige,Informationsteknik,Betalning & E-handel
+246,Wise Group,357,WISE,SE0007277876,Aktie,Small Cap,Sverige,Industri,Bemanning
+247,ALM Equity,364,ALM,SE0018741985,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+248,Mangold,365,MANG,SE0001449380,Aktie,Mid Cap,Sverige,Finans & Fastighet,Kapitalförvaltning
+249,Platzer Fastigheter,366,PLAZ B,SE0004977692,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+250,aXichem,369,AXIC A,SE0005250719,Aktie,First North,Sverige,Material,Kemikalier
+251,Nexam Chemical,371,NEXAM,SE0005101003,Aktie,First North,Sverige,Material,Kemikalier
+252,Xvivo Perfusion,372,XVIVO,SE0004840718,Aktie,Mid Cap,Sverige,Hälsovård,Medicinsk Utrustning
+253,Bufab,375,BUFAB,SE0005677135,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+254,Bactiguard,377,BACTI B,SE0005878741,Aktie,Mid Cap,Sverige,Hälsovård,Medicinsk Utrustning
+255,Scandi Standard,380,SCST,SE0005999760,Aktie,Mid Cap,Sverige,Dagligvaror,Livsmedel
+256,Arctic Paper,381,ARP,PLARTPR00012,Aktie,Mid Cap,Sverige,Material,Skogsbolag
+257,Besqab,382,BESQ,SE0005991411,Aktie,Small Cap,Sverige,Industri,Bostadsbyggnation
+258,G5 Entertainment,383,G5EN,SE0001824004,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Gaming & Spel
+259,Abliva,384,ABLI,SE0002575340,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+260,Oscar Properties,385,OP,SE0016278303,Aktie,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+261,Starbreeze B,386,STAR B,SE0005992831,Aktie,Small Cap,Sverige,Sällanköpsvaror,Gaming & Spel
+262,Cell Impact,387,CI,SE0017885379,Aktie,First North,Sverige,Industri,Industrimaskiner
+263,BIMobject,389,BIM,SE0011644376,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+264,Mendus,391,IMMU,SE0005003654,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+265,Polyplank,392,POLY,SE0005569290,Aktie,First North,Sverige,Industri,Energi & Återvinning
+266,Fastator,393,FASTAT,SE0015407382,Aktie,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+267,Ages Industri,395,AGES B,SE0005799046,Aktie,First North,Sverige,Industri,Industrikomponenter
+268,Clavister,397,CLAV,SE0005308558,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+269,Cortus Energy,398,CE,SE0001296542,Aktie,First North,Sverige,Kraftförsörjning,Bioenergi
+270,Reato Group,400,REATO,SE0011415710,Aktie,First North,Sverige,Energi,Olja & Gas - Exploatering
+271,Doxa,401,DOXA,SE0005624756,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+272,Hanza,403,HANZA,SE0005878543,Aktie,Mid Cap,Sverige,Industri,Affärskonsulter
+273,Heliospectra,404,HELIO,SE0005933082,Aktie,First North,Sverige,Informationsteknik,Elektronisk Utrustning
+274,Hexatronic,405,HTRO,SE0018040677,Aktie,Mid Cap,Sverige,Industri,Elektroniska komponenter
+275,Kallebäck Property,407,KAPIAB,SE0005704079,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+276,Kambi,408,KAMBI,MT0000780107,Aktie,First North,Sverige,Sällanköpsvaror,Betting & Casino
+277,Kentima,409,KENH,SE0005100757,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+278,Mavshack,411,MAV,SE0020998854,Aktie,First North,Sverige,Sällanköpsvaror,Media & Publicering
+279,Irisity,412,IRIS,SE0005365681,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+280,NanoCap,414,NANOC B,SE0004020931,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+281,Nicoccino,415,NICO,SE0005506185,Aktie,First North,Sverige,Dagligvaror,Tobak
+282,Clemondo,416,CLEM,SE0005504669,Aktie,First North,Sverige,Material,Kemikalier
+283,ScandiDos,418,SDOS,SE0005768124,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+284,Scandinavian Enviro,419,SES,SE0005877560,Aktie,First North,Sverige,Industri,Energi & Återvinning
+285,Advenica,420,ADVE,SE0006219473,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+286,Speqta,421,SPEQT,SE0017937279,Aktie,First North,Sverige,Informationsteknik,Internettjänster
+287,LIDDS,422,LIDDS,SE0001958612,Aktie,First North,Sverige,Hälsovård,Biotech
+288,Inwido,424,INWI,SE0006220018,Aktie,Mid Cap,Sverige,Industri,Byggmaterial
+289,Gränges,426,GRNG,SE0006288015,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+290,Safeture,427,SFTR,SE0006117297,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+291,Thule,428,THULE,SE0006422390,Aktie,Large Cap,Sverige,Sällanköpsvaror,Bil & Motor
+292,Sprint Bioscience,429,SPRINT,SE0006343745,Aktie,First North,Sverige,Hälsovård,Biotech
+293,Humble Group,431,HUMBLE,SE0006261046,Aktie,First North,Sverige,Dagligvaror,Livsmedel
+294,Bonzun,432,BONZUN,SE0017082506,Aktie,First North,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+295,Arcoma,433,ARCOMA,SE0006219176,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+296,PowerCell,434,PCELL,SE0006425815,Aktie,Mid Cap,Sverige,Kraftförsörjning,Förnybarenergi
+297,Christian Berner Tech,436,CBTT B,SE0006143129,Aktie,Small Cap,Sverige,Industri,Industrikomponenter
+298,Absolent Air Care,437,ABSO,SE0006256558,Aktie,First North,Sverige,Industri,Installation & VVS
+299,Samhällsbyggnadsbolag B,438,SBB B,SE0009554454,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+300,Lifco,440,LIFCO B,SE0015949201,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+301,NP3 Fastigheter,441,NP3,SE0006342333,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+302,Blick Global,442,BLICK,SE0019172735,Aktie,Spotlight,Sverige,Sällanköpsvaror,Betting & Casino
+303,Alteco Medical,443,ALTE,SE0005620408,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+304,BrainCool,446,BRAIN,SE0005731833,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+305,C Security,447,CSEC,SE0005991981,Aktie,Spotlight,Sverige,Informationsteknik,Säkerhet & Bevakning
+306,DexTech Medical,449,DEX,SE0005881489,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+307,Igrene,450,ABI,SE0006091476,Aktie,Spotlight,Sverige,Energi,Olja & Gas - Exploatering
+308,Premium Snacks,451,SNX,SE0006260865,Aktie,First North,Sverige,Dagligvaror,Livsmedel
+309,Harm Reduction,452,NOHARM,SE0006261038,Aktie,Spotlight,Sverige,Dagligvaror,Tobak
+310,Zenicor Medical,453,ZENI,SE0006343984,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+311,Gabather,454,GABA,SE0010869552,Aktie,First North,Sverige,Hälsovård,Biotech
+312,Scandinavian Real Heart,458,HEART,SE0006256798,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+313,Greater Than,459,GREAT,SE0005881554,Aktie,First North,Sverige,Industri,Mätning & Analys
+314,Ecoclime,460,ECC B,SE0012729937,Aktie,First North,Sverige,Industri,Energi & Återvinning
+315,QBank,461,QBNK,SE0007278726,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+316,Phase Holographic,462,PHI,SE0005504636,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+317,Envirologic,465,ENVI B,SE0005704095,Aktie,Spotlight,Sverige,Industri,Industrimaskiner
+318,EQL Pharma,466,EQL,SE0005497732,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+319,Tourn,468,TOURN,SE0005568482,Aktie,First North,Sverige,Sällanköpsvaror,Marknadsföring
+320,Storytel,471,STORY B,SE0007439443,Aktie,First North,Sverige,Sällanköpsvaror,Media & Publicering
+321,Motion Display,473,MODI,SE0005798923,Aktie,Spotlight,Sverige,Sällanköpsvaror,Marknadsföring
+322,OptiCept Technologies,474,OPTI,SE0005881786,Aktie,First North,Sverige,Dagligvaror,Jordbruk
+323,Ortoma,475,ORT B,SE0005676103,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+324,ProstaLund,477,PLUN,SE0002372318,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+325,Saniona,478,SANION,SE0005794617,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+326,Serstech,479,SERT,SE0005365095,Aktie,First North,Sverige,Industri,Mätning & Analys
+327,SyntheticMR,480,SYNT,SE0015987946,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+328,Guard Therapeutics,483,GUARD,SE0021181559,Aktie,First North,Sverige,Hälsovård,Biotech
+329,Enzymatica,484,ENZY,SE0003943620,Aktie,First North,Sverige,Dagligvaror,Hälsoprodukter
+330,Spago Nanomedical,486,SPAGO,SE0004899474,Aktie,First North,Sverige,Hälsovård,Biotech
+331,Sivers Semiconductors,489,SIVE,SE0003917798,Aktie,Small Cap,Sverige,Informationsteknik,Elektronik & Tillverkning
+332,Safe at Sea,490,SAFE,SE0005308632,Aktie,Spotlight,Sverige,Industri,Industrimaskiner
+333,Recyctec,491,RECY B,SE0014808978,Aktie,Spotlight,Sverige,Industri,Energi & Återvinning
+334,Angler Gaming,492,ANGL,MT0000650102,Aktie,Spotlight,Sverige,Sällanköpsvaror,Betting & Casino
+335,Beowulf Mining,494,BEO SDB,SE0002457796,Aktie,Spotlight,Sverige,Material,Gruv - Prospekt & Drift
+336,Peptonic Medical,495,PMED,SE0005962206,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+337,ECOMB,497,ECOM,SE0004051068,Aktie,Spotlight,Sverige,Industri,Energi & Återvinning
+338,EcoRub,498,ECO B,SE0003273531,Aktie,Spotlight,Sverige,Industri,Energi & Återvinning
+339,Alphahelix,499,ALPH,SE0000885501,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+340,Amnode,500,AMNO,SE0014609194,Aktie,Spotlight,Sverige,Industri,Industrikomponenter
+341,Amhult 2,501,AMH2 B,SE0001356932,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+342,Umida,502,UMIDA B,SE0009190788,Aktie,Spotlight,Sverige,Dagligvaror,Bryggeri
+343,AQ Group,505,AQ,SE0000772956,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+344,AroCell,506,AROC,SE0003883990,Aktie,First North,Sverige,Hälsovård,Biotech
+345,Qlosr Group,507,QLOSR B,SE0018169195,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+346,Botnia Exploration,508,BOTX,SE0010494708,Aktie,First North,Sverige,Material,Gruv - Prospekt & Drift
+347,EasyFill,509,EASY B,SE0002039222,Aktie,Spotlight,Sverige,Industri,Bygginredning
+348,European institute,510,EURI B,SE0020357457,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+349,Gullberg & Jansson,511,GJAB,SE0004576346,Aktie,Spotlight,Sverige,Industri,Installation & VVS
+350,Safe Lane Gaming,512,SLG B,SE0020552297,Aktie,NGM,Sverige,Sällanköpsvaror,Gaming & Spel
+351,Slottsviken B,517,SLOTT B,SE0018012411,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+352,Bahnhof,520,BAHN B,SE0010442418,Aktie,First North,Sverige,Telekommunikation,Bredband & Telefoni
+353,Clinical Laserthermia,521,CLS B,SE0002756130,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+354,Bogio Technologies,522,BOGIO,SE0002017707,Aktie,Spotlight,Sverige,Sällanköpsvaror,Marknadsföring
+355,Latvian Forest,523,LATF B,SE0003883008,Aktie,Spotlight,Sverige,Material,Skogsbolag
+356,Medfield,524,MEDF,SE0004479046,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+357,Acroud,525,ACROUD,SE0001863291,Aktie,First North,Sverige,Sällanköpsvaror,Betting & Casino
+358,Wonderful Times,527,WTG,SE0006028577,Aktie,Spotlight,Sverige,Sällanköpsvaror,Fritid & Sport
+359,iZafe,528,IZAFE B,SE0003656834,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+360,Miris,529,MIR,SE0015657820,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+361,Consensus,530,CAM B,SE0015191739,Aktie,Spotlight,Sverige,Finans & Fastighet,Kapitalförvaltning
+362,SensoDetect,531,SDET,SE0003037456,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+363,HomeMaid,534,HOME B,SE0001426131,Aktie,Spotlight,Sverige,Sällanköpsvaror,Konsumentservice
+364,Medimi,538,MEDIMI,SE0001860511,Aktie,Spotlight,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+365,NGS Group,540,NGS,SE0009947708,Aktie,Small Cap,Sverige,Industri,Bemanning
+366,Transferator A,541,TRAN A,SE0017911233,Aktie,Spotlight,Sverige,Finans & Fastighet,Investmentbolag
+367,Everysport,542,EVERY,SE0016127831,Aktie,Spotlight,Sverige,Sällanköpsvaror,Marknadsföring
+368,Exalt,544,EXALT,SE0005223542,Aktie,Spotlight,Sverige,Telekommunikation,Telekomtjänster
+369,Syncro,545,SYNC B,SE0014956306,Aktie,Spotlight,Sverige,Industri,Affärskonsulter
+370,Respiratorius,546,RESP,SE0004550192,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+371,Eurocine Vaccines,548,EUCI,SE0015382155,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+372,Future Gaming,549,FGG,SE0018013922,Aktie,Spotlight,Sverige,Sällanköpsvaror,Betting & Casino
+373,WntResearch,550,WNT,SE0003553130,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+374,Sustainion,551,SUSG,SE0002067421,Aktie,Spotlight,Sverige,Informationsteknik,Säkerhet & Bevakning
+375,PharmaLundensis,553,PHAL,SE0003359710,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+376,Star Vault,555,STVA B,SE0002149369,Aktie,NGM,Sverige,Sällanköpsvaror,Gaming & Spel
+377,Railcare,557,RAIL,SE0010441139,Aktie,Small Cap,Sverige,Industri,Stödtjänster & Service
+378,NFO Drives,558,NFO,SE0015193800,Aktie,Spotlight,Sverige,Industri,Energi & Återvinning
+379,Lovisagruvan,559,LOVI,SE0000418873,Aktie,Spotlight,Sverige,Material,Gruv - Prospekt & Drift
+380,FX International,560,FXI,SE0003787555,Aktie,Spotlight,Sverige,Finans & Fastighet,Kapitalförvaltning
+381,Novus,562,NOVU,SE0001989260,Aktie,Spotlight,Sverige,Sällanköpsvaror,Marknadsföring
+382,Taurus Energy,564,TAUR B,SE0001075102,Aktie,Spotlight,Sverige,Kraftförsörjning,Bioenergi
+383,QuiaPEG Pharmaceuticals,565,QUIA,SE0020678159,Aktie,First North,Sverige,Hälsovård,Läkemedel
+384,Micropos Medical,567,MPOS,SE0002834507,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+385,Senzime,569,SEZI,SE0002478776,Aktie,Small Cap,Sverige,Hälsovård,Medicinsk Utrustning
+386,Kopparbergs,570,KOBR B,SE0000500779,Aktie,NGM,Sverige,Dagligvaror,Bryggeri
+387,Crown Energy,571,CRWN,SE0004210854,Aktie,NGM,Sverige,Energi,Olja & Gas - Exploatering
+388,Sotkamo Silver,572,SOSI,SE0001057910,Aktie,NGM,Sverige,Material,Gruv - Guld & Silver
+389,LC-Tec,576,LCT,SE0000619371,Aktie,NGM,Sverige,Informationsteknik,Datorer & Hårdvara
+390,Glycorex Transplantation,577,GTAB B,SE0000524530,Aktie,NGM,Sverige,Hälsovård,Medicinsk Utrustning
+391,AIK Fotboll,578,AIK B,SE0000598278,Aktie,NGM,Sverige,Sällanköpsvaror,Fritid & Sport
+392,Sileon,579,SILEON,SE0013108867,Aktie,First North,Sverige,Informationsteknik,Betalning & E-handel
+393,Guideline Geo,580,GGEO,SE0005562014,Aktie,First North,Sverige,Material,Gruv - Service
+394,Obducat,581,OBDU B,SE0000514705,Aktie,NGM,Sverige,Informationsteknik,Elektronik & Tillverkning
+395,Grangex,582,GRANGX,SE0018014243,Aktie,NGM,Sverige,Industri,Energi & Återvinning
+396,KebNi,583,KEBNI B,SE0012904803,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+397,Hedera,585,HEGR,SE0007815113,Aktie,First North,Sverige,Industri,Bemanning
+398,Briox,586,BRIX,SE0008588131,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+399,Free2Move,587,F2M,SE0011414283,Aktie,NGM,Sverige,Telekommunikation,Telekomtjänster
+400,LightAir,588,LAIR,SE0008963888,Aktie,NGM,Sverige,Industri,Installation & VVS
+401,Fortnox,589,FNOX,SE0017161243,Aktie,Large Cap,Sverige,Informationsteknik,Affärs- & IT-System
+402,Zinzino,594,ZZ B,SE0002480442,Aktie,First North,Sverige,Dagligvaror,Hälsoprodukter
+403,Lundin Gold,595,LUG,CA5503711080,Aktie,Large Cap,Sverige,Material,Gruv - Guld & Silver
+404,Eltel,596,ELTEL,SE0006509949,Aktie,Small Cap,Sverige,Industri,Installation & VVS
+405,Byggmästare AJ Ahlström,598,AJA B,SE0006510491,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+406,Freja eID,601,FREJA,SE0015950308,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+407,Dustin Group,602,DUST,SE0006625471,Aktie,Mid Cap,Sverige,Informationsteknik,Datorer & Hårdvara
+408,OrganoClick,605,ORGC,SE0006510335,Aktie,First North,Sverige,Material,Kemikalier
+409,Acrinova A,607,ACRI A,SE0015660014,Aktie,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+410,Corem Property Pref,608,CORE PREF,SE0010714311,Pref,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+411,ALM Equity Pref,618,ALM PREF,SE0004109627,Pref,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+412,Oscar Properties Pref,619,OP PREF,SE0016278311,Pref,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+413,Sdiptech Pref,623,SDIP PREF,SE0006758348,Pref,Mid Cap,Sverige,Industri,Installation & VVS
+414,OMX Stockholm 30,627,OMXS30,SE0000337842,Index,Index,Sverige,N/A,N/A
+415,OMX Stockholm 30 GI,637,OMXS30GI,SE0002402800,Index GI,Index,Sverige,N/A,N/A
+416,OMX Stockholm PI,638,OMXSPI,SE0000744195,Index,Index,Sverige,N/A,N/A
+417,OMX Stockholm GI,639,OMXSGI,SE0002416156,Index GI,Index,Sverige,N/A,N/A
+418,OMX Stockholm 50 EW,640,OMXS50EW,SE0002204800,Index GI,Index,Sverige,N/A,N/A
+419,OMX Stockholm 60 GI,641,OMXS60,SE0002905984,Index GI,Index,Sverige,N/A,N/A
+420,OMX Stockholm 60,642,OMXS60PI,SE0002905992,Index GI,Index,Sverige,N/A,N/A
+421,OMX Large Cap,643,OMXSLCPI,SE0001775784,Index GI,Index,Sverige,N/A,N/A
+422,OMX Mid Cap,644,OMXSMCPI,SE0001775800,Index GI,Index,Sverige,N/A,N/A
+423,OMX Small Cap,645,OMXSSCPI,SE0001775891,Index GI,Index,Sverige,N/A,N/A
+424,OMXS Energy,646,SX60PI,SE0004383263,SectorIndex,Index,Sverige,N/A,N/A
+425,OMXS Materials,647,SX55PI,SE0004383313,SectorIndex,Index,Sverige,N/A,N/A
+426,OMXS Industrials,648,SX50PI,SE0004383388,SectorIndex,Index,Sverige,N/A,N/A
+427,OMXS Consumer Staples,649,SX45PI,SE0014557351,SectorIndex,Index,Sverige,N/A,N/A
+428,OMXS Health Care,650,SX20PI,SE0004383594,SectorIndex,Index,Sverige,N/A,N/A
+429,OMXS Consumer Discretionary,651,SX40PI,SE0014557260,SectorIndex,Index,Sverige,N/A,N/A
+430,OMXS Telecom,652,SX15PI,SE0004383701,SectorIndex,Index,Sverige,N/A,N/A
+431,OMXS Utilities,653,SX65PI,SE0004383743,SectorIndex,Index,Sverige,N/A,N/A
+432,OMXS Financials,654,SX30PI,SE0004383784,SectorIndex,Index,Sverige,N/A,N/A
+433,OMXS Technology,655,SX10PI,SE0004383891,SectorIndex,Index,Sverige,N/A,N/A
+434,OMX Helsinki 25,656,OMXH25,FI0008900212,Index,Index,Finland,N/A,N/A
+435,OMX Helsinki 15,657,OMXH15,SE0003271329,Index GI,Index,Finland,N/A,N/A
+436,OMX Helsinki PI,658,OMXHPI,FI0008900006,Index,Index,Finland,N/A,N/A
+437,OMX Helsinki GI,659,OMXHGI,FI0008900220,Index GI,Index,Finland,N/A,N/A
+438,OMX Large Cap,660,OMXHLCPI,SE0001775719,Index GI,Index,Finland,N/A,N/A
+439,OMX Mid Cap,661,OMXHMCPI,SE0001775735,Index GI,Index,Finland,N/A,N/A
+440,OMX Small Cap,662,OMXHSCPI,SE0001775750,Index GI,Index,Finland,N/A,N/A
+441,OMXH Oil&Gas,663,HX0001PI,FI4000034020,SectorIndex,Index,Finland,N/A,N/A
+442,OMXH Materials,664,HX1000PI,FI4000034079,SectorIndex,Index,Finland,N/A,N/A
+443,OMXH Industrial,665,HX2000PI,FI4000034145,SectorIndex,Index,Finland,N/A,N/A
+444,OMXH Consumer,666,HX3000PI,FI4000034244,SectorIndex,Index,Finland,N/A,N/A
+445,OMXH Health,667,HX4000PI,FI4000034350,SectorIndex,Index,Finland,N/A,N/A
+446,OMXH Services,668,HX5000PI,FI4000034392,SectorIndex,Index,Finland,N/A,N/A
+447,OMXH Telecom,669,HX6000PI,FI4000034475,SectorIndex,Index,Finland,N/A,N/A
+448,OMXH Utilities,670,HX7000PI,FI4000034517,SectorIndex,Index,Finland,N/A,N/A
+449,OMXH Financials,671,HX8000PI,FI4000034558,SectorIndex,Index,Finland,N/A,N/A
+450,OMXH Technology,672,HX9000PI,FI4000034665,SectorIndex,Index,Finland,N/A,N/A
+451,Cargotec,674,CGCBV,FI0009013429,Aktie,Large Cap,Finland,Industri,Tåg- & Lastbilstransport
+452,Citycon,675,CTY1S,FI4000369947,Aktie,Large Cap,Finland,Finans & Fastighet,Fastighetsbolag
+453,Elisa,676,ELISA,FI0009007884,Aktie,Large Cap,Finland,Telekommunikation,Bredband & Telefoni
+454,Fiskars,677,FSKRS,FI0009000400,Aktie,Large Cap,Finland,Sällanköpsvaror,Hemelektronik
+455,Fortum,678,FORTUM,FI0009007132,Aktie,Large Cap,Finland,Kraftförsörjning,Elförsörjning
+456,Huhtamäki,679,HUH1V,FI0009000459,Aktie,Large Cap,Finland,Material,Förpackning
+457,Kemira,680,KEMIRA,FI0009004824,Aktie,Large Cap,Finland,Material,Kemikalier
+458,Kesko B,681,KESKOB,FI0009000202,Aktie,Large Cap,Finland,Dagligvaror,Livsmedelsbutiker
+459,KONE,682,KNEBV,FI0009013403,Aktie,Large Cap,Finland,Industri,Installation & VVS
+460,Konecranes,683,KCR,FI0009005870,Aktie,Large Cap,Finland,Industri,Industrimaskiner
+461,Neste,685,NESTE,FI0009013296,Aktie,Large Cap,Finland,Energi,Olja & Gas - Försäljning
+462,Nokia,686,NOKIA,FI0009000681,Aktie,Large Cap,Finland,Informationsteknik,Kommunikation
+463,Nokian Renkaat,687,TYRES,FI0009005318,Aktie,Large Cap,Finland,Sällanköpsvaror,Bil & Motor
+464,Nordea Bank,688,NDA FI,FI4000297767,Aktie,Large Cap,Finland,Finans & Fastighet,Banker
+465,Orion B,689,ORNBV,FI0009014377,Aktie,Large Cap,Finland,Hälsovård,Läkemedel
+466,Outokumpu,690,OUT1V,FI0009002422,Aktie,Large Cap,Finland,Material,Gruv - Industrimetaller
+467,Metso,691,METSO,FI0009014575,Aktie,Large Cap,Finland,Material,Gruv - Industrimetaller
+468,Sampo,692,SAMPO,FI4000552500,Aktie,Large Cap,Finland,Finans & Fastighet,Försäkring
+469,Sanoma,693,SANOMA,FI0009007694,Aktie,Large Cap,Finland,Sällanköpsvaror,Media & Publicering
+470,SSAB B,695,SSABBH,SE0000120669,Aktie,Large Cap,Finland,Material,Gruv - Industrimetaller
+471,Stora Enso R,696,STERV,FI0009005961,Aktie,Large Cap,Finland,Material,Skogsbolag
+472,Telia Company,697,TELIA1,SE0000667925,Aktie,Large Cap,Finland,Telekommunikation,Bredband & Telefoni
+473,TietoEVRY,698,TIETO,FI0009000277,Aktie,Large Cap,Finland,Informationsteknik,IT-Konsulter
+474,UPM-Kymmene,699,UPM,FI0009005987,Aktie,Large Cap,Finland,Material,Skogsbolag
+475,Valmet,700,VALMT,FI4000074984,Aktie,Large Cap,Finland,Industri,Industrimaskiner
+476,Wärtsilä,701,WRT1V,FI0009003727,Aktie,Large Cap,Finland,Kraftförsörjning,Elförsörjning
+477,YIT Corporation,702,YIT,FI0009800643,Aktie,Mid Cap,Finland,Industri,Byggnation & Infrastruktur
+478,Aktia Bank,704,AKTIA,FI4000058870,Aktie,Mid Cap,Finland,Finans & Fastighet,Banker
+479,Caverion,705,CAV1V,FI4000062781,Aktie,Mid Cap,Finland,Industri,Affärskonsulter
+480,Oriola B,706,OKDBV,FI0009014351,Aktie,Mid Cap,Finland,Dagligvaror,Apotek
+481,Atria,709,ATRAV,FI0009006548,Aktie,Mid Cap,Finland,Dagligvaror,Livsmedel
+482,K2A Knaust & Andersson Pref,711,K2A PREF,SE0006852075,Pref,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+483,Volati Pref,712,VOLO PREF,SE0009143670,Pref,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+484,Aspo,713,ASPO,FI0009008072,Aktie,Mid Cap,Finland,Material,Kemikalier
+485,Alma Media,714,ALMA,FI0009013114,Aktie,Mid Cap,Finland,Sällanköpsvaror,Media & Publicering
+486,Bittium,716,BITTI,FI0009007264,Aktie,Mid Cap,Finland,Informationsteknik,Kommunikation
+487,Finnair,717,FIA1S,FI0009003230,Aktie,Mid Cap,Finland,Industri,Flygtransport
+488,WithSecure,719,WITH,FI4000519228,Aktie,Mid Cap,Finland,Informationsteknik,Säkerhet & Bevakning
+489,Lassila & Tikanoja,720,LAT1V,FI0009010854,Aktie,Mid Cap,Finland,Industri,Energi & Återvinning
+490,HKScan,722,HKSAV,FI0009006308,Aktie,Small Cap,Finland,Dagligvaror,Livsmedel
+491,Metsä Board B,723,METSB,FI0009000665,Aktie,Large Cap,Finland,Material,Skogsbolag
+492,Olvi,724,OLVAS,FI0009900401,Aktie,Mid Cap,Finland,Dagligvaror,Bryggeri
+493,Ponsse 1,726,PON1V,FI0009005078,Aktie,Mid Cap,Finland,Industri,Industrimaskiner
+494,Raisio K,728,RAIKV,FI0009800395,Aktie,Prelist,Finland,Dagligvaror,Livsmedel
+495,Rapala,729,RAP1V,FI0009007355,Aktie,Mid Cap,Finland,Sällanköpsvaror,Fritid & Sport
+496,SRV Group,731,SRV1V,FI4000523675,Aktie,Small Cap,Finland,Industri,Byggnation & Infrastruktur
+497,Stockmann,732,STOCKA,FI0009000251,Aktie,Mid Cap,Finland,Sällanköpsvaror,Detaljhandel
+498,Uponor,735,UPONOR,FI0009002158,Aktie,Large Cap,Finland,Industri,Installation & VVS
+499,Vaisala,736,VAIAS,FI0009900682,Aktie,Large Cap,Finland,Industri,Mätning & Analys
+500,Viking Line,737,VIK1V,FI0009005250,Aktie,Mid Cap,Finland,Industri,Sjöfart & Rederi
+501,Pandox,738,PNDX B,SE0007100359,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+502,Alimak,739,ALIG,SE0007158910,Aktie,Mid Cap,Sverige,Industri,Installation & VVS
+503,Norion Bank,740,NORION,SE0017831795,Aktie,Mid Cap,Sverige,Finans & Fastighet,Kredit & Finansiering
+504,Coor Service Management,741,COOR,SE0007158829,Aktie,Mid Cap,Sverige,Industri,Stödtjänster & Service
+505,Hoist Finance,742,HOFI,SE0006887063,Aktie,Mid Cap,Sverige,Finans & Fastighet,Kredit & Finansiering
+506,Tobii,745,TOBII,SE0002591420,Aktie,Small Cap,Sverige,Informationsteknik,Biometri
+507,Troax Group,746,TROAX,SE0012729366,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+508,Cantargia,748,CANTA,SE0006371126,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+509,Corline Biomedical,749,CLBIO,SE0006887451,Aktie,First North,Sverige,Hälsovård,Läkemedel
+510,Evolution,750,EVO,SE0012673267,Aktie,Large Cap,Sverige,Sällanköpsvaror,Betting & Casino
+511,Gaming Corps,751,GCOR,SE0014694691,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+512,Heimstaden Pref,752,HEIM PREF,SE0015949037,Pref,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+513,Inission,754,INISS B,SE0016275069,Aktie,First North,Sverige,Informationsteknik,Elektronisk Utrustning
+514,Kontigo Care,755,KONT,SE0007075247,Aktie,First North,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+515,Nilörngruppen,758,NIL B,SE0007100342,Aktie,Small Cap,Sverige,Material,Förpackning
+516,Navigo Invest Pref,759,NAVIGO PREF,SE0007100540,Pref,First North,Sverige,Finans & Fastighet,Investmentbolag
+517,Studentbostäder,760,STUDBO,SE0015657697,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+518,Meriaura,761,MERIS,FI4000425848,Aktie,First North,Sverige,Kraftförsörjning,Solkraft
+519,Scibase,762,SCIB,SE0007045414,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+520,SolTech Energy,763,SOLT,SE0005392537,Aktie,First North,Sverige,Kraftförsörjning,Solkraft
+521,Spiffbet,764,SPIFF,SE0006913497,Aktie,NGM,Sverige,Sällanköpsvaror,Betting & Casino
+522,SpectrumOne,765,SPEONE,SE0006994448,Aktie,First North,Sverige,Sällanköpsvaror,Marknadsföring
+523,SaltX Technology,766,SALT B,SE0005308541,Aktie,First North,Sverige,Kraftförsörjning,Förnybarenergi
+524,Aptahem,767,APTA,SE0006543450,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+525,Cline Scientific,768,CLINE B,SE0006758231,Aktie,First North,Sverige,Hälsovård,Biotech
+526,CombiGene,769,COMBI,SE0016101935,Aktie,First North,Sverige,Hälsovård,Biotech
+527,Nanexa,771,NANEXA,SE0007074166,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+528,Eurobattery Minerals,772,BAT,SE0012481570,Aktie,NGM,Sverige,Material,Gruv - Prospekt & Drift
+529,Pharmacolog,773,PHLOG B,SE0019071812,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+530,Redsense Medical,774,REDS,SE0006965158,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+531,Transtema,775,TRANS,SE0006758587,Aktie,Small Cap,Sverige,Telekommunikation,Telekomtjänster
+532,Vibrosense Dynamics,776,VSD B,SE0006852125,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+533,Bonäsudden,779,BONAS,SE0007157953,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+534,Link Prop,781,LINKAB,SE0006993804,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+535,Enento,782,ENENTO,FI4000123195,Aktie,Mid Cap,Finland,Industri,Mätning & Analys
+536,Pihlajalinna,783,PIHLIS,FI4000092556,Aktie,Mid Cap,Finland,Hälsovård,Sjukhus & Vårdhem
+537,Insplorion,784,INSP,SE0006994943,Aktie,First North,Sverige,Industri,Mätning & Analys
+538,SpectraCure,785,SPEC,SE0007158118,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+539,Endomines Finland,786,PAMPALO,FI4000508023,Aktie,Small Cap,Finland,Material,Gruv - Guld & Silver
+540,Sotkamo Silver,787,SOSI1,SE0001057910,Aktie,Small Cap,Finland,Material,Gruv - Guld & Silver
+541,Saga Furs,788,SAGCV,FI0009800551,Aktie,Small Cap,Finland,Sällanköpsvaror,Kläder & Skor
+542,Reka Industrial,789,REKA,FI0009800296,Aktie,Small Cap,Finland,Industri,Industrikomponenter
+543,Valoe,791,VALOE,FI4000561576,Aktie,Small Cap,Finland,Kraftförsörjning,Solkraft
+544,Apetit,792,APETIT,FI0009003503,Aktie,Small Cap,Finland,Dagligvaror,Livsmedel
+545,Afarak,793,AFAGR,FI0009800098,Aktie,Small Cap,Finland,Material,Gruv - Industrimetaller
+546,Aspocomp,794,ACG1V,FI0009008080,Aktie,Small Cap,Finland,Informationsteknik,Elektronik & Tillverkning
+547,CapMan,796,CAPMAN,FI0009009377,Aktie,Mid Cap,Finland,Finans & Fastighet,Investmentbolag
+548,Componenta,797,CTH1V,FI4000476783,Aktie,Small Cap,Finland,Industri,Industrikomponenter
+549,Digia,799,DIGIA,FI0009007983,Aktie,Mid Cap,Finland,Informationsteknik,IT-Konsulter
+550,Dovre,800,DOV1V,FI0009008098,Aktie,Small Cap,Finland,Industri,Affärskonsulter
+551,eQ Oyj,802,EQV1V,FI0009009617,Aktie,Mid Cap,Finland,Finans & Fastighet,Kapitalförvaltning
+552,Etteplan,803,ETTE,FI0009008650,Aktie,Mid Cap,Finland,Industri,Affärskonsulter
+553,Suominen,804,SUY1V,FI0009010862,Aktie,Mid Cap,Finland,Dagligvaror,Hygienprodukter
+554,Solteq,807,SOLTEQ,FI0009007991,Aktie,Small Cap,Finland,Informationsteknik,IT-Konsulter
+555,Exel Composites,808,EXL1V,FI0009007306,Aktie,Small Cap,Finland,Industri,Industrikomponenter
+556,Glaston,809,GLA1V,FI4000369657,Aktie,Small Cap,Finland,Industri,Byggmaterial
+557,Innofactor,810,IFA1V,FI0009007637,Aktie,Small Cap,Finland,Informationsteknik,Affärs- & IT-System
+558,SSH Communications,812,SSH1V,FI0009008270,Aktie,Small Cap,Finland,Informationsteknik,Säkerhet & Bevakning
+559,Ålandsbanken B,813,ALBBV,FI0009001127,Aktie,Mid Cap,Finland,Finans & Fastighet,Banker
+560,Raute,814,RAUTE,FI0009004741,Aktie,Small Cap,Finland,Industri,Industrimaskiner
+561,Biohit,815,BIOBV,FI0009005482,Aktie,Small Cap,Finland,Hälsovård,Hälsovård & Hjälpmedel
+562,QPR Software,816,QPR1V,FI0009008668,Aktie,Small Cap,Finland,Informationsteknik,Affärs- & IT-System
+563,Elecster,817,ELEAV,FI0009900658,Aktie,Small Cap,Finland,Industri,Industrimaskiner
+564,Honkarakenne,819,HONBS,FI0009900104,Aktie,Small Cap,Finland,Industri,Bostadsbyggnation
+565,Ilkka 2,820,ILKKA2,FI0009800205,Aktie,Small Cap,Finland,Sällanköpsvaror,Media & Publicering
+566,Incap,821,ICP1V,FI0009006407,Aktie,Mid Cap,Finland,Industri,Industrimaskiner
+567,Digitalist Group,822,DIGIGR,FI0009008007,Aktie,Small Cap,Finland,Informationsteknik,IT-Konsulter
+568,Ovaro Kiinteistösijoitus,823,OVARO,FI4000349113,Aktie,Small Cap,Finland,Finans & Fastighet,Fastighet - REIT
+569,Marimekko,824,MEKKO,FI0009007660,Aktie,Mid Cap,Finland,Sällanköpsvaror,Kläder & Skor
+570,Martela,825,MARAS,FI0009900385,Aktie,Small Cap,Finland,Industri,Bygginredning
+571,Nurminen Logistics,826,NLG1V,FI0009900187,Aktie,Small Cap,Finland,Industri,Tåg- & Lastbilstransport
+572,Keskisuomalainen,827,KSLAV,FI0009007546,Aktie,Small Cap,Finland,Sällanköpsvaror,Media & Publicering
+573,Kesla,828,KELAS,FI0009900237,Aktie,Small Cap,Finland,Industri,Industrimaskiner
+574,PunaMusta Media,829,PUMU,FI0009900468,Aktie,Small Cap,Finland,Sällanköpsvaror,Media & Publicering
+575,Revenio,830,REG1V,FI0009010912,Aktie,Large Cap,Finland,Hälsovård,Medicinsk Utrustning
+576,KH Group,831,KHG,FI0009008924,Aktie,Small Cap,Finland,Finans & Fastighet,Investmentbolag
+577,Wetteri,832,WETTERI,FI0009012793,Aktie,Small Cap,Finland,Industri,Utbildning
+578,Investors House,833,INVEST,FI0009900559,Aktie,Small Cap,Finland,Finans & Fastighet,Fastighetsbolag
+579,Trainers House,836,TRH1V,FI4000519202,Aktie,Small Cap,Finland,Industri,Utbildning
+580,Boreo,838,BOREO,FI0009900724,Aktie,Small Cap,Finland,Industri,Elektroniska komponenter
+581,NoHo Partners,839,NOHO,FI4000064332,Aktie,Mid Cap,Finland,Sällanköpsvaror,Restaurang & Café
+582,Panostaja,840,PNA1V,FI0009800379,Aktie,Small Cap,Finland,Finans & Fastighet,Investmentbolag
+583,Scanfil,841,SCANFL,FI4000029905,Aktie,Mid Cap,Finland,Informationsteknik,Elektronik & Tillverkning
+584,Tecnotree,842,TEM1V,FI0009010227,Aktie,Mid Cap,Finland,Informationsteknik,Affärs- & IT-System
+585,Teleste,843,TLT1V,FI0009007728,Aktie,Small Cap,Finland,Informationsteknik,Kommunikation
+586,Tulikivi,844,TULAV,FI0009900583,Aktie,Small Cap,Finland,Sällanköpsvaror,Möbler & Inredning
+587,Wulff-Yhtiöt,845,WUF1V,FI0009008452,Aktie,Small Cap,Finland,Industri,Bygginredning
+588,OMX Copenhagen 20,846,OMXC20,DK0016268840,Index GI,Index,Danmark,N/A,N/A
+589,OMX Copenhagen 20 GI,847,OMXC20GI,DK0060369296,Index GI,Index,Danmark,N/A,N/A
+590,OMX Copenhagen PI,848,OMXCPI,DK0060488385,Index,Index,Danmark,N/A,N/A
+591,OMX Copenhagen GI,849,OMXCGI,DK0060488112,Index GI,Index,Danmark,N/A,N/A
+592,OMX Large Cap,850,OMXCLCPI,SE0001776659,Index GI,Index,Danmark,N/A,N/A
+593,OMX Mid Cap,851,OMXCMCPI,SE0001776675,Index GI,Index,Danmark,N/A,N/A
+594,OMX Small Cap,852,OMXCSCPI,SE0001776691,Index GI,Index,Danmark,N/A,N/A
+595,OMXC Oil&Gas,853,CX0001PI,DK0060380269,SectorIndex,Index,Danmark,N/A,N/A
+596,OMXC Industrial,854,CX2000PI,DK0060381580,SectorIndex,Index,Danmark,N/A,N/A
+597,OMXC Goods,855,CX3000PI,DK0060382554,SectorIndex,Index,Danmark,N/A,N/A
+598,OMXC Health,856,CX4000PI,DK0060384410,SectorIndex,Index,Danmark,N/A,N/A
+599,OMXC Sercives,857,CX5000PI,DK0060384923,SectorIndex,Index,Danmark,N/A,N/A
+600,OMXC Telecom,858,CX6000PI,DK0060385730,SectorIndex,Index,Danmark,N/A,N/A
+601,OMXC Utilities,859,CX7000PI,DK0060386381,SectorIndex,Index,Danmark,N/A,N/A
+602,OMXC Financials,860,CX8000PI,DK0060386704,SectorIndex,Index,Danmark,N/A,N/A
+603,OMXC Technology,861,CX9000PI,DK0060388080,SectorIndex,Index,Danmark,N/A,N/A
+604,OSEBX Oslo,862,OSEBX,NO0007035327,Index,Index,Norge,N/A,N/A
+605,OBX Oslo,863,OBX,NO0000000021,Index,Index,Norge,N/A,N/A
+606,OB Oslo All,864,OSEAX,NO0007033900,Index GI,Index,Norge,N/A,N/A
+607,OB Axess All,865,OAAX,NO0007035384,Index GI,Index,Norge,N/A,N/A
+608,OB Oslo Oil&Gas,866,OSE10GI,NO0007033991,SectorIndex,Index,Norge,N/A,N/A
+609,OB Oslo Industrial,867,OSE20GI,NO0007034015,SectorIndex,Index,Norge,N/A,N/A
+610,OB Oslo Staples,868,OSE30GI,NO0007034031,SectorIndex,Index,Norge,N/A,N/A
+611,OB Oslo Health,869,OSE35GI,NO0007034049,SectorIndex,Index,Norge,N/A,N/A
+612,OB Oslo Consumer,870,OSE25GI,NO0007034023,SectorIndex,Index,Norge,N/A,N/A
+613,OB Oslo Utilities,871,OSE55GI,NO0007034114,SectorIndex,Index,Norge,N/A,N/A
+614,OB Oslo Financials,872,OSE40GI,NO0007034080,SectorIndex,Index,Norge,N/A,N/A
+615,OB Oslo Technology,873,OSE45GI,NO0007034098,SectorIndex,Index,Norge,N/A,N/A
+616,VEF,874,VEFAB,SE0016128151,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+617,Double Bond Pharma,876,DBP B,SE0007185525,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+618,Hybricon,877,HYCO,SE0015345897,Aktie,Spotlight,Sverige,Industri,Tåg- & Lastbilstransport
+619,Swemet,880,SWEM B,SE0006886917,Aktie,NGM,Sverige,Industri,Elektroniska komponenter
+620,Footway Pref,882,FOOT PREF,SE0007186176,Pref,First North,Sverige,Sällanköpsvaror,Kläder & Skor
+621,Aker Solutions,884,AKSO,NO0010716582,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+622,BW LPG,885,BWLPG,BMG173841013,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Transport
+623,Aker BP,886,AKRBP,NO0010345853,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+624,DNB Bank,887,DNB,NO0010161896,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+625,DNO,888,DNO,NO0003921009,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+626,A.P. Moller Maersk B,889,MAERSK B,DK0010244508,Aktie,Large Cap,Danmark,Industri,Sjöfart & Rederi
+627,Carlsberg B,890,CARL B,DK0010181759,Aktie,Large Cap,Danmark,Dagligvaror,Bryggeri
+628,Chr Hansen,891,CHR,DK0060227585,Aktie,Large Cap,Danmark,Dagligvaror,Livsmedel
+629,Coloplast,892,COLO B,DK0060448595,Aktie,Large Cap,Danmark,Hälsovård,Medicinsk Utrustning
+630,Danske Bank,893,DANSKE,DK0010274414,Aktie,Large Cap,Danmark,Finans & Fastighet,Banker
+631,Frontline,895,FRO,CY0200352116,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Transport
+632,Gjensidige Forsikring,896,GJF,NO0010582521,Aktie,Oslo Bors,Norge,Finans & Fastighet,Försäkring
+633,Mowi,897,MOWI,NO0003054108,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+634,Nordic Semiconductor,898,NOD,NO0003055501,Aktie,Oslo Bors,Norge,Informationsteknik,Elektronik & Tillverkning
+635,DSV,899,DSV,DK0060079531,Aktie,Large Cap,Danmark,Industri,Tåg- & Lastbilstransport
+636,FLSmidth & Co.,900,FLS,DK0010234467,Aktie,Large Cap,Danmark,Industri,Byggmaterial
+637,Genmab,902,GMAB,DK0010272202,Aktie,Large Cap,Danmark,Hälsovård,Biotech
+638,GN Store Nord,903,GN,DK0010272632,Aktie,Large Cap,Danmark,Hälsovård,Medicinsk Utrustning
+639,Equinor,904,EQNR,NO0010096985,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Försäljning
+640,Novo Nordisk,906,NOVO B,DK0062498333,Aktie,Large Cap,Danmark,Hälsovård,Läkemedel
+641,Vimab Group,907,VIMAB,SE0007439633,Aktie,First North,Sverige,Industri,Affärskonsulter
+642,Sinch,908,SINCH,SE0016101844,Aktie,Large Cap,Sverige,Informationsteknik,Kommunikation
+643,Bravida,909,BRAV,SE0007491303,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+644,Dometic,910,DOM,SE0007691613,Aktie,Large Cap,Sverige,Sällanköpsvaror,Bil & Motor
+645,Klaria Pharma,911,KLAR,SE0007280326,Aktie,First North,Sverige,Hälsovård,Biotech
+646,Minesto,913,MINEST,SE0007578141,Aktie,First North,Sverige,Kraftförsörjning,Förnybarenergi
+647,Photocat,914,PCAT,DK0060668796,Aktie,First North,Sverige,Industri,Installation & VVS
+648,Waystream,915,WAYS,SE0007577077,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+649,Alzinova,916,ALZ,SE0007413455,Aktie,First North,Sverige,Hälsovård,Biotech
+650,Hamlet BioPharma,917,HAMLET B,SE0015661152,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+651,Nanologica,918,NICA,SE0005454873,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+652,PExA,919,PEXA B,SE0007412374,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+653,Attendo,920,ATT,SE0007666110,Aktie,Mid Cap,Sverige,Hälsovård,Sjukhus & Vårdhem
+654,Camurus,921,CAMX,SE0007692850,Aktie,Large Cap,Sverige,Hälsovård,Läkemedel
+655,Scandic Hotels,922,SHOT,SE0007640156,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Hotell & Camping
+656,Immunovia,924,IMMNOV,SE0006091997,Aktie,Small Cap,Sverige,Hälsovård,Medicinsk Utrustning
+657,Nilsson Special Vehicles,925,NILS,SE0007702949,Aktie,First North,Sverige,Sällanköpsvaror,Bil & Motor
+658,Stillfront,926,SF,SE0015346135,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Gaming & Spel
+659,Vicore Pharma,928,VICO,SE0007577895,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+660,Zenergy,929,ZENZIP B,SE0010413658,Aktie,Spotlight,Sverige,Industri,Bostadsbyggnation
+661,Alisa Pankki,930,ALISA,FI4000170915,Aktie,Small Cap,Finland,Finans & Fastighet,Nischbanker
+662,Consti,931,CONSTI,FI4000178256,Aktie,Small Cap,Finland,Industri,Byggnation & Infrastruktur
+663,IMINT,934,IMINT,SE0007692124,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+664,Toleranzia,935,TOL,SE0007438577,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+665,Prebona,936,PREBON,SE0007692884,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+666,Implementa Sol,938,IMSOL B,SE0000689978,Aktie,NGM,Sverige,Kraftförsörjning,Solkraft
+667,Pandora,939,PNDORA,DK0060252690,Aktie,Large Cap,Danmark,Sällanköpsvaror,Accessoarer
+668,Vestas Wind Systems,940,VWS,DK0061539921,Aktie,Large Cap,Danmark,Kraftförsörjning,Vindkraft
+669,Royal UNIBREW,941,RBREW,DK0060634707,Aktie,Large Cap,Danmark,Dagligvaror,Bryggeri
+670,H. Lundbeck B,942,HLUN B,DK0061804770,Aktie,Large Cap,Danmark,Hälsovård,Läkemedel
+671,Nordea Bank,943,NDA DK,FI4000297767,Aktie,Large Cap,Danmark,Finans & Fastighet,Banker
+672,Orkla,944,ORK,NO0003733800,Aktie,Oslo Bors,Norge,Dagligvaror,Livsmedel
+673,Yara International,945,YAR,NO0010208051,Aktie,Oslo Bors,Norge,Material,Kemikalier
+674,ISS,946,ISS,DK0060542181,Aktie,Large Cap,Danmark,Industri,Stödtjänster & Service
+675,Jyske Bank,947,JYSK,DK0010307958,Aktie,Large Cap,Danmark,Finans & Fastighet,Banker
+676,Kobenhavns Lufthavne,948,KBHL,DK0010201102,Aktie,Large Cap,Danmark,Industri,Flygtransport
+677,Novozymes,949,NZYM B,DK0060336014,Aktie,Large Cap,Danmark,Material,Kemikalier
+678,Rockwool B,951,ROCK B,DK0010219153,Aktie,Large Cap,Danmark,Industri,Byggmaterial
+679,Sydbank,952,SYDB,DK0010311471,Aktie,Large Cap,Danmark,Finans & Fastighet,Banker
+680,Topdanmark,954,TOP,DK0060477503,Aktie,Large Cap,Danmark,Finans & Fastighet,Försäkring
+681,Tryg,955,TRYG,DK0060636678,Aktie,Large Cap,Danmark,Finans & Fastighet,Försäkring
+682,Demant,956,DEMANT,DK0060738599,Aktie,Large Cap,Danmark,Hälsovård,Medicinsk Utrustning
+683,Norsk Hydro,957,NHY,NO0005052605,Aktie,Oslo Bors,Norge,Material,Gruv - Industrimetaller
+684,Norwegian Air Shuttle,958,NAS,NO0010196140,Aktie,Oslo Bors,Norge,Industri,Flygtransport
+685,Otello,959,OTEC,NO0010040611,Aktie,Oslo Bors,Norge,Informationsteknik,Internettjänster
+686,PGS,960,PGS,NO0010199151,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+687,REC Silicon,961,RECSI,NO0010112675,Aktie,Oslo Bors,Norge,Kraftförsörjning,Solkraft
+688,Schibsted A,962,SCHA,NO0003028904,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Media & Publicering
+689,Seadrill,963,SDRL,BMG7997W1029,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Borrning
+690,Storebrand,964,STB,NO0003053605,Aktie,Oslo Bors,Norge,Finans & Fastighet,Försäkring
+691,Subsea7,965,SUBC,LU0075646355,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+692,Telenor,966,TEL,NO0010063308,Aktie,Oslo Bors,Norge,Telekommunikation,Bredband & Telefoni
+693,TGS,967,TGS,NO0003078800,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+694,Avance Gas,968,AGAS,BMG067231032,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Transport
+695,Bakkafrost,969,BAKKA,FO0000000179,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+696,FastOut Int,971,FOUT,SE0007525738,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+697,NEXT Biometrics,973,NEXT,NO0010629108,Aktie,Oslo Bors,Norge,Informationsteknik,Biometri
+698,Zalaris,974,ZAL,NO0010708910,Aktie,Oslo Bors,Norge,Informationsteknik,Affärs- & IT-System
+699,Medistim,976,MEDI,NO0010159684,Aktie,Oslo Bors,Norge,Hälsovård,Medicinsk Utrustning
+700,Matas,977,MATAS,DK0060497295,Aktie,Mid Cap,Danmark,Dagligvaror,Hygienprodukter
+701,FirstFarms,978,FFARMS,DK0060056166,Aktie,Small Cap,Danmark,Dagligvaror,Jordbruk
+702,Detection,982,DETEC,FI4000115464,Aktie,First North,Finland,Hälsovård,Medicinsk Utrustning
+703,Xbrane Biopharma,983,XBRANE,SE0007789409,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+704,Catena Media,984,CTM,MT0001000109,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Betting & Casino
+705,Sjöstrand Coffee,985,SCC B,SE0007897764,Aktie,Spotlight,Sverige,Sällanköpsvaror,Hemelektronik
+706,Invent Medic,986,IMS,SE0007603402,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+707,Eagle Filters,988,EAGLE,FI4000092523,Aktie,First North,Finland,Finans & Fastighet,Investmentbolag
+708,Herantis Pharma,991,HRTIS,FI4000087861,Aktie,First North,Finland,Hälsovård,Biotech
+709,Nexstim,992,NXTMH,FI4000506811,Aktie,First North,Finland,Hälsovård,Medicinsk Utrustning
+710,Piippo,994,PIIPPO,FI4000123070,Aktie,First North,Finland,Material,Förpackning
+711,Robit,995,ROBIT,FI4000150016,Aktie,Small Cap,Finland,Industri,Industrikomponenter
+712,Meriaura,996,MERIH,FI4000425848,Aktie,First North,Finland,Kraftförsörjning,Solkraft
+713,Siili Solutions,997,SIILI,FI4000043435,Aktie,Small Cap,Finland,Informationsteknik,Affärs- & IT-System
+714,Taaleri,998,TAALA,FI4000062195,Aktie,Mid Cap,Finland,Finans & Fastighet,Kapitalförvaltning
+715,Talenom,999,TNOM,FI4000153580,Aktie,Mid Cap,Finland,Industri,Affärskonsulter
+716,United Bankers,1000,UNITED,FI4000081427,Aktie,Small Cap,Finland,Finans & Fastighet,Kapitalförvaltning
+717,Verkkokauppa.com,1001,VERK,FI4000049812,Aktie,Small Cap,Finland,Sällanköpsvaror,Detaljhandel
+718,XXL,1002,XXL,NO0010716863,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Detaljhandel
+719,Bonheur,1006,BONHR,NO0003110603,Aktie,Oslo Bors,Norge,Kraftförsörjning,Vindkraft
+720,Protector,1007,PROT,NO0010209331,Aktie,Oslo Bors,Norge,Finans & Fastighet,Försäkring
+721,Ensurge Micropower,1008,ENSU,NO0012450008,Aktie,Oslo Bors,Norge,Informationsteknik,Elektronik & Tillverkning
+722,AF Gruppen,1009,AFG,NO0003078107,Aktie,Oslo Bors,Norge,Industri,Byggnation & Infrastruktur
+723,Humana,1010,HUM,SE0008040653,Aktie,Mid Cap,Sverige,Hälsovård,Sjukhus & Vårdhem
+724,Garo,1011,GARO,SE0015812417,Aktie,Mid Cap,Sverige,Industri,Elektroniska komponenter
+725,White Pearl Technology,1012,WPTG B,SE0020203271,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+726,CHOSA Oncology,1013,CHOSA,SE0007784319,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+727,Polygiene,1014,POLYG,SE0007692157,Aktie,First North,Sverige,Sällanköpsvaror,Kläder & Skor
+728,AddLife,1015,ALIF B,SE0014401378,Aktie,Large Cap,Sverige,Hälsovård,Biotech
+729,StrongPoint,1020,STRO,NO0010098247,Aktie,Oslo Bors,Norge,Industri,Säkerhet
+730,Atea,1021,ATEA,NO0004822503,Aktie,Oslo Bors,Norge,Informationsteknik,IT-Konsulter
+731,Wallenius Wilhelmsen,1022,WAWI,NO0010571680,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+732,Stolt-Nielsen,1023,SNI,BMG850801025,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+733,Tomra Systems,1024,TOM,NO0012470089,Aktie,Oslo Bors,Norge,Industri,Energi & Återvinning
+734,Veidekke,1025,VEI,NO0005806802,Aktie,Oslo Bors,Norge,Industri,Byggnation & Infrastruktur
+735,Kongsberg Gruppen,1026,KOG,NO0003043309,Aktie,Oslo Bors,Norge,Industri,Militär & Försvar
+736,SalMar,1027,SALM,NO0010310956,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+737,Napatech,1028,NAPA,DK0060520450,Aktie,Oslo Bors,Norge,Informationsteknik,Kommunikation
+738,Bang & Olufsen,1029,BO,DK0010218429,Aktie,Mid Cap,Danmark,Sällanköpsvaror,Hemelektronik
+739,Flugger,1031,FLUG B,DK0010218189,Aktie,Mid Cap,Danmark,Material,Kemikalier
+740,Roblon,1032,RBLN B,DK0060485019,Aktie,Small Cap,Danmark,Material,Kemikalier
+741,Xintela,1033,XINT,SE0007756903,Aktie,First North,Sverige,Hälsovård,Biotech
+742,ABG Sundal Collier,1034,ABG,NO0003021909,Aktie,Oslo Bors,Norge,Finans & Fastighet,Nischbanker
+743,Arribatec,1035,ARR,NO0012861667,Aktie,Oslo Bors,Norge,Informationsteknik,Säkerhet & Bevakning
+744,Akastor,1036,AKAST,NO0010215684,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+745,Aker,1037,AKER,NO0010234552,Aktie,Oslo Bors,Norge,Finans & Fastighet,Investmentbolag
+746,AKVA Group,1038,AKVA,NO0003097503,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+747,AMSC,1039,AMSC,NO0010272065,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+748,ABL Group,1040,ABL,NO0010715394,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+749,Archer,1041,ARCH,BMG0451H1170,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Borrning
+750,Austevoll Seafood,1042,AUSS,NO0010073489,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+751,Belships,1044,BELCO,NO0003094104,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+752,ArcticZymes,1046,AZT,NO0010014632,Aktie,Oslo Bors,Norge,Hälsovård,Biotech
+753,Techstep,1047,TECH,NO0012916131,Aktie,Oslo Bors,Norge,Informationsteknik,Affärs- & IT-System
+754,Wilh. Wilhelmsen B,1048,WWIB,NO0010576010,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+755,Borgestad,1049,BOR,NO0003111700,Aktie,Oslo Bors,Norge,Finans & Fastighet,Fastighetsbolag
+756,Borregaard,1050,BRG,NO0010657505,Aktie,Oslo Bors,Norge,Material,Kemikalier
+757,BW Offshore Limited,1051,BWO,BMG1738J1247,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+758,ContextVision,1052,CONTX,SE0014731154,Aktie,Oslo Bors,Norge,Hälsovård,Medicinsk Utrustning
+759,Simris Alg,1054,SIMRIS B,SE0008091664,Aktie,First North,Sverige,Dagligvaror,Hälsoprodukter
+760,Eidesvik Offshore,1056,EIOF,NO0010263023,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+761,Electromagnetic Geoservices,1057,EMGS,NO0010358484,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+762,Entra,1058,ENTRA,NO0010716418,Aktie,Oslo Bors,Norge,Finans & Fastighet,Fastighetsbolag
+763,Gaming Innovation,1061,GIG,US36467X2062,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Betting & Casino
+764,Golden Ocean,1063,GOGL,BMG396372051,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+765,Goodtech,1064,GOD,NO0004913609,Aktie,Oslo Bors,Norge,Industri,Affärskonsulter
+766,Grieg Seafood,1065,GSF,NO0010365521,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+767,Havila Shipping,1066,HAVI,NO0010257728,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+768,Hexagon Composites,1067,HEX,NO0003067902,Aktie,Oslo Bors,Norge,Material,Förpackning
+769,IDEX Biometrics,1070,IDEX,NO0003070609,Aktie,Oslo Bors,Norge,Informationsteknik,Biometri
+770,InterOil Exploration,1071,IOX,NO0010284318,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+771,Univid,1072,UNIV,NO0003055808,Aktie,Oslo Bors,Norge,Finans & Fastighet,Kredit & Finansiering
+772,Jinhui Shipping,1073,JIN,BMG5137R1088,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+773,Kongsberg Automotive,1074,KOA,NO0003033102,Aktie,Oslo Bors,Norge,Industri,Industrikomponenter
+774,Infant Bacterial,1075,IBT B,SE0008015259,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+775,Sydsvenska Hem,1076,SYDSV,SE0007897251,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+776,Plejd,1078,PLEJD,SE0008014476,Aktie,Spotlight,Sverige,Industri,Elektroniska komponenter
+777,Vadsbo SwitchTech,1079,VADS,SE0007980362,Aktie,Spotlight,Sverige,Industri,Elektroniska komponenter
+778,Litium,1080,LITI,SE0007387246,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+779,Nepa,1081,NEPA,SE0008066302,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+780,Resurs Holding,1082,RESURS,SE0007665823,Aktie,Mid Cap,Sverige,Finans & Fastighet,Kredit & Finansiering
+781,Leroy Seafood,1083,LSG,NO0003096208,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+782,Multiconsult,1084,MULTI,NO0010734338,Aktie,Oslo Bors,Norge,Industri,Affärskonsulter
+783,Navamedic,1085,NAVA,NO0010205966,Aktie,Oslo Bors,Norge,Hälsovård,Läkemedel
+784,NEL,1086,NEL,NO0010081235,Aktie,Oslo Bors,Norge,Kraftförsörjning,Förnybarenergi
+785,Axactor,1088,ACR,NO0010840515,Aktie,Oslo Bors,Norge,Finans & Fastighet,Kredit & Finansiering
+786,Thor Medical,1089,TRMED,NO0010597883,Aktie,Oslo Bors,Norge,Hälsovård,Biotech
+787,Bluenord,1092,BNOR,NO0010379266,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+788,NRC Group,1094,NRC,NO0003679102,Aktie,Oslo Bors,Norge,Industri,Byggnation & Infrastruktur
+789,Odfjell B,1095,ODFB,NO0003399917,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+790,Odfjell Drilling,1096,ODL,BMG671801022,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Borrning
+791,Olav Thon,1097,OLT,NO0005638858,Aktie,Oslo Bors,Norge,Finans & Fastighet,Fastighetsbolag
+792,Panoro Energy,1098,PEN,NO0010564701,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+793,Petrolia,1099,PSE,CY0102630916,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+794,Photocure,1100,PHO,NO0010000045,Aktie,Oslo Bors,Norge,Hälsovård,Läkemedel
+795,Prosafe,1102,PRS,NO0010861990,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+796,Questerre Energy,1104,QEC,CA74836K1003,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+797,SAS,1106,SASNO,SE0003366871,Aktie,Oslo Bors,Norge,Industri,Flygtransport
+798,Scana,1107,SCANA,NO0003053308,Aktie,Oslo Bors,Norge,Finans & Fastighet,Investmentbolag
+799,Scatec,1108,SCATC,NO0010715139,Aktie,Oslo Bors,Norge,Kraftförsörjning,Solkraft
+800,Selvaag Bolig,1109,SBO,NO0010612450,Aktie,Oslo Bors,Norge,Finans & Fastighet,Fastighetsbolag
+801,SeaBird Exploration,1111,SBX,CY0101162119,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+802,Magnora,1112,MGN,NO0010187032,Aktie,Oslo Bors,Norge,Kraftförsörjning,Förnybarenergi
+803,Siem Offshore,1113,SIOFF,KYG812291253,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+804,Solstad Offshore,1114,SOFF,NO0003080608,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Transport
+805,SpareBank 1 SR-Bank,1116,SRBNK,NO0010631567,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+806,KMC Properties,1118,KMCP,NO0010360175,Aktie,Oslo Bors,Norge,Finans & Fastighet,Fastighetsbolag
+807,Nekkar,1122,NKR,NO0003049405,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+808,Voss Veksel Landmandsbank,1126,VVL,NO0003025009,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+809,Carasent,1127,CARA,NO0010123060,Aktie,Oslo Bors,Norge,Informationsteknik,Affärs- & IT-System
+810,Arendals Fossekompani,1128,AFK,NO0003572802,Aktie,Oslo Bors,Norge,Kraftförsörjning,Elförsörjning
+811,Asetek,1129,ASTK,DK0060477263,Aktie,Oslo Bors,Norge,Informationsteknik,Datorer & Hårdvara
+812,Endur,1131,ENDUR,NO0012555459,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+813,Bouvet,1132,BOUV,NO0010360266,Aktie,Oslo Bors,Norge,Informationsteknik,IT-Konsulter
+814,Byggma,1133,BMA,NO0003087603,Aktie,Oslo Bors,Norge,Industri,Byggmaterial
+815,Europris,1136,EPR,NO0010735343,Aktie,Oslo Bors,Norge,Dagligvaror,Livsmedelsbutiker
+816,Paradox Interactive,1137,PDX,SE0008294953,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+817,Gyldendal,1139,GYL,NO0004288200,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Media & Publicering
+818,EQVA,1140,EQVA,NO0010708605,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+819,Itera,1141,ITERA,NO0010001118,Aktie,Oslo Bors,Norge,Informationsteknik,IT-Konsulter
+820,Kid,1142,KID,NO0010743545,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Möbler & Inredning
+821,Kitron,1143,KIT,NO0003079709,Aktie,Oslo Bors,Norge,Industri,Elektroniska komponenter
+822,Oceanteam,1144,OTS,NO0010317316,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Transport
+823,Polaris Media,1146,POL,NO0010466022,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Media & Publicering
+824,Reach Subsea,1148,REACH,NO0003117202,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Service
+825,PetroNor E&P,1155,PNOR,NO0012942525,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+826,Aqua Bio Technology,1156,ABTEC,NO0010307135,Aktie,Oslo Expand,Norge,Dagligvaror,Hälsoprodukter
+827,Awilco Drilling,1158,AWDR,NO0012785098,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Borrning
+828,Awilco LNG,1159,ALNG,NO0010607971,Aktie,Oslo Expand,Norge,Energi,Olja & Gas - Transport
+829,Hunter Group,1160,HUNT,NO0012953720,Aktie,Oslo Expand,Norge,Energi,Olja & Gas - Service
+830,EAM Solar,1162,EAM,NO0010607781,Aktie,Oslo Expand,Norge,Kraftförsörjning,Solkraft
+831,Hofseth BioCare,1163,HBC,NO0010598683,Aktie,Oslo Bors,Norge,Dagligvaror,Hälsoprodukter
+832,FLEX LNG,1164,FLNG,BMG359472021,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+833,5th Planet Games,1165,5PG,DK0060945467,Aktie,Oslo Expand,Norge,Sällanköpsvaror,Gaming & Spel
+834,Nordic Mining,1169,NOM,NO0010317340,Aktie,Oslo Expand,Norge,Material,Gruv - Prospekt & Drift
+835,North Energy,1170,NORTH,NO0010550056,Aktie,Oslo Expand,Norge,Finans & Fastighet,Investmentbolag
+836,PCI Biotech,1171,PCIB,NO0010405640,Aktie,Oslo Bors,Norge,Hälsovård,Biotech
+837,Philly Shipyard,1172,PHLY,NO0010395577,Aktie,Oslo Expand,Norge,Industri,Sjöfart & Rederi
+838,Pioneer Property Pref,1173,PPG,NO0010735681,Pref,Oslo Expand,Norge,Finans & Fastighet,Fastighetsbolag
+839,RomReal,1175,ROM,BMG763301022,Aktie,Oslo Expand,Norge,Finans & Fastighet,Fastighetsbolag
+840,S.D. Standard ETC,1176,SDSD,CY0101550917,Aktie,Oslo Bors,Norge,Finans & Fastighet,Investmentbolag
+841,Saga Pure,1177,SAGA,NO0010572589,Aktie,Oslo Bors,Norge,Finans & Fastighet,Investmentbolag
+842,Vow,1178,VOW,NO0010708068,Aktie,Oslo Bors,Norge,Industri,Energi & Återvinning
+843,Vistin Pharma,1180,VISTN,NO0010734122,Aktie,Oslo Bors,Norge,Hälsovård,Läkemedel
+844,Aasen Sparebank,1181,AASB,NO0010672181,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+845,Black Sea Property,1183,BSP,NO0010755101,Aktie,Oslo Growth,Norge,Finans & Fastighet,Fastighetsbolag
+846,Induct,1184,INDCT,NO0010536048,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+847,ALK-Abello,1187,ALK B,DK0061802139,Aktie,Large Cap,Danmark,Hälsovård,Läkemedel
+848,Alm. Brand,1188,ALMB,DK0015250344,Aktie,Large Cap,Danmark,Finans & Fastighet,Försäkring
+849,Ambu,1189,AMBU B,DK0060946788,Aktie,Large Cap,Danmark,Hälsovård,Medicinsk Utrustning
+850,Bavarian Nordic,1190,BAVA,DK0015998017,Aktie,Large Cap,Danmark,Hälsovård,Biotech
+851,D/S Norden,1191,DNORD,DK0060083210,Aktie,Large Cap,Danmark,Industri,Sjöfart & Rederi
+852,DFDS,1192,DFDS,DK0060655629,Aktie,Large Cap,Danmark,Industri,Sjöfart & Rederi
+853,Jeudan,1194,JDAN,DK0061282464,Aktie,Large Cap,Danmark,Finans & Fastighet,Fastighetsbolag
+854,NKT Holding,1196,NKT,DK0010287663,Aktie,Large Cap,Danmark,Industri,Elektroniska komponenter
+855,NNIT,1197,NNIT,DK0060580512,Aktie,Mid Cap,Danmark,Informationsteknik,IT-Konsulter
+856,Per Aarsleff,1200,PAAL B,DK0060700516,Aktie,Mid Cap,Danmark,Industri,Byggnation & Infrastruktur
+857,Ringkjobing Landbobank,1201,RILBA,DK0060854669,Aktie,Large Cap,Danmark,Finans & Fastighet,Banker
+858,SAS,1202,SAS DKK,SE0003366871,Aktie,Small Cap,Danmark,Industri,Flygtransport
+859,Schouw & Co.,1203,SCHO,DK0010253921,Aktie,Large Cap,Danmark,Industri,Industrikomponenter
+860,Solar,1205,SOLAR B,DK0010274844,Aktie,Mid Cap,Danmark,Industri,Affärskonsulter
+861,Sparekassen Sjaelland-Fyn,1206,SPKSJF,DK0060670776,Aktie,Mid Cap,Danmark,Finans & Fastighet,Banker
+862,Tivoli,1207,TIV,DK0060726743,Aktie,Mid Cap,Danmark,Sällanköpsvaror,Resor & Nöjen
+863,Spar Nord Bank,1208,SPNO,DK0060036564,Aktie,Large Cap,Danmark,Finans & Fastighet,Banker
+864,UIE,1209,UIE,MT0002400118,Aktie,Mid Cap,Danmark,Finans & Fastighet,Investmentbolag
+865,Zealand Pharma,1211,ZEAL,DK0060257814,Aktie,Large Cap,Danmark,Hälsovård,Biotech
+866,Össur,1212,OSSR,IS0000000040,Aktie,Large Cap,Danmark,Hälsovård,Medicinsk Utrustning
+867,Aalborg Boldspilklub,1213,AAB,DK0060868966,Aktie,Small Cap,Danmark,Sällanköpsvaror,Fritid & Sport
+868,AGF B,1214,AGF B,DK0010263722,Aktie,Small Cap,Danmark,Sällanköpsvaror,Fritid & Sport
+869,Atlantic Petroleum,1219,ATLA DKK,FO000A0DN9X4,Aktie,Small Cap,Danmark,Energi,Olja & Gas - Exploatering
+870,BankNordik,1220,BNORDIK CSE,FO0000000088,Aktie,Mid Cap,Danmark,Finans & Fastighet,Banker
+871,BioPorto,1221,BIOPOR,DK0011048619,Aktie,Small Cap,Danmark,Hälsovård,Biotech
+872,Pharma Equity,1222,PEG,DK0061155009,Aktie,Small Cap,Danmark,Finans & Fastighet,Investmentbolag
+873,Brd. Klee,1224,KLEE B,DK0010129089,Aktie,Small Cap,Danmark,Industri,Industrikomponenter
+874,Brdr. A&O Johansen,1225,AOJ B,DK0061686714,Aktie,Mid Cap,Danmark,Industri,Installation & VVS
+875,Brondbyernes IF,1227,BIF,DK0010247956,Aktie,Small Cap,Danmark,Sällanköpsvaror,Fritid & Sport
+876,cBrain,1228,CBRAIN,DK0060030286,Aktie,Mid Cap,Danmark,Informationsteknik,Affärs- & IT-System
+877,ChemoMetec,1229,CHEMM,DK0060055861,Aktie,Large Cap,Danmark,Hälsovård,Medicinsk Utrustning
+878,Columbus,1230,COLUM,DK0010268366,Aktie,Small Cap,Danmark,Informationsteknik,Affärs- & IT-System
+879,Copenhagen Capital,1231,CPHCAP ST,DK0060093607,Aktie,Small Cap,Danmark,Finans & Fastighet,Fastighet - REIT
+880,Danske Andelskassers,1233,DAB,DK0060299063,Aktie,Mid Cap,Danmark,Finans & Fastighet,Nischbanker
+881,Dantax,1234,DANT,DK0015205637,Aktie,Small Cap,Danmark,Sällanköpsvaror,Hemelektronik
+882,Djurslands Bank,1236,DJUR,DK0060136273,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+883,Scandinavian Investment,1237,SIG,DK0060038933,Aktie,Small Cap,Danmark,Finans & Fastighet,Investmentbolag
+884,Erria,1239,ERRIA,DK0060101483,Aktie,First North,Danmark,Industri,Sjöfart & Rederi
+885,Fast Ejendom,1244,FED,DK0060522746,Aktie,Small Cap,Danmark,Finans & Fastighet,Fastighetsbolag
+886,Fynske Bank,1245,FYNBK,DK0060520377,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+887,Gabriel Holding,1246,GABR,DK0060124691,Aktie,Small Cap,Danmark,Sällanköpsvaror,Möbler & Inredning
+888,German High Street,1247,GERHSP,DK0060093524,Aktie,Small Cap,Danmark,Finans & Fastighet,Fastighetsbolag
+889,Glunz & Jensen,1248,GJ,DK0010249309,Aktie,Small Cap,Danmark,Industri,Industrimaskiner
+890,Grönlandsbanken,1249,GRLA,DK0010230630,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+891,Gyldendal B,1250,GYLD B,DK0010247600,Aktie,Mid Cap,Danmark,Sällanköpsvaror,Media & Publicering
+892,HH International,1251,HH,DK0015202451,Aktie,Mid Cap,Danmark,Industri,Byggmaterial
+893,Harboes Bryggeri,1252,HARB B,DK0060014751,Aktie,Small Cap,Danmark,Dagligvaror,Bryggeri
+894,Hvidbjerg Bank,1253,HVID,DK0060135978,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+895,MT Hojgaard B,1254,MTHH,DK0010255975,Aktie,Mid Cap,Danmark,Industri,Byggnation & Infrastruktur
+896,InterMail,1255,IMAIL,DK0010212224,Aktie,Small Cap,Danmark,Material,Förpackning
+897,Kreditbanken,1256,KRE,DK0010253764,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+898,Lollands Bank,1258,LOLB,DK0060000107,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+899,Luxor,1259,LUXOR B,DK0010213628,Aktie,Small Cap,Danmark,Finans & Fastighet,Investmentbolag
+900,Lån og Spar Bank,1260,LASP,DK0010201532,Aktie,Mid Cap,Danmark,Finans & Fastighet,Nischbanker
+901,Mons Bank,1264,MNBA,DK0060133841,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+902,NTG Nordic Transport,1265,NTG,DK0061141215,Aktie,Mid Cap,Danmark,Industri,Tåg- & Lastbilstransport
+903,NewCap Holding,1266,NEWCAP,DK0010212570,Aktie,Small Cap,Danmark,Finans & Fastighet,Kapitalförvaltning
+904,Nordfyns Bank,1267,NRDF,DK0061295441,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+905,Park Street,1269,PARKST A,DK0010158500,Aktie,Small Cap,Danmark,Finans & Fastighet,Fastighetsbolag
+906,North Media,1270,NORTHM,DK0010270347,Aktie,Mid Cap,Danmark,Sällanköpsvaror,Media & Publicering
+907,NTR Holding,1271,NTR B,DK0010027671,Aktie,Small Cap,Danmark,Industri,Elektroniska komponenter
+908,PARKEN Sport,1273,PARKEN,DK0010237643,Aktie,Small Cap,Danmark,Sällanköpsvaror,Fritid & Sport
+909,Prime Office,1274,PRIMOF,DK0060137594,Aktie,Small Cap,Danmark,Finans & Fastighet,Fastighetsbolag
+910,Rias,1275,RIAS B,DK0010125848,Aktie,Small Cap,Danmark,Material,Kemikalier
+911,RTX,1276,RTX,DK0010267129,Aktie,Mid Cap,Danmark,Informationsteknik,Kommunikation
+912,EAC Invest,1279,EAC,DK0061277894,Aktie,Small Cap,Danmark,Industri,Affärskonsulter
+913,Scandinavian Brake,1280,SBS,DK0060042612,Aktie,Small Cap,Danmark,Industri,Industrikomponenter
+914,Silkeborg IF,1282,SIF,DK0010128008,Aktie,Small Cap,Danmark,Sällanköpsvaror,Fritid & Sport
+915,SKAKO,1283,SKAKO,DK0010231877,Aktie,Small Cap,Danmark,Industri,Industrimaskiner
+916,Skjern Bank,1284,SKJE,DK0010295922,Aktie,Small Cap,Danmark,Finans & Fastighet,Banker
+917,Ennogie Solar,1285,ESG,DK0010305077,Aktie,Small Cap,Danmark,Finans & Fastighet,Investmentbolag
+918,SP Group,1286,SPG,DK0061027356,Aktie,Mid Cap,Danmark,Material,Kemikalier
+919,Rovsing,1287,ROV,DK0061152170,Aktie,Small Cap,Danmark,Informationsteknik,Rymd- & Satellitteknik
+920,Strategic Investments,1288,STRINV,DK0010271238,Aktie,Small Cap,Danmark,Finans & Fastighet,Investmentbolag
+921,Agat Ejendomme,1289,AGAT,DK0010258995,Aktie,Small Cap,Danmark,Finans & Fastighet,Fastighetsbolag
+922,Cemat,1290,CEMAT,DK0010271584,Aktie,Small Cap,Danmark,Finans & Fastighet,Fastighetsbolag
+923,TORM,1291,TRMD A,GB00BZ3CNK81,Aktie,Large Cap,Danmark,Energi,Olja & Gas - Transport
+924,Vestjysk Bank,1293,VJBA,DK0010304500,Aktie,Mid Cap,Danmark,Finans & Fastighet,Banker
+925,EgnsINVEST,1297,EGNETY,DK0060118453,Aktie,First North,Danmark,Finans & Fastighet,Fastighetsbolag
+926,FastPassCorp,1299,FASTPC,DK0060568145,Aktie,First North,Danmark,Informationsteknik,Säkerhet & Bevakning
+927,WIRTEK,1302,WIRTEK,DK0060040913,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+928,Tokmanni Group,1303,TOKMAN,FI4000197934,Aktie,Mid Cap,Finland,Dagligvaror,Livsmedelsbutiker
+929,Lehto Group,1304,LEHTO,FI4000081138,Aktie,Small Cap,Finland,Industri,Bostadsbyggnation
+930,Qt Group,1305,QTCOM,FI4000198031,Aktie,Large Cap,Finland,Informationsteknik,Affärs- & IT-System
+931,Real Fastigheter,1306,REAL,SE0020679025,Aktie,NGM,Sverige,Finans & Fastighet,Fastighetsbolag
+932,Talkpool,1309,TALK,CH0322161768,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+933,Provide IT,1311,PROVIT,SE0008321418,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+934,Swedencare,1312,SECARE,SE0015988167,Aktie,First North,Sverige,Dagligvaror,Hälsoprodukter
+935,B3 Consulting,1313,B3,SE0008347660,Aktie,Small Cap,Sverige,Informationsteknik,IT-Konsulter
+936,Clean Motion,1315,CLEMO,SE0008216303,Aktie,First North,Sverige,Sällanköpsvaror,Bil & Motor
+937,Front Ventures,1316,FRNT B,SE0005337920,Aktie,NGM,Sverige,Finans & Fastighet,Investmentbolag
+938,SynAct Pharma,1317,SYNACT,SE0008241491,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+939,BrandBee,1320,BRANDB,SE0017885155,Aktie,NGM,Sverige,Informationsteknik,Internettjänster
+940,TF Bank,1321,TFBANK,SE0007331608,Aktie,Mid Cap,Sverige,Finans & Fastighet,Kredit & Finansiering
+941,Nordic Waterproofing,1322,NWG,SE0014731089,Aktie,Mid Cap,Sverige,Industri,Byggmaterial
+942,AcadeMedia,1323,ACAD,SE0007897079,Aktie,Mid Cap,Sverige,Industri,Utbildning
+943,Orsted,1324,ORSTED,DK0060094928,Aktie,Large Cap,Danmark,Kraftförsörjning,Vindkraft
+944,Bonava B,1325,BONAV B,SE0008091581,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+945,Acuvi,1326,ACUVI,SE0017833171,Aktie,First North,Sverige,Industri,Elektroniska komponenter
+946,Cyxone,1327,CYXO,SE0007815428,Aktie,First North,Sverige,Hälsovård,Biotech
+947,Oscar Properties Pref B,1328,OP PREFB,SE0016278329,Pref,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+948,Enorama Pharma,1330,ERMA,SE0008216329,Aktie,First North,Sverige,Hälsovård,Läkemedel
+949,Mediacle,1331,MEGR,SE0007705074,Aktie,NGM,Sverige,Sällanköpsvaror,Hemelektronik
+950,GomSpace,1333,GOMX,SE0008348304,Aktie,First North,Sverige,Informationsteknik,Rymd- & Satellitteknik
+951,Redwood Pharma,1334,REDW,SE0008294789,Aktie,First North,Sverige,Hälsovård,Läkemedel
+952,Shortcut Media,1335,SMG,SE0008347462,Aktie,Spotlight,Sverige,Sällanköpsvaror,Marknadsföring
+953,Absolicon,1336,ABSL B,SE0018396947,Aktie,Spotlight,Sverige,Kraftförsörjning,Solkraft
+954,Cereno Scientific,1337,CRNO B,SE0008241558,Aktie,First North,Sverige,Hälsovård,Läkemedel
+955,NYAB,1338,NYAB,FI4000153515,Aktie,First North,Finland,Finans & Fastighet,Kredit & Finansiering
+956,Pareto Bank,1339,PARB,NO0010397581,Aktie,Oslo Bors,Norge,Finans & Fastighet,Nischbanker
+957,Treasure,1340,TRE,NO0010763550,Aktie,Oslo Bors,Norge,Finans & Fastighet,Kapitalförvaltning
+958,B2 Impact,1343,B2I,NO0010633951,Aktie,Oslo Bors,Norge,Finans & Fastighet,Kredit & Finansiering
+959,Aega,1344,AEGA,NO0012958539,Aktie,Oslo Expand,Norge,Kraftförsörjning,Solkraft
+960,Scandinavian Tobacco,1345,STG,DK0060696300,Aktie,Large Cap,Danmark,Dagligvaror,Tobak
+961,Quartiers Properties Pref,1349,QUART PREF,SE0009697212,Pref,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+962,Gold Town Games,1350,GTG,SE0008587117,Aktie,NGM,Sverige,Sällanköpsvaror,Gaming & Spel
+963,Circio,1351,CRNA,NO0013033795,Aktie,Oslo Bors,Norge,Hälsovård,Biotech
+964,Maha Energy,1354,MAHA A,SE0008374383,Aktie,Small Cap,Sverige,Energi,Olja & Gas - Exploatering
+965,ExpreS2ion Biotech,1355,EXPRS2,SE0008348262,Aktie,First North,Sverige,Hälsovård,Biotech
+966,Flowscape,1357,FLOWS,SE0018042046,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+967,Alcadon Group,1358,ALCA,SE0008732218,Aktie,First North,Sverige,Industri,Elektroniska komponenter
+968,Eyeonid,1360,EOID,SE0019763988,Aktie,NGM,Sverige,Informationsteknik,Biometri
+969,Filo,1361,FIL,CA31729R1055,Aktie,First North,Sverige,Material,Gruv - Prospekt & Drift
+970,Sustainable Energy,1362,SENS,SE0011643980,Aktie,NGM,Sverige,Industri,Installation & VVS
+971,Jumpgate,1363,GATE,SE0008435044,Aktie,NGM,Sverige,Sällanköpsvaror,Gaming & Spel
+972,WilLak,1365,WIL,SE0008964266,Aktie,NGM,Sverige,Industri,Byggmaterial
+973,Cyber Security 1,1366,CYB1,SE0007604061,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+974,Solnaberg,1368,SOLNA,SE0009155211,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+975,Nosa Plugs,1369,NOSA,SE0006994539,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+976,Vincit,1371,VINCIT,FI4000185533,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+977,Gasporox,1372,GPX,SE0008991624,Aktie,First North,Sverige,Industri,Mätning & Analys
+978,Embracer,1374,EMBRAC B,SE0016828511,Aktie,Large Cap,Sverige,Sällanköpsvaror,Gaming & Spel
+979,BICO Group,1376,BICO,SE0013647385,Aktie,Mid Cap,Sverige,Hälsovård,Medicinsk Utrustning
+980,Volati,1378,VOLO,SE0009143662,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+981,Byggpartner,1379,BYGGP,SE0009242324,Aktie,First North,Sverige,Industri,Byggnation & Infrastruktur
+982,Crunchfish,1382,CFISH,SE0009190192,Aktie,First North,Sverige,Informationsteknik,Biometri
+983,Gapwaves,1383,GAPW B,SE0009155518,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+984,InDex Pharmaceuticals,1384,INDEX,SE0008966295,Aktie,First North,Sverige,Hälsovård,Läkemedel
+985,Alligator Bioscience,1385,ATORX,SE0000767188,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+986,Swedish Stirling,1386,STRLNG,SE0009143993,Aktie,First North,Sverige,Kraftförsörjning,Förnybarenergi
+987,ChemoTech,1389,CMOTEC B,SE0009242654,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+988,Smart Eye,1390,SEYE,SE0009268279,Aktie,First North,Sverige,Informationsteknik,Biometri
+989,Heeros,1391,HEEROS,FI4000127527,Aktie,First North,Finland,Informationsteknik,IT-Konsulter
+990,Finepart,1392,FINE,SE0009189442,Aktie,Spotlight,Sverige,Industri,Industrimaskiner
+991,Transiro,1393,TIRO,SE0009242027,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+992,Bluelake Mineral,1394,BLUE,SE0015382148,Aktie,NGM,Sverige,Material,Gruv - Prospekt & Drift
+993,Aino Health,1395,AINO,SE0009242555,Aktie,First North,Sverige,Industri,Stödtjänster & Service
+994,AppSpotr,1396,APTR,SE0018041097,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+995,Acarix,1397,ACARIX,SE0009268717,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+996,AAC Clyde Space,1398,AAC,SE0021020716,Aktie,First North,Sverige,Informationsteknik,Rymd- & Satellitteknik
+997,SeaTwirl,1399,STW,SE0009242175,Aktie,First North,Sverige,Kraftförsörjning,Vindkraft
+998,Svenska Aerogel,1400,AERO,SE0008212161,Aktie,First North,Sverige,Material,Kemikalier
+999,Vo2 Cap,1401,VO2,SE0016802797,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1000,AcouSort,1402,ACOU,SE0009189608,Aktie,First North,Sverige,Hälsovård,Biotech
+1001,Effnetplattformen,1404,EFFH,SE0015987565,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1002,Oncopeptides,1406,ONCO,SE0009414576,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+1003,Bio Vitos Pharma,1408,BIOVIT,SE0009320278,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1004,Hoylu,1409,HOYLU,SE0020677854,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1005,IRLAB Therapeutics,1410,IRLAB A,SE0012675361,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+1006,Aerowash,1411,AERW B,SE0009346299,Aktie,Spotlight,Sverige,Industri,Stödtjänster & Service
+1007,Initiator Pharma,1412,INIT,DK0060775872,Aktie,First North,Sverige,Hälsovård,Biotech
+1008,Chordate Medical,1414,CMH,SE0009495559,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1009,Samtrygg,1415,SAMT B,SE0009267834,Aktie,NGM,Sverige,Sällanköpsvaror,Konsumentservice
+1010,SARSYS,1416,SARS,SE0009320294,Aktie,NGM,Sverige,Industri,Mätning & Analys
+1011,Medclair Invest,1417,MCLR,SE0009190572,Aktie,NGM,Sverige,Sällanköpsvaror,Fritid & Sport
+1012,Ambea,1419,AMBEA,SE0009663826,Aktie,Mid Cap,Sverige,Hälsovård,Sjukhus & Vårdhem
+1013,Mips,1421,MIPS,SE0009216278,Aktie,Large Cap,Sverige,Sällanköpsvaror,Fritid & Sport
+1014,ChromoGenics,1422,CHRO,SE0020847481,Aktie,First North,Sverige,Industri,Byggmaterial
+1015,Xavi Solutionnode,1423,XAVI B,SE0003088541,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1016,Prolight Diagnostics,1424,PRLD,SE0003618230,Aktie,NGM,Sverige,Hälsovård,Biotech
+1017,FM Mattsson,1425,FMM B,SE0018040883,Aktie,Mid Cap,Sverige,Industri,Installation & VVS
+1018,Actic Group,1426,ATIC,SE0009269467,Aktie,Small Cap,Sverige,Sällanköpsvaror,Resor & Nöjen
+1019,Biovica,1429,BIOVIC B,SE0008613731,Aktie,First North,Sverige,Hälsovård,Biotech
+1020,Unibap,1431,UNIBAP,SE0009606809,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1021,EatGood,1432,EATG,SE0009548597,Aktie,Spotlight,Sverige,Industri,Industrimaskiner
+1022,Sonetel,1433,SONE,SE0009580517,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+1023,Isofol Medical,1434,ISOFOL,SE0009581051,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+1024,Tangiamo Touch,1435,TANGI,SE0009664303,Aktie,First North,Sverige,Informationsteknik,Datorer & Hårdvara
+1025,Intervacc,1436,IVACC,SE0009607252,Aktie,First North,Sverige,Hälsovård,Biotech
+1026,Instalco,1437,INSTAL,SE0017483506,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+1027,Sdiptech,1438,SDIP B,SE0003756758,Aktie,Mid Cap,Sverige,Industri,Installation & VVS
+1028,Munters,1439,MTRS,SE0009806607,Aktie,Large Cap,Sverige,Industri,Installation & VVS
+1029,SECITS Holding,1441,SECI,SE0009664436,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+1030,Rentunder,1442,RENT,SE0004548451,Aktie,NGM,Sverige,Industri,Industrimaskiner
+1031,International Petroleum,1443,IPCO,CA46016U1084,Aktie,Large Cap,Sverige,Energi,Olja & Gas - Exploatering
+1032,Mantex,1445,MANTEX,SE0009663339,Aktie,First North,Sverige,Industri,Mätning & Analys
+1033,Annexin,1446,ANNX,SE0009664154,Aktie,First North,Sverige,Hälsovård,Biotech
+1034,Athanase Innovation,1447,ATIN,SE0018014060,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1035,Bambuser,1450,BUSER,SE0009663834,Aktie,First North,Sverige,Informationsteknik,Internettjänster
+1036,AcuCort,1451,ACUC,SE0009695927,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1037,XMReality,1452,XMR,SE0009664188,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1038,OurLiving,1453,OURLIV,SE0009606593,Aktie,Spotlight,Sverige,Informationsteknik,Säkerhet & Bevakning
+1039,Integrum,1455,INTEG B,SE0009807266,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1040,Bioservo Technologies,1457,BIOS,SE0009779085,Aktie,First North,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1041,Medicover,1459,MCOV B,SE0009778848,Aktie,Large Cap,Sverige,Hälsovård,Sjukhus & Vårdhem
+1042,Abelco Investment,1461,ABIG,SE0003617075,Aktie,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1043,TerraNet,1462,TERRNT B,SE0009806045,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1044,Boozt,1463,BOOZT,SE0009888738,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Kläder & Skor
+1045,Zaplox,1465,ZAPLOX,SE0020354389,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1046,TCECUR,1466,TCC A,SE0014965604,Aktie,NGM,Sverige,Informationsteknik,Biometri
+1047,Ayima,1467,AYIMA B,SE0009888506,Aktie,First North,Sverige,Sällanköpsvaror,Marknadsföring
+1048,Nexar Group,1468,NXAR,SE0018219826,Aktie,NGM,Sverige,Sällanköpsvaror,Media & Publicering
+1049,Paxman,1469,PAX,SE0009806284,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1050,Essity B,1470,ESSITY B,SE0009922164,Aktie,Large Cap,Sverige,Dagligvaror,Hygienprodukter
+1051,Enersize,1471,ENERS,FI4000233317,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1052,Preservia Pref,1472,PHYR PREF,SE0009973365,Pref,NGM,Sverige,Finans & Fastighet,Fastighetsbolag
+1053,Bonesupport,1474,BONEX,SE0009858152,Aktie,Mid Cap,Sverige,Hälsovård,Biotech
+1054,OXE Marine,1475,OXE,SE0009888613,Aktie,First North,Sverige,Sällanköpsvaror,Bil & Motor
+1055,Alligo,1477,ALLIGO B,SE0009922305,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+1056,Agtira,1478,AGTIRA B,SE0008588354,Aktie,First North,Sverige,Dagligvaror,Jordbruk
+1057,Nitro Games,1479,NITRO,FI4000242961,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1058,OmniCar,1481,OMNI,SE0009997331,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1059,Netmore,1482,NETM B,SE0009921976,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1060,NextCell Pharma,1483,NXTCL,SE0009723125,Aktie,First North,Sverige,Hälsovård,Biotech
+1061,Promore Pharma,1485,PROMO,SE0009947740,Aktie,First North,Sverige,Hälsovård,Biotech
+1062,Realfiction,1486,REALFI,SE0009920994,Aktie,First North,Sverige,Sällanköpsvaror,Marknadsföring
+1063,Sedana Medical,1487,SEDANA,SE0015988373,Aktie,Mid Cap,Sverige,Hälsovård,Medicinsk Utrustning
+1064,Surgical Science,1489,SUS,SE0014428512,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1065,Trianon,1490,TRIAN B,SE0018013658,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1066,News55,1491,N55,SE0009889934,Aktie,NGM,Sverige,Sällanköpsvaror,Media & Publicering
+1067,Seamless Distribution Systems,1492,SDS,SE0009994445,Aktie,First North,Sverige,Informationsteknik,Betalning & E-handel
+1068,Rovio,1515,ROVIO,FI4000266804,Aktie,Mid Cap,Finland,Sällanköpsvaror,Gaming & Spel
+1069,Balco Group,1517,BALCO,SE0010323998,Aktie,Small Cap,Sverige,Industri,Byggmaterial
+1070,Enrad,1518,ENRAD,SE0009994858,Aktie,Spotlight,Sverige,Industri,Installation & VVS
+1071,Quartiers Properties,1520,QUART,SE0009697204,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1072,Obducat Pref,1521,OBDU PREF B,SE0009357536,Pref,NGM,Sverige,Informationsteknik,Elektronik & Tillverkning
+1073,Inhalation Sciences,1522,ISAB,SE0009983893,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+1074,SenzaGen,1523,SENZA,SE0010219626,Aktie,First North,Sverige,Hälsovård,Biotech
+1075,Xspray Pharma,1524,XSPRAY,SE0009973563,Aktie,Small Cap,Sverige,Hälsovård,Biotech
+1076,Fondia,1526,FONDIA,FI4000232913,Aktie,First North,Finland,Industri,Affärskonsulter
+1077,Kamux,1527,KAMUX,FI4000206750,Aktie,Mid Cap,Finland,Sällanköpsvaror,Bil & Motor
+1078,Remedy Entertainment,1528,REMEDY,FI4000251897,Aktie,Mid Cap,Finland,Sällanköpsvaror,Gaming & Spel
+1079,GreenMobility,1529,GREENM,DK0060817898,Aktie,Small Cap,Danmark,Sällanköpsvaror,Konsumentservice
+1080,Conferize,1530,CONFRZ,DK0060816148,Aktie,First North,Danmark,Informationsteknik,Internettjänster
+1081,Borr Drilling,1532,BORR,BMG1466R1732,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Borrning
+1082,BerGenBio,1533,BGBIO,NO0010650013,Aktie,Oslo Bors,Norge,Hälsovård,Biotech
+1083,Aquila,1536,AQUIL,NO0010778095,Aktie,Oslo Expand,Norge,Industri,Sjöfart & Rederi
+1084,BioArctic,1538,BIOA B,SE0010323311,Aktie,Large Cap,Sverige,Hälsovård,Biotech
+1085,Fram Skandinavien,1539,FRAM B,SE0010296269,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1086,Nilfisk,1541,NLFSK,DK0060907293,Aktie,Mid Cap,Danmark,Industri,Industrimaskiner
+1087,Climeon,1542,CLIME B,SE0009973548,Aktie,First North,Sverige,Kraftförsörjning,Förnybarenergi
+1088,Qiiwi Games,1543,QIIWI,SE0010245373,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1089,Ferronordic,1546,FNM,SE0005468717,Aktie,Small Cap,Sverige,Industri,Industrikomponenter
+1090,Goodbye Kansas,1547,GBK,SE0020179158,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1091,Touchtech,1548,TOUCH,SE0010414482,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1092,Artificial Solutions,1549,ASAI,SE0018397184,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1093,2cureX,1550,2CUREX,SE0010468124,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1094,Time People Group,1551,TPGR,SE0010442962,Aktie,NGM,Sverige,Informationsteknik,IT-Konsulter
+1095,Seafire,1552,SEAF,SE0009779796,Aktie,Small Cap,Sverige,Finans & Fastighet,Investmentbolag
+1096,BiBBInstruments,1553,BIBB,SE0010102095,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+1097,Flexqube,1556,FLEXQ,SE0010547075,Aktie,First North,Sverige,Industri,Industrikomponenter
+1098,Awardit,1557,AWRD,SE0010101824,Aktie,First North,Sverige,Sällanköpsvaror,Marknadsföring
+1099,Morrow Bank,1559,MOBA,NO0010694029,Aktie,Oslo Bors,Norge,Finans & Fastighet,Kredit & Finansiering
+1100,Vaxxa,1560,VAXXA,SE0009889157,Aktie,Spotlight,Sverige,Sällanköpsvaror,Gaming & Spel
+1101,Logistri,1562,LOGIST,SE0010414615,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1102,Tempest Security,1564,TSEC,SE0010469221,Aktie,First North,Sverige,Industri,Säkerhet
+1103,DevPort,1565,DEVP B,SE0010546622,Aktie,First North,Sverige,Informationsteknik,IT-Konsulter
+1104,MAG Interactive,1566,MAGI,SE0010520908,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1105,Terveystalo,1567,TTALO,FI4000252127,Aktie,Mid Cap,Finland,Hälsovård,Hälsovård & Hjälpmedel
+1106,Efecte,1568,EFECTE,FI4000282868,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1107,Gofore,1569,GOFORE,FI4000283130,Aktie,Mid Cap,Finland,Informationsteknik,IT-Konsulter
+1108,Titanium,1570,TITAN,FI4000270350,Aktie,First North,Finland,Finans & Fastighet,Kapitalförvaltning
+1109,Scout Gaming,1571,SCOUT,SE0010521153,Aktie,First North,Sverige,Sällanköpsvaror,Betting & Casino
+1110,Acconeer,1572,ACCON,SE0010546242,Aktie,First North,Sverige,Industri,Mätning & Analys
+1111,Lyko,1573,LYKO A,SE0010468918,Aktie,First North,Sverige,Dagligvaror,Hygienprodukter
+1112,Arjo,1574,ARJO B,SE0010468116,Aktie,Large Cap,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1113,Enad Global 7,1576,EG7,SE0010520106,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1114,Bio-Works,1577,BIOWKS,SE0007387089,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1115,TopRight Nordic,1578,TOPR,SE0010297507,Aktie,NGM,Sverige,Industri,Elektroniska komponenter
+1116,24SevenOffice,1579,247,SE0010546911,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1117,Crayon Group,1580,CRAYN,NO0010808892,Aktie,Oslo Bors,Norge,Informationsteknik,IT-Konsulter
+1118,Webstep,1582,WSTEP,NO0010609662,Aktie,Oslo Bors,Norge,Informationsteknik,IT-Konsulter
+1119,Orphazyme,1583,ORPHA,DK0062502894,Aktie,Small Cap,Danmark,Hälsovård,Biotech
+1120,TCM Group,1584,TCM,DK0060915478,Aktie,Small Cap,Danmark,Sällanköpsvaror,Möbler & Inredning
+1121,Copenhagen Capital Praef,1585,CPHCAP PREF,DK0060732980,Pref,Small Cap,Danmark,Finans & Fastighet,Fastighet - REIT
+1122,Gentian Diagnostics,1590,GENT,NO0010748866,Aktie,Oslo Bors,Norge,Hälsovård,Medicinsk Utrustning
+1123,Grong Sparebank,1592,GRONG,NO0010636491,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1124,MPC Container Ships,1593,MPCC,NO0010791353,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1125,Northern Drilling,1594,NODL,BMG6624L1090,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Borrning
+1126,Romerike Sparebank,1595,ROMER,NO0010808405,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1127,Tysnes Sparebank,1596,TYSB,NO0010731615,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1128,Baltic Sea Properties,1597,BALT,NO0010810476,Aktie,Oslo Growth,Norge,Finans & Fastighet,Fastighetsbolag
+1129,Aixia,1599,AIXIA B,SE0010636837,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1130,H&D Wireless,1600,HDW B,SE0009889405,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+1131,MyFirstApp,1601,MFA,SE0020541589,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+1132,Hubso Group,1602,HUBSO,SE0009806177,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1133,ADDvise Group B,1603,ADDV B,SE0007464862,Aktie,First North,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1134,Arbona A,1604,ARBO A,SE0003210590,Stocks2,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1135,Atlas Copco B,1605,ATCO B,SE0017486897,Stocks2,Large Cap,Sverige,Industri,Industrimaskiner
+1136,Bonava A,1606,BONAV A,SE0008091573,Stocks2,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1137,Catella A,1607,CAT A,SE0000188500,Stocks2,Mid Cap,Sverige,Finans & Fastighet,Kapitalförvaltning
+1138,Corem Property B,1608,CORE B,SE0010714287,Stocks2,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1139,Electrolux A,1609,ELUX A,SE0016589170,Stocks2,Large Cap,Sverige,Sällanköpsvaror,Hemelektronik
+1140,Ericsson A,1610,ERIC A,SE0000108649,Stocks2,Large Cap,Sverige,Informationsteknik,Kommunikation
+1141,Essity A,1611,ESSITY A,SE0009922156,Stocks2,Large Cap,Sverige,Dagligvaror,Hygienprodukter
+1142,Handelsbanken B,1612,SHB B,SE0007100607,Stocks2,Large Cap,Sverige,Finans & Fastighet,Banker
+1143,Holmen A,1613,HOLM A,SE0011090000,Stocks2,Large Cap,Sverige,Material,Skogsbolag
+1144,Husqvarna A,1615,HUSQ A,SE0001662222,Stocks2,Large Cap,Sverige,Sällanköpsvaror,Hemelektronik
+1145,Industrivärden A,1616,INDU A,SE0000190126,Stocks2,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+1146,Investor A,1617,INVE A,SE0015811955,Stocks2,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+1147,Kinnevik A,1618,KINV A,SE0015810239,Stocks2,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+1148,Midsona A,1620,MSON A,SE0000565210,Stocks2,Small Cap,Sverige,Dagligvaror,Hälsoprodukter
+1149,HAKI Safety A,1621,HAKI A,SE0000122657,Stocks2,Small Cap,Sverige,Finans & Fastighet,Investmentbolag
+1150,Modern Times Group A,1622,MTG A,SE0018012486,Stocks2,Large Cap,Sverige,Sällanköpsvaror,Media & Publicering
+1151,NCC A,1623,NCC A,SE0000118952,Stocks2,Large Cap,Sverige,Industri,Byggnation & Infrastruktur
+1152,Ortivus A,1624,ORTI A,SE0000188930,Stocks2,Small Cap,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1153,Ratos A,1625,RATO A,SE0000191090,Stocks2,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+1154,Sagax B,1626,SAGA B,SE0005127818,Stocks2,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1155,Sagax D,1627,SAGA D,SE0009161052,Stocks2,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1156,SCA A,1628,SCA A,SE0000171886,Stocks2,Large Cap,Sverige,Material,Skogsbolag
+1157,SEB C,1629,SEB C,SE0000120784,Stocks2,Large Cap,Sverige,Finans & Fastighet,Banker
+1158,SKF A,1630,SKF A,SE0000108201,Stocks2,Large Cap,Sverige,Industri,Industrikomponenter
+1159,SSAB B,1632,SSAB B,SE0000120669,Aktie,Large Cap,Sverige,Material,Gruv - Industrimetaller
+1160,Starbreeze A,1633,STAR A,SE0007158928,Stocks2,Small Cap,Sverige,Sällanköpsvaror,Gaming & Spel
+1161,Stora Enso A,1634,STE A,FI0009007603,Stocks2,Large Cap,Sverige,Material,Skogsbolag
+1162,Svolder A,1635,SVOL A,SE0017161441,Stocks2,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+1163,Sweco A,1636,SWEC A,SE0014960365,Stocks2,Large Cap,Sverige,Industri,Affärskonsulter
+1164,Tele2 A,1637,TEL2 A,SE0005190220,Stocks2,Large Cap,Sverige,Telekommunikation,Bredband & Telefoni
+1165,Transferator B,1638,TRAN B,SE0017911241,Stocks2,Spotlight,Sverige,Finans & Fastighet,Investmentbolag
+1166,Volvo A,1640,VOLV A,SE0000115420,Stocks2,Large Cap,Sverige,Industri,Industrimaskiner
+1167,Ilkka 1,1642,ILKKA1,FI0009800197,Stocks2,Prelist,Finland,Sällanköpsvaror,Media & Publicering
+1168,Kesko A,1643,KESKOA,FI0009007900,Stocks2,Large Cap,Finland,Dagligvaror,Livsmedelsbutiker
+1169,Metsä Board A,1644,METSA,FI0009000640,Stocks2,Large Cap,Finland,Material,Skogsbolag
+1170,Oriola A,1645,OKDAV,FI0009014344,Stocks2,Mid Cap,Finland,Dagligvaror,Apotek
+1171,Orion A,1646,ORNAV,FI0009014369,Stocks2,Large Cap,Finland,Hälsovård,Läkemedel
+1172,SSAB A,1647,SSABAH,SE0000171100,Stocks2,Large Cap,Finland,Material,Gruv - Industrimetaller
+1173,Stora Enso A,1649,STEAV,FI0009005953,Stocks2,Large Cap,Finland,Material,Skogsbolag
+1174,Ålandsbanken A,1650,ALBAV,FI0009000103,Stocks2,Mid Cap,Finland,Finans & Fastighet,Banker
+1175,Odfjell A,1651,ODF,NO0003399909,Stocks2,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1176,Schibsted B,1652,SCHB,NO0010736879,Stocks2,Oslo Bors,Norge,Sällanköpsvaror,Media & Publicering
+1177,Wilh. Wilhelmsen A,1653,WWI,NO0010571698,Stocks2,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1178,A.P. Moller Maersk A,1654,MAERSK A,DK0010244425,Stocks2,Large Cap,Danmark,Industri,Sjöfart & Rederi
+1179,Carlsberg A,1655,CARL A,DK0010181676,Stocks2,Large Cap,Danmark,Dagligvaror,Bryggeri
+1180,Gyldendal A,1656,GYLD A,DK0010247527,Stocks2,Mid Cap,Danmark,Sällanköpsvaror,Media & Publicering
+1181,Rockwool A,1658,ROCK A,DK0010219070,Stocks2,Large Cap,Danmark,Industri,Byggmaterial
+1182,Infracom,1659,INFRA,SE0010414573,Aktie,Spotlight,Sverige,Telekommunikation,Telekomtjänster
+1183,SPENN Technology,1660,SPENN,DK0062268686,Aktie,First North,Danmark,Industri,Mätning & Analys
+1184,Leading Edge Materials,1661,LEMSE,CA52171T1003,Aktie,First North,Sverige,Material,Gruv - Prospekt & Drift
+1185,Veteranpoolen,1663,VPAB B,SE0010663161,Aktie,Spotlight,Sverige,Industri,Bemanning
+1186,Nosium,1664,NOSIUM B,SE0017564271,Aktie,NGM,Sverige,Dagligvaror,Hälsoprodukter
+1187,Salmones Camanchaca,1665,SACAM,NO0012451915,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+1188,Coegin Pharma,1666,COEGIN,SE0020357754,Aktie,NGM,Sverige,Hälsovård,Biotech
+1189,Smoltek,1669,SMOL,SE0010820381,Aktie,Spotlight,Sverige,Informationsteknik,Elektronik & Tillverkning
+1190,BBS-Bioactive Bone,1671,BONEH,FI4000260583,Aktie,First North,Finland,Hälsovård,Medicinsk Utrustning
+1191,Admicom,1672,ADMCM,FI4000251830,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1192,HRC World,1674,HRC,GB00BZ3CDY20,Aktie,First North,Danmark,Sällanköpsvaror,Restaurang & Café
+1193,Attana,1675,ATANA,SE0010547273,Aktie,NGM,Sverige,Hälsovård,Biotech
+1194,Cibus Nordic,1676,CIBUS,SE0010832204,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1195,BHG Group,1677,BHG,SE0010948588,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Detaljhandel
+1196,Green Landscaping,1678,GREEN,SE0010985028,Aktie,Mid Cap,Sverige,Industri,Stödtjänster & Service
+1197,Harvia,1681,HARVIA,FI4000306873,Aktie,Mid Cap,Finland,Sällanköpsvaror,Möbler & Inredning
+1198,Elkem,1682,ELK,NO0010816093,Aktie,Oslo Bors,Norge,Material,Kemikalier
+1199,Elmera,1683,ELMRA,NO0010815673,Aktie,Oslo Bors,Norge,Kraftförsörjning,Elförsörjning
+1200,River Tech,1684,RIVER,MT0001710103,Aktie,Oslo Growth,Norge,Sällanköpsvaror,Betting & Casino
+1201,Sunndal Sparebank,1685,SUNSB,NO0010672900,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1202,Agillic,1686,AGILC,DK0060955854,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1203,Bodyflight,1688,BODY,SE0011089929,Aktie,Spotlight,Sverige,Sällanköpsvaror,Resor & Nöjen
+1204,Iconovo,1689,ICO,SE0010868943,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1205,Fluicell,1690,FLUI,SE0010831321,Aktie,First North,Sverige,Hälsovård,Biotech
+1206,Infrea,1691,INFREA,SE0010600106,Aktie,Small Cap,Sverige,Industri,Byggnation & Infrastruktur
+1207,NP3 Fastigheter Pref,1692,NP3 PREF,SE0010820514,Pref,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1208,Cardeon,1693,CARDEO,SE0020050896,Aktie,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1209,Better Collective,1694,BETCO,DK0060952240,Aktie,Large Cap,Sverige,Sällanköpsvaror,Betting & Casino
+1210,NCAB Group,1695,NCAB,SE0017160773,Aktie,Large Cap,Sverige,Informationsteknik,Elektronik & Tillverkning
+1211,I-Tech,1697,ITECH,SE0011167725,Aktie,First North,Sverige,Material,Kemikalier
+1212,Ovzon,1698,OVZON,SE0010948711,Aktie,Small Cap,Sverige,Telekommunikation,Telekomtjänster
+1213,JonDeTech Sensors,1699,JDT,SE0009662554,Aktie,First North,Sverige,Industri,Mätning & Analys
+1214,Africa Energy,1700,AEC,CA00830W1059,Aktie,First North,Sverige,Energi,Olja & Gas - Exploatering
+1215,Africa Resources,1701,AFRI,SE0009496482,Aktie,NGM,Sverige,Material,Gruv - Ädelstenar
+1216,Netcompany Group,1702,NETC,DK0060952919,Aktie,Large Cap,Danmark,Informationsteknik,Affärs- & IT-System
+1217,Enersense,1703,ESENSE,FI4000301585,Aktie,Small Cap,Finland,Industri,Bemanning
+1218,Atlantic Sapphire,1705,ASA,NO0010768500,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+1219,Golden Energy Offshore,1706,GEOS,NO0010813843,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Transport
+1220,SoftOx Solutions,1707,SOFTX,NO0010811961,Aktie,Oslo Growth,Norge,Hälsovård,Läkemedel
+1221,Arion Banki,1710,ARION SDB,SE0010413567,Aktie,Large Cap,Sverige,Finans & Fastighet,Banker
+1222,Epiroc A,1711,EPI A,SE0015658109,Stocks2,Large Cap,Sverige,Industri,Industrimaskiner
+1223,Epiroc B,1712,EPI B,SE0015658117,Aktie,Large Cap,Sverige,Industri,Industrimaskiner
+1224,Flexion Mobile,1713,FLEXM,GB00BZ1MDB19,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1225,Gomero Group,1714,GOMERO,SE0011167535,Aktie,Spotlight,Sverige,Industri,Installation & VVS
+1226,Kojamo,1715,KOJAMO,FI4000312251,Aktie,Large Cap,Finland,Finans & Fastighet,Fastighetsbolag
+1227,Freetrailer,1717,FREETR,DK0061026119,Aktie,Spotlight,Danmark,Sällanköpsvaror,Bil & Motor
+1228,Projektengagemang,1718,PENG B,SE0011337666,Aktie,Small Cap,Sverige,Industri,Affärskonsulter
+1229,Calliditas Therapeutics,1719,CALTX,SE0010441584,Aktie,Mid Cap,Sverige,Hälsovård,Läkemedel
+1230,Dicot,1720,DICOT,SE0011178458,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1231,Midsummer,1721,MIDS,SE0011281757,Aktie,First North,Sverige,Kraftförsörjning,Solkraft
+1232,Raketech,1722,RAKE,MT0001390104,Aktie,First North,Sverige,Sällanköpsvaror,Betting & Casino
+1233,Ranplan,1723,RPLAN,SE0011178201,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+1234,Eezy,1724,EEZY,FI4000322326,Aktie,Small Cap,Finland,Industri,Bemanning
+1235,ViroGates,1725,VIRO,DK0061030574,Aktie,First North,Danmark,Hälsovård,Medicinsk Utrustning
+1236,Shelf Drilling,1727,SHLF,KYG236271055,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Borrning
+1237,Calmark,1729,CALMA B,SE0011116524,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1238,Odico,1730,ODICO,DK0061031036,Aktie,First North,Danmark,Industri,Industrimaskiner
+1239,Lifecare,1731,LIFE,NO0010591191,Aktie,Oslo Growth,Norge,Hälsovård,Medicinsk Utrustning
+1240,Okeanis Eco Tankers,1732,OET,MHY641771016,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1241,Risk Intelligence,1735,RISK,DK0061031978,Aktie,Spotlight,Danmark,Industri,Sjöfart & Rederi
+1242,ADS Maritime,1736,ADS,CY0108052115,Aktie,Oslo Growth,Norge,Industri,Sjöfart & Rederi
+1243,Lea Bank,1737,LEA,NO0010167331,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1244,Hypefactors,1738,HYPE,DK0060989911,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1245,Asarina Pharma,1739,ASAP,SE0011641794,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1246,Lumito,1740,LUMITO,SE0011282847,Aktie,NGM,Sverige,Hälsovård,Medicinsk Utrustning
+1247,Metacon,1741,META,SE0003086214,Aktie,First North,Sverige,Kraftförsörjning,Bioenergi
+1248,Nordic Iron Ore,1742,NIO,SE0011528017,Aktie,First North,Sverige,Material,Gruv - Prospekt & Drift
+1249,Ziccum,1744,ZICC,SE0011415595,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1250,Stenocare,1746,STENO,DK0061078425,Aktie,First North,Danmark,Hälsovård,Läkemedel
+1251,poLight,1747,PLT,NO0012535832,Aktie,Oslo Bors,Norge,Informationsteknik,Biometri
+1252,Maximum Entertainment,1748,MAXENT B,SE0011725506,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1253,Comintelli,1749,COMINT,SE0011751569,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1254,Nyfosa,1750,NYF,SE0011426428,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1255,Adverty,1751,ADVT,SE0011724889,Aktie,NGM,Sverige,Sällanköpsvaror,Marknadsföring
+1256,AlzeCure Pharma,1752,ALZCUR,SE0010133785,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1257,Axolot Solutions,1754,AXOLOT,SE0009414303,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1258,Hoodin,1755,HOODIN,SE0011415249,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1259,Thinc,1756,THINC,SE0020358281,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1260,PolarCool,1757,POLAR,SE0012570422,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+1261,S2Medical,1758,S2M,SE0011725084,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1262,Scandion Oncology,1759,SCOL,DK0061031895,Aktie,First North,Sverige,Hälsovård,Biotech
+1263,Oma Säästöpankki,1761,OMASP,FI4000306733,Aktie,Mid Cap,Finland,Finans & Fastighet,Banker
+1264,Rush Factory,1762,RUSH,FI4000348909,Aktie,First North,Finland,Sällanköpsvaror,Resor & Nöjen
+1265,Viafin Service,1763,VIAFIN,FI4000349212,Aktie,First North,Finland,Finans & Fastighet,Investmentbolag
+1266,Scape Technologies,1765,SCAPE,DK0061114246,Aktie,First North,Danmark,Industri,Industrimaskiner
+1267,Seluxit,1766,SLXIT,DK0061076130,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1268,Zenith Energy,1767,ZENA,CA98936C8584,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Exploatering
+1269,Tallink Grupp,1768,TALLINK,FI4000349378,Aktie,Mid Cap,Finland,Industri,Sjöfart & Rederi
+1270,Beyond Frames,1770,BEYOND,SE0011614965,Aktie,Spotlight,Sverige,Sällanköpsvaror,Gaming & Spel
+1271,Jetpak,1771,JETPAK,SE0012012508,Aktie,First North,Sverige,Industri,Tåg- & Lastbilstransport
+1272,Lime Technologies,1772,LIME,SE0011870195,Aktie,Mid Cap,Sverige,Informationsteknik,Affärs- & IT-System
+1273,NeoDynamics,1773,NEOD,SE0011563410,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1274,Q-Linea,1774,QLINEA,SE0011527845,Aktie,Small Cap,Sverige,Hälsovård,Medicinsk Utrustning
+1275,CAG Group,1775,CAG,SE0011923341,Aktie,First North,Sverige,Informationsteknik,IT-Konsulter
+1276,Footway,1776,FOOT B,SE0011563295,Aktie,First North,Sverige,Sällanköpsvaror,Kläder & Skor
+1277,Raytelligence,1777,RAYTL,SE0011721356,Aktie,NGM,Sverige,Hälsovård,Medicinsk Utrustning
+1278,Samhällsbyggnadsbolag D,1778,SBB D,SE0011844091,Stocks2,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1279,InCoax Networks,1779,INCOAX,SE0009832595,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1280,Game Chest,1783,GAMEC,SE0010820191,Aktie,NGM,Sverige,Sällanköpsvaror,Gaming & Spel
+1281,Clean Industry,1785,CISH,SE0011762517,Aktie,First North,Sverige,Kraftförsörjning,Solkraft
+1282,LeadDesk,1786,LEADD,FI4000364120,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1283,Zwipe,1787,ZWIPE,NO0010721277,Aktie,Oslo Growth,Norge,Informationsteknik,Biometri
+1284,Ferroamp,1788,FERRO,SE0012229920,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1285,Teqnion,1789,TEQ,SE0012308088,Aktie,First North,Sverige,Industri,Industrikomponenter
+1286,Upsales,1790,UPSALE,SE0011985514,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1287,Ascelia Pharma,1793,ACE,SE0010573113,Aktie,Small Cap,Sverige,Hälsovård,Läkemedel
+1288,Viaplay B,1794,VPLAY B,SE0012116390,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Media & Publicering
+1289,Viaplay A,1795,VPLAY A,SE0012324226,Stocks2,Mid Cap,Sverige,Sällanköpsvaror,Media & Publicering
+1290,Karnov,1796,KAR,SE0012323715,Aktie,Mid Cap,Sverige,Industri,Affärskonsulter
+1291,Train Alliance,1819,TRAIN B,SE0020540144,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1292,Gaming Innovation,1831,GIGSEK,US36467X2062,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Betting & Casino
+1293,Triboron,1832,TRIBO B,SE0010600429,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1294,Aallon Group,1833,AALLON,FI4000369608,Aktie,First North,Finland,Finans & Fastighet,Kredit & Finansiering
+1295,Adevinta,1838,ADE,NO0010844038,Aktie,Oslo Bors,Norge,Finans & Fastighet,Investmentbolag
+1296,FluoGuide,1840,FLUO,DK0061123312,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1297,Vertiseit,1843,VERT B,SE0012481133,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1298,OssDsign,1845,OSSD,SE0012570448,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1299,Danish Aerospace,1846,DAC,DK0061140407,Aktie,First North,Danmark,Hälsovård,Hälsovård & Hjälpmedel
+1300,Konsolidator,1847,KONSOL,DK0061113511,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1301,Klaveness Combination,1849,KCC,NO0010833262,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1302,Ultimovacs,1850,ULTI,NO0010851603,Aktie,Oslo Bors,Norge,Hälsovård,Läkemedel
+1303,John Mattson,1852,JOMA,SE0012481364,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1304,K2A,1853,K2A B,SE0010520254,Aktie,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1305,Mentice,1854,MNTC,SE0012673291,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1306,Mofast,1855,MOFAST,SE0012596120,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1307,Tingsvalvet A,1856,TINGS A,SE0018534471,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1308,Nidaros Sparebank,1857,NISB,NO0010733082,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1309,Norbit,1858,NORBT,NO0010856511,Aktie,Oslo Bors,Norge,Industri,Mätning & Analys
+1310,OKEA,1859,OKEA,NO0010816895,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+1311,Traton,1861,8TRA,DE000TRAT0N7,Aktie,Large Cap,Sverige,Industri,Industrimaskiner
+1312,OMX Copenhagen 25,1864,OMXC25,DK0060775369,Index,Index,Danmark,N/A,N/A
+1313,OMX Copenhagen 25 GI,1865,OMXC25GI,DK0060775443,Index GI,Index,Danmark,N/A,N/A
+1314,QuickBit,1866,QBIT,SE0010662585,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1315,Zoomability,1870,ZOOM,SE0012740074,Aktie,Spotlight,Sverige,Sällanköpsvaror,Bil & Motor
+1316,2020 Bulkers,1871,2020,BMG9156K1018,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1317,EQT,1874,EQT,SE0012853455,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+1318,Lipidor,1875,LIPI,SE0012558617,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1319,Akelius D,1876,AKEL D,SE0013110186,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1320,Fleming Properties,1877,FLMNG,SE0013042561,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1321,Preservia Hyresfastigheter,1878,PHYR B,SE0013147113,Aktie,NGM,Sverige,Finans & Fastighet,Fastighetsbolag
+1322,Kahoot!,1879,KAHOT,NO0010823131,Aktie,Oslo Bors,Norge,Informationsteknik,Affärs- & IT-System
+1323,Norske Skog,1880,NSKOG,NO0010861115,Aktie,Oslo Bors,Norge,Material,Skogsbolag
+1324,Relais Group,1881,RELAIS,FI4000391487,Aktie,Mid Cap,Finland,Industri,Elektroniska komponenter
+1325,Carbiotix,1882,CRBX,SE0013016128,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1326,eBlitz Group,1883,EBLITZ,SE0009580756,Aktie,NGM,Sverige,Finans & Fastighet,Kredit & Finansiering
+1327,ZignSec,1884,ZIGN,SE0012930105,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1328,SATS,1885,SATS,NO0010863285,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Fritid & Sport
+1329,K-Fast Holding,1887,KFAST B,SE0016101679,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1330,Fodelia,1888,FODELIA,FI4000400262,Aktie,First North,Finland,Dagligvaror,Livsmedel
+1331,Hafnia Limited,1889,HAFNI,BMG4233B1090,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Transport
+1332,Observe Medical,1890,OBSRV,NO0010865009,Aktie,Oslo Expand,Norge,Hälsovård,Medicinsk Utrustning
+1333,Amido,1891,AMIDO,SE0013042108,Aktie,Spotlight,Sverige,Industri,Säkerhet
+1334,Adventure Box,1892,ADVBOX,SE0012955276,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1335,Faron Pharmaceuticals,1893,FARON,FI4000153309,Aktie,First North,Finland,Hälsovård,Läkemedel
+1336,Optomed,1894,OPTOMED,FI4000410881,Aktie,Small Cap,Finland,Hälsovård,Medicinsk Utrustning
+1337,TietoEVRY,1895,TIETO,FI0009000277,Aktie,Oslo Bors,Norge,Informationsteknik,IT-Konsulter
+1338,QleanAir,1896,QAIR,SE0013382066,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1339,MOBA Network,1897,MOBA,SE0016277909,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1340,Divio Technologies,1902,DIVIO B,SE0011311554,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1341,Fastpartner D,1903,FPAR D,SE0013512514,Stocks2,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1342,Sociallite US,1904,SOCIAL,SE0020824373,Aktie,Spotlight,Sverige,Sällanköpsvaror,Marknadsföring
+1343,Kollect on Demand,1906,KOLL,SE0013512019,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1344,ODI Pharma,1912,ODI,SE0013409760,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1345,Zwipe,1913,ZWIPE,NO0010721277,Aktie,First North,Sverige,Informationsteknik,Biometri
+1346,Nord Insuretech,1915,NORDIG,SE0013486255,Aktie,NGM,Sverige,Informationsteknik,Internettjänster
+1347,Veg of Lund,1917,VOLAB,SE0013281979,Aktie,First North,Sverige,Dagligvaror,Drycker
+1348,Musti Group,1918,MUSTI,FI4000410758,Aktie,Mid Cap,Finland,Dagligvaror,Hälsoprodukter
+1349,QLife,1921,QLIFE,SE0013486552,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1350,Monivent,1922,MONI,SE0013512282,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1351,Preservia Holding Pref,1923,PHOL PREF,SE0013486099,Pref,NGM,Sverige,Finans & Fastighet,Fastighetsbolag
+1352,Stayble Therapeutics,1924,STABL,SE0013513652,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1353,BW Energy Limited,1927,BWE,BMG0702P1086,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+1354,Northern Ocean,1928,NOL,BMG6682J1036,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+1355,Quantafuel,1929,QFUEL,NO0010785967,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1356,Electrolux Professional B,1930,EPRO B,SE0013747870,Aktie,Large Cap,Sverige,Sällanköpsvaror,Hemelektronik
+1357,Cloudberry Clean Energy,1932,CLOUD,NO0010876642,Aktie,Oslo Bors,Norge,Kraftförsörjning,Förnybarenergi
+1358,Bioextrax,1933,BIOEX,SE0016276752,Aktie,First North,Sverige,Material,Kemikalier
+1359,Romsdal Sparebank,1934,ROMSB,NO0010759988,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1360,oodash Group,1935,OODA,SE0020699296,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1361,Pexip,1937,PEXIP,NO0010840507,Aktie,Oslo Bors,Norge,Informationsteknik,Kommunikation
+1362,AegirBio,1938,AEGIR,SE0014401121,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1363,Biofrigas,1939,BIOF,SE0014262887,Aktie,Spotlight,Sverige,Kraftförsörjning,Bioenergi
+1364,Ecore Group,1940,ECORE,SE0013888963,Aktie,Spotlight,Sverige,Sällanköpsvaror,Kläder & Skor
+1365,Nanoform,1941,NANOFS,FI4000330972,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1366,Nanoform,1943,NANOFH,FI4000330972,Aktie,First North,Finland,Hälsovård,Läkemedel
+1367,Shape Robotics,1944,SHAPE,DK0061273125,Aktie,Small Cap,Danmark,Informationsteknik,Elektronisk Utrustning
+1368,Penneo,1945,PENNEO,DK0061283009,Aktie,Small Cap,Danmark,Informationsteknik,Affärs- & IT-System
+1369,Monsenso,1946,MONSO,DK0061277977,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1370,LED iBond,1947,LEDIBOND,DK0061274529,Aktie,First North,Danmark,Industri,Elektroniska komponenter
+1371,Fom Technologies,1948,FOM,DK0061278199,Aktie,First North,Danmark,Industri,Industrimaskiner
+1372,Andfjord Salmon,1950,ANDF,NO0010829765,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1373,Ice Fish Farm,1951,IFISH,NO0010884794,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1374,Magle Chemoswed,1952,MAGLE,SE0014401014,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1375,Genova Property,1953,GPG,SE0007184189,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1376,Aker BioMarine,1954,AKBM,NO0010886625,Aktie,Oslo Bors,Norge,Dagligvaror,Hälsoprodukter
+1377,Ayfie,1955,AYFIE,NO0012861683,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1378,Northern CapSek,1956,CAPS,SE0014452942,Aktie,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1379,EXACT Therapeutics,1959,EXTX,NO0010852213,Aktie,Oslo Growth,Norge,Hälsovård,Medicinsk Utrustning
+1380,ININ Group,1960,ININ,NO0010864036,Aktie,Oslo Growth,Norge,Industri,Mätning & Analys
+1381,Spir Group,1962,SPIR,NO0012548819,Aktie,Oslo Bors,Norge,Informationsteknik,Affärs- & IT-System
+1382,Aker Carbon Capture,1963,ACC,NO0010890304,Aktie,Oslo Bors,Norge,Industri,Energi & Återvinning
+1383,BEWi,1965,BEWI,NO0010890965,Aktie,Oslo Bors,Norge,Material,Kemikalier
+1384,Instabank,1966,INSTA,NO0010762792,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1385,Spotlight Group,1967,SPGR,SE0014704763,Aktie,Spotlight,Sverige,Finans & Fastighet,Kapitalförvaltning
+1386,Exsitec,1968,EXS,SE0014035762,Aktie,First North,Sverige,Informationsteknik,IT-Konsulter
+1387,Partnera,1969,PARTNE1,FI0009009559,Aktie,First North,Finland,Finans & Fastighet,Investmentbolag
+1388,Mdundo.com,1970,MDUNDO,DK0061286101,Aktie,First North,Danmark,Informationsteknik,Internettjänster
+1389,Readly,1971,READ,SE0014855292,Aktie,First North,Sverige,Sällanköpsvaror,Media & Publicering
+1390,Implantica,1972,IMP A SDB,SE0014855029,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1391,Energy Save,1973,ESGR B,SE0014428447,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1392,Lifeclean,1974,LCLEAN,SE0014829271,Aktie,First North,Sverige,Material,Kemikalier
+1393,Neola Medical,1975,NEOLA,SE0014829255,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1394,Curasight,1976,CURAS,DK0061295797,Aktie,Spotlight,Danmark,Hälsovård,Läkemedel
+1395,MGI - Media & Games,1977,M8G,SE0018538068,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1396,OMDA,1978,OMDA,NO0010894512,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1397,Qliro,1979,QLIRO,SE0013719077,Aktie,Small Cap,Sverige,Finans & Fastighet,Kredit & Finansiering
+1398,Audientes,1980,AUDNTS,DK0061406618,Aktie,Spotlight,Danmark,Hälsovård,Medicinsk Utrustning
+1399,Agilyx,1981,AGLX,NO0010872468,Aktie,Oslo Bors,Norge,Industri,Energi & Återvinning
+1400,Mintra,1982,MNTR,NO0010895022,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1401,Salmon Evolution,1985,SALME,NO0010892094,Aktie,Oslo Bors,Norge,Dagligvaror,Fiskodling
+1402,Nykode Therapeutics,1986,NYKD,NO0010714785,Aktie,Oslo Bors,Norge,Hälsovård,Biotech
+1403,Zaptec,1987,ZAP,NO0010713936,Aktie,Oslo Bors,Norge,Industri,Energi & Återvinning
+1404,Food & Beverage,1988,SX4510PI,SE0004383511,BranschIndex,Index,Sverige,N/A,N/A
+1405,Household Goods,1989,SX402020PI,SE0004383552,BranschIndex,Index,Sverige,N/A,N/A
+1406,Leisure Goods,1990,SX402030PI,SE0004383560,BranschIndex,Index,Sverige,N/A,N/A
+1407,Personal Goods,1991,SX402040PI,SE0004383578,BranschIndex,Index,Sverige,N/A,N/A
+1408,Medical Equipment,1992,SX201020PI,SE0004392942,BranschIndex,Index,Sverige,N/A,N/A
+1409,Pharmaceuticals,1993,SX201030PI,SE0004383610,BranschIndex,Index,Sverige,N/A,N/A
+1410,Retail,1994,SX4040PI,SE0004383636,BranschIndex,Index,Sverige,N/A,N/A
+1411,Media,1995,SX4030PI,SE0004383669,BranschIndex,Index,Sverige,N/A,N/A
+1412,Travel & Leisure,1996,SX4050PI,SE0004383685,BranschIndex,Index,Sverige,N/A,N/A
+1413,Banks,1997,SX3010PI,SE0004383792,BranschIndex,Index,Sverige,N/A,N/A
+1414,OMXS Real Estate,1998,SX35PI,SE0004383842,SectorIndex,Index,Sverige,N/A,N/A
+1415,Financial Services,1999,SX3020PI,SE0004383875,BranschIndex,Index,Sverige,N/A,N/A
+1416,Software & Computer,2000,SX101010PI,SE0004383917,BranschIndex,Index,Sverige,N/A,N/A
+1417,Wästbygg,2001,WBGR B,SE0014453874,Aktie,Small Cap,Sverige,Industri,Byggnation & Infrastruktur
+1418,Elliptic Laboratories,2002,ELABS,NO0010722283,Aktie,Oslo Bors,Norge,Informationsteknik,Biometri
+1419,HydrogenPro,2003,HYPRO,NO0010892359,Aktie,Oslo Bors,Norge,Kraftförsörjning,Bioenergi
+1420,Norcod,2004,NCOD,NO0010892912,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1421,TECO 2030,2005,TECO,NO0010887516,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1422,BoMill,2006,BOMILL,SE0014583332,Aktie,First North,Sverige,Industri,Mätning & Analys
+1423,Klimator,2007,KLIMAT,SE0014401329,Aktie,First North,Sverige,Industri,Mätning & Analys
+1424,Nordic Paper,2008,NPAPER,SE0014808838,Aktie,Mid Cap,Sverige,Material,Skogsbolag
+1425,Link Mobility,2011,LINK,NO0010894231,Aktie,Oslo Bors,Norge,Telekommunikation,Telekomtjänster
+1426,CodeLab Capital,2012,CODE,NO0010895667,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1427,Volue,2013,VOLUE,NO0010894603,Aktie,Oslo Bors,Norge,Informationsteknik,Affärs- & IT-System
+1428,Lohilo Foods,2014,LOHILO,SE0014262549,Aktie,First North,Sverige,Dagligvaror,Livsmedel
+1429,Icelandic Salmon,2015,ISLAX,NO0010724701,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1430,Prostatype Genomics,2016,PROGEN,SE0014684569,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1431,Svenska Nyttobostäder,2018,NYTTO,SE0014808853,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1432,Svenska Nyttobostäder Pref,2019,NYTTO PREF,SE0014808861,Pref,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1433,CDON,2023,CDON,SE0015191911,Aktie,First North,Sverige,Sällanköpsvaror,Detaljhandel
+1434,Alefarm Brewing,2025,ALEFRM,DK0061407699,Aktie,First North,Danmark,Dagligvaror,Bryggeri
+1435,WindowMaster,2026,WMA,DK0061278355,Aktie,First North,Danmark,Industri,Installation & VVS
+1436,Dancann Pharma,2027,DANCAN,DK0061410487,Aktie,Spotlight,Danmark,Hälsovård,Läkemedel
+1437,Dataproces,2028,DATA,DK0061408580,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1438,Airthings,2029,AIRX,NO0010895568,Aktie,Oslo Bors,Norge,Industri,Installation & VVS
+1439,Everfuel,2030,EFUEL,DK0061414711,Aktie,Oslo Growth,Norge,Kraftförsörjning,Bioenergi
+1440,Ocean Sun,2032,OSUN,NO0010887565,Aktie,Oslo Growth,Norge,Kraftförsörjning,Förnybarenergi
+1441,Luxbright,2033,LXB,SE0015192075,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1442,Fortinova,2034,FNOVA B,SE0014608915,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1443,Re:NewCell,2035,RENEW,SE0014960431,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1444,Boozt,2036,BOOZT DKK,SE0009888738,Aktie,Mid Cap,Danmark,Sällanköpsvaror,Kläder & Skor
+1445,HusCompagniet,2037,HUSCO,DK0061412855,Aktie,Small Cap,Danmark,Industri,Bostadsbyggnation
+1446,Cadeler,2038,CADLR,DK0061412772,Aktie,Oslo Bors,Norge,Kraftförsörjning,Vindkraft
+1447,Huddlestock Fintech,2039,HUDL,NO0010859648,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1448,Nordic Aqua Partners,2041,NOAP,NO0012928805,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1449,The Kingfish Company,2043,KING,NL00150001S5,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1450,Xplora Technologies,2044,XPLRA,NO0010895782,Aktie,Oslo Growth,Norge,Informationsteknik,Säkerhet & Bevakning
+1451,Thunderful,2045,THUNDR,SE0015195888,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1452,Fasadgruppen,2046,FG,SE0015195771,Aktie,Mid Cap,Sverige,Industri,Byggmaterial
+1453,Alltainer,2047,ALLT,SE0015192828,Aktie,Spotlight,Sverige,Industri,Byggmaterial
+1454,Annehem Fastigheter,2048,ANNE B,SE0015221684,Aktie,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1455,CirChem,2049,CIRCHE,SE0015193529,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1456,Stenhus Fastigheter,2050,SFAST,SE0014956819,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1457,Hexagon Purus,2053,HPUR,NO0010904923,Aktie,Oslo Bors,Norge,Industri,Industrikomponenter
+1458,Kraft Bank,2054,KRAB,NO0010815103,Aktie,Oslo Growth,Norge,Finans & Fastighet,Nischbanker
+1459,Nordic Unmanned,2055,NUMND,NO0010907090,Aktie,Oslo Growth,Norge,Industri,Flygtransport
+1460,Biokraft International,2056,BIOGAS,SE0015242896,Aktie,First North,Sverige,Kraftförsörjning,Bioenergi
+1461,DecideAct,2057,ACT,DK0061414471,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1462,Cessatech,2058,CESSA,DK0061411964,Aktie,Spotlight,Danmark,Hälsovård,Läkemedel
+1463,Spotlio,2059,SPOT,NO0010781560,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1464,Cyviz,2060,CYVIZ,NO0010015175,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1465,Imsys,2062,IMSYS,SE0021309689,Aktie,NGM,Sverige,Informationsteknik,Elektronik & Tillverkning
+1466,Aros Bostadsutveckling Pref B,2063,AROS PREF B,SE0015195706,Pref,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1467,Elektroimportoren,2064,ELIMP,NO0010911902,Aktie,Oslo Growth,Norge,Industri,Elektroniska komponenter
+1468,ELLWEE,2065,ELLWEE,SE0020551679,Aktie,First North,Sverige,Sällanköpsvaror,Bil & Motor
+1469,MPC Energy Solutions,2066,MPCES,NL0015268814,Aktie,Oslo Growth,Norge,Kraftförsörjning,Förnybarenergi
+1470,Backaheden,2067,BACKA,SE0015221619,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1471,Streamify,2068,STREAM,SE0015244462,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1472,Nexcom,2069,NEXCOM,DK0061417144,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1473,Aker Horizons,2070,AKH,NO0010921232,Aktie,Oslo Bors,Norge,Finans & Fastighet,Investmentbolag
+1474,Horisont Energi,2071,HRGI,NO0010917339,Aktie,Oslo Growth,Norge,Kraftförsörjning,Bioenergi
+1475,Proximar Seafood,2072,PROXI,NO0010893902,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1476,BactiQuant,2074,BACTIQ,DK0061417730,Aktie,First North,Danmark,Industri,Energi & Återvinning
+1477,Nimbus,2075,BOAT,SE0015407390,Aktie,First North,Sverige,Sällanköpsvaror,Bil & Motor
+1478,Fractal Gaming,2076,FRACTL,SE0015504477,Aktie,First North,Sverige,Informationsteknik,Datorer & Hårdvara
+1479,Cint Group,2077,CINT,SE0015483276,Aktie,Mid Cap,Sverige,Informationsteknik,Affärs- & IT-System
+1480,OncoZenge,2078,ONCOZ,SE0015504097,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1481,Abera Bioscience,2079,ABERA,SE0015245097,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+1482,Desenio,2080,DSNO,SE0015657853,Aktie,First North,Sverige,Sällanköpsvaror,Möbler & Inredning
+1483,Lipigon Pharmaceuticals,2081,LPGO,SE0015382072,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1484,Kreate Group,2082,KREATE,FI4000476866,Aktie,Small Cap,Finland,Industri,Byggnation & Infrastruktur
+1485,Arctic Fish,2084,AFISH,NO0010917719,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1486,Arctic Bioscience,2085,ABS,NO0010859580,Aktie,Oslo Growth,Norge,Dagligvaror,Hälsoprodukter
+1487,Cambi,2086,CAMBI,NO0010078850,Aktie,Oslo Growth,Norge,Kraftförsörjning,Bioenergi
+1488,Circa Group,2087,CIRCA,NO0010917594,Aktie,Oslo Growth,Norge,Hälsovård,Biotech
+1489,Envipco,2088,ENVIP,NL0015000GX8,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1490,Hav Group,2090,HAV,NO0010931918,Aktie,Oslo Growth,Norge,Kraftförsörjning,Förnybarenergi
+1491,Huddly,2091,HDLY,NO0010776990,Aktie,Oslo Growth,Norge,Informationsteknik,Elektronisk Utrustning
+1492,Otovo,2092,OTOVO,NO0010809783,Aktie,Oslo Bors,Norge,Industri,Affärskonsulter
+1493,Pryme,2093,PRYME,NL00150005Z1,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1494,Rana Gruber,2094,RANA,NO0010907389,Aktie,Oslo Bors,Norge,Material,Gruv - Prospekt & Drift
+1495,Skandia GreenPower,2095,SKAND,NO0010931207,Aktie,Oslo Growth,Norge,Kraftförsörjning,Solkraft
+1496,Lumi Gruppen,2096,LUMI,NO0010927288,Aktie,Oslo Growth,Norge,Industri,Utbildning
+1497,CoinShares,2097,CS,JE00BLD8Y945,Aktie,Mid Cap,Sverige,Informationsteknik,Betalning & E-handel
+1498,Refine Group,2098,REFINE,SE0021021656,Aktie,First North,Sverige,Sällanköpsvaror,Kläder & Skor
+1499,Ekobot,2100,EKOBOT,SE0015346812,Aktie,First North,Sverige,Industri,Industrimaskiner
+1500,RugVista,2101,RUG,SE0015659834,Aktie,First North,Sverige,Sällanköpsvaror,Möbler & Inredning
+1501,Nightingale Health,2102,HEALTH,FI4000490875,Aktie,First North,Finland,Hälsovård,Läkemedel
+1502,Acrinova B,2104,ACRI B,SE0015660030,Stocks2,Small Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1503,Embellence,2105,EMBELL,SE0013888831,Aktie,First North,Sverige,Sällanköpsvaror,Möbler & Inredning
+1504,Fantasma Games,2106,FAGA,SE0015557053,Aktie,First North,Sverige,Sällanköpsvaror,Betting & Casino
+1505,Yubico,2107,YUBICO,SE0015657788,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+1506,Idun Industrier,2108,IDUN B,SE0013512464,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1507,Pierce Group,2109,PIERCE,SE0015658364,Aktie,Small Cap,Sverige,Sällanköpsvaror,Bil & Motor
+1508,Orthex,2110,ORTHEX,FI4000480504,Aktie,Small Cap,Finland,Sällanköpsvaror,Detaljhandel
+1509,Sitowise Group,2111,SITOWS,FI4000480215,Aktie,Mid Cap,Finland,Industri,Affärskonsulter
+1510,RISMA Systems,2112,RISMA,DK0061534377,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1511,Integrated Wind,2115,IWS,NO0010955883,Aktie,Oslo Growth,Norge,Kraftförsörjning,Vindkraft
+1512,Green Minerals,2116,GEM,NO0010907744,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Exploatering
+1513,Kyoto Group,2117,KYOTO,NO0010936750,Aktie,Oslo Growth,Norge,Kraftförsörjning,Förnybarenergi
+1514,Cheffelo,2119,CHEF,SE0015556873,Aktie,First North,Sverige,Dagligvaror,Livsmedel
+1515,Euroafrica Digital Ventures,2120,EURA,SE0015660345,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1516,Krona Public Real Estate,2121,KRONA,SE0015657895,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1517,Nowonomics,2123,NOWO,SE0015660840,Aktie,NGM,Sverige,Finans & Fastighet,Kapitalförvaltning
+1518,Polymer Factory,2125,POLYMER,SE0015244470,Aktie,Spotlight,Sverige,Material,Kemikalier
+1519,Tekna Holding,2126,TEKNA,NO0010951577,Aktie,Oslo Bors,Norge,Industri,Industrikomponenter
+1520,Hemnet,2127,HEM,SE0015671995,Aktie,Large Cap,Sverige,Informationsteknik,Internettjänster
+1521,Dlaboratory,2128,DLAB,SE0015658380,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1522,Lipum,2129,LIPUM,SE0015660899,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1523,Plexian,2130,PLEX,SE0015659941,Aktie,First North,Sverige,Informationsteknik,Betalning & E-handel
+1524,Sensor Alarm,2131,SELARM,SE0015657663,Aktie,Spotlight,Sverige,Industri,Säkerhet
+1525,Trainimal,2132,TRML,SE0011528082,Aktie,NGM,Sverige,Sällanköpsvaror,Fritid & Sport
+1526,Modelon,2133,MODEL B,SE0015948591,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1527,Tellusgruppen,2135,TELLUS,SE0015504519,Aktie,First North,Sverige,Industri,Utbildning
+1528,Goobit Group,2136,BTCX,SE0015837752,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1529,Hemply Balance,2137,HMPLY,SE0014402400,Aktie,NGM,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1530,Spermosens,2138,SPERM,SE0015346424,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1531,Hynion,2139,HYN,NO0010920945,Aktie,Oslo Growth,Norge,Kraftförsörjning,Bioenergi
+1532,checkin.com,2140,CHECK,SE0015810502,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1533,Duearity,2141,DEAR,SE0015949482,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1534,JS Security,2142,JSSEC,SE0014829495,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1535,Safello Group,2143,SFL,SE0015346895,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1536,Twiik,2145,TWIIK,SE0015797352,Aktie,First North,Sverige,Sällanköpsvaror,Fritid & Sport
+1537,Arla Plast,2147,ARPL,SE0015810817,Aktie,Small Cap,Sverige,Industri,Byggmaterial
+1538,Cedergrenska,2148,CEDER,SE0015949946,Aktie,First North,Sverige,Industri,Utbildning
+1539,Tessin Nordic,2149,TESSIN,SE0009522451,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1540,Linc,2150,LINC,SE0015949433,Aktie,Mid Cap,Sverige,Finans & Fastighet,Investmentbolag
+1541,Zesec of Sweden,2151,ZESEC,SE0015812540,Aktie,NGM,Sverige,Industri,Byggmaterial
+1542,Alexandria Group,2152,ALEX,FI4000153465,Aktie,First North,Finland,Finans & Fastighet,Kapitalförvaltning
+1543,Hydract,2153,HYDRCT,DK0061531944,Aktie,First North,Danmark,Industri,Industrikomponenter
+1544,Impero,2154,IMPERO,DK0061536828,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1545,Trophy Games,2155,TGAMES,DK0061537206,Aktie,First North,Danmark,Sällanköpsvaror,Gaming & Spel
+1546,NORD.investments,2157,NORD,DK0061540184,Aktie,First North,Danmark,Finans & Fastighet,Kapitalförvaltning
+1547,DonkeyRepublic,2158,DONKEY,DK0061540770,Aktie,First North,Danmark,Industri,Stödtjänster & Service
+1548,Trifork,2159,TRIFOR,CH1111227810,Aktie,Mid Cap,Danmark,Informationsteknik,Affärs- & IT-System
+1549,Norse Atlantic,2160,NORSE,NO0012885252,Aktie,Oslo Expand,Norge,Industri,Flygtransport
+1550,Argeo,2161,ARGEO,NO0010946593,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Service
+1551,Bergen Carbon,2162,BCS,NO0010950249,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1552,Desert Control,2163,DSRT,NO0010963275,Aktie,Oslo Growth,Norge,Material,Kemikalier
+1553,Nordic Halibut,2164,NOHAL,NO0003058109,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1554,Norsk Renewables,2165,NSOL,NO0010941925,Aktie,Oslo Growth,Norge,Kraftförsörjning,Solkraft
+1555,Statt Torsk,2166,STATT,NO0010775844,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1556,Deep Value Driller,2167,DVD,NO0010955917,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Exploatering
+1557,Clean Seas Seafood,2168,CSS,AU000000CSS3,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1558,ECIT,2169,ECIT,NO0010939804,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1559,Lokotech,2170,LOKO,NO0010921299,Aktie,Oslo Growth,Norge,Informationsteknik,Datorer & Hårdvara
+1560,Norsk Titanium,2171,NTI,NO0010969108,Aktie,Oslo Growth,Norge,Industri,Industrikomponenter
+1561,M Vest Water,2172,MVW,NO0010976343,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1562,Bokusgruppen,2173,BOKUS,SE0016074256,Aktie,First North,Sverige,Sällanköpsvaror,Media & Publicering
+1563,Loyal Solutions,2174,LOYAL,DK0061535507,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1564,Mildef Group,2175,MILDEF,SE0016074249,Aktie,Mid Cap,Sverige,Informationsteknik,Affärs- & IT-System
+1565,Permascand,2176,PSCAND,SE0015962048,Aktie,First North,Sverige,Industri,Industrikomponenter
+1566,Netum,2177,NETUM,FI4000390943,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1567,MapsPeople,2178,MAPS,DK0061549052,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1568,Nordhealth,2179,NORDH,NO0011002651,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1569,Smartoptics,2180,SMOP,NO0011012502,Aktie,Oslo Growth,Norge,Telekommunikation,Telekomtjänster
+1570,SaveLend,2181,YIELD,SE0015961024,Aktie,First North,Sverige,Finans & Fastighet,Kredit & Finansiering
+1571,Sozap,2182,SOZAP,SE0015812524,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1572,Odinwell,2183,ODIN,SE0015809967,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+1573,Sleep Cycle,2184,SLEEP,SE0015961404,Aktie,Small Cap,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1574,Ngenic,2185,NGENIC,SE0015812573,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1575,Maven Wireless,2186,MAVEN,SE0015961180,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1576,Elicera Therapeutics,2187,ELIC,SE0015382080,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1577,Toivo Group,2188,TOIVO,FI4000496716,Aktie,First North,Finland,Finans & Fastighet,Fastighetsbolag
+1578,Merus Power,2189,MERUS,FI4000506902,Aktie,First North,Finland,Kraftförsörjning,Förnybarenergi
+1579,Recreate,2190,RCR,NO0010859689,Aktie,Oslo Growth,Norge,Finans & Fastighet,Fastighetsbolag
+1580,Lytix Biopharma,2191,LYTIX,NO0010405780,Aktie,Oslo Growth,Norge,Hälsovård,Biotech
+1581,Aventura Group,2192,AVENT B,SE0015961438,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1582,Revolutionrace,2193,RVRC,SE0015962485,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Kläder & Skor
+1583,TH1NG,2194,TH1NG,SE0016074124,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1584,MoveByBike,2195,MBBAB,SE0015988100,Aktie,Spotlight,Sverige,Industri,Tåg- & Lastbilstransport
+1585,Qbrick,2196,QBRICK,SE0015962105,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1586,Aros Bostadsutveckling,2197,AROS,SE0010547786,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1587,Acast,2198,ACAST,SE0015960935,Aktie,First North,Sverige,Informationsteknik,Internettjänster
+1588,CodeMill,2199,CDMIL,SE0013914819,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1589,Hexicon,2200,HEXI,SE0004898799,Aktie,First North,Sverige,Kraftförsörjning,Vindkraft
+1590,Physitrack,2201,PTRK,GB00BK80TJ35,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1591,Vimian Group,2202,VIMIAN,SE0015961982,Aktie,First North,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1592,Komplett,2203,KOMPL,NO0011016040,Aktie,Oslo Bors,Norge,Sällanköpsvaror,Detaljhandel
+1593,Brilliant Future,2204,BRILL,SE0015811625,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1594,Creaspac SPAC,2205,CPAC SPAC,SE0016075691,SPAC,Mid Cap,Sverige,Finans & Fastighet,Kapitalförvaltning
+1595,LL Lucky Games,2206,LADYLU,SE0015797873,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1596,OX2,2207,OX2,SE0016075337,Aktie,Large Cap,Sverige,Kraftförsörjning,Vindkraft
+1597,Creturner,2208,CRET,SE0013460375,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1598,Wall to Wall,2209,WTW A,SE0016075246,Aktie,Small Cap,Sverige,Industri,Stödtjänster & Service
+1599,Biosergen,2210,BIOSGN,SE0016013460,Aktie,First North,Sverige,Hälsovård,Biotech
+1600,Intellego Technologies,2212,INT,SE0016075063,Aktie,First North,Sverige,Informationsteknik,Elektronik & Tillverkning
+1601,USWE Sports,2213,USWE,SE0015949771,Aktie,First North,Sverige,Sällanköpsvaror,Accessoarer
+1602,Solwers,2214,SOLWERS,FI4000452545,Aktie,First North,Finland,Industri,Affärskonsulter
+1603,Green Hydrogen,2215,GREENH,DK0061540341,Aktie,Mid Cap,Danmark,Kraftförsörjning,Bioenergi
+1604,Elopak,2216,ELO,NO0011002586,Aktie,Oslo Bors,Norge,Material,Förpackning
+1605,Måsoval,2217,MAS,NO0010974983,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1606,Corem Property D,2218,CORE D,SE0015961594,Aktie,Large Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1607,Archelon Natural,2219,ALONNR B,SE0020355188,Aktie,NGM,Sverige,Material,Gruv - Prospekt & Drift
+1608,Linkfire,2220,LINKFI,DK0061550811,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1609,Eevia Health,2221,EEVIA,FI4000496658,Aktie,Spotlight,Sverige,Dagligvaror,Hälsoprodukter
+1610,Puuilo,2222,PUUILO,FI4000507124,Aktie,Mid Cap,Finland,Sällanköpsvaror,Detaljhandel
+1611,Spinnova,2223,SPINN,FI4000507595,Aktie,First North,Finland,Sällanköpsvaror,Kläder & Skor
+1612,SmartCraft,2224,SMCRT,NO0011008971,Aktie,Oslo Bors,Norge,Informationsteknik,Affärs- & IT-System
+1613,Alternus Energy,2225,ALT,IE00BLRPRP89,Aktie,Oslo Growth,Norge,Kraftförsörjning,Solkraft
+1614,Aquaporin,2226,AQP,DK0061555109,Aktie,Small Cap,Danmark,Kraftförsörjning,Vattenförsörjning
+1615,First Venture,2227,FIRST B,SE0016075451,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1616,Profoto,2228,PRFO,SE0015962147,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+1617,Wyld Networks,2229,WYLD,SE0015812516,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+1618,OrderYOYO,2230,YOYO,DK0061553831,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1619,SameSystem,2231,SAME,DK0061551033,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1620,Amniotics,2232,AMNI,SE0015961016,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1621,Freemelt,2233,FREEM,SE0011167170,Aktie,First North,Sverige,Industri,Industrimaskiner
+1622,Godsinlösen,2234,GIAB,SE0016101760,Aktie,First North,Sverige,Industri,Stödtjänster & Service
+1623,Gigante Salmon,2236,GIGA,NO0011013765,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1624,Diagonal Bio,2237,DIABIO,SE0015961826,Aktie,First North,Sverige,Hälsovård,Biotech
+1625,Fragbite,2238,FRAG,SE0015949334,Aktie,First North,Sverige,Sällanköpsvaror,Gaming & Spel
+1626,Modus Therapeutics,2239,MODTX,SE0015987904,Aktie,First North,Sverige,Hälsovård,Biotech
+1627,Pila Pharma,2240,PILA,SE0015988274,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1628,Edyoutec,2241,EDYOU,SE0015811377,Aktie,Spotlight,Sverige,Sällanköpsvaror,Gaming & Spel
+1629,Vow Green Metals,2242,VGM,NO0011037483,Aktie,Oslo Growth,Norge,Kraftförsörjning,Bioenergi
+1630,Akobo Minerals,2243,AKOBO,SE0015193412,Aktie,Oslo Growth,Norge,Material,Gruv - Prospekt & Drift
+1631,Aquaticus Real Estate,2244,AQUAT,SE0015244132,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1632,Ectin Research,2245,ECTIN B,SE0015987714,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1633,Transfer Group,2246,TRNSF,SE0011870757,Aktie,NGM,Sverige,Industri,Säkerhet
+1634,Söder Sportfiske,2247,SODER,SE0016276539,Aktie,First North,Sverige,Sällanköpsvaror,Fritid & Sport
+1635,Arlandastad,2248,AGROUP,SE0016276851,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1636,Kjell Group,2249,KJELL,SE0016797591,Aktie,First North,Sverige,Sällanköpsvaror,Detaljhandel
+1637,Kiliaro,2250,KILI,SE0016275333,Aktie,First North,Sverige,Informationsteknik,Internettjänster
+1638,Aprendere Skolor,2251,APRNDR,SE0015960778,Aktie,First North,Sverige,Industri,Utbildning
+1639,CTEK,2253,CTEK,SE0016798763,Aktie,Mid Cap,Sverige,Industri,Elektroniska komponenter
+1640,eEducation Albert,2254,ALBERT,SE0016797989,Aktie,First North,Sverige,Informationsteknik,Internettjänster
+1641,FSport,2255,FSPORT,SE0016288641,Aktie,First North,Sverige,Sällanköpsvaror,Betting & Casino
+1642,Fastighetsbolag Emilshus Pref,2256,EMIL PREF,SE0016785794,Pref,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1643,Anora Group,2257,ANORA,FI4000292438,Aktie,Mid Cap,Finland,Dagligvaror,Bryggeri
+1644,Bioretec,2259,BRETEC,FI4000480454,Aktie,First North,Finland,Hälsovård,Läkemedel
+1645,EcoUp,2260,ECOUP,FI4000511563,Aktie,First North,Finland,Industri,Energi & Återvinning
+1646,Modulight,2261,MODU,FI4000511506,Aktie,First North,Finland,Hälsovård,Medicinsk Utrustning
+1647,CS Medica,2262,CSMED,DK0061668225,Aktie,Spotlight,Danmark,Hälsovård,Läkemedel
+1648,First North All,2263,FIRSTNORTHSEK,SE0001718701,Index GI,Index,Sverige,N/A,N/A
+1649,Barramundi,2264,BARRA,SGXZ33675836,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1650,BioFish,2265,BFISH,NO0010955198,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1651,Havila Kystruten,2266,HKY,NO0011045429,Aktie,Oslo Growth,Norge,Industri,Sjöfart & Rederi
+1652,Sparebank 68 grader nord,2267,SB68,NO0010887110,Aktie,Oslo Growth,Norge,Finans & Fastighet,Banker
+1653,Questback,2268,QUEST,NO0011019119,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1654,Astrocast,2269,ASTRO,CH1122548808,Aktie,Oslo Growth,Norge,Informationsteknik,Kommunikation
+1655,Western Bulk Chartering,2270,WEST,NO0010768096,Aktie,Oslo Growth,Norge,Industri,Sjöfart & Rederi
+1656,Genetic Analysis,2271,GEAN,NO0010692130,Aktie,Spotlight,Norge,Hälsovård,Läkemedel
+1657,Pyrum Innovations,2272,PYRUM,DE000A2G8ZX8,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1658,Sound Dimension,2273,SOUND,SE0016589063,Aktie,Spotlight,Sverige,Informationsteknik,Elektronisk Utrustning
+1659,Storskogen,2274,STOR B,SE0016797732,Aktie,Large Cap,Sverige,Finans & Fastighet,Investmentbolag
+1660,Truecaller,2275,TRUE B,SE0016787071,Aktie,Large Cap,Sverige,Informationsteknik,Kommunikation
+1661,Loihde,2276,LOIHDE,FI4000014238,Aktie,First North,Finland,Informationsteknik,Säkerhet & Bevakning
+1662,Brain+,2277,BRAINP,DK0061670205,Aktie,First North,Danmark,Hälsovård,Läkemedel
+1663,Inderes,2278,INDERES,FI4000348651,Aktie,First North,Finland,Industri,Information & Data
+1664,Nordisk Bergteknik,2279,NORB B,SE0015812128,Aktie,Small Cap,Sverige,Material,Gruv - Service
+1665,Haypp Group,2280,HAYPP,SE0016829469,Aktie,First North,Sverige,Dagligvaror,Tobak
+1666,Netel Holding,2281,NETEL,SE0016798417,Aktie,Small Cap,Sverige,Telekommunikation,Telekomtjänster
+1667,Byggfakta,2282,BFG,SE0016798581,Aktie,Mid Cap,Sverige,Industri,Information & Data
+1668,Lifeline SPAC,2283,LL1SPAC,FI4000512496,SPAC,Mid Cap,Finland,Finans & Fastighet,Kapitalförvaltning
+1669,Flat Capital,2284,FLAT B,SE0016609846,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1670,Autostore,2285,AUTO,BMG0670A1099,Aktie,Oslo Bors,Norge,Industri,Industrimaskiner
+1671,Pagero Group,2286,PAGERO,SE0016830517,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1672,Hilbert Group,2287,HILB B,SE0016278154,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1673,Advanced SolTech,2288,ASAB,SE0016101521,Aktie,First North,Sverige,Kraftförsörjning,Solkraft
+1674,Volvo Car,2289,VOLCAR B,SE0016844831,Aktie,Large Cap,Sverige,Sällanköpsvaror,Bil & Motor
+1675,Synsam,2290,SYNSAM,SE0016829709,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Accessoarer
+1676,Medhelp Care,2291,MEDHLP,SE0016799001,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1677,XP Chemistries,2292,XPC,SE0016787279,Aktie,First North,Sverige,Material,Kemikalier
+1678,Fifax,2293,FIFAX,FI4000496328,Aktie,First North,Finland,Dagligvaror,Fiskodling
+1679,Investment AB Spiltan,2294,SPLTN,SE0013382546,Aktie,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1680,Candles Scandinavia,2296,CANDLE B,SE0016797773,Aktie,First North,Sverige,Sällanköpsvaror,Möbler & Inredning
+1681,Compodium,2297,COMPDM,SE0016844468,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+1682,Norditek,2298,NOTEK,SE0016843486,Aktie,First North,Sverige,Industri,Energi & Återvinning
+1683,PixelFox,2299,PIXEL,SE0013409273,Aktie,NGM,Sverige,Sällanköpsvaror,Accessoarer
+1684,SolidX,2300,SOLIDX,SE0016797971,Aktie,Spotlight,Sverige,Informationsteknik,IT-Konsulter
+1685,Qlucore,2301,QCORE,SE0016829824,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1686,Preservium Property,2302,PRESRV,SE0016829790,Aktie,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1687,SHT Smart High-Tech,2303,SHT B,SE0016843809,Aktie,Spotlight,Sverige,Informationsteknik,Elektronik & Tillverkning
+1688,Lemonsoft,2304,LEMON,FI4000512678,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1689,Movinn,2305,MOVINN,DK0061555539,Aktie,First North,Danmark,Finans & Fastighet,Fastighetsbolag
+1690,Scandinavian Medical,2306,SMSMED,DK0061675006,Aktie,First North,Danmark,Hälsovård,Medicinsk Utrustning
+1691,Q-Interline,2307,QINTER,DK0061677135,Aktie,First North,Danmark,Industri,Mätning & Analys
+1692,Bubbleroom,2308,BBROOM,SE0016288476,Aktie,First North,Sverige,Sällanköpsvaror,Kläder & Skor
+1693,Opter,2309,OPTER,SE0016829501,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1694,Alpcot,2311,ALPCOT B,SE0016845655,Aktie,First North,Sverige,Finans & Fastighet,Kapitalförvaltning
+1695,Sun4Energy,2312,SUN4,SE0016609911,Aktie,NGM,Sverige,Kraftförsörjning,Solkraft
+1696,Resqunit,2313,RESQ,SE0017131220,Aktie,First North,Sverige,Dagligvaror,Fiskodling
+1697,Logistea B,2314,LOGI B,SE0017131337,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1698,Duell,2315,DUELL,FI4000513072,Aktie,First North,Finland,Sällanköpsvaror,Bil & Motor
+1699,Hove,2316,HOVE,DK0061675279,Aktie,First North,Danmark,Industri,Industrikomponenter
+1700,Edda Wind,2317,EWIND,NO0010998529,Aktie,Oslo Bors,Norge,Kraftförsörjning,Vindkraft
+1701,Adtraction,2318,ADTR,SE0016833149,Aktie,First North,Sverige,Sällanköpsvaror,Marknadsföring
+1702,Careium,2319,CARE,SE0017131824,Aktie,First North,Sverige,Informationsteknik,Säkerhet & Bevakning
+1703,ChargePanel,2320,CHARGE,SE0017083835,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1704,Devyser Diagnostics,2321,DVYSR,SE0016588867,Aktie,First North,Sverige,Hälsovård,Medicinsk Utrustning
+1705,KlaraBo,2322,KLARA B,SE0010832287,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1706,Kvix,2323,KVIX,SE0016610083,Aktie,NGM,Sverige,Sällanköpsvaror,Fritid & Sport
+1707,Nattaro Labs,2325,NATTA,SE0016844534,Aktie,Spotlight,Sverige,Industri,Stödtjänster & Service
+1708,Nivika Fastigheter,2326,NIVI B,SE0017083272,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1709,Norva24,2327,NORVA,SE0017084759,Aktie,Mid Cap,Sverige,Industri,Installation & VVS
+1710,Solid Försäkring,2328,SFAB,SE0017082548,Aktie,Small Cap,Sverige,Finans & Fastighet,Försäkring
+1711,Tobii Dynavox,2329,TDVOX,SE0017105620,Aktie,Mid Cap,Sverige,Informationsteknik,Biometri
+1712,Titania,2330,TITA B,SE0017132129,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1713,Mestro,2331,MESTRO,SE0017071020,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1714,Viva Wine,2332,VIVA,SE0017084361,Aktie,First North,Sverige,Dagligvaror,Drycker
+1715,BPC Instruments,2334,BPCINS,SE0017130826,Aktie,Spotlight,Sverige,Hälsovård,Medicinsk Utrustning
+1716,Case Group,2335,CASE,SE0017082514,Aktie,First North,Sverige,Finans & Fastighet,Kapitalförvaltning
+1717,Nordic Asia,2336,NAIG B,SE0016609333,Aktie,First North,Sverige,Finans & Fastighet,Fondförvaltning
+1718,Aiforia Technologies,2337,AIFORIA,FI4000507934,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1719,Springvest,2338,SPRING,FI4000369442,Aktie,First North,Finland,Finans & Fastighet,Kredit & Finansiering
+1720,Betolar,2339,BETOLAR,FI4000512587,Aktie,First North,Finland,Industri,Byggmaterial
+1721,Digital Workforce,2340,DWF,FI4000513015,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1722,Lamor,2341,LAMOR,FI4000512488,Aktie,Small Cap,Finland,Industri,Energi & Återvinning
+1723,Norrhydro,2342,NORRH,FI4000251954,Aktie,First North,Finland,Industri,Industrikomponenter
+1724,Relesys,2343,RELE,DK0061680436,Aktie,First North,Danmark,Informationsteknik,Affärs- & IT-System
+1725,Höegh Autoliners,2344,HAUTO,NO0011082075,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1726,Kempower,2345,KEMPOWR,FI4000513593,Aktie,First North,Finland,Industri,Elektroniska komponenter
+1727,MTI Investment,2346,MTI,SE0017105539,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1728,W5 Solutions,2347,W5,SE0016786040,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1729,Administer,2348,ADMIN,FI4000513411,Aktie,First North,Finland,Informationsteknik,Affärs- & IT-System
+1730,Norwegian Block Exchange,2349,NBX,NO0010984966,Aktie,Oslo Growth,Norge,Informationsteknik,Affärs- & IT-System
+1731,Tura Group,2351,TURA,SE0017083355,Aktie,Spotlight,Sverige,Sällanköpsvaror,Detaljhandel
+1732,Purmo Group,2352,PURMO,FI4000507488,Aktie,Mid Cap,Finland,Industri,Installation & VVS
+1733,Capsol Technologies,2353,CAPSL,NO0010923121,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1734,Aurora Eiendom,2354,AURA,NO0011032310,Aktie,Oslo Growth,Norge,Finans & Fastighet,Fastighetsbolag
+1735,Himalaya Shipping,2355,HSHP,BMG4660A1036,Aktie,Oslo Expand,Norge,Industri,Sjöfart & Rederi
+1736,Windon,2356,WEG,SE0017131865,Aktie,Spotlight,Sverige,Kraftförsörjning,Solkraft
+1737,Dala Energi,2359,DE,SE0000201253,Aktie,First North,Sverige,Kraftförsörjning,Elförsörjning
+1738,Learning 2 Sleep,2360,L2S,SE0017083694,Aktie,First North,Sverige,Informationsteknik,Internettjänster
+1739,Newbury Pharmaceuticals,2361,NEWBRY,SE0015244884,Aktie,First North,Sverige,Hälsovård,Läkemedel
+1740,Zazz Energy,2362,ZAZZ B,SE0017483175,Aktie,First North,Sverige,Kraftförsörjning,Bioenergi
+1741,Smart Valor,2363,SMART SDB,SE0017133820,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1742,Gram Car Carriers,2364,GCC,NO0011109563,Aktie,Oslo Bors,Norge,Industri,Sjöfart & Rederi
+1743,Purefun,2365,PURE,SE0017232838,Aktie,First North,Sverige,Sällanköpsvaror,Accessoarer
+1744,Hyon,2366,HYON,NO0011204158,Aktie,Oslo Growth,Norge,Kraftförsörjning,Bioenergi
+1745,Vår Energi,2367,VAR,NO0011202772,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Exploatering
+1746,Lyckegård,2368,LYGRD,SE0017160575,Aktie,First North,Sverige,Dagligvaror,Jordbruk
+1747,Move About,2369,MOV,SE0016830335,Aktie,First North,Sverige,Sällanköpsvaror,Bil & Motor
+1748,RightBridge Ventures,2371,RIGHTB,SE0019070749,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1749,Cool Company,2372,CLCO,BMG2415A1137,Aktie,Oslo Growth,Norge,Industri,Sjöfart & Rederi
+1750,BeammWave,2373,BEAMMW B,SE0016799068,Aktie,First North,Sverige,Informationsteknik,Kommunikation
+1751,Ocean GeoLoop,2374,OCEAN,NO0010914641,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1752,Northgold,2375,NG,SE0017131071,Aktie,First North,Sverige,Material,Gruv - Guld & Silver
+1753,Bawat Water,2376,BAWAT,SE0017487424,Aktie,First North,Sverige,Industri,Sjöfart & Rederi
+1754,CombinedX,2377,CX,SE0012065589,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1755,Tendo,2378,TENDO,SE0017486426,Aktie,Spotlight,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1756,Swedish Logistic Property,2379,SLP B,SE0017565476,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1757,Evli,2380,EVLI,FI4000513437,Aktie,Mid Cap,Finland,Finans & Fastighet,Kapitalförvaltning
+1758,Oneflow,2381,ONEF,SE0017564461,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1759,LapWall,2382,LAPWALL,FI4000511597,Aktie,First North,Finland,Industri,Byggmaterial
+1760,Momentum Group,2383,MMGR B,SE0017562523,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+1761,Odfjell Technology,2384,OTL,BMG6716L1081,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Borrning
+1762,High Coast Distillery,2385,HIGHCO B,SE0003848613,Aktie,First North,Sverige,Dagligvaror,Bryggeri
+1763,Pallas Air,2386,PALLAS,FI4000518386,Aktie,First North,Finland,Industri,Installation & VVS
+1764,Katalysen Ventures,2387,KAV,SE0016798045,Aktie,Spotlight,Sverige,Finans & Fastighet,Investmentbolag
+1765,Renewable Ventures,2388,RVN,SE0017768658,Aktie,Spotlight,Sverige,Finans & Fastighet,Investmentbolag
+1766,Promimic,2389,PRO,SE0017487242,Aktie,First North,Sverige,Hälsovård,Biotech
+1767,Västra Hamnen,2390,VH,SE0017767031,Aktie,First North,Sverige,Finans & Fastighet,Kredit & Finansiering
+1768,Arctic Blue Beverages,2391,ARCTIC,SE0017769136,Aktie,First North,Sverige,Dagligvaror,Bryggeri
+1769,Witted Megacorp,2392,WITTED,FI4000517461,Aktie,First North,Finland,Informationsteknik,IT-Konsulter
+1770,WPU - Waste Plastic Upcycling,2394,WPU,DK0061676400,Aktie,Oslo Growth,Norge,Industri,Energi & Återvinning
+1771,Hubbster,2395,HUBS,SE0015194659,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1772,4C Group,2396,4C,SE0017936891,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1773,Job Solution Sweden,2397,JOBS,SE0017564800,Aktie,First North,Sverige,Industri,Bemanning
+1774,Skolon,2398,SKOLON,SE0017615784,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1775,Vultus,2399,VULTS,SE0017616006,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1776,My Beat,2400,MYBEAT,SE0017483159,Aktie,Spotlight,Sverige,Telekommunikation,Bredband & Telefoni
+1777,Engcon,2401,ENGCON B,SE0017769847,Aktie,Mid Cap,Sverige,Industri,Industrikomponenter
+1778,Sweden BuyersClub,2402,BUY,SE0015660287,Aktie,First North,Sverige,Informationsteknik,Betalning & E-handel
+1779,Asuntosalkku,2403,ASUNTO,FI4000517602,Aktie,First North,Finland,Finans & Fastighet,Fastighetsbolag
+1780,Arcede Pharma,2405,ARCEDE,SE0018168742,Aktie,Spotlight,Sverige,Hälsovård,Läkemedel
+1781,Inify Laboratories,2406,INIFY,SE0017486103,Aktie,Oslo Growth,Norge,Hälsovård,Medicinsk Utrustning
+1782,Nordic Technology,2407,NTG,NO0011018434,Aktie,Oslo Growth,Norge,Industri,Förnybarenergi
+1783,Fastighetsbolaget Emilshus,2408,EMIL B,SE0016785786,Aktie,Mid Cap,Sverige,Finans & Fastighet,Fastighetsbolag
+1784,H. Lundbeck A,2409,HLUN A,DK0061804697,Stocks2,Large Cap,Danmark,Hälsovård,Läkemedel
+1785,F-Secure,2410,FSECURE,FI4000519236,Aktie,Mid Cap,Finland,Informationsteknik,Säkerhet & Bevakning
+1786,Swiss Properties Invest,2411,SWISS,DK0061805660,Aktie,First North,Danmark,Finans & Fastighet,Fastighetsbolag
+1787,Standard Supply,2412,STSU,NO0012547308,Aktie,Oslo Growth,Norge,Industri,Sjöfart & Rederi
+1788,Alleima,2413,ALLEI,SE0017615644,Aktie,Large Cap,Sverige,Industri,Industrikomponenter
+1789,Tingsvalvet B,2414,TINGS B,SE0018534497,Stocks2,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1790,Tingsvalvet Pref,2415,TINGS PREF,SE0018040727,Pref,Spotlight,Sverige,Finans & Fastighet,Fastighetsbolag
+1791,Railway Metrics & Dynamics,2416,RMDX,SE0011451921,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1792,BellPal Holding,2417,BELLP,SE0019176066,Aktie,NGM,Sverige,Hälsovård,Hälsovård & Hjälpmedel
+1793,Hoi Publishing,2418,HOI B,SE0017830789,Aktie,NGM,Sverige,Industri,Media & Publicering
+1794,Dividend Sweden,2419,DIV B,SE0017085145,Aktie,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1795,Sparebank 1 Sorost-Norge,2420,SOON,NO0006000207,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1796,Sogn Sparebank,2421,SOGN,NO0006000603,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1797,Sparebank 1 Nord-Norge,2422,NONG,NO0006000801,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1798,Sparebanken Vest,2423,SVEG,NO0006000900,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1799,Sandnes Sparebank,2424,SADG,NO0006001007,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1800,Totens Sparebank,2425,TOTG,NO0006001205,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1801,Sparebanken Sor,2426,SOR,NO0006001502,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1802,Aurskog Sparebank,2427,AURG,NO0006001601,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1803,Skue Sparebank,2428,SKUE,NO0006001809,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1804,Melhus Sparebank,2429,MELG,NO0006001908,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1805,Sparebanken Ost,2430,SPOG,NO0006222009,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1806,Sparebanken More,2431,MORG,NO0012483207,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1807,Sparebank 1 SMN,2432,MING,NO0006390301,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1808,Sparebank 1 Ringerike Hadeland,2433,RING,NO0006390400,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1809,Holand Og Setskog Sparebank,2434,HSPG,NO0010012636,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1810,Sparebank 1 Helgeland,2435,HELG,NO0010029804,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1811,Sparebank 1 Ostfold Akershus,2436,SOAG,NO0010285562,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1812,Jaeren Sparebank,2437,JAREN,NO0010359433,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1813,Sparebank 1 Ostlandet,2438,SPOL,NO0010751910,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1814,Sparebank 1 Nordmore,2439,SNOR,NO0010691660,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1815,I Love Lund,2440,LOVE B,SE0018397648,Aktie,Spotlight,Sverige,Finans & Fastighet,Investmentbolag
+1816,Noble Corporation,2441,NOBLE,GB00BMXNWH07,Aktie,Large Cap,Danmark,Energi,Olja & Gas - Exploatering
+1817,Noram Drilling,2442,NORAM,NO0010360019,Aktie,Oslo Growth,Norge,Industri,Industrimaskiner
+1818,Technology Hardware,2443,SX101020PI,SE0004383925,BranschIndex,Index,Sverige,N/A,N/A
+1819,Telecom Equipment,2444,SX151010PI,SE0014557492,BranschIndex,Index,Sverige,N/A,N/A
+1820,Telecom Service Providers,2445,SX151020PI,SE0004383727,BranschIndex,Index,Sverige,N/A,N/A
+1821,Health Care Providers,2446,SX201010PI,SE0014557500,BranschIndex,Index,Sverige,N/A,N/A
+1822,Finance & Credit Services,2447,SX302010PI,SE0014557518,BranschIndex,Index,Sverige,N/A,N/A
+1823,Investment Banking,2448,SX302020PI,SE0004383883,BranschIndex,Index,Sverige,N/A,N/A
+1824,Insurance,2449,SX3030PI,SE0014557104,BranschIndex,Index,Sverige,N/A,N/A
+1825,Real Estate Investment,2450,SX351010PI,SE0004383859,BranschIndex,Index,Sverige,N/A,N/A
+1826,Automobiles & Parts,2451,SX4010PI,SE0004383495,BranschIndex,Index,Sverige,N/A,N/A
+1827,Consumer Services,2452,SX402010PI,SE0014557559,BranschIndex,Index,Sverige,N/A,N/A
+1828,Retailers,2453,SX404010PI,SE0004383651,BranschIndex,Index,Sverige,N/A,N/A
+1829,Food Producers,2454,SX451020PI,SE0014557138,BranschIndex,Index,Sverige,N/A,N/A
+1830,Personal Care,2455,SX4520PI,SE0014557435,BranschIndex,Index,Sverige,N/A,N/A
+1831,Construction & Materials,2456,SX5010PI,SE0004383396,BranschIndex,Index,Sverige,N/A,N/A
+1832,Aerospace & Defense,2457,SX502010PI,SE0004383420,BranschIndex,Index,Sverige,N/A,N/A
+1833,Electronic Equipment,2458,SX502020PI,SE0004383446,BranschIndex,Index,Sverige,N/A,N/A
+1834,General Industrials,2459,SX502030PI,SE0004383438,BranschIndex,Index,Sverige,N/A,N/A
+1835,Industrial Engineering,2460,SX502040PI,SE0004383453,BranschIndex,Index,Sverige,N/A,N/A
+1836,Industrial Support Services,2461,SX502050PI,SE0004383479,BranschIndex,Index,Sverige,N/A,N/A
+1837,Industrial Transportation,2462,SX502060PI,SE0004383461,BranschIndex,Index,Sverige,N/A,N/A
+1838,Industrial Goods & Services,2463,SX5020PI,SE0004383412,BranschIndex,Index,Sverige,N/A,N/A
+1839,Industrial Materials,2464,SX551010PI,SE0004383354,BranschIndex,Index,Sverige,N/A,N/A
+1840,Industrial Metals & Mining,2465,SX551020PI,SE0004383362,BranschIndex,Index,Sverige,N/A,N/A
+1841,Precious Metals & Mining,2466,SX551030PI,SE0004383370,BranschIndex,Index,Sverige,N/A,N/A
+1842,Basic Resources,2467,SX5510PI,SE0004383347,BranschIndex,Index,Sverige,N/A,N/A
+1843,Oil Gas & Coal,2469,SX601010PI,SE0004383289,BranschIndex,Index,Sverige,N/A,N/A
+1844,Alternative Energy,2470,SX601020PI,SE0004383305,BranschIndex,Index,Sverige,N/A,N/A
+1845,Electricity,2471,SX651010PI,SE0004383768,BranschIndex,Index,Sverige,N/A,N/A
+1846,Consumer Products,2475,SX4020PI,SE0004383545,BranschIndex,Index,Sverige,N/A,N/A
+1847,Cinis Fertilizer,2476,CINIS,SE0018040784,Aktie,First North,Sverige,Material,Kemikalier
+1848,Shelf Drilling North Sea,2477,SDNS,BMG236541097,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Borrning
+1849,Dolphin Drilling,2480,DDRIL,NO0012595950,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Borrning
+1850,ABAS Protect,2481,ABAS,SE0018588659,Aktie,Spotlight,Sverige,Industri,Installation & VVS
+1851,Mahvie Minerals,2482,MAHVIE,SE0018768210,Aktie,NGM,Sverige,Material,Gruv - Prospekt & Drift
+1852,Sampo,2483,SAMPO SDB,SE0018768707,Aktie,Large Cap,Sverige,Finans & Fastighet,Försäkring
+1853,Koskisen,2484,KOSKI,FI4000533005,Aktie,Small Cap,Finland,Material,Skogsbolag
+1854,Tamtron,2485,TAMTRON,FI4000541313,Aktie,First North,Finland,Industri,Mätning & Analys
+1855,Nodebis Applications,2486,NODE,SE0020846392,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1856,Gotlandsbolaget A,2487,GOTL A,SE0000105371,Stocks2,First North,Sverige,Industri,Sjöfart & Rederi
+1857,Gotlandsbolaget B,2488,GOTL B,SE0000105397,Aktie,First North,Sverige,Industri,Sjöfart & Rederi
+1858,LumenRadio,2489,LUMEN,SE0019072158,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1859,Frilans,2490,FRILAN,SE0019070434,Aktie,Spotlight,Sverige,Informationsteknik,Affärs- & IT-System
+1860,OMX Nordic 40,2491,OMXN40,SE0001809476,Index GI,Index,Sverige,N/A,N/A
+1861,Scandinavian Astor,2492,ASTOR,SE0019175274,Aktie,Spotlight,Sverige,Industri,Militär & Försvar
+1862,Bien Sparebank,2493,BIEN,NO0012706763,Aktie,Oslo Bors,Norge,Finans & Fastighet,Banker
+1863,Energeia,2494,ENERG,NO0012697715,Aktie,Oslo Growth,Norge,Kraftförsörjning,Solkraft
+1864,Benchmark Holdings,2495,BMK,GB00BGHPT808,Aktie,Oslo Growth,Norge,Dagligvaror,Fiskodling
+1865,Triona,2499,TRIONA,SE0001321761,Aktie,NGM,Sverige,Informationsteknik,Affärs- & IT-System
+1866,ANTCO Investment,2500,ANTCO B,SE0018690349,Aktie,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1867,Northern CapSek Pref,2501,CAPS PREF,SE0018537375,Pref,NGM,Sverige,Finans & Fastighet,Investmentbolag
+1868,MindArk,2502,MNDRK,SE0019354358,Aktie,Spotlight,Sverige,Sällanköpsvaror,Gaming & Spel
+1869,Neobo Fastigheter,2503,NEOBO,SE0005034550,Aktie,First North,Sverige,Finans & Fastighet,Fastighetsbolag
+1870,RanLOS,2504,RLOS B,SE0019762147,Aktie,First North,Sverige,Telekommunikation,Telekomtjänster
+1871,Upgrade Invest Nordic,2505,UPGRAD,SE0018536401,Aktie,Spotlight,Sverige,Finans & Fastighet,Investmentbolag
+1872,Gubra,2506,GUBRA,DK0062266474,Aktie,Mid Cap,Danmark,Hälsovård,Läkemedel
+1873,Seacrest Petroleo Bermuda,2507,SEAPT,BMG7947V2045,Aktie,Oslo Expand,Norge,Energi,Olja & Gas - Exploatering
+1874,ReFuels N.V.,2508,REFL,NL0015001BF4,Aktie,Oslo Growth,Norge,Kraftförsörjning,Bioenergi
+1875,Stainless Tankers,2509,STST,NO0012780958,Aktie,Oslo Growth,Norge,Industri,Sjöfart & Rederi
+1876,Observit,2510,OBSE,SE0017911704,Aktie,First North,Sverige,Informationsteknik,Affärs- & IT-System
+1877,DOF Group,2511,DOFG,NO0012851874,Aktie,Oslo Bors,Norge,Energi,Olja & Gas - Transport
+1878,Rusta,2512,RUSTA,SE0020848356,Aktie,Mid Cap,Sverige,Sällanköpsvaror,Detaljhandel
+1879,Mandatum,2513,MANTA,FI4000552526,Aktie,Large Cap,Finland,Finans & Fastighet,Kapitalförvaltning
+1880,Beerenberg,2514,BBERG,NO0013017574,Aktie,Oslo Growth,Norge,Energi,Olja & Gas - Service
+1881,MatvareExpressen,2515,MVE,NO0013008664,Aktie,Oslo Growth,Norge,Sällanköpsvaror,Livsmedelsbutiker
+1882,Navigo Invest,2516,NAVIGO STAM,SE0007100532,Aktie,First North,Sverige,Finans & Fastighet,Investmentbolag
+1883,Sibek,2517,SIBEK,SE0020050359,Aktie,First North,Sverige,Industri,Affärskonsulter
+1884,Norconsult,2518,NORCO,NO0013052209,Aktie,Oslo Bors,Norge,Industri,Affärskonsulter
+1885,Better Collective,2520,BETCO DKK,DK0060952240,Aktie,Large Cap,Danmark,Sällanköpsvaror,Betting & Casino
+1886,Gosol Energy,2521,GOSOL,SE0020845071,Aktie,Spotlight,Sverige,Kraftförsörjning,Solkraft
+1887,Cyclezyme,2522,CYCLE,SE0020975852,Aktie,Spotlight,Sverige,Hälsovård,Biotech
+1888,Pohjanmaan Arvo,2523,ARVOSK,FI4000532320,Aktie,First North,Finland,Finans & Fastighet,Investmentbolag

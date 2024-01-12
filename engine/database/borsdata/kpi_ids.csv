@@ -1,0 +1,298 @@
+﻿Name;KpiId;Reporttype;Pricetype;Description
+P/E;2;year;mean;Year Mean
+P/E;2;year;low;Year Low
+P/E;2;year;high;Year High
+P/E;2;r12;mean;R12 Mean
+P/E;2;r12;low;R12 Low
+P/E;2;r12;high;R12 High
+P/S;3;year;mean;Year Mean
+P/S;3;year;low;Year Low
+P/S;3;year;high;Year High
+P/S;3;r12;mean;R12 Mean
+P/S;3;r12;low;R12 Low
+P/S;3;r12;high;R12 High
+P/B;4;year;mean;Year Mean
+P/B;4;year;low;Year Low
+P/B;4;year;high;Year High
+P/B;4;r12;mean;R12 Mean
+P/B;4;r12;low;R12 Low
+P/B;4;r12;high;R12 High
+P/EBIT;75;year;mean;Year Mean
+P/EBIT;75;year;low;Year Low
+P/EBIT;75;year;high;Year High
+P/EBIT;75;r12;mean;R12 Mean
+P/EBIT;75;r12;low;R12 Low
+P/EBIT;75;r12;high;R12 High
+P/EBITDA;74;year;mean;Year Mean
+P/EBITDA;74;year;low;Year Low
+P/EBITDA;74;year;high;Year High
+P/EBITDA;74;r12;mean;R12 Mean
+P/EBITDA;74;r12;low;R12 Low
+P/EBITDA;74;r12;high;R12 High
+P/FCF;76;year;mean;Year Mean
+P/FCF;76;year;low;Year Low
+P/FCF;76;year;high;Year High
+P/FCF;76;r12;mean;R12 Mean
+P/FCF;76;r12;low;R12 Low
+P/FCF;76;r12;high;R12 High
+EV/E;12;year;mean;Year Mean
+EV/E;12;year;low;Year Low
+EV/E;12;year;high;Year High
+EV/E;12;r12;mean;R12 Mean
+EV/E;12;r12;low;R12 Low
+EV/E;12;r12;high;R12 High
+EV/S;15;year;mean;Year Mean
+EV/S;15;year;low;Year Low
+EV/S;15;year;high;Year High
+EV/S;15;r12;mean;R12 Mean
+EV/S;15;r12;low;R12 Low
+EV/S;15;r12;high;R12 High
+EV/EBIT;10;year;mean;Year Mean
+EV/EBIT;10;year;low;Year Low
+EV/EBIT;10;year;high;Year High
+EV/EBIT;10;r12;mean;R12 Mean
+EV/EBIT;10;r12;low;R12 Low
+EV/EBIT;10;r12;high;R12 High
+EV/EBITDA;11;year;mean;Year Mean
+EV/EBITDA;11;year;low;Year Low
+EV/EBITDA;11;year;high;Year High
+EV/EBITDA;11;r12;mean;R12 Mean
+EV/EBITDA;11;r12;low;R12 Low
+EV/EBITDA;11;r12;high;R12 High
+EV/OP;78;year;mean;Year Mean
+EV/OP;78;year;low;Year Low
+EV/OP;78;year;high;Year High
+EV/OP;78;r12;mean;R12 Mean
+EV/OP;78;r12;low;R12 Low
+EV/OP;78;r12;high;R12 High
+EV/FCF;13;year;mean;Year Mean
+EV/FCF;13;year;low;Year Low
+EV/FCF;13;year;high;Year High
+EV/FCF;13;r12;mean;R12 Mean
+EV/FCF;13;r12;low;R12 Low
+EV/FCF;13;r12;high;R12 High
+P/B/tang;18;year;mean;Year Mean
+P/B/tang;18;year;low;Year Low
+P/B/tang;18;year;high;Year High
+P/B/tang;18;r12;mean;R12 Mean
+P/B/tang;18;r12;low;R12 Low
+P/B/tang;18;r12;high;R12 High
+EBIT/EV;17;year;mean;Year Mean
+EBIT/EV;17;year;low;Year Low
+EBIT/EV;17;year;high;Year High
+EBIT/EV;17;r12;mean;R12 Mean
+EBIT/EV;17;r12;low;R12 Low
+EBIT/EV;17;r12;high;R12 High
+BorsVarde;50;year;mean;Year Mean
+BorsVarde;50;year;low;Year Low
+BorsVarde;50;year;high;Year High
+BorsVarde;50;r12;mean;R12 Mean
+BorsVarde;50;r12;low;R12 Low
+BorsVarde;50;r12;high;R12 High
+EV;49;year;mean;Year Mean
+EV;49;year;low;Year Low
+EV;49;year;high;Year High
+EV;49;r12;mean;R12 Mean
+EV;49;r12;low;R12 Low
+EV;49;r12;high;R12 High
+Bruttomarginal;28;year;mean;Year
+Bruttomarginal;28;r12;mean;R12
+Bruttomarginal;28;quarter;mean;Quarter
+EBITDA/Marginal;32;year;mean;Year
+EBITDA/Marginal;32;r12;mean;R12
+EBITDA/Marginal;32;quarter;mean;Quarter
+Rorelsemarginal;29;year;mean;Year
+Rorelsemarginal;29;r12;mean;R12
+Rorelsemarginal;29;quarter;mean;Quarter
+Vinstmarginal;30;year;mean;Year
+Vinstmarginal;30;r12;mean;R12
+Vinstmarginal;30;quarter;mean;Quarter
+OperativtKassaflodesMarginal;51;year;mean;Year
+OperativtKassaflodesMarginal;51;r12;mean;R12
+OperativtKassaflodesMarginal;51;quarter;mean;Quarter
+FCF/Marginal;31;year;mean;Year
+FCF/Marginal;31;r12;mean;R12
+FCF/Marginal;31;quarter;mean;Quarter
+ROE/AvkastningPaEgetkapital;33;year;mean;Year
+ROE/AvkastningPaEgetkapital;33;r12;mean;R12
+ROA/AvkastningPaTotalkapital;34;year;mean;Year
+ROA/AvkastningPaTotalkapital;34;r12;mean;R12
+ROA/AvkastningExGoodwill;35;year;mean;Year
+ROA/AvkastningExGoodwill;35;r12;mean;R12
+ROIC;37;year;mean;Year
+ROIC;37;r12;mean;R12
+ROC;36;year;mean;Year
+ROC;36;r12;mean;R12
+Omsattningshastighet;38;year;mean;Year
+Omsattningshastighet;38;r12;mean;R12
+Soliditet;39;year;mean;Year
+Soliditet;39;r12;mean;R12
+Skuldsattningsgrad;40;year;mean;Year
+Skuldsattningsgrad;40;r12;mean;R12
+Balanslikviditet;44;year;mean;Year
+Balanslikviditet;44;r12;mean;R12
+Nettoskuldsattning;41;year;mean;Year
+Nettoskuldsattning;41;r12;mean;R12
+Nettoskuld/EBITDA;42;year;mean;Year
+Nettoskuld/EBITDA;42;r12;mean;R12
+Rorelsekapital/LangfristigaSkulder;45;year;mean;Year
+Rorelsekapital/LangfristigaSkulder;45;r12;mean;R12
+RorelsekapitalProc;93;year;mean;Year
+RorelsekapitalProc;93;r12;mean;R12
+ImmateriellaTillgangarProc;92;year;mean;Year
+ImmateriellaTillgangarProc;92;r12;mean;R12
+Kassa/Proc;46;year;mean;Year
+Kassa/Proc;46;r12;mean;R12
+Capex/Proc;25;year;mean;Year
+Capex/Proc;25;r12;mean;R12
+Capex/Proc;25;quarter;mean;Quarter
+Utdelning/FCF;26;year;mean;Year
+Utdelning/FCF;26;r12;mean;R12
+Vinst/FCF;27;year;mean;Year
+Vinst/FCF;27;r12;mean;R12
+Vinst/FCF;27;quarter;mean;Quarter
+OmsattningMkr;53;year;mean;Year
+OmsattningMkr;53;r12;mean;R12
+OmsattningMkr;53;quarter;mean;Quarter
+BruttoresultatMkr;135;year;mean;Year
+BruttoresultatMkr;135;r12;mean;R12
+BruttoresultatMkr;135;quarter;mean;Quarter
+EBITDA/Mkr;54;year;mean;Year
+EBITDA/Mkr;54;r12;mean;R12
+EBITDA/Mkr;54;quarter;mean;Quarter
+RorelseresultatMkr;55;year;mean;Year
+RorelseresultatMkr;55;r12;mean;R12
+RorelseresultatMkr;55;quarter;mean;Quarter
+VinstForeSkattMkr;125;year;mean;Year
+VinstForeSkattMkr;125;r12;mean;R12
+VinstForeSkattMkr;125;quarter;mean;Quarter
+VinstMkr;56;year;mean;Year
+VinstMkr;56;r12;mean;R12
+VinstMkr;56;quarter;mean;Quarter
+ImmateriellaTillgangarMkr;126;year;mean;Year
+ImmateriellaTillgangarMkr;126;r12;mean;R12
+MateriellaTillgangarMkr;127;year;mean;Year
+MateriellaTillgangarMkr;127;r12;mean;R12
+AnlaggningsTillgangarMkr;129;year;mean;Year
+AnlaggningsTillgangarMkr;129;r12;mean;R12
+OmsattningstillgangarMkr;131;year;mean;Year
+OmsattningstillgangarMkr;131;r12;mean;R12
+KassaLikvidaMedelMkr;130;year;mean;Year
+KassaLikvidaMedelMkr;130;r12;mean;R12
+TotalaTillgangarMkr;57;year;mean;Year
+TotalaTillgangarMkr;57;r12;mean;R12
+EgetKapitalMkr;58;year;mean;Year
+EgetKapitalMkr;58;r12;mean;R12
+LangfristigaSkulderMkr;132;year;mean;Year
+LangfristigaSkulderMkr;132;r12;mean;R12
+KortfristigaSkulderMkr;133;year;mean;Year
+KortfristigaSkulderMkr;133;r12;mean;R12
+TotalaSkulderMkr;137;year;mean;Year
+TotalaSkulderMkr;137;r12;mean;R12
+NettoskuldMkr;60;year;mean;Year
+NettoskuldMkr;60;r12;mean;R12
+TotalaSkulderOchEgetKapitalMkr;134;year;mean;Year
+TotalaSkulderOchEgetKapitalMkr;134;r12;mean;R12
+OperativKassaflodeMkr;62;year;mean;Year
+OperativKassaflodeMkr;62;r12;mean;R12
+OperativKassaflodeMkr;62;quarter;mean;Quarter
+CapexMkr;64;year;mean;Year
+CapexMkr;64;r12;mean;R12
+CapexMkr;64;quarter;mean;Quarter
+KassaflodeFinansieringMkr;138;year;mean;Year
+KassaflodeFinansieringMkr;138;r12;mean;R12
+KassaflodeFinansieringMkr;138;quarter;mean;Quarter
+AretsKassaflodeMkr;65;year;mean;Year
+AretsKassaflodeMkr;65;r12;mean;R12
+AretsKassaflodeMkr;65;quarter;mean;Quarter
+FrittKassaflodeMkr;63;year;mean;Year
+FrittKassaflodeMkr;63;r12;mean;R12
+FrittKassaflodeMkr;63;quarter;mean;Quarter
+AntalAktier;61;year;mean;Year
+AntalAktier;61;r12;mean;R12
+Utdelning/Aktie;7;year;mean;Year
+Utdelning/Aktie;7;r12;mean;R12
+Direktavkastning;1;year;mean;Year Mean
+Direktavkastning;1;year;low;Year Low
+Direktavkastning;1;year;high;Year High
+Direktavkastning;1;r12;mean;R12 Mean
+Direktavkastning;1;r12;low;R12 Low
+Direktavkastning;1;r12;high;R12 High
+OrdinarDirektavkastning;148;year;mean;Year Mean
+OrdinarDirektavkastning;148;year;low;Year Low
+OrdinarDirektavkastning;148;year;high;Year High
+OrdinarDirektavkastning;148;r12;mean;R12 Mean
+OrdinarDirektavkastning;148;r12;low;R12 Low
+OrdinarDirektavkastning;148;r12;high;R12 High
+OrdinarUtdelning;66;year;mean;Year
+OrdinarUtdelning;66;r12;mean;R12
+Utdelningsandel;20;year;mean;Year
+Utdelningsandel;20;r12;mean;R12
+Vinsttillvaxt;97;year;mean;Year
+Vinsttillvaxt;97;r12;mean;R12
+Vinsttillvaxt;97;quarter;mean;Quarter
+EBITTillvaxt;96;year;mean;Year
+EBITTillvaxt;96;r12;mean;R12
+EBITTillvaxt;96;quarter;mean;Quarter
+Omsattningstillvaxt;94;year;mean;Year
+Omsattningstillvaxt;94;r12;mean;R12
+Omsattningstillvaxt;94;quarter;mean;Quarter
+EgetKapitalTillvaxt;99;year;mean;Year
+EgetKapitalTillvaxt;99;r12;mean;R12
+TotalaTillgangarTillvaxt;100;year;mean;Year
+TotalaTillgangarTillvaxt;100;r12;mean;R12
+P/EX;9;year;mean;Year Mean
+P/EX;9;year;low;Year Low
+P/EX;9;year;high;Year High
+P/EX;9;r12;mean;R12 Mean
+P/EX;9;r12;low;R12 Low
+P/EX;9;r12;high;R12 High
+PEG;19;year;mean;Year Mean
+PEG;19;year;low;Year Low
+PEG;19;year;high;Year High
+PEG;19;r12;mean;R12 Mean
+PEG;19;r12;low;R12 Low
+PEG;19;r12;high;R12 High
+Utdelningstillvaxt;98;year;mean;Year
+Utdelningstillvaxt;98;r12;mean;R12
+Omsattning/Aktie;5;year;mean;Year
+Omsattning/Aktie;5;r12;mean;R12
+Omsattning/Aktie;5;quarter;mean;Quarter
+Vinst/Aktie;6;year;mean;Year
+Vinst/Aktie;6;r12;mean;R12
+Vinst/Aktie;6;quarter;mean;Quarter
+EgetKapital/Aktie;8;year;mean;Year
+EgetKapital/Aktie;8;r12;mean;R12
+EgetKapital/Aktie;8;quarter;mean;Quarter
+FCF/Aktie;23;year;mean;Year
+FCF/Aktie;23;r12;mean;R12
+FCF/Aktie;23;quarter;mean;Quarter
+Nettoskuld/Aktie;73;year;mean;Year
+Nettoskuld/Aktie;73;r12;mean;R12
+EBITDA/Aktie;71;year;mean;Year
+EBITDA/Aktie;71;r12;mean;R12
+EBITDA/Aktie;71;quarter;mean;Quarter
+EBIT/Aktie;70;year;mean;Year
+EBIT/Aktie;70;r12;mean;R12
+EBIT/Aktie;70;quarter;mean;Quarter
+OperativKassaflode/Aktie;68;year;mean;Year
+OperativKassaflode/Aktie;68;r12;mean;R12
+OperativKassaflode/Aktie;68;quarter;mean;Quarter
+AretsKassaflode/Aktie;69;year;mean;Year
+AretsKassaflode/Aktie;69;r12;mean;R12
+AretsKassaflode/Aktie;69;quarter;mean;Quarter
+FinansiellaTillgangarMkr;128;year;mean;Year
+FinansiellaTillgangarMkr;128;r12;mean;R12
+AretsKassaflodeMarginal;140;year;mean;Year
+AretsKassaflodeMarginal;140;r12;mean;R12
+AretsKassaflodeMarginal;140;quarter;mean;Quarter
+FCF/Proc;24;year;mean;Year
+FCF/Proc;24;r12;mean;R12
+FCF/Proc;24;quarter;mean;Quarter
+E/EV;16;year;mean;Year Mean
+E/EV;16;year;low;Year Low
+E/EV;16;year;high;Year High
+E/EV;16;r12;mean;R12 Mean
+E/EV;16;r12;low;R12 Low
+E/EV;16;r12;high;R12 High
+TotalDirektavkastning;22;year;mean;Year
