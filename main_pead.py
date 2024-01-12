@@ -75,7 +75,7 @@ warnings.filterwarnings("ignore",category=RuntimeWarning)
 period_start = datetime(2014,1,1)
 period_end = datetime(2023,12,31)
 
-from backtest_engine.strategies.pead_strat import PEAD
+from engine.strategies.pead_strat import PEAD
 alpha = PEAD(insts=tickers,dfs=dfs,start=period_start,end=period_end,trade_frequency='weekly')
 alpha.run_simulation(use_vol_target=False)
 alpha.get_perf_stats(plot=True)
