@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from backtest_engine.utils import BacktestEngine
-from backtest_engine.indicators import logret,slope,tszscore
+from engine.utils import BacktestEngine
+from engine.indicators import logret,slope,tszscore
 import matplotlib.pyplot as plt
 
 class PEAD(BacktestEngine):
