@@ -21,7 +21,7 @@ def get_equities(countries,fx_map,start,end):
             db_div = kpiDataBase(66, market, country)
 
             price_tickers, price_dfs = db_price.export_database()
-            aktier_tickers, aktier_dfs, = db_aktier.export_database()
+            aktier_tickers, aktier_dfs = db_aktier.export_database()
             div_tickers, div_dfs = db_div.export_database()
 
             tickers0,dfs0 = merge_kpi_price(
@@ -55,8 +55,8 @@ def get_vix():
     db = finance_database('vix_database')
     tickers,dfs = db.export_from_database()
     for ticker in tickers:
-            if ticker == 'SVXY':
-                dfs[ticker].close = (1+dfs[ticker].close.pct_change().clip(-0.15,np.infty)).cumprod()
+        if ticker == 'SVXY':
+            dfs[ticker].close = (1+dfs[ticker].close.pct_change().clip(-0.15,np.infty)).cumprod()
     return tickers,dfs
                                                    
 def get_ticker_dfs(countries,fx_map,start,end):
