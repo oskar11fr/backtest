@@ -9,10 +9,10 @@ import matplotlib.pyplot as plt
 
 from pathlib import Path
 from copy import deepcopy
-from typing import Optional
 from functools import wraps
 from datetime import datetime
 from collections import defaultdict
+from typing import Optional, Union
 
 from .functions import quant_stats as quant_stats
 from .functions.performance import (
@@ -163,94 +163,136 @@ class BacktestEngine(TradingFrequencyCalculator):
             self.trade_frequency = trade_frequency  # Retain the provided frequency setting
 
 
-    def get_zero_filtered_stats(self) -> dict[str, pd.Series | pd.DataFrame]:
-        """_summary_
-
-        Returns:
-            dict[str, pd.Series]: _description_
+    def get_zero_filtered_stats(self) -> dict[str, Union[pd.Series, pd.DataFrame]]:
         """
-        assert self.portfolio_df is not None
-        nominal_ret = self.portfolio_df.nominal_ret
-        capital_ret = self.portfolio_df.capital_ret
+        Filter and retrieve statistics for non-zero capital returns.
+
+        Returns
+        -------
+        dict[str, Union[pd.Series, pd.DataFrame]]
+            A dictionary containing filtered data for capital returns, nominal returns,
+            returns dataframe, weights, eligibilities, and leverages.
+        
+        Raises
+        ------
+        AssertionError
+            If `self.portfolio_df` is not initialized.
+        """
+        assert self.portfolio_df is not None, "Portfolio data must be initialized before getting statistics."
+
+        # Extract relevant columns
+        nominal_ret = self.portfolio_df["nominal_ret"]
+        capital_ret = self.portfolio_df["capital_ret"]
+
+        # Filter for non-zero capital returns
         non_zero_idx = capital_ret.loc[capital_ret != 0].index
         retdf = self.retdf.loc[non_zero_idx]
         weights = self.weights_df.shift(1).fillna(0).loc[non_zero_idx]
         eligs = self.eligiblesdf.shift(1).fillna(0).loc[non_zero_idx]
         leverages = self.leverages.shift(1).fillna(0).loc[non_zero_idx]
+
         return {
             "capital_ret": capital_ret.loc[non_zero_idx],
             "nominal_ret": nominal_ret.loc[non_zero_idx],
-            "retdf":retdf,
-            "weights":weights,
-            "eligs":eligs,
-            "leverages":leverages,
+            "retdf": retdf,
+            "weights": weights,
+            "eligs": eligs,
+            "leverages": leverages,
         }
+
 
     def get_perf_stats(
             self,
             plot: bool = False,
             market: bool = False,
             show: bool = False,
-            strat_name: str = None
+            strat_name: Optional[str] = None
         ) -> pd.Series:
-        """_summary_
-
-        Args:
-            plot (bool, optional): _description_. Defaults to False.
-            market (bool, optional): _description_. Defaults to False.
-            show (bool, optional): _description_. Defaults to False.
-            strat_name (str, optional): _description_. Defaults to None.
-
-        Returns:
-            pd.Series: _description_
         """
-        assert self.portfolio_df is not None, "run simulation"
-        if market:
-            assert self.benchmark is not None, "set ticker name as benchmark"
-            assert self.benchmark in self.insts, "make sure benchmark exists in instrument list"
-            market_dict = {
-                "benchmark: " + self.benchmark: 
-                self.dfs[self.benchmark]["close"]
-            }
+        Calculate and return performance statistics.
+
+        Parameters
+        ----------
+        plot : bool, optional
+            If True, plots performance measures. Default is False.
+        market : bool, optional
+            If True, includes benchmark market data in the performance evaluation. Default is False.
+        show : bool, optional
+            If True, displays additional performance output. Default is False.
+        strat_name : str, optional
+            Name of the strategy for labeling purposes. Default is None.
+
+        Returns
+        -------
+        pd.Series
+            A series of calculated performance statistics including CAGR, Sharpe ratio,
+            mean and median returns, volatility, value at risk, skewness, excess kurtosis,
+            and other key metrics.
         
+        Raises
+        ------
+        AssertionError
+            If `self.portfolio_df` is not initialized or, if `market` is True, the benchmark is not set.
+        """
+        assert self.portfolio_df is not None, "Simulation must be run before calculating performance statistics."
+
+        # Prepare benchmark data if market analysis is requested
+        if market:
+            assert self.benchmark is not None, "A benchmark ticker must be set for market comparison."
+            assert self.benchmark in self.insts, "The specified benchmark must be in the instrument list."
+            market_dict = {
+                f"benchmark: {self.benchmark}": self.dfs[self.benchmark]["close"]
+            }
+        else:
+            market_dict = None
+
+        # Calculate performance measures
         stats_dict = performance_measures(
             r_ser=self.get_zero_filtered_stats()["capital_ret"],
             plot=plot,
-            market=None if not market else market_dict,
+            market=market_dict,
             show=show,
             strat_name=strat_name
         )
+
+        # Extract specific performance statistics
         stats = [
-            "cagr",
-            "srtno",
-            "sharpe",
-            "mean_ret",
-            "median_ret",
-            "vol",
-            "var",
-            "skew",
-            "exkurt",
-            "var95"
+            "cagr", "srtno", "sharpe", "mean_ret", "median_ret",
+            "vol", "var", "skew", "exkurt", "var95"
         ]
         return pd.Series({stat: stats_dict[stat] for stat in stats})
+
     
     def hypothesis_tests(
             self, 
             num_decision_shuffles: int = 1000,
-            zfs: dict[str, pd.Series | pd.DataFrame] | None = None
-        ):
-        """_summary_
-
-        Args:
-            num_decision_shuffles (int, optional): _description_. Defaults to 1000.
-            zfs (dict[str, pd.Series | pd.DataFrame] | None, optional): _description_. Defaults to None.
-
-        Returns:
-            _type_: _description_
+            zfs: dict[str, Union[pd.Series, pd.DataFrame]] | None = None
+        ) -> dict[str, tuple[list[float], float, list[float]]]:
         """
+        Perform hypothesis tests on trading strategies using shuffled weights.
+
+        Parameters
+        ----------
+        num_decision_shuffles : int, optional
+            Number of shuffles for hypothesis testing, by default 1000.
+        zfs : dict[str, Union[pd.Series, pd.DataFrame]] | None, optional
+            Zero-filtered statistics containing returns, leverages, weights, and eligibilities,
+            by default None.
+
+        Returns
+        -------
+        dict[str, tuple[list[float], float, list[float]]]
+            A dictionary containing test results for different shuffling methods.
+            Each key (e.g., "timer", "picker", "trader") maps to a tuple of:
+            - Paths (list of performance values),
+            - P-value from permutation test,
+            - Distribution of shuffled performance values.
+        """
+        assert zfs is not None, "Zero-filtered statistics are required for hypothesis testing."
         retdf, leverages, weights, eligs = zfs["retdf"], zfs["leverages"], zfs["weights"], zfs["eligs"]
 
-        def performance_criterion(rets, leverages, weights, **kwargs):
+        def performance_criterion(rets, leverages, weights, **kwargs) -> tuple[float, list[float]]:
+            """Calculate the Sharpe ratio as the performance criterion."""
             capital_ret = [
                 lev_scalar * np.dot(weight, ret)
                 for lev_scalar, weight, ret in zip(leverages.values, rets.values, weights.values)
@@ -258,51 +300,77 @@ class BacktestEngine(TradingFrequencyCalculator):
             sharpe = np.mean(capital_ret) / np.std(capital_ret) * np.sqrt(253)
             return round(sharpe, 5), capital_ret
 
-        def time_shuffler(rets, leverages, weights, eligs):
-            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time",ord=1)
+        def time_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
+            """Shuffle weights based on time-based eligibility."""
+            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time", ord=1)
             return {"rets": rets, "leverages": leverages, "weights": nweights}
 
-        def mapping_shuffler(rets, leverages, weights, eligs):
+        def mapping_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
+            """Shuffle weights based on cross-sectional eligibility."""
             nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="xs")
             return {"rets": rets, "leverages": leverages, "weights": nweights}
 
-        def decision_shuffler(rets, leverages, weights, eligs):
-            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time",ord=1)
+        def decision_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
+            """Apply both time-based and cross-sectional weight shuffling."""
+            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time", ord=1)
             nweights = quant_stats.shuffle_weights_on_eligs(weights_df=nweights, eligs_df=eligs, method="xs")
             return {"rets": rets, "leverages": leverages, "weights": nweights}
 
+        # Perform hypothesis tests with different shuffling methods
         timer_paths, timer_p, timer_dist = quant_stats.permutation_shuffler_test(
             criterion_function=performance_criterion,
             generator_function=time_shuffler,
-            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs)
-        
+            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
+        )
+
         picker_paths, picker_p, picker_dist = quant_stats.permutation_shuffler_test(
             criterion_function=performance_criterion,
             generator_function=mapping_shuffler,
-            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs)
-        
+            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
+        )
+
         trader_paths, trader_p, trader_dist = quant_stats.permutation_shuffler_test(
             criterion_function=performance_criterion,
             generator_function=decision_shuffler,
-            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs)
+            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
+        )
+
         return {
-            "timer":(timer_paths,timer_p,timer_dist),
-            "picker":(picker_paths,picker_p,picker_dist),
-            "trader":(trader_paths,trader_p,trader_dist),
+            "timer": (timer_paths, timer_p, timer_dist),
+            "picker": (picker_paths, picker_p, picker_dist),
+            "trader": (trader_paths, trader_p, trader_dist),
         }
-    
+
+
     @timeme
     def run_hypothesis_tests(
             self,
             num_decision_shuffles: int = 1000,
-            # zfs: dict[str, pd.DataFrame] | None = None, 
-            strat_name: str | None = None
+            strat_name: Optional[str] = None
         ) -> None:
-        assert self.portfolio_df is not None
+        """
+        Run hypothesis tests and plot results for the strategy.
+
+        Parameters
+        ----------
+        num_decision_shuffles : int, optional
+            Number of shuffles for hypothesis testing, by default 1000.
+        strat_name : str | None, optional
+            Name of the strategy, used for labeling in plots, by default None.
+
+        Returns
+        -------
+        None
+        """
+        assert self.portfolio_df is not None, "Portfolio data must be initialized before running hypothesis tests."
         zfs = self.get_zero_filtered_stats()
         rets = zfs["capital_ret"]
-        test_dict = self.hypothesis_tests(num_decision_shuffles=num_decision_shuffles,zfs=zfs)
-        plot_hypothesis(test_dict["timer"],test_dict["picker"],test_dict["trader"],rets,strat_name)
+
+        # Run hypothesis tests and retrieve test statistics
+        test_dict = self.hypothesis_tests(num_decision_shuffles=num_decision_shuffles, zfs=zfs)
+
+        # Plot hypothesis test results
+        plot_hypothesis(test_dict["timer"], test_dict["picker"], test_dict["trader"], rets, strat_name)
         return
 
     def pre_compute(self,trade_range):
@@ -314,56 +382,71 @@ class BacktestEngine(TradingFrequencyCalculator):
     def compute_signal_distribution(self, eligibles, date):
         raise AbstractImplementationException("no concrete implementation for signal generation")
 
-    def compute_meta_info(self,trade_range):
+    def compute_meta_info(self, trade_range: pd.DatetimeIndex) -> None:
+        """
+        Compute meta-information necessary for backtesting, including trading days, eligibility,
+        volatility, and returns for each instrument.
+
+        Parameters
+        ----------
+        trade_range : pd.DatetimeIndex
+            Range of dates over which the meta information will be calculated.
+
+        Returns
+        -------
+        None
+        """
         print("Initializing trading frequency...")
         self.compute_frequency(trade_range=trade_range)
 
-        print("Pre - computing...")
+        print("Pre-computing...")
         self.pre_compute(trade_range=trade_range)
-        
-        def is_any_one(x):
+
+        def is_any_one(x: np.ndarray) -> int:
+            """Return 1 if any True element in the input array, otherwise return 0."""
             return int(np.any(x))
-        
+
         print("Initializing meta info...")
-        closes, eligibles, vols, rets, trading_day, mean_rets, std_rets = [], [], [], [], [], [], []
+        closes, eligibles, vols, rets, trading_days = [], [], [], [], []
+
         for inst in self.insts:
-            df=pd.DataFrame(index=trade_range)
-            inst_vol = (-1 + self.dfs[inst]["close"]/self.dfs[inst]["close"].shift(1)).rolling(30).std()
-            self.dfs[inst] = df.join(self.dfs[inst]).ffill().bfill()
-            self.dfs[inst]["ret"] = -1 + (self.dfs[inst]["close"]/self.dfs[inst]["close"].shift(1))
-            self.dfs[inst]["vol"] = inst_vol
-            self.dfs[inst]["vol"] = self.dfs[inst]["vol"].ffill().fillna(0)       
-            self.dfs[inst]["vol"] = np.where(self.dfs[inst]["vol"] < 0.005, 0.005, self.dfs[inst]["vol"])
-            self.dfs[inst]['trading_day'] = self.trading_day_ser.copy()
-            sampled = self.dfs[inst]["close"] != self.dfs[inst]["close"].shift(1).bfill()
-            eligible = sampled.rolling(5).apply(is_any_one,raw=True).fillna(0)
+            df = pd.DataFrame(index=trade_range)
+            inst_data = self.dfs[inst]
 
-            mean_rets.append(self.dfs[inst]["ret"].mean())
-            std_rets.append(self.dfs[inst]["vol"].mean())
-            eligibles.append(eligible.astype(int) & (self.dfs[inst]["close"] > 0).astype(int))
-            vols.append(self.dfs[inst]["vol"])
-            rets.append(self.dfs[inst]["ret"])
-            closes.append(self.dfs[inst]["close"])
-            trading_day.append(self.dfs[inst]["trading_day"])
+            # Calculate volatility and returns
+            inst_vol = (inst_data["close"].pct_change().rolling(30).std())
+            inst_ret = inst_data["close"].pct_change()
 
-        self.eligiblesdf = pd.concat(eligibles,axis=1)
-        self.eligiblesdf.columns = self.insts
-        self.closedf = pd.concat(closes,axis=1)
-        self.closedf.columns = self.insts
-        self.voldf = pd.concat(vols,axis=1)
-        self.voldf.columns = self.insts
-        self.retdf = pd.concat(rets,axis=1)
-        self.retdf.columns = self.insts
-        self.trading_day = pd.concat(trading_day, axis=1)
-        self.trading_day.columns = self.insts
-        self.mean_rets = pd.Series(mean_rets,index=self.insts)
-        self.std_rets = pd.Series(std_rets,index=self.insts)
+            # Forward- and backward-fill data and calculate eligibility
+            inst_data = df.join(inst_data).ffill().bfill()
+            inst_data["ret"] = inst_ret
+            inst_data["vol"] = inst_vol.fillna(0).clip(lower=0.005)
+            inst_data['trading_day'] = self.trading_day_ser.copy()
+            
+            sampled = inst_data["close"] != inst_data["close"].shift(1).bfill()
+            eligible = sampled.rolling(5).apply(is_any_one, raw=True).fillna(0).astype(int)
 
-        print("Post - computing...")
+            # Collect individual metrics for later DataFrame concatenation
+            eligibles.append(eligible & (inst_data["close"] > 0).astype(int))
+            vols.append(inst_data["vol"])
+            rets.append(inst_data["ret"])
+            closes.append(inst_data["close"])
+            trading_days.append(inst_data["trading_day"])
+
+        # Compile per-instrument metrics into DataFrames
+        self.eligiblesdf = pd.concat(eligibles, axis=1, keys=self.insts)
+        self.closedf = pd.concat(closes, axis=1, keys=self.insts)
+        self.voldf = pd.concat(vols, axis=1, keys=self.insts)
+        self.retdf = pd.concat(rets, axis=1, keys=self.insts)
+        self.trading_days = pd.concat(trading_days, axis=1, keys=self.insts)
+
+        print("Post-computing...")
         self.post_compute(trade_range=trade_range)
-        assert self.forecast_df is not None
+
+        # Update forecast data based on trading day mask
+        assert self.forecast_df is not None, "Forecast data must be initialized before computing meta info."
         self.forecast_df = pd.DataFrame(
-            np.where(self.trading_day,self.forecast_df,np.nan),
+            np.where(self.trading_days, self.forecast_df, np.nan),
             index=self.forecast_df.index,
             columns=self.forecast_df.columns
         )
@@ -396,16 +479,16 @@ class BacktestEngine(TradingFrequencyCalculator):
     
     def get_positions(
             self,
-            forecasts,
-            eligibles_row,
-            capitals,
-            trading_day,
-            i,
-            use_vol_target,
-            strat_scalar,
-            vol_row,
-            close_row,
-            units_held
+            forecasts: np.ndarray,
+            eligibles_row: np.ndarray,
+            capitals: float,
+            strat_scalar: float,
+            vol_row: np.ndarray,
+            close_row: np.ndarray,
+            units_held: np.ndarray,
+            use_vol_target: bool,
+            trading_day: bool,
+            idx: int,
         ):
 
         forecasts = forecasts / eligibles_row
@@ -413,7 +496,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         forecast_chips = np.sum(np.abs(forecasts))
         vol_target = (self.portfolio_vol / np.sqrt(253)) * capitals
 
-        if trading_day or (i==0):
+        if trading_day or (idx == 0):
             if use_vol_target:
                 positions = strat_scalar * \
                     forecasts / forecast_chips  \
@@ -429,7 +512,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             else:
                 dollar_allocation = capitals/forecast_chips if forecast_chips != 0 else np.zeros(len(self.insts))
                 positions = forecasts*dollar_allocation / close_row
-                positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0)) # added floor function
+                positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
         
         else:
             positions = units_held
@@ -498,16 +581,16 @@ class BacktestEngine(TradingFrequencyCalculator):
             if type(forecasts) == pd.Series: forecasts = forecasts.values
 
             positions, weights, nominal_tot = self.get_positions(
-                forecasts,
-                eligibles_row,
-                capitals[-1],
-                trading_day,
-                portfolio_i,
-                use_vol_target,
-                strat_scalar,
-                vol_row,
-                close_row,
-                units_held[-1] if len(units_held) != 0 else None
+                forecasts=forecasts,
+                eligibles_row=eligibles_row,
+                capitals=capitals[-1],
+                strat_scalar=strat_scalar,
+                vol_row=vol_row,
+                close_row=close_row,
+                units_held=units_held[-1] if len(units_held) != 0 else None,
+                use_vol_target=use_vol_target,
+                trading_day=trading_day,
+                idx=portfolio_i,
             )
             units_held.append(positions)
             weights_held.append(weights)
