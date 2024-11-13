@@ -1,0 +1,38 @@
+from datetime import datetime
+from ..simulation_engine import BacktestEngine
+
+import pandas as pd
+import numpy as np
+
+
+class BuyHold(BacktestEngine):
+    def __init__(self, insts: list[str], dfs: dict[str, pd.DataFrame], start: datetime | None = None, end: datetime | None = None, date_range: pd.DatetimeIndex | None = None, trade_frequency: str = "daily", portfolio_vol: float = 0.2, max_leverage: float = 2, min_leverage: float = 0, benchmark: str | None = None) -> None:
+        super().__init__(insts, dfs, start, end, date_range, trade_frequency, portfolio_vol, max_leverage, min_leverage, benchmark)
+
+    def pre_compute(self,trade_range):
+        return 
+    
+    def post_compute(self,trade_range):
+        forecast_df = []
+    
+        for inst in self.insts:
+            inst_df = self.dfs[inst]
+            inst_df["vals"] = np.ones(len(inst_df))
+            forecast_df.append(inst_df["vals"])
+
+        alphadf = pd.concat(forecast_df,axis=1)
+        alphadf.columns = self.insts
+
+        self.eligiblesdf = self.eligiblesdf & (~pd.isna(alphadf))
+        masked_df = alphadf/self.eligiblesdf
+        masked_df = masked_df.replace([-np.inf, np.inf], np.nan)
+
+        rankdf = masked_df.rank(axis=1,method="average",na_option="keep",ascending=False)
+
+        forecast_df = masked_df
+        self.forecast_df = forecast_df
+        return 
+
+    def compute_signal_distribution(self, eligibles, date):
+        forecasts = self.forecast_df.loc[date].values
+        return forecasts
