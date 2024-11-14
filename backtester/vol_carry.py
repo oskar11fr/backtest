@@ -1,7 +1,7 @@
 from datetime import datetime
 from pandas import DatetimeIndex
 from pandas.core.api import DataFrame as DataFrame
-from ..simulation_engine import BacktestEngine
+from backtester import BacktestEngine
 
 import numpy as np
 import pandas as pd
@@ -22,7 +22,6 @@ class VolCarry(BacktestEngine):
             benchmark: str | None = None
         ) -> None:
         trade_frequency = "weekly"
-        day_of_week = "tuesday"
         super().__init__(insts, dfs, start, end, date_range, trade_frequency, day_of_week, portfolio_vol, max_leverage, min_leverage, benchmark)
 
     def pre_compute(self,trade_range):

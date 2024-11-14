@@ -78,7 +78,7 @@ class TradingFrequencyCalculator:
 
     def _is_weekly_trade_day(self, date: pd.Timestamp) -> bool:
         """Check if a given date falls on the specified weekly trade day."""
-        day_of_week = self.day_of_week or "Friday"
+        day_of_week = "Friday" if self.day_of_week is None else self.day_of_week
         return date.day_name() == day_of_week
 
     def _is_month_end(self, date: pd.Timestamp) -> bool:
@@ -197,7 +197,7 @@ class BacktestEngine(TradingFrequencyCalculator):
     def get_perf_stats(
             self,
             plot: bool = False,
-            market: bool = False,
+            compare: bool = False,
             show: bool = False,
             strat_name: Optional[str] = None
         ) -> pd.Series:
@@ -208,7 +208,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         ----------
         plot : bool, optional
             If True, plots performance measures. Default is False.
-        market : bool, optional
+        compare : bool, optional
             If True, includes benchmark market data in the performance evaluation. Default is False.
         show : bool, optional
             If True, displays additional performance output. Default is False.
@@ -230,7 +230,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         assert self.portfolio_df is not None, "Simulation must be run before calculating performance statistics."
 
         # Prepare benchmark data if market analysis is requested
-        if market:
+        if compare:
             assert self.benchmark is not None, "A benchmark ticker must be set for market comparison."
             assert self.benchmark in self.insts, "The specified benchmark must be in the instrument list."
             market_dict = {
@@ -302,7 +302,7 @@ class BacktestEngine(TradingFrequencyCalculator):
 
             inst_data["ret"] = inst_ret
             inst_data["vol"] = inst_vol.fillna(0).clip(lower=0.005)
-            inst_data['trading_day'] = self.trading_day_ser.copy()
+            inst_data["trading_days"] = self.trading_day_ser.copy()
             
             sampled = inst_data["close"] != inst_data["close"].shift(1).bfill()
             eligible = sampled.rolling(5).apply(is_any_one, raw=True).fillna(0).astype(int)
@@ -312,7 +312,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             vols.append(inst_data["vol"])
             rets.append(inst_data["ret"])
             closes.append(inst_data["close"])
-            trading_days.append(inst_data["trading_day"])
+            trading_days.append(inst_data["trading_days"])
             self.dfs[inst] = inst_data
 
         # Compile per-instrument metrics into DataFrames

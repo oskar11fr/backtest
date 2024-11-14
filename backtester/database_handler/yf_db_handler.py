@@ -5,7 +5,7 @@ import yfinance as yf
 
 from sqlalchemy import text
 from sqlalchemy import inspect
-from ..utils import get_configs
+from backtester import get_configs
 
 
 PATH: str = get_configs()["PATH"]["DB_PATH"]
