@@ -16,6 +16,11 @@ from .functions.performance import (
     plot_random_entries, 
     performance_measures
 )
+from .functions.portfolio_strategies import(
+    PositioningStrategy,
+    MeanVarianceStrategy,
+    VolatilityTargetingStrategy
+)
 # from .database.constants import STRAT_PATH
 
 
@@ -100,6 +105,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             date_range: Optional[pd.DatetimeIndex] = None, 
             trade_frequency: Optional[str] = None,
             day_of_week: Optional[str] = None,
+            portf_strategy: PositioningStrategy = VolatilityTargetingStrategy(),
             portfolio_vol: float = 0.20,
             max_leverage: float = 2.0, 
             min_leverage: float = 0.0, 
@@ -150,6 +156,8 @@ class BacktestEngine(TradingFrequencyCalculator):
         self.min_leverage = min_leverage
         self.benchmark = benchmark
         self.date_range = date_range
+
+        self.portf_strategy = portf_strategy
 
         # Determine date range for the backtest
         if date_range is None:
@@ -360,6 +368,28 @@ class BacktestEngine(TradingFrequencyCalculator):
         strat_scaler = target_vol / ann_realized_vol * ewstrats[-1]
         return strat_scaler
     
+    def get_strat_positions(
+            self,
+            forecasts: np.ndarray,
+            eligibles_row: np.ndarray,
+            capitals: float,
+            strat_scalar: float,
+            vol_row: np.ndarray,
+            close_row: np.ndarray,
+            vol_target: float
+        ) -> np.ndarray:
+        return self.portf_strategy.get_strat_positions(
+            forecasts=forecasts,
+            eligibles_row=eligibles_row,
+            capitals=capitals,
+            strat_scalar=strat_scalar,
+            vol_row=vol_row,
+            close_row=close_row,
+            vol_target=vol_target,
+            max_leverage=self.max_leverage,
+            min_leverage=self.min_leverage
+        )
+
     def get_positions(
             self,
             forecasts: np.ndarray,
@@ -373,7 +403,6 @@ class BacktestEngine(TradingFrequencyCalculator):
             trading_day: bool,
             idx: int,
         ):
-
         with np.errstate(invalid="ignore", divide="ignore"):
             forecasts = forecasts / eligibles_row
             forecasts = np.nan_to_num(forecasts,nan=0,posinf=0,neginf=0)
@@ -382,15 +411,15 @@ class BacktestEngine(TradingFrequencyCalculator):
 
             if trading_day or (idx == 0):
                 if use_vol_target:
-                    positions = strat_scalar * \
-                        forecasts / forecast_chips  \
-                        * vol_target \
-                        / (vol_row * close_row) if forecast_chips != 0 else np.zeros(len(self.insts))
-                    lev_temp = np.linalg.norm(positions * close_row, ord=1) / capitals
-                    normalized_positions = positions / lev_temp
-                    positions = self.max_leverage*normalized_positions if lev_temp > self.max_leverage else positions
-                    positions = self.min_leverage*normalized_positions if lev_temp < self.min_leverage else positions
-                    positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
+                    positions = self.get_strat_positions(
+                        forecasts=forecasts,
+                        eligibles_row=eligibles_row,
+                        capitals=capitals,
+                        strat_scalar=strat_scalar,
+                        vol_row=vol_row,
+                        close_row=close_row,
+                        vol_target=vol_target
+                    )
                 
                 else:
                     dollar_allocation = capitals/forecast_chips if forecast_chips != 0 else np.zeros(len(self.insts))
