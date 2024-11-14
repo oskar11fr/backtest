@@ -38,18 +38,18 @@ class finance_database:
             .replace(".","_") \
     
     def sql_importer(self, ticker):
-        ticker = self.ticker_fixer(ticker)
+        fixed_ticker = self.ticker_fixer(ticker)
         try:
-            max_date = pd.read_sql(f'SELECT MAX(datetime) FROM {ticker}', self.engine).values[0][0]
+            max_date = pd.read_sql(f'SELECT MAX(datetime) FROM {fixed_ticker}', self.engine).values[0][0]
             new_data = self.load_daily_data(ticker, start=pd.to_datetime(max_date))
             new_rows = new_data[new_data["datetime"] > max_date]
             if not new_rows.empty:
-                new_rows.to_sql(ticker, self.engine, if_exists='append')
+                new_rows.to_sql(fixed_ticker, self.engine, if_exists='append')
                 print(str(len(new_rows)) + ' new rows imported to DB')
         except:
            new_data = self.load_daily_data(ticker)
-           new_data.to_sql(ticker, self.engine)
-           print(f'New table created for {ticker} with {str(len(new_data))} rows')
+           new_data.to_sql(fixed_ticker, self.engine)
+           print(f'New table created for {fixed_ticker} with {str(len(new_data))} rows')
             
     def import_to_database(self, tickers: list[str]):
         for ticker in tickers:

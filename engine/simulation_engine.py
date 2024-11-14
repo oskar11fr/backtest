@@ -4,14 +4,10 @@ import time
 import numpy as np
 import pandas as pd
 import polars as pl
-import matplotlib.pyplot as plt
 
-
-from pathlib import Path
 from copy import deepcopy
 from functools import wraps
 from datetime import datetime
-from collections import defaultdict
 from typing import Optional, Union
 
 from .functions import quant_stats as quant_stats
@@ -102,7 +98,8 @@ class BacktestEngine(TradingFrequencyCalculator):
             start: Optional[datetime] = None, 
             end: Optional[datetime] = None,
             date_range: Optional[pd.DatetimeIndex] = None, 
-            trade_frequency: str = "daily", 
+            trade_frequency: Optional[str] = None,
+            day_of_week: Optional[str] = None,
             portfolio_vol: float = 0.20,
             max_leverage: float = 2.0, 
             min_leverage: float = 0.0, 
@@ -141,6 +138,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         # Ensure that either date_range or start (and end) is provided
         assert (start is not None) or (date_range is not None), "Either date_range or start date must be initialized."
 
+        super().__init__(trade_frequency, day_of_week)
         # Initialize parameters
         self.insts = insts
         self.dfs = deepcopy(dfs)
@@ -160,7 +158,6 @@ class BacktestEngine(TradingFrequencyCalculator):
             self.trade_frequency = trade_frequency
         else:
             self.date_range = date_range
-            self.trade_frequency = trade_frequency  # Retain the provided frequency setting
 
 
     def get_zero_filtered_stats(self) -> dict[str, Union[pd.Series, pd.DataFrame]]:
@@ -262,117 +259,6 @@ class BacktestEngine(TradingFrequencyCalculator):
         ]
         return pd.Series({stat: stats_dict[stat] for stat in stats})
 
-    
-    def hypothesis_tests(
-            self, 
-            num_decision_shuffles: int = 1000,
-            zfs: dict[str, Union[pd.Series, pd.DataFrame]] | None = None
-        ) -> dict[str, tuple[list[float], float, list[float]]]:
-        """
-        Perform hypothesis tests on trading strategies using shuffled weights.
-
-        Parameters
-        ----------
-        num_decision_shuffles : int, optional
-            Number of shuffles for hypothesis testing, by default 1000.
-        zfs : dict[str, Union[pd.Series, pd.DataFrame]] | None, optional
-            Zero-filtered statistics containing returns, leverages, weights, and eligibilities,
-            by default None.
-
-        Returns
-        -------
-        dict[str, tuple[list[float], float, list[float]]]
-            A dictionary containing test results for different shuffling methods.
-            Each key (e.g., "timer", "picker", "trader") maps to a tuple of:
-            - Paths (list of performance values),
-            - P-value from permutation test,
-            - Distribution of shuffled performance values.
-        """
-        assert zfs is not None, "Zero-filtered statistics are required for hypothesis testing."
-        retdf, leverages, weights, eligs = zfs["retdf"], zfs["leverages"], zfs["weights"], zfs["eligs"]
-
-        def performance_criterion(rets, leverages, weights, **kwargs) -> tuple[float, list[float]]:
-            """Calculate the Sharpe ratio as the performance criterion."""
-            capital_ret = [
-                lev_scalar * np.dot(weight, ret)
-                for lev_scalar, weight, ret in zip(leverages.values, rets.values, weights.values)
-            ]
-            sharpe = np.mean(capital_ret) / np.std(capital_ret) * np.sqrt(253)
-            return round(sharpe, 5), capital_ret
-
-        def time_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
-            """Shuffle weights based on time-based eligibility."""
-            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time", ord=1)
-            return {"rets": rets, "leverages": leverages, "weights": nweights}
-
-        def mapping_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
-            """Shuffle weights based on cross-sectional eligibility."""
-            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="xs")
-            return {"rets": rets, "leverages": leverages, "weights": nweights}
-
-        def decision_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
-            """Apply both time-based and cross-sectional weight shuffling."""
-            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time", ord=1)
-            nweights = quant_stats.shuffle_weights_on_eligs(weights_df=nweights, eligs_df=eligs, method="xs")
-            return {"rets": rets, "leverages": leverages, "weights": nweights}
-
-        # Perform hypothesis tests with different shuffling methods
-        timer_paths, timer_p, timer_dist = quant_stats.permutation_shuffler_test(
-            criterion_function=performance_criterion,
-            generator_function=time_shuffler,
-            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
-        )
-
-        picker_paths, picker_p, picker_dist = quant_stats.permutation_shuffler_test(
-            criterion_function=performance_criterion,
-            generator_function=mapping_shuffler,
-            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
-        )
-
-        trader_paths, trader_p, trader_dist = quant_stats.permutation_shuffler_test(
-            criterion_function=performance_criterion,
-            generator_function=decision_shuffler,
-            m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
-        )
-
-        return {
-            "timer": (timer_paths, timer_p, timer_dist),
-            "picker": (picker_paths, picker_p, picker_dist),
-            "trader": (trader_paths, trader_p, trader_dist),
-        }
-
-
-    @timeme
-    def run_hypothesis_tests(
-            self,
-            num_decision_shuffles: int = 1000,
-            strat_name: Optional[str] = None
-        ) -> None:
-        """
-        Run hypothesis tests and plot results for the strategy.
-
-        Parameters
-        ----------
-        num_decision_shuffles : int, optional
-            Number of shuffles for hypothesis testing, by default 1000.
-        strat_name : str | None, optional
-            Name of the strategy, used for labeling in plots, by default None.
-
-        Returns
-        -------
-        None
-        """
-        assert self.portfolio_df is not None, "Portfolio data must be initialized before running hypothesis tests."
-        zfs = self.get_zero_filtered_stats()
-        rets = zfs["capital_ret"]
-
-        # Run hypothesis tests and retrieve test statistics
-        test_dict = self.hypothesis_tests(num_decision_shuffles=num_decision_shuffles, zfs=zfs)
-
-        # Plot hypothesis test results
-        plot_hypothesis(test_dict["timer"], test_dict["picker"], test_dict["trader"], rets, strat_name)
-        return
-
     def pre_compute(self,trade_range):
         pass
     
@@ -412,13 +298,12 @@ class BacktestEngine(TradingFrequencyCalculator):
         for inst in self.insts:
             df = pd.DataFrame(index=trade_range)
             inst_data = self.dfs[inst]
+            inst_data = df.join(inst_data).ffill().bfill()
 
             # Calculate volatility and returns
             inst_vol = (inst_data["close"].pct_change().rolling(30).std())
             inst_ret = inst_data["close"].pct_change()
 
-            # Forward- and backward-fill data and calculate eligibility
-            inst_data = df.join(inst_data).ffill().bfill()
             inst_data["ret"] = inst_ret
             inst_data["vol"] = inst_vol.fillna(0).clip(lower=0.005)
             inst_data['trading_day'] = self.trading_day_ser.copy()
@@ -432,6 +317,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             rets.append(inst_data["ret"])
             closes.append(inst_data["close"])
             trading_days.append(inst_data["trading_day"])
+            self.dfs[inst] = inst_data
 
         # Compile per-instrument metrics into DataFrames
         self.eligiblesdf = pd.concat(eligibles, axis=1, keys=self.insts)
@@ -439,6 +325,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         self.voldf = pd.concat(vols, axis=1, keys=self.insts)
         self.retdf = pd.concat(rets, axis=1, keys=self.insts)
         self.trading_days = pd.concat(trading_days, axis=1, keys=self.insts)
+        self.stddevs = self.voldf.mean().values
 
         print("Post-computing...")
         self.post_compute(trade_range=trade_range)
@@ -463,7 +350,7 @@ class BacktestEngine(TradingFrequencyCalculator):
     def get_pnl_stats(self, last_weights, last_units, prev_close, ret_row, leverages, randomize=False, trading_day=False, rand_type = "gaussian"):
         if randomize and trading_day:
             d = len(ret_row)
-            rand_val = self.std_rets * np.random.standard_normal(size=d) if rand_type == "gaussian" else \
+            rand_val = self.stddevs * np.random.standard_normal(size=d) if rand_type == "gaussian" else \
                 np.random.uniform(low=-0.01,high=0.01,size=d)
             ret_row += rand_val
         ret_row = np.nan_to_num(ret_row,nan=0,posinf=0,neginf=0)
@@ -491,37 +378,60 @@ class BacktestEngine(TradingFrequencyCalculator):
             idx: int,
         ):
 
-        forecasts = forecasts / eligibles_row
-        forecasts = np.nan_to_num(forecasts,nan=0,posinf=0,neginf=0)
-        forecast_chips = np.sum(np.abs(forecasts))
-        vol_target = (self.portfolio_vol / np.sqrt(253)) * capitals
+        with np.errstate(invalid="ignore", divide="ignore"):
+            forecasts = forecasts / eligibles_row
+            forecasts = np.nan_to_num(forecasts,nan=0,posinf=0,neginf=0)
+            forecast_chips = np.sum(np.abs(forecasts))
+            vol_target = (self.portfolio_vol / np.sqrt(253)) * capitals
 
-        if trading_day or (idx == 0):
-            if use_vol_target:
-                positions = strat_scalar * \
-                    forecasts / forecast_chips  \
-                    * vol_target \
-                    / (vol_row * close_row) if forecast_chips != 0 else np.zeros(len(self.insts))
-                lev_temp = np.linalg.norm(positions * close_row, ord=1) / capitals
-                with np.errstate(invalid="ignore", divide="ignore"):
+            if trading_day or (idx == 0):
+                if use_vol_target:
+                    positions = strat_scalar * \
+                        forecasts / forecast_chips  \
+                        * vol_target \
+                        / (vol_row * close_row) if forecast_chips != 0 else np.zeros(len(self.insts))
+                    lev_temp = np.linalg.norm(positions * close_row, ord=1) / capitals
                     normalized_positions = positions / lev_temp
-                positions = self.max_leverage*normalized_positions if lev_temp > self.max_leverage else positions
-                positions = self.min_leverage*normalized_positions if lev_temp < self.min_leverage else positions
-                positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
+                    positions = self.max_leverage*normalized_positions if lev_temp > self.max_leverage else positions
+                    positions = self.min_leverage*normalized_positions if lev_temp < self.min_leverage else positions
+                    positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
+                
+                else:
+                    dollar_allocation = capitals/forecast_chips if forecast_chips != 0 else np.zeros(len(self.insts))
+                    positions = forecasts*dollar_allocation / close_row
+                    positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
             
             else:
-                dollar_allocation = capitals/forecast_chips if forecast_chips != 0 else np.zeros(len(self.insts))
-                positions = forecasts*dollar_allocation / close_row
-                positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
-        
-        else:
-            positions = units_held
+                positions = units_held
 
-        nominal_tot = np.linalg.norm(positions * close_row, ord=1)
-        with np.errstate(invalid="ignore", divide="ignore"):
+            nominal_tot = np.linalg.norm(positions * close_row, ord=1)
             weights = positions * close_row / nominal_tot
-        weights = np.nan_to_num(weights,nan=0,posinf=0,neginf=0)
+            weights = np.nan_to_num(weights,nan=0,posinf=0,neginf=0)
         return positions, weights, nominal_tot
+
+    def zip_data_generator(self):
+        for (portfolio_i),\
+            (ret_i, ret_row), \
+            (close_i, close_row), \
+            (eligibles_i, eligibles_row), \
+            (trading_day_i,trading_day), \
+            (vol_i, vol_row) in zip(
+                    range(len(self.retdf)),
+                    self.retdf.iterrows(),
+                    self.closedf.iterrows(),
+                    self.eligiblesdf.iterrows(),
+                    self.trading_day_ser.items(),
+                    self.voldf.iterrows()
+                ):
+            yield {
+                "portfolio_i": portfolio_i,
+                "ret_i": ret_i,
+                "ret_row": ret_row.values,
+                "close_row": close_row.values,
+                "eligibles_row": eligibles_row.values,
+                "trading_day": trading_day,
+                "vol_row": vol_row.values,
+            }
 
     @timeme
     def run_simulation(
@@ -645,27 +555,33 @@ class BacktestEngine(TradingFrequencyCalculator):
         )
         return
 
+    @timeme
+    def run_hypothesis_tests(
+            self,
+            num_decision_shuffles: int = 1000,
+            strat_name: Optional[str] = None
+        ) -> None:
+        """
+        Run hypothesis tests and plot results for the strategy.
 
-    def zip_data_generator(self):
-        for (portfolio_i),\
-            (ret_i, ret_row), \
-            (close_i, close_row), \
-            (eligibles_i, eligibles_row), \
-            (trading_day_i,trading_day), \
-            (vol_i, vol_row) in zip(
-                    range(len(self.retdf)),
-                    self.retdf.iterrows(),
-                    self.closedf.iterrows(),
-                    self.eligiblesdf.iterrows(),
-                    self.trading_day_ser.items(),
-                    self.voldf.iterrows()
-                ):
-            yield {
-                "portfolio_i": portfolio_i,
-                "ret_i": ret_i,
-                "ret_row": ret_row.values,
-                "close_row": close_row.values,
-                "eligibles_row": eligibles_row.values,
-                "trading_day": trading_day,
-                "vol_row": vol_row.values,
-            }
+        Parameters
+        ----------
+        num_decision_shuffles : int, optional
+            Number of shuffles for hypothesis testing, by default 1000.
+        strat_name : str | None, optional
+            Name of the strategy, used for labeling in plots, by default None.
+
+        Returns
+        -------
+        None
+        """
+        assert self.portfolio_df is not None, "Portfolio data must be initialized before running hypothesis tests."
+        zfs = self.get_zero_filtered_stats()
+        rets = zfs["capital_ret"]
+
+        # Run hypothesis tests and retrieve test statistics
+        test_dict = quant_stats.hypothesis_tests(num_decision_shuffles=num_decision_shuffles, zfs=zfs)
+
+        # Plot hypothesis test results
+        plot_hypothesis(test_dict["timer"], test_dict["picker"], test_dict["trader"], rets, strat_name)
+        return

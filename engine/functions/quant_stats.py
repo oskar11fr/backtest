@@ -1,15 +1,12 @@
 import random
-import asyncio
 import numpy as np
 import pandas as pd
 import multiprocess as mp
 
-from tqdm import tqdm
-from scipy import stats
-from copy import deepcopy
-from typing import Callable
+from typing import Callable, Union
 from collections import defaultdict
 from pathos.multiprocessing import ProcessingPool
+
 
 def partition_max_overlap(idxidcs: dict[int, set[pd.Index]]) -> tuple[list, list]:
     """_summary_
@@ -204,3 +201,80 @@ def permutation_shuffler_test(
     p_val = (1 + np.sum(criterions_p >= unpermuted)) / (len(criterions_p) + 1)
     criterions_p = np.array(criterions_p)
     return paths, p_val, criterions_p
+
+def hypothesis_tests( 
+        num_decision_shuffles: int = 1000,
+        zfs: dict[str, Union[pd.Series, pd.DataFrame]] | None = None
+    ) -> dict[str, tuple[list[float], float, list[float]]]:
+    """
+    Perform hypothesis tests on trading strategies using shuffled weights.
+
+    Parameters
+    ----------
+    num_decision_shuffles : int, optional
+        Number of shuffles for hypothesis testing, by default 1000.
+    zfs : dict[str, Union[pd.Series, pd.DataFrame]] | None, optional
+        Zero-filtered statistics containing returns, leverages, weights, and eligibilities,
+        by default None.
+
+    Returns
+    -------
+    dict[str, tuple[list[float], float, list[float]]]
+        A dictionary containing test results for different shuffling methods.
+        Each key (e.g., "timer", "picker", "trader") maps to a tuple of:
+        - Paths (list of performance values),
+        - P-value from permutation test,
+        - Distribution of shuffled performance values.
+    """
+    assert zfs is not None, "Zero-filtered statistics are required for hypothesis testing."
+    retdf, leverages, weights, eligs = zfs["retdf"], zfs["leverages"], zfs["weights"], zfs["eligs"]
+
+    def performance_criterion(rets, leverages, weights, **kwargs) -> tuple[float, list[float]]:
+        """Calculate the Sharpe ratio as the performance criterion."""
+        capital_ret = [
+            lev_scalar * np.dot(weight, ret)
+            for lev_scalar, weight, ret in zip(leverages.values, rets.values, weights.values)
+        ]
+        sharpe = np.mean(capital_ret) / np.std(capital_ret) * np.sqrt(253)
+        return round(sharpe, 5), capital_ret
+
+    def time_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
+        """Shuffle weights based on time-based eligibility."""
+        nweights = shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time", ord=1)
+        return {"rets": rets, "leverages": leverages, "weights": nweights}
+
+    def mapping_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
+        """Shuffle weights based on cross-sectional eligibility."""
+        nweights = shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="xs")
+        return {"rets": rets, "leverages": leverages, "weights": nweights}
+
+    def decision_shuffler(rets, leverages, weights, eligs) -> dict[str, pd.DataFrame]:
+        """Apply both time-based and cross-sectional weight shuffling."""
+        nweights = shuffle_weights_on_eligs(weights_df=weights, eligs_df=eligs, method="time", ord=1)
+        nweights = shuffle_weights_on_eligs(weights_df=nweights, eligs_df=eligs, method="xs")
+        return {"rets": rets, "leverages": leverages, "weights": nweights}
+
+    # Perform hypothesis tests with different shuffling methods
+    timer_paths, timer_p, timer_dist = permutation_shuffler_test(
+        criterion_function=performance_criterion,
+        generator_function=time_shuffler,
+        m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
+    )
+
+    picker_paths, picker_p, picker_dist = permutation_shuffler_test(
+        criterion_function=performance_criterion,
+        generator_function=mapping_shuffler,
+        m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
+    )
+
+    trader_paths, trader_p, trader_dist = permutation_shuffler_test(
+        criterion_function=performance_criterion,
+        generator_function=decision_shuffler,
+        m=num_decision_shuffles, rets=retdf, leverages=leverages, weights=weights, eligs=eligs
+    )
+
+    return {
+        "timer": (timer_paths, timer_p, timer_dist),
+        "picker": (picker_paths, picker_p, picker_dist),
+        "trader": (trader_paths, trader_p, trader_dist),
+    }
