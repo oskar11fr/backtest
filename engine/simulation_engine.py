@@ -122,6 +122,8 @@ class BacktestEngine(TradingFrequencyCalculator):
             A pre-defined date range for the backtest. Overrides `start` and `end` if provided.
         trade_frequency : str, optional
             Frequency of trades, options include "daily", "weekly", "monthly", or "quarter". Default is "daily".
+        day_of_week : str, optional
+            determines which day of the week we trade. applicable if frequency == "weekly"
         portfolio_vol : float, optional
             Target portfolio volatility. Default is 0.20.
         max_leverage : float, optional
@@ -147,17 +149,11 @@ class BacktestEngine(TradingFrequencyCalculator):
         self.max_leverage = max_leverage
         self.min_leverage = min_leverage
         self.benchmark = benchmark
-
-        # Initialize additional attributes
-        self.alphadf = None  # Placeholder for alpha data, if applicable
-        self.day_of_week = None  # Placeholder for weekly trade day specification
+        self.date_range = date_range
 
         # Determine date range for the backtest
         if date_range is None:
             self.date_range = pd.date_range(start=start, end=end, freq="D")
-            self.trade_frequency = trade_frequency
-        else:
-            self.date_range = date_range
 
 
     def get_zero_filtered_stats(self) -> dict[str, Union[pd.Series, pd.DataFrame]]:
