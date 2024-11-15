@@ -8,7 +8,7 @@ import polars as pl
 from copy import deepcopy
 from functools import wraps
 from datetime import datetime
-from typing import Optional, Union
+from typing import Optional, Union, Dict, Generator, Tuple
 
 from .functions import quant_stats as quant_stats
 from .functions.performance import (
@@ -343,118 +343,218 @@ class BacktestEngine(TradingFrequencyCalculator):
             columns=self.forecast_df.columns
         )
         return
-    
-    # def save_strat_rets(self, strat_name):
-    #     assert self.portfolio_df is not None
-    #     store_path = STRAT_PATH + "/strategy_returns"
-    #     Path(os.path.abspath(store_path)).mkdir(parents=True,exist_ok=True)
-    #     capital_rets = self.portfolio_df["capital"].pct_change().fillna(0)
-    #     save_pickle(store_path + f"/{strat_name}.obj",obj=capital_rets)
-    #     return
-    
-    def get_pnl_stats(self, last_weights, last_units, prev_close, ret_row, leverages, randomize=False, trading_day=False, rand_type = "gaussian"):
+
+    def get_pnl_stats(
+        self, 
+        last_weights: np.ndarray, 
+        last_units: np.ndarray, 
+        prev_close: np.ndarray, 
+        ret_row: np.ndarray, 
+        leverages: list, 
+        randomize: bool = False, 
+        trading_day: bool = False, 
+        rand_type: str = "gaussian"
+    ) -> Tuple[float, float, float]:
+        """
+        Calculate daily PnL statistics.
+
+        Parameters
+        ----------
+        last_weights : np.ndarray
+            Portfolio weights from the previous period.
+        last_units : np.ndarray
+            Units held from the previous period.
+        prev_close : np.ndarray
+            Previous closing prices.
+        ret_row : np.ndarray
+            Returns for the current period.
+        leverages : list
+            List of leverage values.
+        randomize : bool, optional
+            Whether to randomize returns for simulation, by default False.
+        trading_day : bool, optional
+            Whether the current day is a trading day, by default False.
+        rand_type : str, optional
+            Type of randomization to apply ("gaussian" or "uniform"), by default "gaussian".
+
+        Returns
+        -------
+        Tuple[float, float, float]
+            Day PnL, nominal return, and capital return.
+        """
         if randomize and trading_day:
             d = len(ret_row)
-            rand_val = self.stddevs * np.random.standard_normal(size=d) if rand_type == "gaussian" else \
-                np.random.uniform(low=-0.01,high=0.01,size=d)
+            rand_val = (
+                self.stddevs * np.random.standard_normal(size=d)
+                if rand_type == "gaussian" else
+                np.random.uniform(low=-0.01, high=0.01, size=d)
+            )
             ret_row += rand_val
-        ret_row = np.nan_to_num(ret_row,nan=0,posinf=0,neginf=0)
+        
+        ret_row = np.nan_to_num(ret_row, nan=0, posinf=0, neginf=0)
         day_pnl = np.sum(last_units * prev_close * ret_row)
         nominal_ret = np.dot(last_weights, ret_row)
         capital_ret = nominal_ret * leverages[-1]
-        return day_pnl, nominal_ret, capital_ret   
+        return day_pnl, nominal_ret, capital_ret
 
-    def get_strat_scaler(self, target_vol, ewmas, ewstrats):
+    def get_strat_scaler(
+        self, 
+        target_vol: float, 
+        ewmas: list[float], 
+        ewstrats: list[float]
+    ) -> float:
+        """
+        Calculate the strategy scaler based on target volatility.
+
+        Parameters
+        ----------
+        target_vol : float
+            Target annualized volatility.
+        ewmas : list[float]
+            Exponentially weighted moving average of variances.
+        ewstrats : list[float]
+            Exponentially weighted moving average of strategy scalers.
+
+        Returns
+        -------
+        float
+            Strategy scaler.
+        """
         ann_realized_vol = np.sqrt(ewmas[-1] * 253)
         strat_scaler = target_vol / ann_realized_vol * ewstrats[-1]
         return strat_scaler
     
+    
     def get_strat_positions(
-            self,
-            forecasts: np.ndarray,
-            capitals: float,
-            strat_scalar: float,
-            vol_row: np.ndarray,
-            close_row: np.ndarray,
-            vol_target: float,
-            idx: int,
-            **kwargs
-        ) -> np.ndarray:
+        self,
+        forecasts: np.ndarray,
+        capitals: float,
+        strat_scalar: float,
+        vol_row: np.ndarray,
+        close_row: np.ndarray,
+        vol_target: float,
+        idx: int,
+        **kwargs
+    ) -> np.ndarray:
         """
-        Delegates to the strategy's `get_strat_positions` method.
+        Delegate to the strategy's `get_strat_positions` method.
 
         Parameters
         ----------
+        forecasts : np.ndarray
+            Forecasts for the portfolio.
+        capitals : float
+            Current capital level.
+        strat_scalar : float
+            Strategy scalar for position sizing.
+        vol_row : np.ndarray
+            Current volatility row.
+        close_row : np.ndarray
+            Current closing prices.
+        vol_target : float
+            Target volatility for the portfolio.
+        idx : int
+            Current index in the simulation.
         kwargs : dict
-            Dynamic arguments for position calculation.
+            Additional arguments for the strategy.
 
         Returns
         -------
         np.ndarray
             Array of calculated positions.
         """
-        return self.portf_strategy.get_strat_positions(forecasts,capitals,strat_scalar,vol_row,close_row,vol_target,idx,**kwargs)
+        return self.portf_strategy.get_strat_positions(
+            forecasts, capitals, strat_scalar, vol_row, close_row, vol_target, idx, **kwargs
+        )
 
+    
     def get_positions(
-            self,
-            forecasts: np.ndarray,
-            eligibles_row: np.ndarray,
-            capitals: float,
-            strat_scalar: float,
-            vol_row: np.ndarray,
-            close_row: np.ndarray,
-            units_held: np.ndarray,
-            use_vol_target: bool,
-            trading_day: bool,
-            idx: int,
-            **kwargs
-        ):
+        self,
+        forecasts: np.ndarray,
+        eligibles_row: np.ndarray,
+        capitals: float,
+        strat_scalar: float,
+        vol_row: np.ndarray,
+        close_row: np.ndarray,
+        units_held: Union[np.ndarray, None],
+        use_vol_target: bool,
+        trading_day: bool,
+        idx: int,
+        **kwargs
+    ) -> Tuple[np.ndarray, np.ndarray, float]:
+        """
+        Calculate portfolio positions and weights.
+
+        Parameters
+        ----------
+        forecasts : np.ndarray
+            Strategy forecasts for the period
+        eligibles_row : np.ndarray
+            Eligible assets for the current period.
+        capitals : float
+            Current capital level.
+        strat_scalar : float
+            Strategy scalar for position sizing.
+        vol_row : np.ndarray
+            Current volatility row.
+        close_row : np.ndarray
+            Current closing prices.
+        units_held : np.ndarray or None
+            Units held from the previous period.
+        use_vol_target : bool
+            Whether to use volatility targeting.
+        trading_day : bool
+            Whether the current day is a trading day.
+        idx : int
+            Current index in the simulation.
+        kwargs : dict
+            Additional arguments for position calculation.
+
+        Returns
+        -------
+        Tuple[np.ndarray, np.ndarray, float]
+            Positions, weights, and nominal total value.
+        """
         with np.errstate(invalid="ignore", divide="ignore"):
-            forecasts = forecasts / eligibles_row
-            forecasts = np.nan_to_num(forecasts,nan=0,posinf=0,neginf=0)
+            forecasts = np.nan_to_num(forecasts / eligibles_row, nan=0, posinf=0, neginf=0)
             forecast_chips = np.sum(np.abs(forecasts))
             vol_target = (self.portfolio_vol / np.sqrt(253)) * capitals
 
-            if trading_day or (idx == 0):
+            if trading_day or idx == 0:
                 if use_vol_target:
                     positions = self.get_strat_positions(
-                        forecasts=forecasts,
-                        capitals=capitals,
-                        strat_scalar=strat_scalar,
-                        vol_row=vol_row,
-                        close_row=close_row,
-                        vol_target=vol_target,
-                        idx=idx,
-                        **(kwargs or {})
+                        forecasts, capitals, strat_scalar, vol_row, close_row, vol_target, idx, **(kwargs or {})
                     )
-                
                 else:
-                    dollar_allocation = capitals/forecast_chips if forecast_chips != 0 else np.zeros(len(self.insts))
-                    positions = forecasts*dollar_allocation / close_row
-                    positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
-            
+                    dollar_allocation = capitals / forecast_chips if forecast_chips != 0 else 0
+                    positions = forecasts * dollar_allocation / close_row
+                    positions = np.floor(np.nan_to_num(positions, nan=0, posinf=0, neginf=0))
             else:
                 positions = units_held
 
             nominal_tot = np.linalg.norm(positions * close_row, ord=1)
-            weights = positions * close_row / nominal_tot
-            weights = np.nan_to_num(weights,nan=0,posinf=0,neginf=0)
-        return positions, weights, nominal_tot
+            weights = np.nan_to_num(positions * close_row / nominal_tot, nan=0, posinf=0, neginf=0)
+            return positions, weights, nominal_tot
 
-    def zip_data_generator(self):
-        for (portfolio_i),\
-            (ret_i, ret_row), \
-            (close_i, close_row), \
-            (eligibles_i, eligibles_row), \
-            (trading_day_i,trading_day), \
+    def zip_data_generator(self) -> Generator[Dict[str, Union[int, np.ndarray]], None, None]:
+        """
+        Generate zipped data for simulation.
+
+        Yields
+        ------
+        Dict[str, Union[int, np.ndarray]]
+            Dictionary containing data for each simulation step.
+        """
+        for portfolio_i, (ret_i, ret_row), (close_i, close_row), \
+            (eligibles_i, eligibles_row), (trading_day_i, trading_day), \
             (vol_i, vol_row) in zip(
-                    range(len(self.retdf)),
-                    self.retdf.iterrows(),
-                    self.closedf.iterrows(),
-                    self.eligiblesdf.iterrows(),
-                    self.trading_day_ser.items(),
-                    self.voldf.iterrows()
-                ):
+                range(len(self.retdf)),
+                self.retdf.iterrows(),
+                self.closedf.iterrows(),
+                self.eligiblesdf.iterrows(),
+                self.trading_day_ser.items(),
+                self.voldf.iterrows()
+        ):
             yield {
                 "portfolio_i": portfolio_i,
                 "ret_i": ret_i,
@@ -468,29 +568,52 @@ class BacktestEngine(TradingFrequencyCalculator):
     @timeme
     def run_simulation(
             self,
-            start_cap: float = 100000.0,
+            start_cap: float = 100_000.0,
             use_vol_target: bool = True,
             randomize_entry: bool = False,
             rand_type: str = "gaussian"
         ) -> pd.DataFrame:
+        """
+        Run a portfolio simulation over the provided date range.
+
+        Parameters
+        ----------
+        start_cap : float, optional
+            Initial capital for the portfolio, by default 100_000.0.
+        use_vol_target : bool, optional
+            Whether to use a volatility target for position sizing, by default True.
+        randomize_entry : bool, optional
+            Whether to randomize returns for entry timing, by default False.
+        rand_type : str, optional
+            Type of randomization ("gaussian" or "uniform"), by default "gaussian".
+
+        Returns
+        -------
+        pd.DataFrame
+            DataFrame containing portfolio metrics over time.
+        """
         self.compute_meta_info(trade_range=self.date_range)
         print("Running simulation...")
-        units_held, weights_held = [],[]
+
+        # Initialize tracking variables
+        units_held, weights_held = [], []
         close_prev = None
-        ewmas, ewstrats = [0.01], [1]
+        ewmas, ewstrats = [0.01], [1.0]
         strat_scalars = []
-        capitals, nominal_rets, capital_rets = [start_cap],[0.0],[0.0]
-        nominals, leverages = [],[]
+        capitals, nominal_rets, capital_rets = [start_cap], [0.0], [0.0]
+        nominals, leverages = [], []
+
+        # Iterate over the simulation data generator
         for data in self.zip_data_generator():
             portfolio_i = data["portfolio_i"]
             ret_i = data["ret_i"]
             ret_row = data["ret_row"]
-            close_row = np.nan_to_num(data["close_row"],nan=0,posinf=0,neginf=0)
+            close_row = np.nan_to_num(data["close_row"], nan=0, posinf=0, neginf=0)
             eligibles_row = data["eligibles_row"]
             trading_day = data["trading_day"]
             vol_row = data["vol_row"]
-            strat_scalar = 1
-           
+            strat_scalar = 1.0
+
             if portfolio_i != 0:
                 strat_scalar = self.get_strat_scaler(
                     target_vol=self.portfolio_vol,
@@ -499,40 +622,46 @@ class BacktestEngine(TradingFrequencyCalculator):
                 )
 
                 day_pnl, nominal_ret, capital_ret = self.get_pnl_stats(
-                    last_weights=weights_held[-1], 
-                    last_units=units_held[-1], 
-                    prev_close=close_prev, 
-                    ret_row=ret_row, 
+                    last_weights=weights_held[-1],
+                    last_units=units_held[-1],
+                    prev_close=close_prev,
+                    ret_row=ret_row,
                     leverages=leverages,
                     randomize=randomize_entry,
                     trading_day=trading_day,
                     rand_type=rand_type
                 )
-                
+
                 capitals.append(capitals[-1] + day_pnl)
                 nominal_rets.append(nominal_ret)
                 capital_rets.append(capital_ret)
-                ewmas.append(0.06 * (capital_ret**2) + 0.94 * ewmas[-1] if capital_ret != 0 else ewmas[-1])
+                ewmas.append(0.06 * (capital_ret ** 2) + 0.94 * ewmas[-1] if capital_ret != 0 else ewmas[-1])
                 ewstrats.append(0.06 * strat_scalar + 0.94 * ewstrats[-1] if capital_ret != 0 else ewstrats[-1])
 
             strat_scalars.append(strat_scalar)
+
+            # Compute forecasts
             forecasts = self.compute_signal_distribution(
                 eligibles_row,
                 ret_i
             )
-            if type(forecasts) == pd.Series: forecasts = forecasts.values
+            forecasts = forecasts.values if isinstance(forecasts, pd.Series) else forecasts
+
+            # Strategy-specific arguments
+            kwargs = {}
             if isinstance(self.portf_strategy, hmmMeanVarianceStrategy):
                 kwargs = {
                     "max_leverage": self.max_leverage,
                     "retdf": self.retdf,
                     "trade_frequency": self.trade_frequency
                 }
-            if isinstance(self.portf_strategy, VolatilityTargetingStrategy):
+            elif isinstance(self.portf_strategy, VolatilityTargetingStrategy):
                 kwargs = {
                     "max_leverage": self.max_leverage,
                     "min_leverage": self.min_leverage
                 }
 
+            # Calculate positions
             positions, weights, nominal_tot = self.get_positions(
                 forecasts=forecasts,
                 eligibles_row=eligibles_row,
@@ -540,26 +669,30 @@ class BacktestEngine(TradingFrequencyCalculator):
                 strat_scalar=strat_scalar,
                 vol_row=vol_row,
                 close_row=close_row,
-                units_held=units_held[-1] if len(units_held) != 0 else None,
+                units_held=units_held[-1] if units_held else None,
                 use_vol_target=use_vol_target,
                 trading_day=trading_day,
                 idx=portfolio_i,
                 **kwargs
             )
+
+            # Update tracking variables
             units_held.append(positions)
             weights_held.append(weights)
             nominals.append(nominal_tot)
-            leverages.append(nominal_tot/capitals[-1])
+            leverages.append(nominal_tot / capitals[-1])
             close_prev = close_row
-        
-        units_df = pd.DataFrame(data=units_held, index=self.date_range, columns=[inst + " units" for inst in self.insts])
-        weights_df = pd.DataFrame(data=weights_held, index=self.date_range, columns=[inst + " w" for inst in self.insts])
+
+        # Prepare result DataFrame
+        units_df = pd.DataFrame(data=units_held, index=self.date_range, columns=[f"{inst} units" for inst in self.insts])
+        weights_df = pd.DataFrame(data=weights_held, index=self.date_range, columns=[f"{inst} w" for inst in self.insts])
         nom_ser = pd.Series(data=nominals, index=self.date_range, name="nominal_tot")
         lev_ser = pd.Series(data=leverages, index=self.date_range, name="leverages")
         cap_ser = pd.Series(data=capitals, index=self.date_range, name="capital")
         nomret_ser = pd.Series(data=nominal_rets, index=self.date_range, name="nominal_ret")
         capret_ser = pd.Series(data=capital_rets, index=self.date_range, name="capital_ret")
         scaler_ser = pd.Series(data=strat_scalars, index=self.date_range, name="strat_scalar")
+
         self.portfolio_df = pd.concat([
             units_df,
             weights_df,
@@ -569,35 +702,83 @@ class BacktestEngine(TradingFrequencyCalculator):
             nomret_ser,
             capret_ser,
             cap_ser
-        ],axis=1)
+        ], axis=1)
+
         self.units_df = units_df
         self.weights_df = weights_df
         self.leverages = lev_ser
         return self.portfolio_df
     
-    def run_randomized_entry_simulation(self, N: int = 50, use_vol_target: bool = True, market: bool = False, rand_type: str = "gaussian"):
-        portfolio_df = self.run_simulation(use_vol_target=use_vol_target, randomize_entry=False, verbose=False)
-        caps = [portfolio_df.capital_ret]
-        for _ in range(N):
-            portfolio_df = self.run_simulation(use_vol_target=use_vol_target, randomize_entry=True, verbose=False, rand_type=rand_type)
-            caps.append(portfolio_df.capital_ret)
+    def run_randomized_entry_simulation(
+        self, 
+        N: int = 50, 
+        use_vol_target: bool = True, 
+        market: bool = False, 
+        rand_type: str = "gaussian"
+    ) -> None:
+        """
+        Runs a simulation with randomized entry conditions multiple times 
+        to assess portfolio performance variability.
 
-        caps = pd.concat(caps,axis=1)
-        caps.columns = ["Portfolio"] + ["sim_" + str(i) for i in range(N)]
+        Parameters
+        ----------
+        N : int, optional
+            Number of randomized simulations to run, by default 50.
+        use_vol_target : bool, optional
+            Whether to use volatility targeting in the simulations, by default True.
+        market : bool, optional
+            Whether to include market benchmark comparison, by default False.
+        rand_type : str, optional
+            Type of randomization ("gaussian" or "uniform"), by default "gaussian".
+
+        Returns
+        -------
+        None
+            Generates plots and displays Sharpe ratios for randomized entry simulations.
+        """
+        # Run base simulation without randomization
+        portfolio_df = self.run_simulation(
+            use_vol_target=use_vol_target, 
+            randomize_entry=False
+        )
+        
+        # Collect capital returns for all simulations
+        caps = [portfolio_df["capital_ret"].loc[portfolio_df["capital_ret"] != 0]]
+        
+        # Run additional simulations with randomized entry
+        for _ in range(N):
+            portfolio_df = self.run_simulation(
+                use_vol_target=use_vol_target, 
+                randomize_entry=True,
+                rand_type=rand_type
+            )
+            caps.append(portfolio_df["capital_ret"].loc[portfolio_df["capital_ret"] != 0])
+
+        # Combine results into a single DataFrame
+        caps = pd.concat(caps, axis=1)
+        caps.columns = ["Portfolio"] + [f"sim_{i}" for i in range(N)]
+        
+        # Calculate Sharpe ratios for each simulation
         sharpe = lambda ser: np.mean(ser) / np.std(ser) * np.sqrt(253)
         sharpes = caps[caps != 0].apply(sharpe, axis=0)
 
+        # Include market benchmark if specified
+        market_data = None
         if market:
-            assert self.benchmark is not None, "set ticker name as benchmark"
-            assert self.benchmark in self.insts, "make sure benchmark exists in instrument list"
-            market = self.dfs[self.benchmark]["close"].pct_change().fillna(0)
+            if self.benchmark is None:
+                raise ValueError("Benchmark ticker name is not set. Please specify a valid benchmark.")
+            if self.benchmark not in self.insts:
+                raise ValueError("Benchmark does not exist in the instrument list. Please verify its presence.")
             
+            market_data = self.dfs[self.benchmark]["close"].pct_change().fillna(0)
+
+        # Generate plots for the results
         plot_random_entries(
             caps, 
-            sharpes,
-            market
+            sharpes, 
+            market_data
         )
-        return
+
 
     @timeme
     def run_hypothesis_tests(

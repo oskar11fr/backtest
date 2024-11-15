@@ -192,12 +192,12 @@ def permutation_shuffler_test(
         criterions = pool.map(f, [
             (criterion_function, generator_function, size, kwargs) for size in batch_sizes
         ])
-    criterions_p,criterions_paths = [],[]
+    criterions_p, criterions_paths = [],[]
     for batched_criterion in criterions:
         criterions_p.extend(batched_criterion[0])
         criterions_paths.extend(batched_criterion[1])
     get_samples = np.random.choice(np.array(list(range(m))), size=17, replace=False)
-    paths = pd.DataFrame(criterions_paths).iloc[get_samples].T
+    paths = pd.DataFrame(criterions_paths).T#.iloc[get_samples].T
     p_val = (1 + np.sum(criterions_p >= unpermuted)) / (len(criterions_p) + 1)
     criterions_p = np.array(criterions_p)
     return paths, p_val, criterions_p
@@ -233,7 +233,7 @@ def hypothesis_tests(
         """Calculate the Sharpe ratio as the performance criterion."""
         capital_ret = [
             lev_scalar * np.dot(weight, ret)
-            for lev_scalar, weight, ret in zip(leverages.values, rets.values, weights.values)
+            for lev_scalar, ret, weight in zip(leverages.values, rets.values, weights.values)
         ]
         sharpe = np.mean(capital_ret) / np.std(capital_ret) * np.sqrt(253)
         return round(sharpe, 5), capital_ret
