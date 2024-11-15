@@ -376,7 +376,8 @@ class BacktestEngine(TradingFrequencyCalculator):
             strat_scalar: float,
             vol_row: np.ndarray,
             close_row: np.ndarray,
-            vol_target: float
+            vol_target: float,
+            idx: int
         ) -> np.ndarray:
         return self.portf_strategy.get_strat_positions(
             forecasts=forecasts,
@@ -387,7 +388,9 @@ class BacktestEngine(TradingFrequencyCalculator):
             close_row=close_row,
             vol_target=vol_target,
             max_leverage=self.max_leverage,
-            min_leverage=self.min_leverage
+            min_leverage=self.min_leverage,
+            rets_df=self.retdf,
+            idx=idx
         )
 
     def get_positions(
@@ -418,7 +421,8 @@ class BacktestEngine(TradingFrequencyCalculator):
                         strat_scalar=strat_scalar,
                         vol_row=vol_row,
                         close_row=close_row,
-                        vol_target=vol_target
+                        vol_target=vol_target,
+                        idx=idx
                     )
                 
                 else:

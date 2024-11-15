@@ -2,9 +2,12 @@ from datetime import datetime
 from pandas import DatetimeIndex
 from pandas.core.api import DataFrame as DataFrame
 from backtester import BacktestEngine
+from backtester.engine.functions.portfolio_strategies import PositioningStrategy, VolatilityTargetingStrategy
 
 import numpy as np
 import pandas as pd
+
+
 
 class VolCarry(BacktestEngine):
     def __init__(
@@ -14,33 +17,22 @@ class VolCarry(BacktestEngine):
             start: datetime | None = None, 
             end: datetime | None = None, 
             date_range: DatetimeIndex | None = None, 
-            trade_frequency: str | None = None, 
+            trade_frequency: str | None = None,
             day_of_week: str | None = None, 
+            portf_strategy: PositioningStrategy = VolatilityTargetingStrategy(), 
             portfolio_vol: float = 0.2, 
             max_leverage: float = 2, 
             min_leverage: float = 0, 
             benchmark: str | None = None
         ) -> None:
         trade_frequency = "weekly"
-        super().__init__(insts, dfs, start, end, date_range, trade_frequency, day_of_week, portfolio_vol, max_leverage, min_leverage, benchmark)
+        super().__init__(insts, dfs, start, end, date_range, trade_frequency, day_of_week, portf_strategy, portfolio_vol, max_leverage, min_leverage, benchmark)
 
     def pre_compute(self,trade_range):
         return
     
-    def calc_rolling_beta(self,trade_range,window=50):
-        y, x = self.dfs["SPY"]["ret"].fillna(0), self.dfs["_VIX"]["ret"].fillna(0)
-        betas = np.full(len(y), np.nan)
-        for i in range(window, len(y) + 1):
-            y_window = y[i - window:i].values
-            x_window = x[i - window:i].values
-            X = np.vstack([x_window, np.ones(window)]).T
-            Y = y_window.reshape(-1, 1)
-            beta, _, _, _ = np.linalg.lstsq(X, Y, rcond=None)
-            betas[i - 1] = beta[0, 0] 
-        return pd.Series(betas, index=trade_range, name="Rolling_Beta").fillna(0)
-    
     def prep_conditions(self,trade_range):
-        beta = self.calc_rolling_beta(trade_range=trade_range)
+
         def is_all_true(x): return np.all(x)
         def is_any_true(x): return np.any(x)
 
@@ -57,7 +49,6 @@ class VolCarry(BacktestEngine):
         temp_alpha = []
         for inst in self.insts:
             if inst == 'SVXY': temp_alpha.append(short_cond)
-            elif inst == "SPY": temp_alpha.append(short_cond * beta)
             else: temp_alpha.append(neutral_pos)
         
         alpha_df = pd.concat(temp_alpha,axis=1)
@@ -73,3 +64,16 @@ class VolCarry(BacktestEngine):
     def compute_signal_distribution(self, eligibles, date):
         forecasts = self.forecast_df.loc[date].values
         return forecasts
+    
+
+    # def calc_rolling_beta(self,trade_range,window=50):
+    #     y, x = self.dfs["SPY"]["ret"].fillna(0), self.dfs["_VIX"]["close"].apply(np.log).diff().fillna(0)
+    #     betas = np.full(len(y), np.nan)
+    #     for i in range(window, len(y)):
+    #         y_window = y[i - window:i].values
+    #         x_window = x[i - window:i].values
+    #         X = np.vstack([x_window, np.ones(window)]).T
+    #         Y = y_window.reshape(-1, 1)
+    #         beta, _, _, _ = np.linalg.lstsq(X, Y, rcond=None)
+    #         betas[i] = beta[0, 0] 
+    #     return pd.Series(betas, index=trade_range, name="Rolling_Beta").fillna(0)

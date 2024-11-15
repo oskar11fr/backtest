@@ -90,19 +90,20 @@ def performance_measures(
         ax5.xaxis.set_major_locator(plt.MaxNLocator(5))
         
         idxs = [d.strftime('%Y-%m-%d %X') for d in r_ser.index]
+        strat_names = [strat_name if strat_name != "" else "strategy"]
         if market is not None:
             assert type(market) == dict, "make sure market param is of type dict[str, pd.Series]"
-            for strat,data in market.items():
+            for strat, data in market.items():
                 ax1.plot(
                     idxs,
                     np.log(np.cumprod(1+data.loc[r_ser.index].pct_change().fillna(0))),
-                    label=strat,
                     linestyle=":",
                     alpha=0.75
                 )
+                strat_names + [strat]
         ax1.plot(idxs, lr)
         ax1.set_ylabel('log capital returns')
-        ax1.legend(["strategy" if strat_name == "" else strat_name])
+        ax1.legend(labels=strat_names)
 
         ax2.plot(idxs,rdd_fn(cr_ser,253))
         ax2.plot(idxs,rmdd_fn(cr_ser,253))
@@ -132,7 +133,7 @@ def performance_measures(
             ax4.hist(rdd_fn(cr_ser,253),orientation='horizontal',bins=40)
 
         ax6.hist(r,orientation='horizontal',bins=60)
-        ax5.plot(idxs,r)
+        ax5.bar(idxs,r)
         ax5.set_ylabel('Returns')
         
         plt.setp(ax2.get_xticklabels(), visible=False)
