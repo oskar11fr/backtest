@@ -19,7 +19,8 @@ from .functions.performance import (
 from .functions.portfolio_strategies import(
     PositioningStrategy,
     MeanVarianceStrategy,
-    VolatilityTargetingStrategy
+    VolatilityTargetingStrategy,
+    hmmMeanVarianceStrategy
 )
 # from .database.constants import STRAT_PATH
 
@@ -371,27 +372,28 @@ class BacktestEngine(TradingFrequencyCalculator):
     def get_strat_positions(
             self,
             forecasts: np.ndarray,
-            eligibles_row: np.ndarray,
             capitals: float,
             strat_scalar: float,
             vol_row: np.ndarray,
             close_row: np.ndarray,
             vol_target: float,
-            idx: int
+            idx: int,
+            **kwargs
         ) -> np.ndarray:
-        return self.portf_strategy.get_strat_positions(
-            forecasts=forecasts,
-            eligibles_row=eligibles_row,
-            capitals=capitals,
-            strat_scalar=strat_scalar,
-            vol_row=vol_row,
-            close_row=close_row,
-            vol_target=vol_target,
-            max_leverage=self.max_leverage,
-            min_leverage=self.min_leverage,
-            rets_df=self.retdf,
-            idx=idx
-        )
+        """
+        Delegates to the strategy's `get_strat_positions` method.
+
+        Parameters
+        ----------
+        kwargs : dict
+            Dynamic arguments for position calculation.
+
+        Returns
+        -------
+        np.ndarray
+            Array of calculated positions.
+        """
+        return self.portf_strategy.get_strat_positions(forecasts,capitals,strat_scalar,vol_row,close_row,vol_target,idx,**kwargs)
 
     def get_positions(
             self,
@@ -405,6 +407,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             use_vol_target: bool,
             trading_day: bool,
             idx: int,
+            **kwargs
         ):
         with np.errstate(invalid="ignore", divide="ignore"):
             forecasts = forecasts / eligibles_row
@@ -416,13 +419,13 @@ class BacktestEngine(TradingFrequencyCalculator):
                 if use_vol_target:
                     positions = self.get_strat_positions(
                         forecasts=forecasts,
-                        eligibles_row=eligibles_row,
                         capitals=capitals,
                         strat_scalar=strat_scalar,
                         vol_row=vol_row,
                         close_row=close_row,
                         vol_target=vol_target,
-                        idx=idx
+                        idx=idx,
+                        **(kwargs or {})
                     )
                 
                 else:
@@ -518,6 +521,17 @@ class BacktestEngine(TradingFrequencyCalculator):
                 ret_i
             )
             if type(forecasts) == pd.Series: forecasts = forecasts.values
+            if isinstance(self.portf_strategy, hmmMeanVarianceStrategy):
+                kwargs = {
+                    "max_leverage": self.max_leverage,
+                    "retdf": self.retdf,
+                    "trade_frequency": self.trade_frequency
+                }
+            if isinstance(self.portf_strategy, VolatilityTargetingStrategy):
+                kwargs = {
+                    "max_leverage": self.max_leverage,
+                    "min_leverage": self.min_leverage
+                }
 
             positions, weights, nominal_tot = self.get_positions(
                 forecasts=forecasts,
@@ -530,6 +544,7 @@ class BacktestEngine(TradingFrequencyCalculator):
                 use_vol_target=use_vol_target,
                 trading_day=trading_day,
                 idx=portfolio_i,
+                **kwargs
             )
             units_held.append(positions)
             weights_held.append(weights)

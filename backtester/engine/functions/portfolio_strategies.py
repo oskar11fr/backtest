@@ -8,31 +8,31 @@ from hmmlearn.hmm import GaussianHMM
 class PositioningStrategy(ABC):
     @abstractmethod
     def get_strat_positions(
-        self,
+       self,
         forecasts: np.ndarray,
-        eligibles_row: np.ndarray,
         capitals: float,
         strat_scalar: float,
         vol_row: np.ndarray,
-        close_row: np.ndarray
+        close_row: np.ndarray,
+        vol_target: float,
+        idx: int,
+        **kwargs
     ) -> np.ndarray:
         pass
 
 class VolatilityTargetingStrategy(PositioningStrategy):
     def get_strat_positions(
         self,
-        idx: int,
         forecasts: np.ndarray,
-        eligibles_row: np.ndarray,
         capitals: float,
         strat_scalar: float,
         vol_row: np.ndarray,
         close_row: np.ndarray,
         vol_target: float,
-        max_leverage: float,
-        min_leverage: float,
-        rets_df: dict[str, pd.DataFrame]
+        idx: int,
+        **kwargs
     ) -> np.ndarray:
+        max_leverage, min_leverage = kwargs["max_leverage"], kwargs["min_leverage"]
         forecast_chips = np.sum(np.abs(forecasts))
 
         if forecast_chips == 0:
@@ -53,14 +53,13 @@ class MeanVarianceStrategy(PositioningStrategy):
     def get_strat_positions(
         self,
         forecasts: np.ndarray,
-        eligibles_row: np.ndarray,
         capitals: float,
         strat_scalar: float,
         vol_row: np.ndarray,
         close_row: np.ndarray,
         vol_target: float,
-        max_leverage: float,
-        min_leverage: float
+        idx: int,
+        **kwargs
     ) -> np.ndarray:
         # Placeholder: Implement mean-variance optimization
         expected_returns = forecasts
@@ -79,26 +78,25 @@ class hmmMeanVarianceStrategy(PositioningStrategy):
     SEED = np.random.seed(1)
 
     def get_strat_positions(
-        self, 
-        idx: int,
-        forecasts: np.ndarray, 
-        eligibles_row: np.ndarray, 
-        capitals: float, 
-        strat_scalar: float, 
-        vol_row: np.ndarray, 
+        self,
+        forecasts: np.ndarray,
+        capitals: float,
+        strat_scalar: float,
+        vol_row: np.ndarray,
         close_row: np.ndarray,
         vol_target: float,
-        max_leverage: float,
-        min_leverage: float,
-        rets_df: dict[str, pd.DataFrame]
+        idx: int,
+        **kwargs
     ) -> np.ndarray:
+        retdf, max_leverage, trade_frequency = kwargs["retdf"], kwargs["max_leverage"], kwargs["trade_frequency"]
         if idx == 0:
-            train_rets, self.rets = self.get_rets(rets_df=rets_df)
-            self.model = self.train_hmm(train_rets=train_rets)
+            train_ret, self.ret = self.get_rets(retdf=retdf,trade_frequency=trade_frequency)
+            self.model = self.train_hmm(train_ret=train_ret)
             return np.zeros(len(forecasts))
-        state = self.predict_states(model=self.model, rets=self.rets[(idx - 1):idx,:])
-        state_covar = self.model.covars_[1-state]
-        state_mean = self.model.means_[1-state]
+        
+        state = self.predict_states(model=self.model, ret=self.ret[(idx - 1):idx,:])
+        state_covar = self.model.covars_[state]
+        state_mean = self.model.means_[state]
 
         forecast_chips = np.sum(np.abs(forecasts))
         expected_returns = state_mean * (forecasts / forecast_chips)
@@ -124,19 +122,22 @@ class hmmMeanVarianceStrategy(PositioningStrategy):
             / (vol_row * close_row)
         return np.floor(positions)
     
-    def train_hmm(self, train_rets: np.ndarray):
+    def train_hmm(self, train_ret: np.ndarray):
         model = self.MODEL(
             n_components=2,
             covariance_type="full",
             algorithm="map",
             random_state=self.SEED
         )
-        return model.fit(X=train_rets)
+        return model.fit(X=train_ret)
 
-    def predict_states(self, model: GaussianHMM, rets: np.ndarray) -> np.ndarray:
-        return model.predict(X=rets)[0]
+    def predict_states(self, model: GaussianHMM, ret: np.ndarray) -> np.ndarray:
+        return model.predict(X=ret)[0]
 
-    def get_rets(self, rets_df: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
-        n = int(len(rets_df) * self.TRAIN_SIZE)
-        rets = rets_df.shift(1).fillna(0).values # shift 1 lag to avoid lookahead bias
-        return rets[:n,:], rets
+    def get_rets(self, retdf: pd.DataFrame, trade_frequency: str) -> tuple[np.ndarray, np.ndarray]:
+        if trade_frequency == "weekly": wind = 7
+        if trade_frequency == "montlhhy": wind = 30
+        if trade_frequency == "daily": wind = 0
+        n = int(len(retdf) * self.TRAIN_SIZE)
+        ret = retdf.shift(1).rolling(wind).mean().fillna(0).values # shift 1 lag to avoid lookahead bias
+        return ret[:n,:], ret

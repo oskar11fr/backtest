@@ -19,7 +19,7 @@ def vol_carry_main():
     return strategy
 
 def tactical_main():
-    TICKERS = ["SPY", "QQQ", "TLT", "GLD"]
+    TICKERS = ["QLD", "GLD", "TLT", "XLE", "DBC", "DBA", "VEU", "XLP", "IYH", "XBI", "VNQ", "GBTC", "SHY", "UUP"]
 
     db = finance_database(database_name="etf_db")
     db.import_to_database(tickers=TICKERS)
@@ -33,7 +33,7 @@ if __name__ == "__main__":
     tactical_strat = tactical_main()
     tactical_strat.run_simulation(use_vol_target=True)
     tactical_strat.get_perf_stats(plot=True,show=False,strat_name="tactical_strategy",compare=False)
-
+     
     vol_carry_strat = vol_carry_main()
     vol_carry_strat.run_simulation(use_vol_target=False)
     vol_carry_strat.get_perf_stats(plot=True,show=False,strat_name="vol_carry_strategy",compare=False)
