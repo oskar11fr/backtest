@@ -48,7 +48,7 @@ class VolCarry(BacktestEngine):
         neutral_pos = pd.Series(np.zeros(len(trade_range)),index=trade_range)
         temp_alpha = []
         for inst in self.insts:
-            if inst == 'SVXY': temp_alpha.append(short_cond)
+            if inst == "SVXY": temp_alpha.append(short_cond)
             else: temp_alpha.append(neutral_pos)
         
         alpha_df = pd.concat(temp_alpha,axis=1)

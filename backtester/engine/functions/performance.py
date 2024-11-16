@@ -7,12 +7,12 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from typing import Dict, Optional, Union, Tuple
 
-# plt.style.use("seaborn-dark-palette")
+plt.style.use("classic")
 
 def performance_measures(
     r_ser: pd.Series,
     plot: bool = False,
-    path: str = "/images",
+    path: str = "./images",
     market: Optional[Dict[str, pd.Series]] = None,
     show: bool = False,
     strat_name: str = ""
@@ -50,6 +50,8 @@ def performance_measures(
     stdmoment = lambda x, k: moment(x, k) / moment(x, 2) ** (k / 2)
     rolling_drawdown = lambda cr, pr: cr / cr.rolling(pr).max() - 1
     rolling_max_dd = lambda cr, pr: rolling_drawdown(cr, pr).rolling(pr).min()
+    cagr_fn = lambda cr: (cr[-1]/cr[0])**(1/len(cr))-1
+    cagr_ann_fn = lambda cr: ((1+cagr_fn(cr))**253) - 1
 
     # Compute cumulative and log returns
     r = r_ser.values
@@ -67,7 +69,8 @@ def performance_measures(
     variance = vol ** 2
     skewness = stdmoment(r, 3)
     ex_kurtosis = stdmoment(r, 4) - 3
-    cagr = ((cr[-1] / cr[0]) ** (1 / len(cr)) - 1) ** 253  # Annualized CAGR
+    
+    cagr = cagr_ann_fn(cr) # Annualized CAGR
     rolling_cagr = cr_ser.rolling(5 * 253).apply(
         lambda x: ((x[-1] / x[0]) ** (1 / len(x)) - 1) ** 253, raw=True
     )
@@ -77,9 +80,6 @@ def performance_measures(
 
     # Prepare metrics table
     metrics = {
-        "cum_ret": cr,
-        "log_ret": lr,
-        "max_dd": mdd,
         "cagr": cagr,
         "sortino": sortino_ratio,
         "sharpe": sharpe_ratio,
@@ -89,20 +89,19 @@ def performance_measures(
         "var": variance,
         "skew": skewness,
         "ex_kurtosis": ex_kurtosis,
-        "rolling_cagr": rolling_cagr,
-        "rolling_calmar": rolling_calmar,
         "var95": var95,
         "cvar": cvar,
     }
 
     # Plotting performance if requested
     if plot:
-        fig, axes = plt.subplots(4, 4, constrained_layout=True, figsize=(16, 14))
-        idxs = r_ser.index.strftime('%Y-%m-%d %X')
-        strat_names = [strat_name if strat_name else "strategy"]
+        fig = plt.figure(constrained_layout=True, figsize=(16, 14))
+        spec = fig.add_gridspec(4, 4)
 
         # Log returns plot
-        ax1 = fig.add_subplot(axes[0:2, 0:3])
+        ax1 = fig.add_subplot(spec[0:2, 0:3])
+        ax1.xaxis.set_major_locator(plt.MaxNLocator(5))
+        idxs = r_ser.index.strftime('%Y-%m-%d')
         ax1.plot(idxs, lr, label=strat_name)
         if market:
             assert isinstance(market, dict), "Market parameter must be a dictionary of {name: pd.Series}."
@@ -113,31 +112,41 @@ def performance_measures(
         ax1.legend()
 
         # Drawdowns
-        ax2 = fig.add_subplot(axes[2, 0:3], sharex=ax1)
+        ax2 = fig.add_subplot(spec[2, 0:3], sharex=ax1)
+        ax2.xaxis.set_major_locator(plt.MaxNLocator(5))
         ax2.plot(idxs, rolling_drawdown(cr_ser, 253), label="Drawdowns")
         ax2.plot(idxs, rolling_max_dd(cr_ser, 253), label="Max Drawdowns")
         ax2.set_ylabel("Drawdowns")
         ax2.legend()
 
         # Metrics table
+        ax3 = fig.add_subplot(spec[0:2, -1])
         metrics_df = pd.Series(metrics).apply(lambda x: np.round(x, 3)).reset_index()
         metrics_df.columns = ["Metric", "Value"]
-        ax3 = fig.add_subplot(axes[0:2, -1])
         ax3.axis("off")
-        ax3.table(
+        table = ax3.table(
             cellText=metrics_df.values,
             colLabels=metrics_df.columns,
             loc="center",
             colWidths=[0.4, 0.4],
         )
+        table.auto_set_font_size(False)
+        table.set_fontsize(10)
 
-        # Distribution of returns
-        ax4 = fig.add_subplot(axes[2, -1])
+        # Distribution of drawdowns
+        ax4 = fig.add_subplot(spec[2, -1])
         ax4.hist(rolling_drawdown(cr_ser, 253), orientation="horizontal", bins=40)
-        ax5 = fig.add_subplot(axes[-1, 0:3], sharex=ax1)
+
+        # Returns bar chart
+        ax5 = fig.add_subplot(spec[-1, 0:3], sharex=ax1)
+        ax5.xaxis.set_major_locator(plt.MaxNLocator(5))
         ax5.bar(idxs, r)
         ax5.set_ylabel("Returns")
 
+        ax6 = fig.add_subplot(spec[-1,-1], sharey=ax5)
+        ax6.hist(r,orientation='horizontal',bins=60)
+        
+        # Save or show the plot
         if not show:
             Path(os.path.abspath(os.getcwd() + path)).mkdir(parents=True, exist_ok=True)
             fig.savefig(f"{path}/stats_board_{strat_name}.png")
@@ -176,8 +185,8 @@ def plot_hypothesis(
         Saves the plot to a predefined directory.
     """
     # Create output directory if it doesn't exist
-    path = "/images"
-    Path(os.path.abspath(os.getcwd() + path)).mkdir(parents=True, exist_ok=True)
+    path = "./images"
+    # Path(os.path.abspath(os.getcwd() + path)).mkdir(parents=True, exist_ok=True)
 
     # Unpack tuples
     timer_paths, timer_p, timer_dist = timer_tuple
@@ -205,10 +214,10 @@ def plot_hypothesis(
     ax1.legend()
 
     # Plot KDE for distributions
-    input(timer_dist)
-    pd.Series(timer_dist).plot(color='red', ax=ax2, kind='kde', label="Timing Dist")
-    pd.Series(picker_dist).plot(color='blue', ax=ax2, kind='kde', label="Picking Dist")
-    pd.Series(trader_dist).plot(color='green', ax=ax2, kind='kde', label="Trading Dist")
+    dist_check = lambda dist: np.any(np.diff(dist) != 0)
+    if dist_check(timer_dist): pd.Series(timer_dist).plot(color='red', ax=ax2, kind='kde', label="Timing Dist")
+    if dist_check(picker_dist): pd.Series(picker_dist).plot(color='blue', ax=ax2, kind='kde', label="Picking Dist")
+    if dist_check(trader_dist): pd.Series(trader_dist).plot(color='green', ax=ax2, kind='kde', label="Trading Dist")
     strategy_sharpe = np.mean(return_samples.values) / np.std(return_samples.values) * np.sqrt(253)
     ax2.axvline(strategy_sharpe, color='black', linewidth=4, label="Strategy Sharpe")
     ax2.set_title("Distributions and Strategy Sharpe")

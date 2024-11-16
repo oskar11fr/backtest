@@ -259,8 +259,8 @@ class BacktestEngine(TradingFrequencyCalculator):
 
         # Extract specific performance statistics
         stats = [
-            "cagr", "srtno", "sharpe", "mean_ret", "median_ret",
-            "vol", "var", "skew", "exkurt", "var95"
+            "cagr", "sortino", "sharpe", "mean_ret", "median_ret",
+            "vol", "var", "skew", "ex_kurtosis", "var95"
         ]
         return pd.Series({stat: stats_dict[stat] for stat in stats})
 
