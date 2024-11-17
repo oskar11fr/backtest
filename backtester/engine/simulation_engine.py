@@ -20,7 +20,7 @@ from .functions.portfolio_strategies import(
     PositioningStrategy,
     MeanVarianceStrategy,
     VolatilityTargetingStrategy,
-    hmmMeanVarianceStrategy
+    MixtureModelsMeanVarianceStrategy
 )
 # from .database.constants import STRAT_PATH
 
@@ -165,9 +165,14 @@ class BacktestEngine(TradingFrequencyCalculator):
             self.date_range = pd.date_range(start=start, end=end, freq="D")
 
 
-    def get_zero_filtered_stats(self) -> dict[str, Union[pd.Series, pd.DataFrame]]:
+    def get_zero_filtered_stats(self, test_data: bool = False) -> dict[str, Union[pd.Series, pd.DataFrame]]:
         """
         Filter and retrieve statistics for non-zero capital returns.
+
+        Parameters
+        ----------
+        test_data : bool, optional
+            If True, method generate stats for test data only.
 
         Returns
         -------
@@ -182,9 +187,14 @@ class BacktestEngine(TradingFrequencyCalculator):
         """
         assert self.portfolio_df is not None, "Portfolio data must be initialized before getting statistics."
 
+        idxs = self.date_range
+        if test_data:
+            idxs = idxs[self.portf_strategy.TRAIN_ID:]
+            if self.portf_strategy.TRAIN_ID == 0: print("No train / test size is initalized, will consider full dataframe")
+
         # Extract relevant columns
-        nominal_ret = self.portfolio_df["nominal_ret"]
-        capital_ret = self.portfolio_df["capital_ret"]
+        nominal_ret = self.portfolio_df["nominal_ret"].loc[idxs]
+        capital_ret = self.portfolio_df["capital_ret"].loc[idxs]
 
         # Filter for non-zero capital returns
         non_zero_idx = capital_ret.loc[capital_ret != 0].index
@@ -208,7 +218,8 @@ class BacktestEngine(TradingFrequencyCalculator):
             plot: bool = False,
             compare: bool = False,
             show: bool = False,
-            strat_name: Optional[str] = None
+            strat_name: Optional[str] = None,
+            test_data: bool = False
         ) -> pd.Series:
         """
         Calculate and return performance statistics.
@@ -223,6 +234,8 @@ class BacktestEngine(TradingFrequencyCalculator):
             If True, displays additional performance output. Default is False.
         strat_name : str, optional
             Name of the strategy for labeling purposes. Default is None.
+        test_data : bool, optional
+            If True, method generate stats for test data only.
 
         Returns
         -------
@@ -250,7 +263,7 @@ class BacktestEngine(TradingFrequencyCalculator):
 
         # Calculate performance measures
         stats_dict = performance_measures(
-            r_ser=self.get_zero_filtered_stats()["capital_ret"],
+            r_ser=self.get_zero_filtered_stats(test_data=test_data)["capital_ret"],
             plot=plot,
             market=market_dict,
             show=show,
@@ -568,7 +581,7 @@ class BacktestEngine(TradingFrequencyCalculator):
     @timeme
     def run_simulation(
             self,
-            start_cap: float = 100_000.0,
+            start_cap: float = 100000.0,
             use_vol_target: bool = True,
             randomize_entry: bool = False,
             rand_type: str = "gaussian"
@@ -579,7 +592,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         Parameters
         ----------
         start_cap : float, optional
-            Initial capital for the portfolio, by default 100_000.0.
+            Initial capital for the portfolio, by default 100000.0.
         use_vol_target : bool, optional
             Whether to use a volatility target for position sizing, by default True.
         randomize_entry : bool, optional
@@ -649,7 +662,7 @@ class BacktestEngine(TradingFrequencyCalculator):
 
             # Strategy-specific arguments
             kwargs = {}
-            if isinstance(self.portf_strategy, hmmMeanVarianceStrategy):
+            if isinstance(self.portf_strategy, MixtureModelsMeanVarianceStrategy):
                 kwargs = {
                     "max_leverage": self.max_leverage,
                     "retdf": self.retdf,

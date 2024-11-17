@@ -56,7 +56,7 @@ def bundle_strategies(
     """
     try:
         capital_rets = {
-            name: strat.portfolio_df["capital"].rename("close") / 100 
+            name: strat.portfolio_df["capital"].rename("close") / 1000 
             for name, strat in strats.items()
         }
         names = list(capital_rets.keys())

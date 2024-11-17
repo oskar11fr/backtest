@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 from pathlib import Path
 from typing import Dict, Optional, Union, Tuple
 
@@ -48,8 +49,8 @@ def performance_measures(
     # Helper functions for statistical moments and performance metrics
     moment = lambda x, k: np.mean((x - np.mean(x)) ** k)
     stdmoment = lambda x, k: moment(x, k) / moment(x, 2) ** (k / 2)
-    rolling_drawdown = lambda cr, pr: cr / cr.rolling(pr).max() - 1
-    rolling_max_dd = lambda cr, pr: rolling_drawdown(cr, pr).rolling(pr).min()
+    rolling_drawdown = lambda cr, pr: cr / cr.rolling(pr, min_periods=1).max() - 1
+    rolling_max_dd = lambda cr, pr: rolling_drawdown(cr, pr).rolling(pr, min_periods=1).min()
     cagr_fn = lambda cr: (cr[-1]/cr[0])**(1/len(cr))-1
     cagr_ann_fn = lambda cr: ((1+cagr_fn(cr))**253) - 1
 
@@ -60,7 +61,7 @@ def performance_measures(
     cr_ser = pd.Series(cr, index=r_ser.index)
 
     # Performance metrics
-    mdd = cr / np.maximum.accumulate(cr) - 1  # Maximum drawdown
+    mdd = np.min(cr / np.maximum.accumulate(cr) - 1)  # Maximum drawdown
     sortino_ratio = np.mean(r) / np.std(r[r < 0]) * np.sqrt(253)
     sharpe_ratio = np.mean(r) / np.std(r) * np.sqrt(253)
     mean_ret = np.mean(r) * 253
@@ -74,36 +75,42 @@ def performance_measures(
     rolling_cagr = cr_ser.rolling(5 * 253).apply(
         lambda x: ((x[-1] / x[0]) ** (1 / len(x)) - 1) ** 253, raw=True
     )
-    rolling_calmar = rolling_cagr / rolling_max_dd(cr_ser, 3 * 253) * -1
+    # rolling_calmar = rolling_cagr / rolling_max_dd(cr_ser, 3 * 253) * -1
+    rolling_sharpe = r_ser.rolling(253, min_periods=50).mean() \
+          / r_ser.rolling(253, min_periods=50).std() * np.sqrt(253)
     var95 = np.percentile(r, 5)
     cvar = r[r < var95].mean()
+    calmar = cagr / mdd * -1
 
     # Prepare metrics table
     metrics = {
         "cagr": cagr,
         "sortino": sortino_ratio,
         "sharpe": sharpe_ratio,
+        "calmar": calmar,
         "mean_ret": mean_ret,
         "median_ret": median_ret,
         "vol": vol,
         "var": variance,
+        "max_drawdown": mdd,
         "skew": skewness,
         "ex_kurtosis": ex_kurtosis,
         "var95": var95,
-        "cvar": cvar,
+        "cvar": cvar
     }
 
     # Plotting performance if requested
     if plot:
         fig = plt.figure(layout="tight",figsize=(16, 14))
-        spec = fig.add_gridspec(4, 4)
+        spec = fig.add_gridspec(5, 4)
 
         ax1 = fig.add_subplot(spec[0:2, 0:3])
         ax2 = fig.add_subplot(spec[2, 0:3], sharex=ax1)
         ax3 = fig.add_subplot(spec[0:2, -1])
         ax4 = fig.add_subplot(spec[2, -1])
-        ax5 = fig.add_subplot(spec[-1, 0:3], sharex=ax1)
-        ax6 = fig.add_subplot(spec[-1,-1], sharey=ax5)
+        ax5 = fig.add_subplot(spec[3, 0:3], sharex=ax1)
+        ax6 = fig.add_subplot(spec[3,-1], sharey=ax5)
+        ax7 = fig.add_subplot(spec[4,0:3], sharex=ax1)
         ax1.xaxis.set_major_locator(plt.MaxNLocator(5))
         ax2.xaxis.set_major_locator(plt.MaxNLocator(5))
         ax5.xaxis.set_major_locator(plt.MaxNLocator(5))
@@ -147,6 +154,9 @@ def performance_measures(
         ax5.set_ylabel("Returns")
 
         ax6.hist(r,orientation='horizontal',bins=60)
+
+        ax7.plot(idxs, rolling_sharpe)
+        ax7.set_ylabel("Sharpe")
         
         # Save or show the plot
         if not show:

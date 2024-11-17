@@ -4,8 +4,13 @@ import pandas as pd
 from abc import ABC, abstractmethod
 from scipy.optimize import minimize
 from hmmlearn.hmm import GaussianHMM
+from sklearn.mixture import GaussianMixture
 
 class PositioningStrategy(ABC):
+    def __init__(self) -> None:
+        super().__init__()
+        self.TRAIN_ID = 0
+
     @abstractmethod
     def get_strat_positions(
        self,
@@ -72,10 +77,27 @@ class MeanVarianceStrategy(PositioningStrategy):
         positions = strat_scalar * weights * capitals / close_row
         return np.floor(np.nan_to_num(positions))
 
-class hmmMeanVarianceStrategy(PositioningStrategy):
-    TRAIN_SIZE = .7
-    MODEL = GaussianHMM
+class MixtureModelsMeanVarianceStrategy(PositioningStrategy):
+    TRAIN_SIZE = .6
     SEED = np.random.seed(1)
+
+    def __init__(self, model_name: str = "hmm") -> None:
+        super().__init__()
+        models_confs = {
+            "hmm": GaussianHMM(
+                n_components=2,
+                covariance_type="full",
+                algorithm="map",
+                random_state=self.SEED
+            ),
+            "gmm": GaussianMixture(
+                n_components=2,
+                covariance_type="full",
+                random_state=self.SEED
+            )
+        }
+        assert model_name in models_confs.keys(), f"Make sure model_name is in {models_confs.keys()}"
+        self.MODEL: GaussianHMM | GaussianMixture = models_confs[model_name]
 
     def get_strat_positions(
         self,
@@ -91,12 +113,16 @@ class hmmMeanVarianceStrategy(PositioningStrategy):
         retdf, max_leverage, trade_frequency = kwargs["retdf"], kwargs["max_leverage"], kwargs["trade_frequency"]
         if idx == 0:
             train_ret, self.ret = self.get_rets(retdf=retdf,trade_frequency=trade_frequency)
-            self.model = self.train_hmm(train_ret=train_ret)
+            self.model = self.train(train_ret=train_ret)
+            print("=============================================================== ")
+            print(f" - Training window: {retdf.index[0]} - {retdf.index[self.TRAIN_ID]}")
+            print(f" - Testing window: {retdf.index[self.TRAIN_ID+1]} - {retdf.index[-1]}")
+            print(f" - Regime prediction model: {self.model}")
+            print("=============================================================== ")
             return np.zeros(len(forecasts))
         
         state = self.predict_states(model=self.model, ret=self.ret[(idx - 1):idx,:])
-        state_covar = self.model.covars_[state]
-        state_mean = self.model.means_[state]
+        state_covar, state_mean = self.get_params(model=self.model, state=state)
 
         forecast_chips = np.sum(np.abs(forecasts))
         expected_returns = state_mean * (forecasts / forecast_chips)
@@ -122,22 +148,25 @@ class hmmMeanVarianceStrategy(PositioningStrategy):
             / (vol_row * close_row)
         return np.floor(positions)
     
-    def train_hmm(self, train_ret: np.ndarray):
-        model = self.MODEL(
-            n_components=2,
-            covariance_type="full",
-            algorithm="map",
-            random_state=self.SEED
-        )
+    def train(self, train_ret: np.ndarray):
+        model = self.MODEL
         return model.fit(X=train_ret)
 
-    def predict_states(self, model: GaussianHMM, ret: np.ndarray) -> np.ndarray:
+    def predict_states(self, model: GaussianHMM | GaussianMixture, ret: np.ndarray) -> np.ndarray:
         return model.predict(X=ret)[0]
+    
+    def get_params(self, model: GaussianHMM | GaussianMixture, state: int) -> np.ndarray:
+        if isinstance(model, GaussianHMM):
+            state_covar, state_mean = model.covars_[state], model.means_[state]
+        if isinstance(model, GaussianMixture):
+            state_covar, state_mean = model.covariances_[state], model.means_[state]
+        return state_covar, state_mean
 
     def get_rets(self, retdf: pd.DataFrame, trade_frequency: str) -> tuple[np.ndarray, np.ndarray]:
         if trade_frequency == "weekly": wind = 7
-        if trade_frequency == "montlhhy": wind = 30
+        if trade_frequency == "monthly": wind = 30
         if trade_frequency == "daily": wind = 0
-        n = int(len(retdf) * self.TRAIN_SIZE)
-        ret = retdf.shift(1).rolling(wind).mean().fillna(0).values # shift 1 lag to avoid lookahead bias
-        return ret[:n,:], ret
+
+        self.TRAIN_ID = int(len(retdf) * self.TRAIN_SIZE)
+        ret = retdf.shift(1).rolling(wind,min_periods=0).mean().fillna(0).values # shift 1 lag to avoid lookahead bias
+        return ret[:self.TRAIN_ID,:], ret
