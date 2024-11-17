@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from typing import Dict, Optional, Union, Tuple
 
-plt.style.use("classic")
+plt.style.use("bmh")
 
 def performance_measures(
     r_ser: pd.Series,
@@ -95,12 +95,20 @@ def performance_measures(
 
     # Plotting performance if requested
     if plot:
-        fig = plt.figure(constrained_layout=True, figsize=(16, 14))
+        fig = plt.figure(layout="tight",figsize=(16, 14))
         spec = fig.add_gridspec(4, 4)
 
-        # Log returns plot
         ax1 = fig.add_subplot(spec[0:2, 0:3])
+        ax2 = fig.add_subplot(spec[2, 0:3], sharex=ax1)
+        ax3 = fig.add_subplot(spec[0:2, -1])
+        ax4 = fig.add_subplot(spec[2, -1])
+        ax5 = fig.add_subplot(spec[-1, 0:3], sharex=ax1)
+        ax6 = fig.add_subplot(spec[-1,-1], sharey=ax5)
         ax1.xaxis.set_major_locator(plt.MaxNLocator(5))
+        ax2.xaxis.set_major_locator(plt.MaxNLocator(5))
+        ax5.xaxis.set_major_locator(plt.MaxNLocator(5))
+
+        # Log returns plot
         idxs = r_ser.index.strftime('%Y-%m-%d')
         ax1.plot(idxs, lr, label=strat_name)
         if market:
@@ -112,15 +120,13 @@ def performance_measures(
         ax1.legend()
 
         # Drawdowns
-        ax2 = fig.add_subplot(spec[2, 0:3], sharex=ax1)
-        ax2.xaxis.set_major_locator(plt.MaxNLocator(5))
         ax2.plot(idxs, rolling_drawdown(cr_ser, 253), label="Drawdowns")
         ax2.plot(idxs, rolling_max_dd(cr_ser, 253), label="Max Drawdowns")
         ax2.set_ylabel("Drawdowns")
         ax2.legend()
 
         # Metrics table
-        ax3 = fig.add_subplot(spec[0:2, -1])
+        
         metrics_df = pd.Series(metrics).apply(lambda x: np.round(x, 3)).reset_index()
         metrics_df.columns = ["Metric", "Value"]
         ax3.axis("off")
@@ -134,16 +140,12 @@ def performance_measures(
         table.set_fontsize(10)
 
         # Distribution of drawdowns
-        ax4 = fig.add_subplot(spec[2, -1])
         ax4.hist(rolling_drawdown(cr_ser, 253), orientation="horizontal", bins=40)
 
         # Returns bar chart
-        ax5 = fig.add_subplot(spec[-1, 0:3], sharex=ax1)
-        ax5.xaxis.set_major_locator(plt.MaxNLocator(5))
         ax5.bar(idxs, r)
         ax5.set_ylabel("Returns")
 
-        ax6 = fig.add_subplot(spec[-1,-1], sharey=ax5)
         ax6.hist(r,orientation='horizontal',bins=60)
         
         # Save or show the plot
@@ -199,7 +201,7 @@ def plot_hypothesis(
     trader_paths.index = return_samples.index
 
     # Initialize the figure and axes
-    fig = plt.figure(constrained_layout=True, figsize=(15, 11))
+    fig = plt.figure(layout="tight",figsize=(16, 14))
     ax = fig.add_gridspec(3, 3)
     ax1 = fig.add_subplot(ax[:2, :])  # Main cumulative returns plot
     ax2 = fig.add_subplot(ax[2:, :2])  # KDE plot for distributions
@@ -237,7 +239,7 @@ def plot_hypothesis(
         cellLoc="left",
     )
     ax3.axis('off')
-    ax3.set_title("P-Values")
+    # ax3.set_title("P-Values")
 
     # Save plot to the specified directory
     strat_name = strat_name if strat_name else "default_strategy"
