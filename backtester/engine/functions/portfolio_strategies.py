@@ -111,6 +111,7 @@ class MixtureModelsMeanVarianceStrategy(PositioningStrategy):
         **kwargs
     ) -> np.ndarray:
         retdf, max_leverage, trade_frequency = kwargs["retdf"], kwargs["max_leverage"], kwargs["trade_frequency"]
+        forecasts_returns = forecasts
         if idx == 0:
             train_ret, self.ret = self.get_rets(retdf=retdf,trade_frequency=trade_frequency)
             self.model = self.train(train_ret=train_ret)
@@ -122,13 +123,11 @@ class MixtureModelsMeanVarianceStrategy(PositioningStrategy):
             return np.zeros(len(forecasts))
         
         state = self.predict_states(model=self.model, ret=self.ret[(idx - 1):idx,:])
-        state_covar, state_mean = self.get_params(model=self.model, state=state)
+        state_covar, state_means = self.get_params(model=self.model, state=state)
 
-        forecast_chips = np.sum(np.abs(forecasts))
-        expected_returns = state_mean * (forecasts / forecast_chips)
         # Mean-Variance Optimization
         def objective(weights):
-            portfolio_return = np.dot(weights, expected_returns)
+            portfolio_return = np.dot(weights, forecasts_returns)
             portfolio_vol = np.sqrt(np.dot(weights.T, np.dot(state_covar, weights)))
             return -portfolio_return / portfolio_vol 
         
@@ -141,11 +140,8 @@ class MixtureModelsMeanVarianceStrategy(PositioningStrategy):
         init_guess = np.array([1.0 / len(forecasts)] * len(forecasts))
         result = minimize(objective, init_guess, method='SLSQP', bounds=bounds, constraints=constraints)
         optimized_weights = result.x if result.success else np.zeros_like(forecasts)
-        # positions = capitals * optimized_weights / close_row
-        positions = strat_scalar * \
-            optimized_weights  \
-            * vol_target \
-            / (vol_row * close_row)
+        # positions = strat_scalar * optimized_weights * vol_target / (close_row * vol_row)
+        positions = optimized_weights * strat_scalar * capitals / close_row
         return np.floor(positions)
     
     def train(self, train_ret: np.ndarray):
@@ -170,3 +166,21 @@ class MixtureModelsMeanVarianceStrategy(PositioningStrategy):
         self.TRAIN_ID = int(len(retdf) * self.TRAIN_SIZE)
         ret = retdf.shift(1).rolling(wind,min_periods=0).mean().fillna(0).values # shift 1 lag to avoid lookahead bias
         return ret[:self.TRAIN_ID,:], ret
+    
+class EigenPortfolioStrategy(PositioningStrategy):
+    TRAIN_SIZE = 0.6
+
+    def __init__(self) -> None:
+        super().__init__()
+    
+    def get_covars(self, retdf: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
+        self.TRAIN_ID = int(len(retdf) * self.TRAIN_SIZE)
+        ret = retdf.shift(1).fillna(0).values # shift 1 lag to avoid lookahead bias
+        train_ret = ret[:self.TRAIN_ID,:]
+        X = train_ret - train_ret.mean()
+        covar = np.dot(X, X.T)
+        eigen_values, eigen_vectors = np.linalg.eig(covar)
+        ind = np.argsort(eigen_values)
+        eigen_vectors = eigen_vectors[ind,:]
+        np.linalg.eig()
+        return 

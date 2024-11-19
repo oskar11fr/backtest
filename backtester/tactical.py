@@ -53,10 +53,10 @@ class Tactical(BacktestEngine):
         masked_df = alphadf/self.eligiblesdf
         masked_df = masked_df.replace([-np.inf, np.inf], np.nan)
 
-        rankdf = masked_df.rank(axis=1,method="average",na_option="keep",ascending=False)
+        # rankdf = masked_df.rank(axis=1,method="average",na_option="keep",ascending=False)
 
-        forecast_df = rankdf
-        self.forecast_df = forecast_df
+        # forecast_df = rankdf
+        self.forecast_df = masked_df # forecast_df
         return 
 
     def compute_signal_distribution(self, eligibles, date):

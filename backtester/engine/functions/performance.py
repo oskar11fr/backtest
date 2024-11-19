@@ -160,7 +160,6 @@ def performance_measures(
         
         # Save or show the plot
         if not show:
-            Path(os.path.abspath(os.getcwd() + path)).mkdir(parents=True, exist_ok=True)
             fig.savefig(f"{path}/stats_board_{strat_name}.png")
             plt.close()
         else:

@@ -49,6 +49,7 @@ class VolCarry(BacktestEngine):
         temp_alpha = []
         for inst in self.insts:
             if inst == "SVXY": temp_alpha.append(short_cond)
+            elif inst == "BIL": temp_alpha.append(1-short_cond)
             else: temp_alpha.append(neutral_pos)
         
         alpha_df = pd.concat(temp_alpha,axis=1)
