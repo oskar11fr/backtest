@@ -165,7 +165,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             self.date_range = pd.date_range(start=start, end=end, freq="D")
 
 
-    def get_zero_filtered_stats(self, test_data: bool = False) -> dict[str, Union[pd.Series, pd.DataFrame]]:
+    def get_zero_filtered_stats(self, test: bool | float = False) -> dict[str, Union[pd.Series, pd.DataFrame]]:
         """
         Filter and retrieve statistics for non-zero capital returns.
 
@@ -188,9 +188,12 @@ class BacktestEngine(TradingFrequencyCalculator):
         assert self.portfolio_df is not None, "Portfolio data must be initialized before getting statistics."
 
         idxs = self.date_range
-        if test_data:
+        if isinstance(test, bool) and test:
             idxs = idxs[self.portf_strategy.TRAIN_ID:]
             if self.portf_strategy.TRAIN_ID == 0: print("No train / test size is initalized, will consider full dataframe")
+        
+        if isinstance(test, float):
+            idxs = idxs[int(len(idxs)*test):]
 
         # Extract relevant columns
         nominal_ret = self.portfolio_df["nominal_ret"].loc[idxs]
@@ -219,7 +222,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             compare: bool = False,
             show: bool = False,
             strat_name: Optional[str] = None,
-            test_data: bool = False
+            test: bool | float = False
         ) -> pd.Series:
         """
         Calculate and return performance statistics.
@@ -263,7 +266,7 @@ class BacktestEngine(TradingFrequencyCalculator):
 
         # Calculate performance measures
         stats_dict = performance_measures(
-            r_ser=self.get_zero_filtered_stats(test_data=test_data)["capital_ret"],
+            r_ser=self.get_zero_filtered_stats(test=test)["capital_ret"],
             plot=plot,
             market=market_dict,
             show=show,

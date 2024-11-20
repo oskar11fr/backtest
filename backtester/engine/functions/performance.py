@@ -10,6 +10,23 @@ from typing import Dict, Optional, Union, Tuple
 
 plt.style.use("bmh")
 
+def check_intraday_data(ser: pd.Series) -> tuple[bool, int]:
+    """
+    Check if the DataFrame has intraday data and calculate the average number of timestamps per day.
+    
+    Parameters:
+    df (pd.DataFrame): A DataFrame with a datetime index.
+    
+    Returns:
+    tuple: A tuple containing:
+        - has_intraday (bool): True if intraday data is present, False otherwise.
+        - avg_timestamps_per_day (float): The average number of timestamps per day.
+    """
+    trading_day_counts = ser.index.to_series().dt.date.value_counts()
+    has_intraday = (trading_day_counts > 1).any()
+    avg_timestamps_per_day = trading_day_counts.mean()
+    return has_intraday, int(avg_timestamps_per_day)
+
 def performance_measures(
     r_ser: pd.Series,
     plot: bool = False,
@@ -47,12 +64,17 @@ def performance_measures(
         If `market` is provided but not of type `dict[str, pd.Series]`.
     """
     # Helper functions for statistical moments and performance metrics
+    
+    has_intraday, avg_timestamps_per_day = check_intraday_data(ser=r_ser)
+
+    calc_const = avg_timestamps_per_day * 253
+
     moment = lambda x, k: np.mean((x - np.mean(x)) ** k)
     stdmoment = lambda x, k: moment(x, k) / moment(x, 2) ** (k / 2)
     rolling_drawdown = lambda cr, pr: cr / cr.rolling(pr, min_periods=1).max() - 1
     rolling_max_dd = lambda cr, pr: rolling_drawdown(cr, pr).rolling(pr, min_periods=1).min()
     cagr_fn = lambda cr: (cr[-1]/cr[0])**(1/len(cr))-1
-    cagr_ann_fn = lambda cr: ((1+cagr_fn(cr))**253) - 1
+    cagr_ann_fn = lambda cr: ((1+cagr_fn(cr))**(calc_const)) - 1
 
     # Compute cumulative and log returns
     r = r_ser.values
@@ -62,22 +84,19 @@ def performance_measures(
 
     # Performance metrics
     mdd = np.min(cr / np.maximum.accumulate(cr) - 1)  # Maximum drawdown
-    sortino_ratio = np.mean(r) / np.std(r[r < 0]) * np.sqrt(253)
-    sharpe_ratio = np.mean(r) / np.std(r) * np.sqrt(253)
-    mean_ret = np.mean(r) * 253
-    median_ret = np.median(r) * 253
-    vol = np.std(r) * np.sqrt(253)
+    sortino_ratio = np.mean(r) / np.std(r[r < 0]) * np.sqrt(calc_const)
+    sharpe_ratio = np.mean(r) / np.std(r) * np.sqrt(calc_const)
+    mean_ret = np.mean(r) * calc_const
+    median_ret = np.median(r) * calc_const
+    vol = np.std(r) * np.sqrt(calc_const)
     variance = vol ** 2
     skewness = stdmoment(r, 3)
     ex_kurtosis = stdmoment(r, 4) - 3
     
     cagr = cagr_ann_fn(cr) # Annualized CAGR
-    rolling_cagr = cr_ser.rolling(5 * 253).apply(
-        lambda x: ((x[-1] / x[0]) ** (1 / len(x)) - 1) ** 253, raw=True
-    )
-    # rolling_calmar = rolling_cagr / rolling_max_dd(cr_ser, 3 * 253) * -1
-    rolling_sharpe = r_ser.rolling(253, min_periods=50).mean() \
-          / r_ser.rolling(253, min_periods=50).std() * np.sqrt(253)
+
+    rolling_sharpe = r_ser.rolling(calc_const, min_periods=50).mean() \
+          / r_ser.rolling(calc_const, min_periods=50).std() * np.sqrt(calc_const)
     var95 = np.percentile(r, 5)
     cvar = r[r < var95].mean()
     calmar = cagr / mdd * -1
@@ -116,7 +135,7 @@ def performance_measures(
         ax5.xaxis.set_major_locator(plt.MaxNLocator(5))
 
         # Log returns plot
-        idxs = r_ser.index.strftime('%Y-%m-%d')
+        idxs = r_ser.index.strftime('%Y-%m-%d') if not has_intraday else range(len(r_ser))
         ax1.plot(idxs, lr, label=strat_name)
         if market:
             assert isinstance(market, dict), "Market parameter must be a dictionary of {name: pd.Series}."
@@ -127,8 +146,8 @@ def performance_measures(
         ax1.legend()
 
         # Drawdowns
-        ax2.plot(idxs, rolling_drawdown(cr_ser, 253), label="Drawdowns")
-        ax2.plot(idxs, rolling_max_dd(cr_ser, 253), label="Max Drawdowns")
+        ax2.plot(idxs, rolling_drawdown(cr_ser, calc_const), label="Drawdowns")
+        ax2.plot(idxs, rolling_max_dd(cr_ser, calc_const), label="Max Drawdowns")
         ax2.set_ylabel("Drawdowns")
         ax2.legend()
 
@@ -147,7 +166,7 @@ def performance_measures(
         table.set_fontsize(10)
 
         # Distribution of drawdowns
-        ax4.hist(rolling_drawdown(cr_ser, 253), orientation="horizontal", bins=40)
+        ax4.hist(rolling_drawdown(cr_ser, calc_const), orientation="horizontal", bins=40)
 
         # Returns bar chart
         ax5.bar(idxs, r)
