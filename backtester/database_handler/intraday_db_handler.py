@@ -15,7 +15,7 @@ class IntradayDatabase():
         self.engine_name = "intraday_db"
         self.engine = sqlalchemy.create_engine("sqlite:///"+PATH+"/files/" + self.engine_name)
 
-    def export_from_database(self, tickers: list[str], start_date: str = "2007-04-24", end_date: str = "2021-05-01") -> tuple[list[str], dict[str, pd.DataFrame]]:
+    def export_from_database(self, tickers: list[str], start_date: str = "2007-04-24", end_date: str = "2021-05-01", freq: str = "1min") -> tuple[list[str], dict[str, pd.DataFrame]]:
         with self.engine.begin() as conn:
             dfs = {}
             inspector = inspect(self.engine)
@@ -32,6 +32,9 @@ class IntradayDatabase():
                     .drop(columns='index',errors="ignore")
                 
                 df.index = pd.DatetimeIndex(df.index)
-                dfs[ticker] = df.between_time("9:30", "16:00")
+                df = df.between_time("9:30", "16:00")
+                ohlc_dict = {'close': 'last'}
+                if len(df.columns) > 1: ohlc_dict.update({'open':'first', 'high':'max', 'low':'min', "volume": "sum"})
+                dfs[ticker] = df.resample(freq, origin='start').agg(ohlc_dict) if freq != "1min" else df
                 
             return tickers, dfs

@@ -186,8 +186,9 @@ class BacktestEngine(TradingFrequencyCalculator):
             If `self.portfolio_df` is not initialized.
         """
         assert self.portfolio_df is not None, "Portfolio data must be initialized before getting statistics."
-
+        
         idxs = self.date_range
+        is_intraday = (idxs.to_series().dt.date.value_counts() > 1).any()
         if isinstance(test, bool) and test:
             idxs = idxs[self.portf_strategy.TRAIN_ID:]
             if self.portf_strategy.TRAIN_ID == 0: print("No train / test size is initalized, will consider full dataframe")
@@ -200,7 +201,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         capital_ret = self.portfolio_df["capital_ret"].loc[idxs]
 
         # Filter for non-zero capital returns
-        non_zero_idx = capital_ret.loc[capital_ret != 0].index
+        non_zero_idx = capital_ret.loc[capital_ret != 0].index if not is_intraday else capital_ret.index
         retdf = self.retdf.loc[non_zero_idx]
         weights = self.weights_df.shift(1).fillna(0).loc[non_zero_idx]
         eligs = self.eligiblesdf.shift(1).fillna(0).loc[non_zero_idx]

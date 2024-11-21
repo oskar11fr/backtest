@@ -22,6 +22,7 @@ def check_intraday_data(ser: pd.Series) -> tuple[bool, int]:
         - has_intraday (bool): True if intraday data is present, False otherwise.
         - avg_timestamps_per_day (float): The average number of timestamps per day.
     """
+    
     trading_day_counts = ser.index.to_series().dt.date.value_counts()
     has_intraday = (trading_day_counts > 1).any()
     avg_timestamps_per_day = trading_day_counts.mean()
