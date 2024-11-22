@@ -77,12 +77,12 @@ backtest/
 │  │  ├── tactical.py                  # Tactical allocation strategy.
 │  │  ├── vol_carry.py                 # Volatility carry strategy.
 ├── images/                          # Visualization outputs from strategies.
-│   ├── stats_board_intraday_ml.png
-│   ├── stats_board_tactical_strategy.png
-│   ├── stats_board_vol_carry_strategy.png
-│   ├── stats_board_combined.png
-│   ├── permuted_returns_tactical_strategy.png
-│   ├── permuted_returns_vol_carry_strategy.png
+│  ├── stats_board_intraday_ml.png
+│  ├── stats_board_tactical_strategy.png
+│  ├── stats_board_vol_carry_strategy.png
+│  ├── stats_board_combined.png
+│  ├── permuted_returns_tactical_strategy.png
+│  ├── permuted_returns_vol_carry_strategy.png
 ├── main.py                          # Entry point for running backtests.
 ├── main_ml.py                       # Entry point for running machine learning strategy
 ´´´
