@@ -59,24 +59,23 @@ The backtesting framework supports:
 
 
 ```console
-backtester/
-├── database_handler/
-│   ├── __init__.py                  # Initializes the database handler package.
-│   ├── intraday_db_handler.py       # Handles intraday data storage and retrieval.
-│   ├── yf_db_handler.py             # Manages data sourced from Yahoo Finance.
-├── engine/
-│   ├── functions/
-│   │   ├── __init__.py              # Initializes helper functions package.
-│   │   ├── performance.py           # Performance metrics and analysis.
-│   │   ├── quant_stats.py           # Quantitative statistics utilities.
-│   ├── portfolio_optimization.py    # Portfolio optimization strategies.
-│   ├── simulation_engine.py         # Backtesting framework and portfolio optimization.
-│   ├── utils.py                     # Utility functions for calculations.
-│   ├── buy_hold.py                  # Simple buy-and-hold strategy (example/benchmark).
-│   ├── intraday_ml.py               # Intraday machine learning strategy.
-│   ├── tactical.py                  # Tactical allocation strategy.
-│   ├── vol_carry.py                 # Volatility carry strategy.
-│   ├── configs.yml                  # Configuration file for custom settings.
+backtest/
+│  ├──backtester/
+│  │  ├── database_handler/              
+│  │  │   ├── intraday_db_handler.py       # Handles intraday data storage and retrieval.
+│  │  │   ├── yf_db_handler.py             # Manages data sourced from Yahoo Finance.
+│  │  ├── engine/
+│  │  │   ├── functions/        
+│  │  │   │   ├── performance.py                # Performance metrics and analysis.
+│  │  │   │   ├── quant_stats.py                # Quantitative statistics utilities.
+│  │  │   │   ├── portfolio_optimization.py     # Portfolio optimization strategies.
+│  │  │   ├── simulation_engine.py         # Backtesting framework and portfolio optimization.
+│  │  │   ├── configs.yml                  # Configuration file for custom settings.
+│  │  │   ├── utils.py                     # Utility functions for calculations.
+│  │  ├── buy_hold.py                  # Simple buy-and-hold strategy (example/benchmark).
+│  │  ├── intraday_ml.py               # Intraday machine learning strategy.
+│  │  ├── tactical.py                  # Tactical allocation strategy.
+│  │  ├── vol_carry.py                 # Volatility carry strategy.
 ├── images/                          # Visualization outputs from strategies.
 │   ├── stats_board_intraday_ml.png
 │   ├── stats_board_tactical_strategy.png
