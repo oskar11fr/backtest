@@ -13,14 +13,12 @@ Please do not take these strategies as financial advice or recommendations for a
 
 ### **Backtesting Framework**
 - **`BacktestEngine`**: 
-The `BacktestEngine` class serves as the backbone of the backtesting framework in this repository. It allows for the backtesting of various trading strategies using both intraday and daily data.  
+This class serves as the backbone of the backtesting framework in this repository. It allows for the backtesting of various trading strategies using both intraday and daily data.  
   - **Data Handling**: The engine can process historical data for a range of financial instruments at different time granularities (e.g., minute-level for intraday strategies).
   - **Portfolio Optimization**: The engine supports various portfolio optimization methods, including vanilla volatility targeting and more advanced approaches like mean-variance optimization and machine learning-based models (e.g., Gaussian Mixture Models, Hidden Markov Models).
   - **Trade Frequency**: It provides the flexibility to execute trades at any specified frequency, making it suitable for strategies ranging from high-frequency trading to daily rebalancing.
   - **Performance Metrics**: The engine integrates performance testing, including Monte Carlo permutation tests, and tracks key metrics such as Sharpe ratio, drawdowns, and other risk-adjusted performance measures.
   - **Statistical Analysis**: It includes tools for conducting statistical analysis on the strategy’s performance over different market conditions and time periods.
-
-  The `BacktestEngine` is an abstract base class, and specific strategies like the `IntradayML` class can be created by inheriting and implementing the required methods.
 
 - **Portfolio Optimization**:
   - Abstract class in `portfolio_optimization.py` for optimizing portfolio allocations.  
