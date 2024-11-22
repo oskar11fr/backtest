@@ -6,7 +6,7 @@ from scipy.optimize import minimize
 from hmmlearn.hmm import GaussianHMM
 from sklearn.mixture import GaussianMixture
 
-class PositioningStrategy(ABC):
+class PositioningMethod(ABC):
     def __init__(self) -> None:
         super().__init__()
         self.TRAIN_ID = 0
@@ -25,7 +25,7 @@ class PositioningStrategy(ABC):
     ) -> np.ndarray:
         pass
 
-class VolatilityTargetingStrategy(PositioningStrategy):
+class VanillaVolatilityTargeting(PositioningMethod):
     def get_strat_positions(
         self,
         forecasts: np.ndarray,
@@ -54,7 +54,7 @@ class VolatilityTargetingStrategy(PositioningStrategy):
         positions = np.floor(np.nan_to_num(positions,nan=0,posinf=0,neginf=0))
         return positions
 
-class MeanVarianceStrategy(PositioningStrategy):
+class MeanVariance(PositioningMethod):
     def get_strat_positions(
         self,
         forecasts: np.ndarray,
@@ -77,7 +77,7 @@ class MeanVarianceStrategy(PositioningStrategy):
         positions = strat_scalar * weights * capitals / close_row
         return np.floor(np.nan_to_num(positions))
 
-class MixtureModelsMeanVarianceStrategy(PositioningStrategy):
+class MixtureModelsMeanVariance(PositioningMethod):
     TRAIN_SIZE = .6
     SEED = np.random.seed(1)
 
@@ -167,7 +167,7 @@ class MixtureModelsMeanVarianceStrategy(PositioningStrategy):
         ret = retdf.shift(1).rolling(wind,min_periods=0).mean().fillna(0).values # shift 1 lag to avoid lookahead bias
         return ret[:self.TRAIN_ID,:], ret
     
-class EigenPortfolioStrategy(PositioningStrategy):
+class EigenPortfolioStrategy(PositioningMethod):
     TRAIN_SIZE = 0.6
 
     def __init__(self) -> None:

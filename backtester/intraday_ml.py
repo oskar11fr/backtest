@@ -1,7 +1,7 @@
 from datetime import datetime
 from backtester import BacktestEngine
 from pandas.core.api import DataFrame as DataFrame, DatetimeIndex
-from backtester.engine.functions.portfolio_strategies import PositioningStrategy, VolatilityTargetingStrategy
+from backtester.engine.functions.portfolio_optimization import PositioningMethod, VanillaVolatilityTargeting
 
 import numpy as np
 import pandas as pd
@@ -88,13 +88,13 @@ class IntradayML(BacktestEngine):
             date_range: DatetimeIndex | None = None, 
             trade_frequency: str | None = None, 
             day_of_week: str | None = None, 
-            portf_strategy: PositioningStrategy = VolatilityTargetingStrategy(), 
+            portf_optimization: PositioningMethod = VanillaVolatilityTargeting(), 
             portfolio_vol: float = 0.2, 
             max_leverage: float = 2, 
             min_leverage: float = 0, 
             benchmark: str | None = None
         ) -> None:
-        super().__init__(insts, dfs, start, end, date_range, trade_frequency, day_of_week, portf_strategy, portfolio_vol, max_leverage, min_leverage, benchmark)
+        super().__init__(insts, dfs, start, end, date_range, trade_frequency, day_of_week, portf_optimization, portfolio_vol, max_leverage, min_leverage, benchmark)
     
     def prep_train_test_data(self) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         inst = "SPY"

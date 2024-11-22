@@ -16,11 +16,11 @@ from .functions.performance import (
     plot_random_entries, 
     performance_measures
 )
-from .functions.portfolio_strategies import(
-    PositioningStrategy,
-    MeanVarianceStrategy,
-    VolatilityTargetingStrategy,
-    MixtureModelsMeanVarianceStrategy
+from .functions.portfolio_optimization import(
+    PositioningMethod,
+    MeanVariance,
+    VanillaVolatilityTargeting,
+    MixtureModelsMeanVariance
 )
 # from .database.constants import STRAT_PATH
 
@@ -106,7 +106,7 @@ class BacktestEngine(TradingFrequencyCalculator):
             date_range: Optional[pd.DatetimeIndex] = None, 
             trade_frequency: Optional[str] = None,
             day_of_week: Optional[str] = None,
-            portf_strategy: PositioningStrategy = VolatilityTargetingStrategy(),
+            portf_optimization: PositioningMethod = VanillaVolatilityTargeting(),
             portfolio_vol: float = 0.20,
             max_leverage: float = 2.0, 
             min_leverage: float = 0.0, 
@@ -158,7 +158,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         self.benchmark = benchmark
         self.date_range = date_range
 
-        self.portf_strategy = portf_strategy
+        self.portf_optimization = portf_optimization
 
         # Determine date range for the backtest
         if date_range is None:
@@ -190,8 +190,8 @@ class BacktestEngine(TradingFrequencyCalculator):
         idxs = self.date_range
         is_intraday = (idxs.to_series().dt.date.value_counts() > 1).any()
         if isinstance(test, bool) and test:
-            idxs = idxs[self.portf_strategy.TRAIN_ID:]
-            if self.portf_strategy.TRAIN_ID == 0: print("No train / test size is initalized, will consider full dataframe")
+            idxs = idxs[self.portf_optimization.TRAIN_ID:]
+            if self.portf_optimization.TRAIN_ID == 0: print("No train / test size is initalized, will consider full dataframe")
         
         if isinstance(test, float):
             idxs = idxs[int(len(idxs)*test):]
@@ -480,7 +480,7 @@ class BacktestEngine(TradingFrequencyCalculator):
         np.ndarray
             Array of calculated positions.
         """
-        return self.portf_strategy.get_strat_positions(
+        return self.portf_optimization.get_strat_positions(
             forecasts, capitals, strat_scalar, vol_row, close_row, vol_target, idx, **kwargs
         )
 
@@ -666,13 +666,13 @@ class BacktestEngine(TradingFrequencyCalculator):
 
             # Strategy-specific arguments
             kwargs = {}
-            if isinstance(self.portf_strategy, MixtureModelsMeanVarianceStrategy):
+            if isinstance(self.portf_optimization, MixtureModelsMeanVariance):
                 kwargs = {
                     "max_leverage": self.max_leverage,
                     "retdf": self.retdf,
                     "trade_frequency": self.trade_frequency
                 }
-            elif isinstance(self.portf_strategy, VolatilityTargetingStrategy):
+            elif isinstance(self.portf_optimization, VanillaVolatilityTargeting):
                 kwargs = {
                     "max_leverage": self.max_leverage,
                     "min_leverage": self.min_leverage
