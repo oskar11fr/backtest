@@ -12,13 +12,15 @@ Please do not take these strategies as financial advice or recommendations for a
 ## Features
 
 ### **Backtesting Framework**
-- **`BacktestEngine`**:  
-  - Located in `simulation_engine.py`, this is the parent class for backtesting any trading strategy.  
-  - Abstract and extensible, allowing easy integration of new strategies.  
-  - Supports intraday and daily data with customizable trading frequencies.  
-  - Provides functionality for:
-    - Statistical testing, including Monte Carlo permutation tests.
-    - Plotting and generating trading statistics.
+- **`BacktestEngine`**: 
+The `BacktestEngine` class serves as the backbone of the backtesting framework in this repository. It allows for the backtesting of various trading strategies using both intraday and daily data.  
+  - **Data Handling**: The engine can process historical data for a range of financial instruments at different time granularities (e.g., minute-level for intraday strategies).
+  - **Portfolio Optimization**: The engine supports various portfolio optimization methods, including vanilla volatility targeting and more advanced approaches like mean-variance optimization and machine learning-based models (e.g., Gaussian Mixture Models, Hidden Markov Models).
+  - **Trade Frequency**: It provides the flexibility to execute trades at any specified frequency, making it suitable for strategies ranging from high-frequency trading to daily rebalancing.
+  - **Performance Metrics**: The engine integrates performance testing, including Monte Carlo permutation tests, and tracks key metrics such as Sharpe ratio, drawdowns, and other risk-adjusted performance measures.
+  - **Statistical Analysis**: It includes tools for conducting statistical analysis on the strategy’s performance over different market conditions and time periods.
+
+  The `BacktestEngine` is an abstract base class, and specific strategies like the `IntradayML` class can be created by inheriting and implementing the required methods.
 
 - **Portfolio Optimization**:
   - Abstract class in `portfolio_optimization.py` for optimizing portfolio allocations.  
@@ -32,13 +34,20 @@ Please do not take these strategies as financial advice or recommendations for a
 ### **Trading Strategies**
 Three trading strategies have been implemented using `BacktestEngine` as the parent class:
 1. **`intraday_ml.py`**:  
-   Focuses on machine learning-driven intraday strategies.
+   Based on intraday data, it uses a machine learning model built with Keras to predict next 15 minute price movements.
+   The model is a neural network with a single hidden layer and a tanh activation function at the output layer, designed to forecast future returns. The strategy utilizes features like **VWAP** (Volume Weighted Average Price), **TWAP** (Time Weighted Average Price), **AVAT** (Average Volume at Time), and others, to create signals based on the deviation from historical averages and volatility. 
+
+  **Key Features:**
+  - **Data**: The strategy operates on minute-level intraday data, processing price and volume to create trading signals.
+  - **Indicators**: It includes technical features 
+  - **Model**: The strategy is based on a Keras-based neural network (KerasModel), trained on a combination of features such as the z-score of VWAP, TWAP, AVAT, and volatility.
+  - **Training and Prediction**: The model is trained on 70% of historical data and tested on the remaining 30%.
+  - **Forecasting**: The forecast is made using the model’s output, adjusting positions accordingly for each trading day based on the predicted returns.
+
 2. **`tactical.py`**:  
    Implements tactical asset allocation strategies with a mix of rule-based and statistical approaches.
 3. **`vol_carry.py`**:  
    Focuses on strategies that exploit volatility carry signals.
-
-More detailed descriptions of these strategies will be provided soon.
 
 ---
 
