@@ -30,8 +30,9 @@ def tactical_main():
 if __name__ == "__main__":
     tactical_strat = tactical_main()
     tactical_strat.run_simulation(use_vol_target=True)
-    tactical_strat.run_hypothesis_tests(num_decision_shuffles=100,strat_name="tactical_strategy")
+    # tactical_strat.run_hypothesis_tests(num_decision_shuffles=100,strat_name="tactical_strategy")
     tactical_strat.get_perf_stats(plot=True,show=False,strat_name="tactical_strategy",compare=True)
+    exit()
 
     vol_carry_strat = vol_carry_main()
     vol_carry_strat.run_simulation(use_vol_target=False)

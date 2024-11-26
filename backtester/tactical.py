@@ -23,13 +23,13 @@ class Tactical(BacktestEngine):
             date_range: DatetimeIndex | None = None, 
             trade_frequency: str | None = None, 
             day_of_week: str | None = None, 
-            portf_optimization: PositioningMethod = MixtureModelsMeanVariance(model_name="gmm"), 
+            portf_optimization: PositioningMethod = MixtureModelsMeanVariance(model_name="hmm"), 
             portfolio_vol: float = 0.2,
             max_leverage: float = 2, 
             min_leverage: float = 0, 
             benchmark: str | None = None
         ) -> None:
-        trade_frequency = "weekly"
+        trade_frequency = "monthly"
         super().__init__(insts, dfs, start, end, date_range, trade_frequency, day_of_week, portf_optimization, portfolio_vol, max_leverage, min_leverage, benchmark)
         
     def pre_compute(self,trade_range):

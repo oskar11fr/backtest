@@ -79,25 +79,26 @@ class MeanVariance(PositioningMethod):
 
 class MixtureModelsMeanVariance(PositioningMethod):
     TRAIN_SIZE = .6
-    SEED = np.random.seed(1)
 
     def __init__(self, model_name: str = "hmm") -> None:
         super().__init__()
-        models_confs = {
-            "hmm": GaussianHMM(
-                n_components=2,
-                covariance_type="full",
-                algorithm="map",
-                random_state=self.SEED
-            ),
-            "gmm": GaussianMixture(
-                n_components=2,
-                covariance_type="full",
-                random_state=self.SEED
-            )
+        self.model_map = {"hmm": GaussianHMM, "gmm": GaussianMixture}
+
+        self.model_name = model_name
+        self.models_confs = {
+            "hmm": {
+                "n_components": 2,
+                "covariance_type": "full",
+                "algorithm": "map"
+            },
+            "gmm": {
+                "n_components": 2,
+                "covariance_type": "full"
+            }
         }
-        assert model_name in models_confs.keys(), f"Make sure model_name is in {models_confs.keys()}"
-        self.MODEL: GaussianHMM | GaussianMixture = models_confs[model_name]
+        assert model_name in self.models_confs.keys(), f"Make sure model_name is in {self.models_confs.keys()}"
+        # self.MODEL: GaussianHMM | GaussianMixture = model_map[model_name]
+        
 
     def get_strat_positions(
         self,
@@ -114,12 +115,16 @@ class MixtureModelsMeanVariance(PositioningMethod):
         forecasts_returns = forecasts
         if idx == 0:
             train_ret, self.ret = self.get_rets(retdf=retdf,trade_frequency=trade_frequency)
-            self.model = self.train(train_ret=train_ret)
+
             print("=============================================================== ")
             print(f" - Training window: {retdf.index[0]} - {retdf.index[self.TRAIN_ID]}")
             print(f" - Testing window: {retdf.index[self.TRAIN_ID+1]} - {retdf.index[-1]}")
-            print(f" - Regime prediction model: {self.model}")
+            print(f" - Regime prediction model: {self.model_map[self.model_name]}")
+            print("--------------------------------------------------------------- ")
+            
+            self.model = self.train(train_ret=train_ret)
             print("=============================================================== ")
+
             return np.zeros(len(forecasts))
         
         state = self.predict_states(model=self.model, ret=self.ret[(idx - 1):idx,:])
@@ -145,8 +150,19 @@ class MixtureModelsMeanVariance(PositioningMethod):
         return np.floor(positions)
     
     def train(self, train_ret: np.ndarray):
-        model = self.MODEL
-        return model.fit(X=train_ret)
+        models, scores = [], []
+        for s in range(10):
+            model = self.model_map[self.model_name](random_state=s,**self.models_confs[self.model_name])
+            model.fit(X=train_ret)
+            models.append(model)
+            scores.append(model.score(X=train_ret))
+
+            if isinstance(model, GaussianHMM): print(f'Converged: {model.monitor_.converged} --- Score: {scores[-1]}')
+            if isinstance(model, GaussianMixture): print(f'Score: {scores[-1]}')
+
+        model = models[np.argmax(scores)]
+        print(f'The best model had a score of {max(scores)}')
+        return model
 
     def predict_states(self, model: GaussianHMM | GaussianMixture, ret: np.ndarray) -> np.ndarray:
         return model.predict(X=ret)[0]
