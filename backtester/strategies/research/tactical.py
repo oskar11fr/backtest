@@ -22,15 +22,21 @@ class Tactical(BacktestEngine):
             end: datetime | None = None, 
             date_range: DatetimeIndex | None = None, 
             trade_frequency: str | None = None, 
-            day_of_week: str | None = None, 
-            portf_optimization: PositioningMethod = MixtureModelsMeanVariance(model_name="hmm"), 
+            day_of_week: str | None = None,
+            use_portfolio_opt: bool = True,
+            portf_optimization: PositioningMethod = VanillaVolatilityTargeting(), 
             portfolio_vol: float = 0.2,
             max_leverage: float = 2, 
             min_leverage: float = 0, 
-            benchmark: str | None = None
+            benchmark: str | None = None,
+            train_size: float = 0.6,
+            costs: dict[str, float] = {"slippage": 0.}
         ) -> None:
-        trade_frequency = "monthly"
-        super().__init__(insts, dfs, start, end, date_range, trade_frequency, day_of_week, portf_optimization, portfolio_vol, max_leverage, min_leverage, benchmark)
+        trade_frequency = "weekly"
+        super().__init__(
+            insts, dfs, start, end, date_range, trade_frequency, day_of_week, use_portfolio_opt, portf_optimization, 
+            portfolio_vol, max_leverage, min_leverage, benchmark, train_size, costs
+        )
         
     def pre_compute(self,trade_range):
         return 
@@ -40,10 +46,8 @@ class Tactical(BacktestEngine):
     
         for inst in self.insts:
             inst_df = self.dfs[inst]
-            inst_df["vals"] = np.zeros(len(inst_df)) \
-                + 1/2 * inst_df["close"]/inst_df["close"].ewm(0.1).mean() \
-                + 1/4 * inst_df["close"]/inst_df["close"].ewm(0.25).mean() \
-                + 1/4 * inst_df["close"]/inst_df["close"].ewm(0.35).mean() 
+            inst_df["vals"] = inst_df["close"] / inst_df["close"].ewm(0.5).mean()
+            inst_df["vals"] /= inst_df["vals"].ewm(0.5).std() * np.sqrt(252)
             forecast_df.append(inst_df["vals"])
 
         alphadf = pd.concat(forecast_df,axis=1)
@@ -53,10 +57,8 @@ class Tactical(BacktestEngine):
         masked_df = alphadf/self.eligiblesdf
         masked_df = masked_df.replace([-np.inf, np.inf], np.nan)
 
-        # rankdf = masked_df.rank(axis=1,method="average",na_option="keep",ascending=False)
-
-        # forecast_df = rankdf
-        self.forecast_df = masked_df # forecast_df
+        rankdf = masked_df.rank(axis=1,method="average",na_option="keep",ascending=True,pct=True)
+        self.forecast_df = rankdf
         return 
 
     def compute_signal_distribution(self, eligibles, date):

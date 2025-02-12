@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5d68ff86-9c88-46ed-8039-6ce5205fc81b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/buy_hold.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/database_handler/intraday_db_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/database_handler/intraday_db_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/database_handler/yf_db_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/database_handler/yf_db_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/engine/configs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/engine/configs.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/engine/functions/performance.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/engine/functions/performance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/engine/functions/portfolio_optimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/engine/functions/portfolio_optimization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/engine/simulation_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/engine/simulation_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/engine/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/backtester/engine/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/intraday_ml.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/tactical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backtester/vol_carry.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/permuted_returns_tactical_strategy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/permuted_returns_vol_carry_strategy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stats_board_combined.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stats_board_intraday_ml.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stats_board_tactical_strategy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/stats_board_vol_carry_strategy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_ml.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2qA8O99k9y653yqzg1YjUh0HmH1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/oskarfransson/vs_code/backtest"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d68ff86-9c88-46ed-8039-6ce5205fc81b" name="Changes" comment="" />
+      <created>1734093985397</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734093985397</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

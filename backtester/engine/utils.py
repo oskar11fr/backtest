@@ -1,9 +1,24 @@
 import yaml
 import pandas as pd
 
-from backtester import BacktestEngine
 from typing import Dict, Tuple, List
 
+import shelve
+
+def save_obj(obj, obj_name: str) -> None:
+    DATA_FOLDER_PATH: str = get_configs()["PATH"]["DATA_FOLDER_PATH"]
+    with shelve.open(DATA_FOLDER_PATH + "/strategy") as db:
+        db[obj_name] = obj
+    return
+
+def load_obj(obj_name: str) -> pd.DataFrame:
+    DATA_FOLDER_PATH: str = get_configs()["PATH"]["DATA_FOLDER_PATH"]
+    with shelve.open(DATA_FOLDER_PATH + "/strategy") as db:
+        if obj_name in db.keys():
+            portfolio_df = db[obj_name]
+            return portfolio_df
+        else:
+            return None
 
 def get_configs() -> Dict[str, str]:
     """
@@ -29,37 +44,4 @@ def get_configs() -> Dict[str, str]:
         raise FileNotFoundError("The configuration file './backtester/engine/configs.yml' was not found.") from e
     except yaml.YAMLError as e:
         raise ValueError("Error parsing the YAML configuration file.") from e
-
-
-def bundle_strategies(
-        strats: Dict[str, BacktestEngine]
-    ) -> Tuple[List[str], Dict[str, pd.Series]]:
-    """
-    Bundles strategies into a dictionary of capital returns and extracts strategy names.
-
-    Parameters
-    ----------
-    strats : Dict[str, BacktestEngine]
-        A dictionary where the key is the strategy name, and the value is a `BacktestEngine` object.
-
-    Returns
-    -------
-    Tuple[List[str], Dict[str, pd.Series]]
-        A tuple containing:
-        - A list of strategy names.
-        - A dictionary where keys are strategy names and values are normalized capital returns.
-
-    Raises
-    ------
-    KeyError
-        If the portfolio DataFrame does not contain the "capital" column.
-    """
-    try:
-        capital_rets = {
-            name: strat.portfolio_df["capital"].rename("close") / 1000 
-            for name, strat in strats.items()
-        }
-        names = list(capital_rets.keys())
-        return names, capital_rets
-    except KeyError as e:
-        raise KeyError("One or more strategies are missing the 'capital' column in their portfolio DataFrame.") from e
+    

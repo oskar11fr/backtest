@@ -5,7 +5,7 @@ import numpy as np
 
 from sqlalchemy import text
 from sqlalchemy import inspect
-from backtester import get_configs
+from backtester.engine import get_configs
 
 PATH: str = get_configs()["PATH"]["DB_PATH"]
 

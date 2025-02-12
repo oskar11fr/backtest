@@ -1,2 +1,4 @@
 PATH:
   DB_PATH: "/Users/oskarfransson/vs_code/files_folder"
+  DATA_FOLDER_PATH: "/Users/oskarfransson/vs_code/backtest/backtester/data_folder"
+  CREDENTIALS_PATH: "/Users/oskarfransson/vs_code"

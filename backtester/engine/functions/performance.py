@@ -10,7 +10,7 @@ from typing import Dict, Optional, Union, Tuple
 
 plt.style.use("bmh")
 
-def check_intraday_data(ser: pd.Series) -> tuple[bool, int]:
+def check_intraday_data(indx: pd.DatetimeIndex) -> tuple[bool, int]:
     """
     Check if the DataFrame has intraday data and calculate the average number of timestamps per day.
     
@@ -23,7 +23,7 @@ def check_intraday_data(ser: pd.Series) -> tuple[bool, int]:
         - avg_timestamps_per_day (float): The average number of timestamps per day.
     """
     
-    trading_day_counts = ser.index.to_series().dt.date.value_counts()
+    trading_day_counts = indx.to_series().dt.date.value_counts()
     has_intraday = (trading_day_counts > 1).any()
     avg_timestamps_per_day = trading_day_counts.mean()
     return has_intraday, int(avg_timestamps_per_day)
@@ -66,7 +66,7 @@ def performance_measures(
     """
     # Helper functions for statistical moments and performance metrics
     
-    has_intraday, avg_timestamps_per_day = check_intraday_data(ser=r_ser)
+    has_intraday, avg_timestamps_per_day = check_intraday_data(indx=r_ser.index)
 
     calc_const = avg_timestamps_per_day * 253
 

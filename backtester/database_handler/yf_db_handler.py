@@ -3,31 +3,24 @@ import sqlalchemy
 import pandas as pd
 import yfinance as yf
 
-from sqlalchemy import text
-from sqlalchemy import inspect
-from backtester import get_configs
+from sqlalchemy import text, inspect
+from backtester.engine import get_configs
 
 
 PATH: str = get_configs()["PATH"]["DB_PATH"]
 
 class finance_database:
-    def __init__(self, database_name: str):
+    def __init__(self, database_name: str, use_db: bool = True):
         self.engine_name = database_name
-        self.engine = sqlalchemy.create_engine("sqlite:///"+PATH+"/files/" + self.engine_name)
-        
+        if use_db:
+            self.engine = sqlalchemy.create_engine("sqlite:///"+PATH+"/files/" + self.engine_name)
+    
     def load_daily_data(self, ticker: str, start: str | None = None) -> pd.DataFrame:
-        df = yf.download(ticker, start=start)[['Open','High','Low','Close','Volume','Adj Close']] \
+        df = yf.download(ticker, start=start,auto_adjust=True)[['Open','High','Low','Close','Volume']] \
             .reset_index() \
             .droplevel(axis=1,level=1)
         
-        df['Ratio'] = df['Adj Close'] / df['Close']
-        df['Open'] = df['Open'] * df['Ratio']
-        df['High'] = df['High'] * df['Ratio']
-        df['Low'] = df['Low'] * df['Ratio']
-        df['Close'] = df['Close'] * df['Ratio']
-        df = df.drop(['Ratio', 'Adj Close'], axis = 1)
         df.columns = ['datetime','open','high','low','close','volume']
-        
         return df.dropna()
     
     def ticker_fixer(self, ticker: str) -> str:
@@ -55,11 +48,14 @@ class finance_database:
         for ticker in tickers:
             self.sql_importer(ticker)
             
-    def export_from_database(self) -> tuple[list[str], dict[str, pd.DataFrame]]:
+    def export_from_database(self, tickers: list[str]) -> tuple[list[str], dict[str, pd.DataFrame]]:
+        tickers = [self.ticker_fixer(ticker) for ticker in tickers]
         with self.engine.begin() as conn:
             dfs = {}
             inspector = inspect(self.engine)
-            tickers = inspector.get_table_names()
+            db_tickers = inspector.get_table_names()
+            assert all([ticker in db_tickers for ticker in tickers]), f"Make sure all {tickers} is in DB"
+
             for ticker in tickers:
                 query = text(f'SELECT * FROM {ticker}')
                 df = pd.read_sql_query(query, conn).set_index('datetime').drop(columns='index')

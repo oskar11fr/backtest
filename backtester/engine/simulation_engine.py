@@ -8,22 +8,22 @@ import polars as pl
 from copy import deepcopy
 from functools import wraps
 from datetime import datetime
-from typing import Optional, Union, Dict, Generator, Tuple
+from typing import Optional, Union, Dict, Generator, Tuple, List
 
 from .functions import quant_stats as quant_stats
 from .functions.performance import (
     plot_hypothesis, 
     plot_random_entries, 
-    performance_measures
+    performance_measures,
+    check_intraday_data
 )
 from .functions.portfolio_optimization import(
     PositioningMethod,
-    MeanVariance,
     VanillaVolatilityTargeting,
     MixtureModelsMeanVariance
 )
-# from .database.constants import STRAT_PATH
 
+pd.set_option('future.no_silent_downcasting', True)
 
 def timeme(func):
     @wraps(func)
@@ -34,6 +34,34 @@ def timeme(func):
         print(f"@timeme: {func.__name__} took {b - a} seconds")
         return result
     return timediff
+
+def property_initializer(func):
+    """
+    Decorator that marks a method as a property initializer.
+    """
+    func._is_property_initializer = True
+    return func
+
+def alpha_calculator(func):
+    """
+    Decorator that marks a method as a alpha calculator.
+    """
+    func._is_alpha_calculator = True
+    return func
+
+def eligibility_calculator(func):
+    """
+    Decorator that marks a method as a eligibility calculator.
+    """
+    func._is_eligibility_calculator = True
+    return func
+
+def forecast_calculator(func):
+    """
+    Decorator that marks a method as a forecast calculator.
+    """
+    func._is_forecast_calculator = True
+    return func
 
 
 class AbstractImplementationException(Exception):
@@ -65,7 +93,11 @@ class TradingFrequencyCalculator:
             Sets self.trading_day_ser as a series with a boolean mask indicating trading days.
         """
         if self.trade_frequency is None or self.trade_frequency == "daily":
+            intraday, _ = check_intraday_data(trade_range)
+            # if not intraday:
             self.trading_day_ser = pd.Series(1, index=trade_range)
+            # else:
+            #     self.trading_day_ser = trade_range.to_series().dt.minute.isin([0, 15, 30, 45])
             return
 
         # Create an empty series to hold trading day indicators
@@ -106,11 +138,14 @@ class BacktestEngine(TradingFrequencyCalculator):
             date_range: Optional[pd.DatetimeIndex] = None, 
             trade_frequency: Optional[str] = None,
             day_of_week: Optional[str] = None,
+            use_portfolio_opt: bool = True,
             portf_optimization: PositioningMethod = VanillaVolatilityTargeting(),
             portfolio_vol: float = 0.20,
             max_leverage: float = 2.0, 
             min_leverage: float = 0.0, 
-            benchmark: Optional[str] = None
+            benchmark: Optional[str] = None,
+            train_size: float = 0.6,
+            costs: dict[str, float] = {"slippage": 0.}
         ) -> None:
         """
         Initialize the BacktestEngine with instruments, data, and trading parameters.
@@ -139,6 +174,8 @@ class BacktestEngine(TradingFrequencyCalculator):
             Minimum allowable leverage. Default is 0.0.
         benchmark : str, optional
             Benchmark instrument identifier for performance comparison. Default is None.
+        costs : dict[str, float], optional
+
 
         Returns
         -------
@@ -152,11 +189,14 @@ class BacktestEngine(TradingFrequencyCalculator):
         self.insts = insts
         self.dfs = deepcopy(dfs)
         self.datacopy = deepcopy(dfs)
+        self.use_portfolio_opt = use_portfolio_opt
         self.portfolio_vol = portfolio_vol
         self.max_leverage = max_leverage
         self.min_leverage = min_leverage
         self.benchmark = benchmark
         self.date_range = date_range
+        self.train_size = train_size
+        self.costs = costs
 
         self.portf_optimization = portf_optimization
 
@@ -165,6 +205,510 @@ class BacktestEngine(TradingFrequencyCalculator):
             self.date_range = pd.date_range(start=start, end=end, freq="D")
 
 
+    def initialize_property(self):
+        for attr_name in dir(self):
+            attr = getattr(self, attr_name)
+            if callable(attr) and getattr(attr, '_is_property_initializer', False):
+                for inst in self.insts:
+                    self.dfs[inst] = attr(self.dfs[inst])
+        return
+
+    def calculate_alpha(self):
+        for attr_name in dir(self):
+            attr = getattr(self, attr_name)
+            if callable(attr) and getattr(attr, '_is_alpha_calculator', False):
+                alphas = []
+                for inst in self.insts:
+                    alphas.append(attr(self.dfs[inst]))
+                alpha_df = pd.concat(alphas,axis=1)
+                alpha_df.columns = self.insts
+                self.alpha_df = alpha_df
+        return
+    
+    def set_eligibility(self):
+        for attr_name in dir(self):
+            attr = getattr(self, attr_name)
+            if callable(attr) and getattr(attr, '_is_eligibility_calculator', False):
+                conditions = []
+                for inst in self.insts:
+                    conditions.append(attr(self.dfs[inst]))
+                conditions_df = pd.concat(conditions,axis=1)
+                conditions_df.columns = self.insts
+                self.eligiblesdf = self.eligiblesdf & (~pd.isna(self.alpha_df)) & conditions_df
+        return
+    
+    def calculate_forecast(self):
+        for attr_name in dir(self):
+            attr = getattr(self, attr_name)
+            if callable(attr) and getattr(attr, '_is_forecast_calculator', False):
+                forecast_df = attr(self.alpha_df)
+                forecast_df = forecast_df / self.eligiblesdf
+                forecast_df = forecast_df.replace([-np.inf, np.inf], np.nan)
+                self.forecast_df = forecast_df
+        return
+                
+    def pre_compute(self):
+        pass
+    
+    def post_compute(self):
+        pass
+
+    def compute_signal_distribution(self, eligibles, date):
+        raise AbstractImplementationException("no concrete implementation for signal generation")
+
+    def compute_meta_info(self) -> None:
+        """
+        Compute meta-information necessary for backtesting, including trading days, eligibility,
+        volatility, and returns for each instrument.
+
+        Returns
+        -------
+        None
+        """
+        print("Initializing trading frequency...")
+        self.compute_frequency(trade_range=self.date_range)
+
+        print("Initializing properties...")
+        self.initialize_property()
+        self.pre_compute() # can manually initialize done
+
+        def is_any_one(x: np.ndarray) -> int:
+            """Return 1 if any True element in the input array, otherwise return 0."""
+            return int(np.any(x))
+
+        print("Initializing meta info...")
+        closes, eligibles, vols, rets, trading_days = [], [], [], [], []
+
+        for inst in self.insts:
+            df = pd.DataFrame(index=self.date_range)
+            inst_data = self.dfs[inst]
+            inst_data = df.join(inst_data).ffill() \
+                .infer_objects(copy=False)
+
+            # Calculate volatility and returns
+            inst_vol = (inst_data["close"].pct_change(fill_method=None).rolling(30).std())
+            inst_ret = inst_data["close"].pct_change(fill_method=None)
+
+            inst_data["ret"] = inst_ret
+            inst_data["vol"] = inst_vol.fillna(0).clip(lower=0.0005)
+            inst_data["trading_days"] = self.trading_day_ser.copy()
+            
+            sampled = inst_data["close"] != inst_data["close"].shift(1).bfill() \
+                .infer_objects(copy=False)
+            eligible = sampled.rolling(5).apply(is_any_one, raw=True).fillna(0).astype(int)
+
+            # Collect individual metrics for later DataFrame concatenation
+            eligibles.append(eligible & (inst_data["close"] > 0).astype(int))
+            vols.append(inst_data["vol"])
+            rets.append(inst_data["ret"])
+            closes.append(inst_data["close"])
+            trading_days.append(inst_data["trading_days"])
+            self.dfs[inst] = inst_data
+
+        # Compile per-instrument metrics into DataFrames
+        self.eligiblesdf = pd.concat(eligibles, axis=1, keys=self.insts)
+        self.closedf = pd.concat(closes, axis=1, keys=self.insts)
+        self.voldf = pd.concat(vols, axis=1, keys=self.insts)
+        self.retdf = pd.concat(rets, axis=1, keys=self.insts)
+        self.trading_days = pd.concat(trading_days, axis=1, keys=self.insts)
+        self.stddevs = self.voldf.mean().values
+
+        print("Computing strategy...")
+        self.calculate_alpha()
+        self.set_eligibility()
+        self.calculate_forecast()
+        self.post_compute()
+
+        intraday, times_steps = check_intraday_data(indx=self.date_range)
+        self.annual_const = times_steps * 253 if intraday else 253
+
+        # Update forecast data based on trading day mask
+        assert self.forecast_df is not None, "Forecast data must be initialized before computing meta info."
+        self.forecast_df = pd.DataFrame(
+            np.where(self.trading_days, self.forecast_df, np.nan),
+            index=self.forecast_df.index,
+            columns=self.forecast_df.columns
+        )
+        return
+
+    def get_pnl_stats(
+        self, 
+        last_weights: np.ndarray, 
+        last_units: np.ndarray, 
+        prev_close: np.ndarray, 
+        ret_row: np.ndarray, 
+        leverages: list, 
+        trading_day: bool,
+        slippage: float
+    ) -> Tuple[float, float, float]:
+        """
+        Calculate daily PnL statistics.
+
+        Parameters
+        ----------
+        last_weights : np.ndarray
+            Portfolio weights from the previous period.
+        last_units : np.ndarray
+            Units held from the previous period.
+        prev_close : np.ndarray
+            Previous closing prices.
+        ret_row : np.ndarray
+            Returns for the current period.
+        leverages : list
+            List of leverage values.
+        trading_day : bool
+            Whether the current day is a trading day, by default False.
+        slippage : float
+            % Slippage scaled on the return rows if day is trading day.
+        Returns
+        -------
+        Tuple[float, float, float]
+            Day PnL, nominal return, and capital return.
+        """
+        ret_row = np.nan_to_num(ret_row, nan=0, posinf=0, neginf=0)
+        day_pnl = np.sum(last_units * prev_close * ret_row)
+        if trading_day: day_pnl *= (1-slippage)
+        nominal_ret = np.dot(last_weights, ret_row)
+        capital_ret = nominal_ret * leverages[-1]
+        return day_pnl, nominal_ret, capital_ret
+
+    def get_strat_scaler(
+        self, 
+        target_vol: float, 
+        ewmas: list[float], 
+        ewstrats: list[float]
+    ) -> float:
+        """
+        Calculate the strategy scaler based on target volatility.
+
+        Parameters
+        ----------
+        target_vol : float
+            Target annualized volatility.
+        ewmas : list[float]
+            Exponentially weighted moving average of variances.
+        ewstrats : list[float]
+            Exponentially weighted moving average of strategy scalers.
+
+        Returns
+        -------
+        float
+            Strategy scaler.
+        """
+        ann_realized_vol = np.sqrt(ewmas[-1] * self.annual_const)
+        strat_scaler = target_vol / ann_realized_vol * ewstrats[-1]
+        return strat_scaler
+    
+    
+    def get_strat_positions(
+        self,
+        forecasts: np.ndarray,
+        capitals: float,
+        strat_scalar: float,
+        vol_row: np.ndarray,
+        close_row: np.ndarray,
+        vol_target: float,
+        idx: int,
+        **kwargs
+    ) -> np.ndarray:
+        """
+        Delegate to the strategy's `get_strat_positions` method.
+
+        Parameters
+        ----------
+        forecasts : np.ndarray
+            Forecasts for the portfolio.
+        capitals : float
+            Current capital level.
+        strat_scalar : float
+            Strategy scalar for position sizing.
+        vol_row : np.ndarray
+            Current volatility row.
+        close_row : np.ndarray
+            Current closing prices.
+        vol_target : float
+            Target volatility for the portfolio.
+        idx : int
+            Current index in the simulation.
+        kwargs : dict
+            Additional arguments for the strategy.
+
+        Returns
+        -------
+        np.ndarray
+            Array of calculated positions.
+        """
+        return self.portf_optimization.get_strat_positions(
+            forecasts, capitals, strat_scalar, vol_row, close_row, vol_target, idx, **kwargs
+        )
+
+    
+    def get_positions(
+        self,
+        forecasts: np.ndarray,
+        eligibles_row: np.ndarray,
+        capitals: float,
+        strat_scalar: float,
+        vol_row: np.ndarray,
+        close_row: np.ndarray,
+        units_held: Union[np.ndarray, None],
+        use_portfolio_opt: bool,
+        trading_day: bool,
+        idx: int,
+        **kwargs
+    ) -> Tuple[np.ndarray, np.ndarray, float]:
+        """
+        Calculate portfolio positions and weights.
+
+        Parameters
+        ----------
+        forecasts : np.ndarray
+            Strategy forecasts for the period
+        eligibles_row : np.ndarray
+            Eligible assets for the current period.
+        capitals : float
+            Current capital level.
+        strat_scalar : float
+            Strategy scalar for position sizing.
+        vol_row : np.ndarray
+            Current volatility row.
+        close_row : np.ndarray
+            Current closing prices.
+        units_held : np.ndarray or None
+            Units held from the previous period.
+        use_portfolio_opt : bool
+            Whether to enable portfolio optimization
+        trading_day : bool
+            Whether the current day is a trading day.
+        idx : int
+            Current index in the simulation.
+        kwargs : dict
+            Additional arguments for position calculation.
+
+        Returns
+        -------
+        Tuple[np.ndarray, np.ndarray, float]
+            Positions, weights, and nominal total value.
+        """
+        with np.errstate(invalid="ignore", divide="ignore"):
+            forecasts = np.nan_to_num(forecasts / eligibles_row, nan=0, posinf=0, neginf=0)
+            forecast_chips = np.sum(np.abs(forecasts))
+            vol_target = (self.portfolio_vol / np.sqrt(self.annual_const)) * capitals
+
+            if trading_day or idx == 0:
+                if use_portfolio_opt:
+                    positions = self.get_strat_positions(
+                        forecasts, capitals, strat_scalar, vol_row, close_row, vol_target, idx, **(kwargs or {})
+                    )
+                else:
+                    dollar_allocation = capitals / forecast_chips if forecast_chips != 0 else 0
+                    positions = forecasts * dollar_allocation / close_row
+            else:
+                positions = units_held
+
+            positions = np.nan_to_num(positions, nan=0, posinf=0, neginf=0) # np.floor
+            nominal_tot = np.linalg.norm(positions * close_row, ord=1)
+            weights = np.nan_to_num(positions * close_row / nominal_tot, nan=0, posinf=0, neginf=0)
+            return positions, weights, nominal_tot
+
+    def zip_data_generator(self) -> Generator[Dict[str, Union[int, np.ndarray]], None, None]:
+        """
+        Generate zipped data for simulation.
+
+        Yields
+        ------
+        Dict[str, Union[int, np.ndarray]]
+            Dictionary containing data for each simulation step.
+        """
+        for portfolio_i, (ret_i, ret_row), (close_i, close_row), \
+            (eligibles_i, eligibles_row), (trading_day_i, trading_day), \
+            (vol_i, vol_row) in zip(
+                range(len(self.retdf)),
+                self.retdf.iterrows(),
+                self.closedf.iterrows(),
+                self.eligiblesdf.iterrows(),
+                self.trading_day_ser.items(),
+                self.voldf.iterrows()
+        ):
+            yield {
+                "portfolio_i": portfolio_i,
+                "ret_i": ret_i,
+                "ret_row": ret_row.values,
+                "close_row": close_row.values,
+                "eligibles_row": eligibles_row.values,
+                "trading_day": trading_day,
+                "vol_row": vol_row.values,
+            }
+
+    @timeme
+    def run_simulation(
+            self,
+            start_cap: float = 100000.0
+        ) -> pd.DataFrame:
+        """
+        Run a portfolio simulation over the provided date range.
+
+        Parameters
+        ----------
+        start_cap : float, optional
+            Initial capital for the portfolio, by default 100000.0.
+        use_vol_target : bool, optional
+            Whether to use a volatility target for position sizing, by default True.
+
+        Returns
+        -------
+        pd.DataFrame
+            DataFrame containing portfolio metrics over time.
+        """
+        self.compute_meta_info()
+        print("Running simulation...")
+
+        # initialize tracking variables
+        use_portfolio_opt = self.use_portfolio_opt
+        slippage = self.costs["slippage"]
+
+        close_prev = None
+        units_held, weights_held, strat_scalars, nominals, leverages = [], [], [], [], []
+        capitals, nominal_rets, capital_rets, ewmas, ewstrats = [start_cap], [0.0], [0.0], [0.01], [1.0]
+
+        # iterate over the simulation data generator
+        for data in self.zip_data_generator():
+            portfolio_i = data["portfolio_i"]
+            ret_i = data["ret_i"]
+            ret_row = data["ret_row"]
+            close_row = np.nan_to_num(data["close_row"], nan=0, posinf=0, neginf=0)
+            eligibles_row = data["eligibles_row"]
+            trading_day = data["trading_day"]
+            vol_row = data["vol_row"]
+            strat_scalar = 1.
+
+            if portfolio_i != 0:
+                strat_scalar = 1. if (not use_portfolio_opt) or (self.max_leverage < 1.001) else self.get_strat_scaler(
+                    target_vol=self.portfolio_vol,
+                    ewmas=ewmas,
+                    ewstrats=ewstrats
+                )
+
+                day_pnl, nominal_ret, capital_ret = self.get_pnl_stats(
+                    last_weights=weights_held[-1],
+                    last_units=units_held[-1],
+                    prev_close=close_prev,
+                    ret_row=ret_row,
+                    leverages=leverages,
+                    trading_day=trading_day,
+                    slippage=slippage
+                )
+
+                capitals.append(capitals[-1] + day_pnl)
+                nominal_rets.append(nominal_ret)
+                capital_rets.append(capital_ret)
+                ewmas.append(0.06 * (capital_ret ** 2) + 0.94 * ewmas[-1] if capital_ret != 0 else ewmas[-1])
+                ewstrats.append(0.06 * strat_scalar + 0.94 * ewstrats[-1] if capital_ret != 0 else ewstrats[-1])
+
+            strat_scalars.append(strat_scalar)
+
+            # compute forecasts
+            forecasts = self.compute_signal_distribution(
+                eligibles_row,
+                ret_i
+            )
+            forecasts = forecasts.values if isinstance(forecasts, pd.Series) else forecasts
+
+            # portfolio optimization-specific arguments
+            kwargs = {}
+            if isinstance(self.portf_optimization, MixtureModelsMeanVariance):
+                kwargs = {
+                    "max_leverage": self.max_leverage,
+                    "min_leverage": self.min_leverage,
+                    "retdf": self.retdf,
+                    "trade_frequency": self.trade_frequency,
+                    "train_size": self.train_size
+                }
+            elif isinstance(self.portf_optimization, VanillaVolatilityTargeting):
+                kwargs = {
+                    "max_leverage": self.max_leverage,
+                    "min_leverage": self.min_leverage
+                }
+
+            # calc positions
+            positions, weights, nominal_tot = self.get_positions(
+                forecasts=forecasts,
+                eligibles_row=eligibles_row,
+                capitals=capitals[-1],
+                strat_scalar=strat_scalar,
+                vol_row=vol_row,
+                close_row=close_row,
+                units_held=units_held[-1] if units_held else None,
+                use_portfolio_opt=use_portfolio_opt,
+                trading_day=trading_day,
+                idx=portfolio_i,
+                **kwargs
+            )
+
+            # update tracking variables
+            units_held.append(positions)
+            weights_held.append(weights)
+            nominals.append(nominal_tot)
+            leverages.append(nominal_tot / capitals[-1])
+            close_prev = close_row
+
+        # prep result DataFrame
+        units_df = pd.DataFrame(data=units_held, index=self.date_range, columns=[f"{inst} units" for inst in self.insts])
+        weights_df = pd.DataFrame(data=weights_held, index=self.date_range, columns=[f"{inst} w" for inst in self.insts])
+        nom_ser = pd.Series(data=nominals, index=self.date_range, name="nominal_tot")
+        lev_ser = pd.Series(data=leverages, index=self.date_range, name="leverages")
+        cap_ser = pd.Series(data=capitals, index=self.date_range, name="capital")
+        nomret_ser = pd.Series(data=nominal_rets, index=self.date_range, name="nominal_ret")
+        capret_ser = pd.Series(data=capital_rets, index=self.date_range, name="capital_ret")
+        scaler_ser = pd.Series(data=strat_scalars, index=self.date_range, name="strat_scalar")
+
+        self.portfolio_df = pd.concat([
+            units_df,
+            weights_df,
+            lev_ser,
+            scaler_ser,
+            nom_ser,
+            nomret_ser,
+            capret_ser,
+            cap_ser
+        ], axis=1)
+
+        self.units_df = units_df
+        self.weights_df = weights_df
+        self.leverages = lev_ser
+        return self.portfolio_df
+
+    @timeme
+    def run_hypothesis_tests(
+            self,
+            num_decision_shuffles: int = 1000,
+            strat_name: Optional[str] = None
+        ) -> None:
+        """
+        Run hypothesis tests and plot results for the strategy.
+
+        Parameters
+        ----------
+        num_decision_shuffles : int, optional
+            Number of shuffles for hypothesis testing, by default 1000.
+        strat_name : str | None, optional
+            Name of the strategy, used for labeling in plots, by default None.
+
+        Returns
+        -------
+        None
+        """
+        assert self.portfolio_df is not None, "Portfolio data must be initialized before running hypothesis tests."
+        zfs = self.get_zero_filtered_stats()
+        rets = zfs["capital_ret"]
+
+        # Run hypothesis tests and retrieve test statistics
+        test_dict = quant_stats.hypothesis_tests(num_decision_shuffles=num_decision_shuffles, zfs=zfs)
+
+        # Plot hypothesis test results
+        plot_hypothesis(test_dict["timer"], test_dict["picker"], test_dict["trader"], rets, strat_name)
+        return
+    
     def get_zero_filtered_stats(self, test: bool | float = False) -> dict[str, Union[pd.Series, pd.DataFrame]]:
         """
         Filter and retrieve statistics for non-zero capital returns.
@@ -281,87 +825,49 @@ class BacktestEngine(TradingFrequencyCalculator):
         ]
         return pd.Series({stat: stats_dict[stat] for stat in stats})
 
-    def pre_compute(self,trade_range):
-        pass
+
+def bundle_strategies(
+        strats: Dict[str, BacktestEngine] | Dict[str, pd.DataFrame]
+    ) -> Tuple[List[str], Dict[str, pd.Series]]:
+    """
+    Bundles strategies into a dictionary of capital returns and extracts strategy names.
+
+    Parameters
+    ----------
+    strats : Dict[str, BacktestEngine]
+        A dictionary where the key is the strategy name, and the value is a `BacktestEngine` object.
+
+    Returns
+    -------
+    Tuple[List[str], Dict[str, pd.Series]]
+        A tuple containing:
+        - A list of strategy names.
+        - A dictionary where keys are strategy names and values are normalized capital returns.
+
+    Raises
+    ------
+    KeyError
+        If the portfolio DataFrame does not contain the "capital" column.
+    """
+    def strat_instance_helper(strat):
+        if isinstance(strat, BacktestEngine):
+            return strat.portfolio_df
+        if isinstance(strat, pd.DataFrame):
+            return strat
     
-    def post_compute(self,trade_range):
-        pass
+    try:
+        capital_rets = {
+            name: strat_instance_helper(strat)["capital"].rename("close") / 1000 
+            for name, strat in strats.items()
+        }
+        names = list(capital_rets.keys())
+        return names, capital_rets
+    except KeyError as e:
+        raise KeyError("One or more strategies are missing the 'capital' column in their portfolio DataFrame.") from e
 
-    def compute_signal_distribution(self, eligibles, date):
-        raise AbstractImplementationException("no concrete implementation for signal generation")
+"""
 
-    def compute_meta_info(self, trade_range: pd.DatetimeIndex) -> None:
-        """
-        Compute meta-information necessary for backtesting, including trading days, eligibility,
-        volatility, and returns for each instrument.
-
-        Parameters
-        ----------
-        trade_range : pd.DatetimeIndex
-            Range of dates over which the meta information will be calculated.
-
-        Returns
-        -------
-        None
-        """
-        print("Initializing trading frequency...")
-        self.compute_frequency(trade_range=trade_range)
-
-        print("Pre-computing...")
-        self.pre_compute(trade_range=trade_range)
-
-        def is_any_one(x: np.ndarray) -> int:
-            """Return 1 if any True element in the input array, otherwise return 0."""
-            return int(np.any(x))
-
-        print("Initializing meta info...")
-        closes, eligibles, vols, rets, trading_days = [], [], [], [], []
-
-        for inst in self.insts:
-            df = pd.DataFrame(index=trade_range)
-            inst_data = self.dfs[inst]
-            inst_data = df.join(inst_data).ffill().bfill()
-
-            # Calculate volatility and returns
-            inst_vol = (inst_data["close"].pct_change().rolling(30).std())
-            inst_ret = inst_data["close"].pct_change()
-
-            inst_data["ret"] = inst_ret
-            inst_data["vol"] = inst_vol.fillna(0).clip(lower=0.005)
-            inst_data["trading_days"] = self.trading_day_ser.copy()
-            
-            sampled = inst_data["close"] != inst_data["close"].shift(1).bfill()
-            eligible = sampled.rolling(5).apply(is_any_one, raw=True).fillna(0).astype(int)
-
-            # Collect individual metrics for later DataFrame concatenation
-            eligibles.append(eligible & (inst_data["close"] > 0).astype(int))
-            vols.append(inst_data["vol"])
-            rets.append(inst_data["ret"])
-            closes.append(inst_data["close"])
-            trading_days.append(inst_data["trading_days"])
-            self.dfs[inst] = inst_data
-
-        # Compile per-instrument metrics into DataFrames
-        self.eligiblesdf = pd.concat(eligibles, axis=1, keys=self.insts)
-        self.closedf = pd.concat(closes, axis=1, keys=self.insts)
-        self.voldf = pd.concat(vols, axis=1, keys=self.insts)
-        self.retdf = pd.concat(rets, axis=1, keys=self.insts)
-        self.trading_days = pd.concat(trading_days, axis=1, keys=self.insts)
-        self.stddevs = self.voldf.mean().values
-
-        print("Post-computing...")
-        self.post_compute(trade_range=trade_range)
-
-        # Update forecast data based on trading day mask
-        assert self.forecast_df is not None, "Forecast data must be initialized before computing meta info."
-        self.forecast_df = pd.DataFrame(
-            np.where(self.trading_days, self.forecast_df, np.nan),
-            index=self.forecast_df.index,
-            columns=self.forecast_df.columns
-        )
-        return
-
-    def get_pnl_stats(
+def get_pnl_stats(
         self, 
         last_weights: np.ndarray, 
         last_units: np.ndarray, 
@@ -372,33 +878,6 @@ class BacktestEngine(TradingFrequencyCalculator):
         trading_day: bool = False, 
         rand_type: str = "gaussian"
     ) -> Tuple[float, float, float]:
-        """
-        Calculate daily PnL statistics.
-
-        Parameters
-        ----------
-        last_weights : np.ndarray
-            Portfolio weights from the previous period.
-        last_units : np.ndarray
-            Units held from the previous period.
-        prev_close : np.ndarray
-            Previous closing prices.
-        ret_row : np.ndarray
-            Returns for the current period.
-        leverages : list
-            List of leverage values.
-        randomize : bool, optional
-            Whether to randomize returns for simulation, by default False.
-        trading_day : bool, optional
-            Whether the current day is a trading day, by default False.
-        rand_type : str, optional
-            Type of randomization to apply ("gaussian" or "uniform"), by default "gaussian".
-
-        Returns
-        -------
-        Tuple[float, float, float]
-            Day PnL, nominal return, and capital return.
-        """
         if randomize and trading_day:
             d = len(ret_row)
             rand_val = (
@@ -414,318 +893,6 @@ class BacktestEngine(TradingFrequencyCalculator):
         capital_ret = nominal_ret * leverages[-1]
         return day_pnl, nominal_ret, capital_ret
 
-    def get_strat_scaler(
-        self, 
-        target_vol: float, 
-        ewmas: list[float], 
-        ewstrats: list[float]
-    ) -> float:
-        """
-        Calculate the strategy scaler based on target volatility.
-
-        Parameters
-        ----------
-        target_vol : float
-            Target annualized volatility.
-        ewmas : list[float]
-            Exponentially weighted moving average of variances.
-        ewstrats : list[float]
-            Exponentially weighted moving average of strategy scalers.
-
-        Returns
-        -------
-        float
-            Strategy scaler.
-        """
-        ann_realized_vol = np.sqrt(ewmas[-1] * 253)
-        strat_scaler = target_vol / ann_realized_vol * ewstrats[-1]
-        return strat_scaler
-    
-    
-    def get_strat_positions(
-        self,
-        forecasts: np.ndarray,
-        capitals: float,
-        strat_scalar: float,
-        vol_row: np.ndarray,
-        close_row: np.ndarray,
-        vol_target: float,
-        idx: int,
-        **kwargs
-    ) -> np.ndarray:
-        """
-        Delegate to the strategy's `get_strat_positions` method.
-
-        Parameters
-        ----------
-        forecasts : np.ndarray
-            Forecasts for the portfolio.
-        capitals : float
-            Current capital level.
-        strat_scalar : float
-            Strategy scalar for position sizing.
-        vol_row : np.ndarray
-            Current volatility row.
-        close_row : np.ndarray
-            Current closing prices.
-        vol_target : float
-            Target volatility for the portfolio.
-        idx : int
-            Current index in the simulation.
-        kwargs : dict
-            Additional arguments for the strategy.
-
-        Returns
-        -------
-        np.ndarray
-            Array of calculated positions.
-        """
-        return self.portf_optimization.get_strat_positions(
-            forecasts, capitals, strat_scalar, vol_row, close_row, vol_target, idx, **kwargs
-        )
-
-    
-    def get_positions(
-        self,
-        forecasts: np.ndarray,
-        eligibles_row: np.ndarray,
-        capitals: float,
-        strat_scalar: float,
-        vol_row: np.ndarray,
-        close_row: np.ndarray,
-        units_held: Union[np.ndarray, None],
-        use_vol_target: bool,
-        trading_day: bool,
-        idx: int,
-        **kwargs
-    ) -> Tuple[np.ndarray, np.ndarray, float]:
-        """
-        Calculate portfolio positions and weights.
-
-        Parameters
-        ----------
-        forecasts : np.ndarray
-            Strategy forecasts for the period
-        eligibles_row : np.ndarray
-            Eligible assets for the current period.
-        capitals : float
-            Current capital level.
-        strat_scalar : float
-            Strategy scalar for position sizing.
-        vol_row : np.ndarray
-            Current volatility row.
-        close_row : np.ndarray
-            Current closing prices.
-        units_held : np.ndarray or None
-            Units held from the previous period.
-        use_vol_target : bool
-            Whether to use volatility targeting.
-        trading_day : bool
-            Whether the current day is a trading day.
-        idx : int
-            Current index in the simulation.
-        kwargs : dict
-            Additional arguments for position calculation.
-
-        Returns
-        -------
-        Tuple[np.ndarray, np.ndarray, float]
-            Positions, weights, and nominal total value.
-        """
-        with np.errstate(invalid="ignore", divide="ignore"):
-            forecasts = np.nan_to_num(forecasts / eligibles_row, nan=0, posinf=0, neginf=0)
-            forecast_chips = np.sum(np.abs(forecasts))
-            vol_target = (self.portfolio_vol / np.sqrt(253)) * capitals
-
-            if trading_day or idx == 0:
-                if use_vol_target:
-                    positions = self.get_strat_positions(
-                        forecasts, capitals, strat_scalar, vol_row, close_row, vol_target, idx, **(kwargs or {})
-                    )
-                else:
-                    dollar_allocation = capitals / forecast_chips if forecast_chips != 0 else 0
-                    positions = forecasts * dollar_allocation / close_row
-                    positions = np.floor(np.nan_to_num(positions, nan=0, posinf=0, neginf=0))
-            else:
-                positions = units_held
-
-            nominal_tot = np.linalg.norm(positions * close_row, ord=1)
-            weights = np.nan_to_num(positions * close_row / nominal_tot, nan=0, posinf=0, neginf=0)
-            return positions, weights, nominal_tot
-
-    def zip_data_generator(self) -> Generator[Dict[str, Union[int, np.ndarray]], None, None]:
-        """
-        Generate zipped data for simulation.
-
-        Yields
-        ------
-        Dict[str, Union[int, np.ndarray]]
-            Dictionary containing data for each simulation step.
-        """
-        for portfolio_i, (ret_i, ret_row), (close_i, close_row), \
-            (eligibles_i, eligibles_row), (trading_day_i, trading_day), \
-            (vol_i, vol_row) in zip(
-                range(len(self.retdf)),
-                self.retdf.iterrows(),
-                self.closedf.iterrows(),
-                self.eligiblesdf.iterrows(),
-                self.trading_day_ser.items(),
-                self.voldf.iterrows()
-        ):
-            yield {
-                "portfolio_i": portfolio_i,
-                "ret_i": ret_i,
-                "ret_row": ret_row.values,
-                "close_row": close_row.values,
-                "eligibles_row": eligibles_row.values,
-                "trading_day": trading_day,
-                "vol_row": vol_row.values,
-            }
-
-    @timeme
-    def run_simulation(
-            self,
-            start_cap: float = 100000.0,
-            use_vol_target: bool = True,
-            randomize_entry: bool = False,
-            rand_type: str = "gaussian"
-        ) -> pd.DataFrame:
-        """
-        Run a portfolio simulation over the provided date range.
-
-        Parameters
-        ----------
-        start_cap : float, optional
-            Initial capital for the portfolio, by default 100000.0.
-        use_vol_target : bool, optional
-            Whether to use a volatility target for position sizing, by default True.
-        randomize_entry : bool, optional
-            Whether to randomize returns for entry timing, by default False.
-        rand_type : str, optional
-            Type of randomization ("gaussian" or "uniform"), by default "gaussian".
-
-        Returns
-        -------
-        pd.DataFrame
-            DataFrame containing portfolio metrics over time.
-        """
-        self.compute_meta_info(trade_range=self.date_range)
-        print("Running simulation...")
-
-        # Initialize tracking variables
-        units_held, weights_held = [], []
-        close_prev = None
-        ewmas, ewstrats = [0.01], [1.0]
-        strat_scalars = []
-        capitals, nominal_rets, capital_rets = [start_cap], [0.0], [0.0]
-        nominals, leverages = [], []
-
-        # Iterate over the simulation data generator
-        for data in self.zip_data_generator():
-            portfolio_i = data["portfolio_i"]
-            ret_i = data["ret_i"]
-            ret_row = data["ret_row"]
-            close_row = np.nan_to_num(data["close_row"], nan=0, posinf=0, neginf=0)
-            eligibles_row = data["eligibles_row"]
-            trading_day = data["trading_day"]
-            vol_row = data["vol_row"]
-            strat_scalar = 1.0
-
-            if portfolio_i != 0:
-                strat_scalar = self.get_strat_scaler(
-                    target_vol=self.portfolio_vol,
-                    ewmas=ewmas,
-                    ewstrats=ewstrats
-                )
-
-                day_pnl, nominal_ret, capital_ret = self.get_pnl_stats(
-                    last_weights=weights_held[-1],
-                    last_units=units_held[-1],
-                    prev_close=close_prev,
-                    ret_row=ret_row,
-                    leverages=leverages,
-                    randomize=randomize_entry,
-                    trading_day=trading_day,
-                    rand_type=rand_type
-                )
-
-                capitals.append(capitals[-1] + day_pnl)
-                nominal_rets.append(nominal_ret)
-                capital_rets.append(capital_ret)
-                ewmas.append(0.06 * (capital_ret ** 2) + 0.94 * ewmas[-1] if capital_ret != 0 else ewmas[-1])
-                ewstrats.append(0.06 * strat_scalar + 0.94 * ewstrats[-1] if capital_ret != 0 else ewstrats[-1])
-
-            strat_scalars.append(strat_scalar)
-
-            # Compute forecasts
-            forecasts = self.compute_signal_distribution(
-                eligibles_row,
-                ret_i
-            )
-            forecasts = forecasts.values if isinstance(forecasts, pd.Series) else forecasts
-
-            # Strategy-specific arguments
-            kwargs = {}
-            if isinstance(self.portf_optimization, MixtureModelsMeanVariance):
-                kwargs = {
-                    "max_leverage": self.max_leverage,
-                    "retdf": self.retdf,
-                    "trade_frequency": self.trade_frequency
-                }
-            elif isinstance(self.portf_optimization, VanillaVolatilityTargeting):
-                kwargs = {
-                    "max_leverage": self.max_leverage,
-                    "min_leverage": self.min_leverage
-                }
-
-            # Calculate positions
-            positions, weights, nominal_tot = self.get_positions(
-                forecasts=forecasts,
-                eligibles_row=eligibles_row,
-                capitals=capitals[-1],
-                strat_scalar=strat_scalar,
-                vol_row=vol_row,
-                close_row=close_row,
-                units_held=units_held[-1] if units_held else None,
-                use_vol_target=use_vol_target,
-                trading_day=trading_day,
-                idx=portfolio_i,
-                **kwargs
-            )
-
-            # Update tracking variables
-            units_held.append(positions)
-            weights_held.append(weights)
-            nominals.append(nominal_tot)
-            leverages.append(nominal_tot / capitals[-1])
-            close_prev = close_row
-
-        # Prepare result DataFrame
-        units_df = pd.DataFrame(data=units_held, index=self.date_range, columns=[f"{inst} units" for inst in self.insts])
-        weights_df = pd.DataFrame(data=weights_held, index=self.date_range, columns=[f"{inst} w" for inst in self.insts])
-        nom_ser = pd.Series(data=nominals, index=self.date_range, name="nominal_tot")
-        lev_ser = pd.Series(data=leverages, index=self.date_range, name="leverages")
-        cap_ser = pd.Series(data=capitals, index=self.date_range, name="capital")
-        nomret_ser = pd.Series(data=nominal_rets, index=self.date_range, name="nominal_ret")
-        capret_ser = pd.Series(data=capital_rets, index=self.date_range, name="capital_ret")
-        scaler_ser = pd.Series(data=strat_scalars, index=self.date_range, name="strat_scalar")
-
-        self.portfolio_df = pd.concat([
-            units_df,
-            weights_df,
-            lev_ser,
-            scaler_ser,
-            nom_ser,
-            nomret_ser,
-            capret_ser,
-            cap_ser
-        ], axis=1)
-
-        self.units_df = units_df
-        self.weights_df = weights_df
-        self.leverages = lev_ser
-        return self.portfolio_df
-    
     def run_randomized_entry_simulation(
         self, 
         N: int = 50, 
@@ -733,26 +900,6 @@ class BacktestEngine(TradingFrequencyCalculator):
         market: bool = False, 
         rand_type: str = "gaussian"
     ) -> None:
-        """
-        Runs a simulation with randomized entry conditions multiple times 
-        to assess portfolio performance variability.
-
-        Parameters
-        ----------
-        N : int, optional
-            Number of randomized simulations to run, by default 50.
-        use_vol_target : bool, optional
-            Whether to use volatility targeting in the simulations, by default True.
-        market : bool, optional
-            Whether to include market benchmark comparison, by default False.
-        rand_type : str, optional
-            Type of randomization ("gaussian" or "uniform"), by default "gaussian".
-
-        Returns
-        -------
-        None
-            Generates plots and displays Sharpe ratios for randomized entry simulations.
-        """
         # Run base simulation without randomization
         portfolio_df = self.run_simulation(
             use_vol_target=use_vol_target, 
@@ -795,35 +942,4 @@ class BacktestEngine(TradingFrequencyCalculator):
             sharpes, 
             market_data
         )
-
-
-    @timeme
-    def run_hypothesis_tests(
-            self,
-            num_decision_shuffles: int = 1000,
-            strat_name: Optional[str] = None
-        ) -> None:
-        """
-        Run hypothesis tests and plot results for the strategy.
-
-        Parameters
-        ----------
-        num_decision_shuffles : int, optional
-            Number of shuffles for hypothesis testing, by default 1000.
-        strat_name : str | None, optional
-            Name of the strategy, used for labeling in plots, by default None.
-
-        Returns
-        -------
-        None
-        """
-        assert self.portfolio_df is not None, "Portfolio data must be initialized before running hypothesis tests."
-        zfs = self.get_zero_filtered_stats()
-        rets = zfs["capital_ret"]
-
-        # Run hypothesis tests and retrieve test statistics
-        test_dict = quant_stats.hypothesis_tests(num_decision_shuffles=num_decision_shuffles, zfs=zfs)
-
-        # Plot hypothesis test results
-        plot_hypothesis(test_dict["timer"], test_dict["picker"], test_dict["trader"], rets, strat_name)
-        return
+"""
