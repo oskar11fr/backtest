@@ -45,12 +45,12 @@ class Strategy(BacktestEngine):
     @alpha_calculator
     def alpha_func(self, df: DataFrame) -> pd.Series:
         # Implement your alpha calculation here.
-        return pd.Series()
+        return pd.Series(True,index=df.index)
 
     @eligibility_calculator
     def eligibility_func(self, df: DataFrame) -> pd.Series:
         # Implement your eligibility calculation here.
-        return pd.Series()
+        return pd.Series(True,index=df.index)
     
     @forecast_calculator
     def forecast_func(self, df: DataFrame) -> DataFrame:

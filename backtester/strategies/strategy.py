@@ -1,10 +1,13 @@
 from backtester import BacktestEngine, property_initializer, alpha_calculator, eligibility_calculator, forecast_calculator
-import pandas as pd
-from pandas import DataFrame, DatetimeIndex
-from datetime import datetime
-from typing import Optional, Union
-import numpy as np
 from backtester.engine.functions.portfolio_optimization import PositioningMethod, VanillaVolatilityTargeting
+from backtester.engine.functions import quant_tools as qt
+from pandas import DataFrame, DatetimeIndex
+from typing import Optional, Union
+from datetime import datetime
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 class TestStrategy(BacktestEngine):
@@ -36,36 +39,45 @@ class TestStrategy(BacktestEngine):
     
     @property_initializer
     def property_func(self, df: DataFrame) -> pd.DataFrame:
-        df["ewm"] = df["close"].rolling(50).mean()
-        df["ewm_distance"] = df["close"] / df["ewm"] - 1
         return df
 
     @alpha_calculator
     def alpha_func(self, df: DataFrame) -> pd.Series:
-        return df["ewm_distance"]
+        df["momentum"] = qt.momentum_distance(ser=df["close"],ewm_val=0.5)
+        return df["momentum"]
 
     @eligibility_calculator
     def eligibility_func(self, df: DataFrame) -> pd.Series:
-        # Implement your eligibility calculation here.
-        return df["ewm_distance"] > 0
+        df["zscore_long"] = qt.zscore(
+            ser=df["ret"].rolling(150).mean(), 
+            wind=150, 
+            expected_value=df["indx_ret"].rolling(150).mean()
+        )
+        return df["market"].isin(["Large Cap", "Mid Cap", "Small Cap"]) & (df["zscore_long"] > 1.5) & (df["indx_mom"] > 0)
     
     @forecast_calculator
     def forecast_func(self, df: DataFrame) -> DataFrame:
-        # Implement your forecast calculation here.
-        print(df)
-        df = df.rank(axis=1,method="average",na_option="keep",ascending=True,pct=True)
-        input(df)
-        return (df > .95).astype(int)
+        rank_df = qt.x_rank(forecast_df=df,eligibles_df=self.eligibles_df,ascending=False,num_insts=20)
+        return rank_df
     
     def pre_compute(self):
-        # Implement your pre-compute steps here.
         pass 
     
     def post_compute(self):
-        # Implement your post-compute steps here.
-        pass 
+        _, group_indxs = qt.calculate_indxs(dfs=self.dfs, insts=self.insts, cat="branch")
+        for inst in self.insts:
+            inst_df = self.dfs[inst]
+            gr = inst_df["branch"].dropna().unique()
+            if len(gr) > 0:
+                gr = gr[0]
+                inst_df["indx_ret"] = group_indxs[gr]
+                inst_df["indx_mom"] = qt.momentum_distance((1 + group_indxs[gr]).cumprod(),wind_val=150)
+            else:
+                inst_df["indx_ret"] = 0
+                inst_df["indx_mom"] = 0
+            self.dfs[inst] = inst_df
+        return 
 
     def compute_signal_distribution(self, eligibles, date):
-        # Implement your signal distribution logic here.
         forecasts = self.forecast_df.loc[date].values
         return forecasts

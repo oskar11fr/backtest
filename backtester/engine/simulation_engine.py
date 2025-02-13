@@ -234,16 +234,16 @@ class BacktestEngine(TradingFrequencyCalculator):
                     conditions.append(attr(self.dfs[inst]))
                 conditions_df = pd.concat(conditions,axis=1)
                 conditions_df.columns = self.insts
-                self.eligiblesdf = self.eligiblesdf & (~pd.isna(self.alpha_df)) & conditions_df
+                self.eligibles_df = self.eligibles_df & (~pd.isna(self.alpha_df)) & conditions_df
         return
     
     def calculate_forecast(self):
         for attr_name in dir(self):
             attr = getattr(self, attr_name)
             if callable(attr) and getattr(attr, '_is_forecast_calculator', False):
-                forecast_df = attr(self.alpha_df)
-                forecast_df = forecast_df / self.eligiblesdf
-                forecast_df = forecast_df.replace([-np.inf, np.inf], np.nan)
+                alpha_df = self.alpha_df / self.eligibles_df
+                alpha_df = alpha_df.replace([-np.inf, np.inf], np.nan)
+                forecast_df = attr(alpha_df)
                 self.forecast_df = forecast_df
         return
                 
@@ -306,18 +306,18 @@ class BacktestEngine(TradingFrequencyCalculator):
             self.dfs[inst] = inst_data
 
         # Compile per-instrument metrics into DataFrames
-        self.eligiblesdf = pd.concat(eligibles, axis=1, keys=self.insts)
-        self.closedf = pd.concat(closes, axis=1, keys=self.insts)
-        self.voldf = pd.concat(vols, axis=1, keys=self.insts)
-        self.retdf = pd.concat(rets, axis=1, keys=self.insts)
+        self.eligibles_df = pd.concat(eligibles, axis=1, keys=self.insts)
+        self.close_df = pd.concat(closes, axis=1, keys=self.insts)
+        self.vol_df = pd.concat(vols, axis=1, keys=self.insts)
+        self.ret_df = pd.concat(rets, axis=1, keys=self.insts)
         self.trading_days = pd.concat(trading_days, axis=1, keys=self.insts)
-        self.stddevs = self.voldf.mean().values
+        self.stddevs = self.vol_df.mean().values
 
         print("Computing strategy...")
+        self.post_compute()
         self.calculate_alpha()
         self.set_eligibility()
         self.calculate_forecast()
-        self.post_compute()
 
         intraday, times_steps = check_intraday_data(indx=self.date_range)
         self.annual_const = times_steps * 253 if intraday else 253
@@ -523,12 +523,12 @@ class BacktestEngine(TradingFrequencyCalculator):
         for portfolio_i, (ret_i, ret_row), (close_i, close_row), \
             (eligibles_i, eligibles_row), (trading_day_i, trading_day), \
             (vol_i, vol_row) in zip(
-                range(len(self.retdf)),
-                self.retdf.iterrows(),
-                self.closedf.iterrows(),
-                self.eligiblesdf.iterrows(),
+                range(len(self.ret_df)),
+                self.ret_df.iterrows(),
+                self.close_df.iterrows(),
+                self.eligibles_df.iterrows(),
                 self.trading_day_ser.items(),
-                self.voldf.iterrows()
+                self.vol_df.iterrows()
         ):
             yield {
                 "portfolio_i": portfolio_i,
@@ -620,7 +620,7 @@ class BacktestEngine(TradingFrequencyCalculator):
                 kwargs = {
                     "max_leverage": self.max_leverage,
                     "min_leverage": self.min_leverage,
-                    "retdf": self.retdf,
+                    "retdf": self.ret_df,
                     "trade_frequency": self.trade_frequency,
                     "train_size": self.train_size
                 }
@@ -746,9 +746,9 @@ class BacktestEngine(TradingFrequencyCalculator):
 
         # Filter for non-zero capital returns
         non_zero_idx = capital_ret.loc[capital_ret != 0].index if not is_intraday else capital_ret.index
-        retdf = self.retdf.loc[non_zero_idx]
+        retdf = self.ret_df.loc[non_zero_idx]
         weights = self.weights_df.shift(1).fillna(0).loc[non_zero_idx]
-        eligs = self.eligiblesdf.shift(1).fillna(0).loc[non_zero_idx]
+        eligs = self.eligibles_df.shift(1).fillna(0).loc[non_zero_idx]
         leverages = self.leverages.shift(1).fillna(0).loc[non_zero_idx]
 
         return {

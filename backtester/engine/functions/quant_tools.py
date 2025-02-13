@@ -1,9 +1,53 @@
+from datetime import datetime
+from pandas import DataFrame
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from datetime import datetime
 
 
+
+def calculate_indxs(dfs: dict[str, DataFrame], insts: list[str], cat: str = "sector") -> tuple[list[str], dict[str, pd.Series]]:
+    n_calc = {}
+    group_indxs = {}
+    for inst in insts:
+        inst_df = dfs[inst]
+        size = inst_df.shape[0]
+        group = inst_df[cat].dropna().unique()
+        if len(group) > 0:
+            group = group[0]
+            if group not in group_indxs.keys():
+                n_calc[group] = 0
+                group_indxs[group] = pd.Series(np.zeros(size), index=inst_df.index)
+            n_calc[group] += 1
+            group_indxs[group] += inst_df["ret"].fillna(0)
+    groups = list(group_indxs.keys())
+    for group in groups:
+        ser, n = group_indxs[group], n_calc[group]
+        group_indxs[group] = ser * 1 / n
+    return groups, group_indxs
+
+def x_rank(forecast_df: DataFrame, eligibles_df: DataFrame, num_insts: int = 10, ascending: bool = True) -> DataFrame:
+    num_eligibles = eligibles_df.sum(axis=1)
+    rankdf = forecast_df.rank(axis=1,na_option="keep",ascending=ascending)
+    numb = num_eligibles - num_insts
+    longdf = rankdf.apply(lambda col: col > numb, axis=0, raw=True)
+    forecast_df = longdf.astype(np.int32)
+    return forecast_df
+
+def zscore(ser: pd.Series, wind: int = 50, expected_value: pd.Series | None = None) -> pd.Series:
+    frame_cleaner = lambda ser: np.nan_to_num(ser, nan=0, posinf=0, neginf=0)
+    if expected_value is None:
+        expected_value = ser.rolling(wind).mean()
+    zscore = ((ser - expected_value) / ser.rolling(wind).std()).apply(frame_cleaner)
+    return zscore
+
+def momentum_distance(ser: pd.Series, ewm_val: None | float = .5, wind_val: None | int = None) -> pd.Series:
+    if ewm_val is not None: return ser / ser.ewm(ewm_val).mean() - 1
+    if wind_val is not None: return ser / ser.rolling(window=wind_val).mean() - 1
+
+
+"""
 def calc_rets_df(insts: list[str], dfs: dict[str, pd.DataFrame] ) -> pd.DataFrame:
     frame_cleaner = lambda ser: np.nan_to_num(ser, nan=0, neginf=0, posinf=0)
     lags = 1
@@ -50,10 +94,7 @@ def _assign_intraday_timestamps(timestamp: datetime) -> float:
     minutes_since_open = (timestamp - trading_start).seconds // 60
     return minutes_since_open / minutes
 
-def _zscore_scaler(ser: pd.Series, wind: int = 50) -> pd.Series:
-    frame_cleaner = lambda ser: np.nan_to_num(ser, nan=0, posinf=0, neginf=0)
-    zscore = ((ser - ser.rolling(wind).mean()) / ser.rolling(wind).std()).apply(frame_cleaner)
-    return zscore
+
 
 def _create_target(inst_df: pd.DataFrame, train_n: int) -> pd.Series:
     df = inst_df.copy()
@@ -106,7 +147,7 @@ def _buy_sell_volume_balance(inst_df: pd.DataFrame) -> pd.Series:
 
 
 
-"""
+
 
 def calc_weight(rets_df: pd.DataFrame, tau: float = .9) -> np.ndarray:
     T, N = rets_df.shape
