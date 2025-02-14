@@ -220,9 +220,7 @@ class BacktestEngine(TradingFrequencyCalculator):
                 alphas = []
                 for inst in self.insts:
                     alphas.append(attr(self.dfs[inst]))
-                alpha_df = pd.concat(alphas,axis=1)
-                alpha_df.columns = self.insts
-                self.alpha_df = alpha_df
+                self.alpha_df = pd.concat(alphas,axis=1,keys=self.insts)
         return
     
     def set_eligibility(self):
@@ -232,8 +230,7 @@ class BacktestEngine(TradingFrequencyCalculator):
                 conditions = []
                 for inst in self.insts:
                     conditions.append(attr(self.dfs[inst]))
-                conditions_df = pd.concat(conditions,axis=1)
-                conditions_df.columns = self.insts
+                conditions_df = pd.concat(conditions,axis=1,keys=self.insts)
                 self.eligibles_df = self.eligibles_df & (~pd.isna(self.alpha_df)) & conditions_df
         return
     

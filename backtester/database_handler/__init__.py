@@ -1,2 +1,2 @@
 from .yf_db_handler import finance_database
-from .borsdata_db_handler import borsdata_database
+from .borsdata_db_handler import borsdata_database, price_earnings_joiner

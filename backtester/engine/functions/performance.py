@@ -34,7 +34,7 @@ def performance_measures(
     path: str = "./images",
     market: Optional[Dict[str, pd.Series]] = None,
     show: bool = False,
-    strat_name: str = ""
+    strat_name: str = "Strategy"
 ) -> Dict[str, Union[float, np.ndarray, pd.Series]]:
     """
     Computes performance measures for a given return series, with optional plotting.

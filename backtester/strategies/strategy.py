@@ -39,6 +39,7 @@ class TestStrategy(BacktestEngine):
     
     @property_initializer
     def property_func(self, df: DataFrame) -> pd.DataFrame:
+        df["market_cap"] = df["numberOfShares"] * df["close"]
         return df
 
     @alpha_calculator
@@ -53,7 +54,14 @@ class TestStrategy(BacktestEngine):
             wind=150, 
             expected_value=df["indx_ret"].rolling(150).mean()
         )
-        return df["market"].isin(["Large Cap", "Mid Cap", "Small Cap"]) & (df["zscore_long"] > 1.5) & (df["indx_mom"] > 0)
+        return (
+            #df["market"].isin(["Large Cap", "Mid Cap", "Small Cap"]) &
+            (df["market_cap"] > 1000) &
+            (df["zscore_long"] > 1.5) & 
+            (df["earningsPerShare"] > 0) & 
+            (df["earningsPerShare_rel_ch"] > 0) &
+            (df["indx_mom"] > 0) 
+        )
     
     @forecast_calculator
     def forecast_func(self, df: DataFrame) -> DataFrame:
